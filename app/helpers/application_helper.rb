@@ -4,7 +4,11 @@ module ApplicationHelper
   def set_active_if path
     'active' if current_page? path
   end
+  def should_show_shown_archived_idea? idea, vote
+    return false if idea.archived_on == vote.iteration+1
+    true
 
+  end
   #full user name or name exclude some fields (see source)
   def user_name(user, options = nil)
     if user != nil

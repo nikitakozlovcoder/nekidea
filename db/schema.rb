@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_085308) do
+ActiveRecord::Schema.define(version: 2160_05_11_164737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(version: 2021_05_05_085308) do
     t.integer "user_id"
     t.string "title"
     t.text "body"
-    t.integer "created_on"
     t.integer "archived_on"
     t.integer "instance_id"
     t.integer "idea_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "iteration_created"
   end
 
   create_table "ideas_downusers", id: false, force: :cascade do |t|

@@ -30,6 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ru:
+  errors:
+    format: "%{message}"
   incorrect_credentials: "Не удалось выполнить вход: проверьте корректнось введенных данных"
   hello: "Привет мир"
   date:
@@ -37,6 +39,10 @@ ru:
   activerecord:
     errors:
       models:
+        vote:
+          attributes:
+            title:
+              taken: 'Голосование с таким заголовком уже существует'
         duty:
           attributes:
             name:

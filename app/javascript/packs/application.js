@@ -10,6 +10,7 @@ require("channels")
 import '../vendor/jquery.nice-select.min.js'
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+
 import 'owl.carousel';
 
 import '../styles/application.scss'
@@ -22,18 +23,13 @@ document.addEventListener("turbolinks:load", function() {
 
     
     router.callAlways ((entry) => {
-    	let owl_dots;
+       let owl_dots;
        console.log(owl_dots = document.querySelectorAll('.owl-dots'));
        for(let i = 0; i < owl_dots.length; i++)
        {
            owl_dots[i].style.display = 'none';
        }
-
-        //alert('hi!');
-        $(document).ready(function() {
-            $('select').niceSelect();
-        });
-
+        $('select').niceSelect();
         require('general/carousel.js').start();
         require('general/textarea_scroll.js').start();
     })
@@ -42,8 +38,6 @@ document.addEventListener("turbolinks:load", function() {
     router.callWhen((entry)=>{
 
        require('pages/home.js').start();
-       //Log js-file object
-       console.log(require('pages/home.js'));
     }, "home/index",  "home/about")
 
     router.callWhen((entry)=>{

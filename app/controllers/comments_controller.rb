@@ -19,7 +19,27 @@ class CommentsController < ApplicationController
 
   end
 
-  def delete
+  def destroy
+    @comment = Comment.find(params[:id])
+    status = :forbidden
+
+    unless @comment.can_be_deleted? current_user
+      head status and return
+    end
+
+
+    if @comment.destroy
+      status = :ok
+    else
+      status = :internal_server_error
+    end
+
+    respond_to do |format|
+        format.json { head status  }
+        format.html{ redirect_to controller: 'ideas', action: 'show', id: @comment.idea.id}
+    end
+
+
   end
 
   private

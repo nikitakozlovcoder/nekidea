@@ -9,7 +9,11 @@ class Idea < ApplicationRecord
   enum idea_status: [ :active, :archived, :accepted ]
   has_many :comments, dependent: :destroy
 
-
+  def archivate
+    self.idea_status='archived'
+    self.archived_on=self.vote.iteration
+    self.save
+  end
   def rating
     upvotes.distinct.count - downvotes.distinct.count
   end

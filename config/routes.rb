@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   resources :ideas
   #comments section
   post 'ideas/:idea_id/comments/', to: 'comments#create', as: 'idea_comments'
+  delete 'comments/:id', to: 'comments#destroy', as: 'comment'
+
   #put 'ideas/:idea_id/comments/:comment_id', to: 'comments#edit', as: 'idea_comment'
 
 
