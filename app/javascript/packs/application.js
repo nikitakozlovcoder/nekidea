@@ -14,7 +14,7 @@ let router = new Router();
 
 document.addEventListener("turbolinks:load", function() {
    
-   router.callWhen(()=>{
+   router.callWhen((entry)=>{
        require('pages/home.js').start();
        console.log(require('pages/home.js'));
     }, "home/index",  "home/about")

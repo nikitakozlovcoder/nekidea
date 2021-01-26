@@ -5,7 +5,7 @@ export class Router {
         entrys.forEach(element => {
             if(currentEntry == element)
             {
-                it();
+                it(currentEntry);
             }
                 
         });
