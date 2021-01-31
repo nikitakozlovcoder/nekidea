@@ -2,18 +2,19 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-
+import 'bootstrap'
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import '../styles/application.scss'
+
 import {Router} from "../general/router.js"
 
 let router = new Router();
 
-document.addEventListener("turbolinks:load", function() {
-   
+document.addEventListener("turbolinks:load", function() {    
    router.callWhen((entry)=>{
        require('pages/home.js').start();
        console.log(require('pages/home.js'));
