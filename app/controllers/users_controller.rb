@@ -27,4 +27,17 @@ class UsersController < ApplicationController
         cookies.signed["user"] = nil
         redirect_to controller: 'home', action: 'index'
    end
+  def generate
+    if params["type"] == "single"
+    elsif params["type"] == "csv"
+      require 'csv'
+      CSV.foreach(params["file"], headers: true) do |row|
+        user = User.new(mail: row["mail"], password: row["password"], birth_date: row["birth_date"],
+                        is_admin: row["is_admin"], rating: row["rating"], name: row["name"], surname: row["surname"],
+                        patronymic: row["patronymic"]).save
+        pp row
+        pp user
+      end
+    end
+  end
 end
