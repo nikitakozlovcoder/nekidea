@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post 'login', to: 'users#login_post'
   get 'logout', to: 'users#logout'
   get 'idea', to: 'idea#idea'
+  get 'photos', to: 'photos#view'
 end
