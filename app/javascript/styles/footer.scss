@@ -96,6 +96,10 @@
 }
 
 @media screen and (max-width: 430px) {
+    .footer-left-block {
+        display: flex;
+        justify-content: center;
+    }
     .footer-logo {
         width: 80%;
     }

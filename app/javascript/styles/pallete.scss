@@ -6,9 +6,11 @@
     font-weight: 1000;
 }
 
-$primary: #0077FF;
+$primary: #7F5CE2;
 $dark: #000;
 
+
+//Input
 form.nice {
     display: flex;
     flex-direction: column;
@@ -56,13 +58,13 @@ form.nice {
             font-size: 16px;
             font-weight: 400;
             background: rgba($dark,.02);
-            box-shadow: inset 0 -1px 0 rgba($dark,.3);
+            box-shadow: inset 0 -2px 0 rgba($dark,.3);
             color: $dark;
             transition: all .15s ease;
 
             &:hover {
                 background: rgba($dark,.04);
-                box-shadow: inset 0 -1px 0 rgba($dark,.5);  
+                box-shadow: inset 0 -2px 0 rgba($dark,.5);  
             }
 
             &:not(:placeholder-shown) + .label {
@@ -70,12 +72,19 @@ form.nice {
                 transform: translate3d(0,-12px,0) scale(.75);
             }
 
+            &:not(:placeholder-shown) {
+                box-shadow: inset 0 -2px 0 $color-accent;
+                + .label {
+                    color: $color-accent;
+                }
+            }
+
             &:focus {
                 background: rgba($dark,.05);
                 outline: none;
-                box-shadow: inset 0 -2px 0 $primary;
+                box-shadow: inset 0 -2px 0 $color-accent;
                 + .label {
-                    color: $primary;
+                    color: $color-accent;
                     transform: translate3d(0,-12px,0) scale(.75);
                     + .focus-bg {
                         transform: scaleX(1);
