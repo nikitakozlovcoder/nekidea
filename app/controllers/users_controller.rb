@@ -18,15 +18,6 @@ class UsersController < ApplicationController
         render :login
     end
   end
-
-   def login
-        @error = false
-
-   end
-   def logout
-        cookies.signed["user"] = nil
-        redirect_to controller: 'home', action: 'index'
-   end
   def generate
     if params["type"] == "single"
     elsif params["type"] == "csv"
@@ -57,4 +48,13 @@ class UsersController < ApplicationController
       end
     end
   end
+
+   def login
+        @error = false
+
+   end
+   def logout
+        cookies.signed["user"] = nil
+        redirect_to controller: 'home', action: 'index'
+   end
 end

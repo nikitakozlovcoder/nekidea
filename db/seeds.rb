@@ -11,3 +11,4 @@ user = User.new(mail: "example@gmail.com", password: "qwerty123", birth_date: 20
 Duty.destroy_all
 Duty.where(name: "Все", is_general: true).first_or_create
 Duty.where(name: "Разработчики").first_or_create
+

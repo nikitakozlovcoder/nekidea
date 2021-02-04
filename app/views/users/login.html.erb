@@ -1,2 +1,31 @@
-<%= render partial: './header.html.erb' %>
-<%= render partial: './footer.html.erb' %>
+
+<div class = "page-wrapper login">
+    <div class="login-box">
+        <div class = "logo">
+            <%= image_tag "logo.svg" %>
+        </div>
+        <form class = "nice">
+            <label for="input1" class="inp">
+                <input type="text" id="inp" placeholder="&nbsp;"  autocomplete="off">
+                <span class="label">Логин</span>
+                <span class="focus-bg"></span>
+            </label>
+            <label for="input1" class="inp">
+                <input type="password" id="inp" placeholder="&nbsp;">
+                <span class="label">Пароль</span>
+                <span class="focus-bg"></span>
+            </label>
+            <label class="checkbox bounce">
+                <input type="checkbox">
+                Запомнить меня
+                <svg viewBox="0 0 21 21">
+                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                </svg>
+            </label>
+
+            <button class="btn-outline" type="submit">Войти</button>
+        </form>
+    </div>
+</div>
+
+

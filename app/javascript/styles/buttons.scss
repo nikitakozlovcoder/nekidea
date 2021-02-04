@@ -1,0 +1,64 @@
+.btn-anim {
+    --font-size: 1.5rem;
+    background: $color-accent;
+    color: $light-font;
+    cursor: pointer;
+    font-size: var(--font-size);
+    padding: 10px 0px;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 5px;
+    width: auto;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        color: $color-accent3;
+        content: ">>";
+        font-size:  calc(var(--font-size)*2);
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 700;
+        position: absolute;
+        left: 70%;
+        top: -5px;
+        right: 5%;
+        bottom: 0;
+        opacity: 0;
+
+    }
+
+    &:hover, &.active {
+        background: #2b2bff;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #0000ff61;
+        padding: 10px 40px 10px 10px;
+
+        &::after {
+            opacity: 1;
+            transition: all 0.5s;
+
+        }
+    }
+}
+
+.btn-outline {
+    margin-bottom: 12px;
+    transition: all ease-in 0.2s;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 2px solid;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $color-accent;
+    border-color: $color-accent;
+    border-radius: 0.5rem;
+    padding: 10px;
+
+    &:hover, &:focus {
+        color: $light-font;
+        background-color: $color-accent;
+    }
+}
