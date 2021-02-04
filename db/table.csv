@@ -1,0 +1,3 @@
+mail,password,birth_date,is_admin,rating,name,surname,patronymic,duties
+a@gmail.com,345,2001/07/12,false,200,Ivan,Ivanov,Ivanovich,Разработчики Все
+b@mail.ru,mop123,1973/01/01,true,9000,Naile,Khussainov,Aa,Разработчики
