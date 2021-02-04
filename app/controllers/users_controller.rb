@@ -18,6 +18,36 @@ class UsersController < ApplicationController
         render :login
     end
   end
+  def generate
+    if params["type"] == "single"
+    elsif params["type"] == "csv"
+      require 'csv'
+      i = 0
+      CSV.foreach(params["file"], headers: true) do |row|
+        user = User.new(mail: row["mail"], password: row["password"], name: row["name"], surname: row["surname"],
+                        patronymic: row["patronymic"])
+        user.birth_date = row["birth_date"] if row["birth_date"] != nil
+        user.is_admin = row["is_admin"] if row["is_admin"] != nil
+        user.rating = row["rating"] if row["rating"] != nil
+        user.duties << Duty.find_by(is_general: true)
+        if row["duties"] != nil
+          row["duties"].split(" ").each do |el|
+            duty = Duty.find_by(name: el)
+            user.duties << duty if duty != nil
+          end
+        end
+        i+=1
+        error_str = "В строке #{i}:\n"
+        user.save
+        user.errors.messages.each do |key, value|
+          error_str += value.join(". ") + "\n"
+        end
+        flash[:error] = error_str
+        #pp row
+        #pp user
+      end
+    end
+  end
 
    def login
         @error = false
