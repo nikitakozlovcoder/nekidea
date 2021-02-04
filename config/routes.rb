@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get 'login', to: 'users#login'
   post 'login', to: 'users#login_post'
   get 'logout', to: 'users#logout'
-  get 'idea', to: 'idea#idea'
-  get 'photos', to: 'photos#view'
+  get 'idea', to: 'test#idea'
+  get 'photos', to: 'test#photos'
 end

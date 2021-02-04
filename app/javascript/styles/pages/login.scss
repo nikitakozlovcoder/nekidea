@@ -1,0 +1,86 @@
+.page-wrapper.login {
+    background: $login-background;
+    color: $light-font;
+
+    .logo {
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    // .enter {
+    //     text-align: center;
+    // }
+
+    .login-box {
+        margin: auto;
+        padding: 70px 100px 100px 100px;
+        background: $color-accent-dark;
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,.6);
+        border-radius: 10px;
+
+        form.nice {
+            --dark: 200, 200, 200;
+            --opacity-label: 1;
+            --opacity-line: 0.5;
+            button {
+                margin-top: 20px;
+            }
+            .checkbox {
+                margin-top: 20px;
+                --background: $color-accent-dark;
+            }
+        }
+    }
+    
+    @media screen and (max-width: 680px) {
+        .login-box {
+            padding: 30px 50px 50px 50px;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .logo {
+            img {
+                max-width: 300px;
+            }
+        }
+
+        .login-box {
+            box-sizing:content-box;
+            margin-right:0;
+            margin-left:0;
+        }
+
+        form.nice {
+            button {
+                min-width: 200px;
+                align-self: center;
+            }
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .logo {
+            img {
+                max-width: 240px;
+            }
+        }
+
+        .login-box {
+            box-sizing:content-box;
+            margin-right:0;
+            margin-left:0;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        form.nice {
+            button {
+                min-width: 150px;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

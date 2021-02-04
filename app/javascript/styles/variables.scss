@@ -1,13 +1,17 @@
 $color-accent: #7F5CE2;
 $color-accent2: #41c2e2;
-$color-accent3: #5CE27F;
+$color-accent3: #03e9f4;
+//$color-accent3-split: 3, 233, 244;  
 
+$color-accent-dark: #2a2843;
 //Checkbox, links and other small elements color
 $color-elem: #7F5CE2;
 $light-font: #fff; //#eee
 //Main page header image
 $header-img: url("https://images.ctfassets.net/hrltx12pl8hq/5hb9s8fTpw4Pk7fEm8Hdfs/d7c5ae85aad44fb334bcde8268135774/flowers-images-card.jpg?fit=fill&w=368&h=207");
-
+//Login page background
+$login-background: linear-gradient(#141e30, #243b55);
+//Sidebar menu width
 $menu-width: 230px;
 // $menu-width-desktop: 240px;
 // $menu-width-tablet: 90px;
