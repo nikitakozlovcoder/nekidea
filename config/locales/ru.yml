@@ -31,3 +31,14 @@
 
 ru:
   hello: "Привет мир"
+  activerecord:
+    errors:
+      models:
+        duty:
+          attributes:
+            name:
+              taken: "Название должности должно быть уникальным"
+        user:
+          attributes:
+            mail:
+              taken: "Данный адрес электронной почты уже занят"
