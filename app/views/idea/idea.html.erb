@@ -1,6 +1,54 @@
 <%= render partial: './header.html.erb' %>
 
-<section class="content">
+<main class="page-main">
+   <section class="idea-section content">
+        <header class="idea-header">
+        <h1 class="idea-name">Создание игровой комнаты в офисе для персонала</h1>
+        <p class="idea-author">Иванов Валентин Петрович</p>
+        <div class="section-header-checkbox">
+                    <label class="checkbox bounce">
+                        <input type="checkbox">
+                        Проголосовать
+                        <svg viewBox="0 0 21 21">
+                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                        </svg>
+                    </label>
+                </div>
+        <p class="idea-copyright">Основывается на: <a href="#">(ссылка)</a></p>    
+        </header>
+        <main class="idea-main">
+            <h2 class="idea-description-title">Описание<h2>
+            <div class="idea-description">
+                Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
+                сути, мыслей автора, возможно завлечение сотрудников для дальнейшего голосования именно за эту идею.
+                Также сюда можно написать дальнейшие перспективы развития данной идеи, польза для руководства лиюо для
+                сотрудников кампании или организации.
+            </div>
+            <div class="idea-images-block">
+                <%= image_tag "pic.png", :class => "idea-content-image" %>
+                <%= image_tag "pic.png", :class => "idea-content-image" %>
+                <%= image_tag "pic.png", :class => "idea-content-image" %>
+            </div>
+            <div class="important-links-block">
+                Важные ссылки:
+                <a class="important-link" href="#">Материал для поддержки голосования</a>,
+                <a class="important-link" href="#">Источник новостей</a>,
+                <a class="important-link" href="#">Ресурсы</a>,
+                <a class="important-link" href="#">Пруфы</a>
+            </div>
+            <div class="button">
+                <div class="button-container">
+                    <a href="#" class="btn effect01" target="_blank"><span>Развить идею</span></a>
+                </div>
+            </div>
+            <div class="comments">
+                Комментарии
+            </div>
+        </main>
+   </section>
+</main>
+
+<!--<section class="content">
     <div class="section-header">
         <div class="section-header-full-name">
             Иванов Валентин Петрович
@@ -51,5 +99,6 @@
         Комментарии
     </div>
 </section>
+-->
 
 <%= render partial: './footer.html.erb' %>

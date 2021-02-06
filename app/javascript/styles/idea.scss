@@ -5,7 +5,9 @@
 }
 
 .section-header-full-name {
+    font-size: 28px;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .section-header-idea-name {
@@ -19,15 +21,15 @@
 }
 
 .description-title {
-    margin-top: 20px;
+    margin: 30px 0;
     font-size: 28px;
     font-weight: bolder;
-    text-align: center;
 }
 
 .content-short-description {
     font-size: 22px;
     text-align: justify;
+    line-height: 32px;
 }
 
 .content-images-block {
@@ -43,7 +45,8 @@
 .important-links-block {
     margin-top: 30px;
     font-size: 20px;
-    display: flex;
+    text-align: left;
+    font-size: 14px;
 }
 
 .important-link {
@@ -143,4 +146,46 @@
     left: 120%;
     -webkit-transform: rotate(40deg);
     transform: rotate(40deg);
+}
+
+@media screen and (max-width: 1600px) {
+    .section-header {
+        display: block;
+    }
+}
+
+///////////////////
+
+.idea-name {
+    font-size: 32px;
+    text-align: left;
+}
+
+.idea-description-title {
+    margin-top: 30px;
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.idea-description {
+    font-size: 16px;
+    text-align: justify;
+    line-height: 28px;
+}
+
+.idea-author {
+    margin-bottom: 30px;
+}
+
+.idea-images-block {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0 0;
+    flex-wrap: wrap;
+}
+
+.idea-content-image {
+    width: 256px;
+    height: 256px;
 }
