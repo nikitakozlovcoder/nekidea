@@ -1,3 +1,9 @@
+.idea-header {
+    background: #F6F7FB;
+    padding: 20px;
+    font-size: 22px;
+}
+
 .idea-name {
     font-size: 32px;
     text-align: left;
@@ -12,12 +18,17 @@
 
 .idea-description {
     font-size: 16px;
-    text-align: justify;
+    text-align: left;
     line-height: 28px;
 }
 
 .idea-author {
+    font-size: 22px;
     margin-bottom: 30px;
+}
+
+.idea-copyright {
+    font-size: 22px;
 }
 
 .idea-images-block {
