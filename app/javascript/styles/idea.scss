@@ -1,55 +1,50 @@
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 26px;
+.idea-name {
+    font-size: 32px;
+    text-align: left;
 }
 
-.section-header-full-name {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.section-header-idea-name {
-    font-weight: bold;
-    color: $color-accent;
-}
-
-.content-text-link {
-    margin-top: 20px;
-    font-size: 22px;
-}
-
-.description-title {
-    margin: 30px 0;
-    font-size: 28px;
+.idea-description-title {
+    margin-top: 30px;
+    margin-bottom: 12px;
+    font-size: 24px;
     font-weight: bolder;
 }
 
-.content-short-description {
-    font-size: 22px;
+.idea-description {
+    font-size: 16px;
     text-align: justify;
-    line-height: 32px;
+    line-height: 28px;
 }
 
-.content-images-block {
-    margin-top: 50px;
+.idea-author {
+    margin-bottom: 30px;
+}
+
+.idea-images-block {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.content-image {
-    width: 18%;
+.idea-content-image {
+    width: 256px;
+    height: 256px;
+    margin-top: 40px;
 }
 
-.important-links-block {
-    margin-top: 30px;
+.idea-content-image-center {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.idea-important-links-block {
+    margin-top: 40px;
     font-size: 20px;
     text-align: left;
     font-size: 14px;
 }
 
-.important-link {
+.idea-important-link {
     margin-left: 0.25em;
 }
 
@@ -148,44 +143,14 @@
     transform: rotate(40deg);
 }
 
-@media screen and (max-width: 1600px) {
-    .section-header {
-        display: block;
-    }
-}
-
 ///////////////////
 
-.idea-name {
-    font-size: 32px;
-    text-align: left;
-}
 
-.idea-description-title {
-    margin-top: 30px;
-    margin-bottom: 12px;
-    font-size: 24px;
-    font-weight: bolder;
-}
-
-.idea-description {
-    font-size: 16px;
-    text-align: justify;
-    line-height: 28px;
-}
-
-.idea-author {
-    margin-bottom: 30px;
-}
-
-.idea-images-block {
-    display: flex;
-    justify-content: space-around;
-    margin: 40px 0 0;
-    flex-wrap: wrap;
-}
-
-.idea-content-image {
-    width: 256px;
-    height: 256px;
+@media screen and (max-width: 520px) {
+    .idea-name {
+        font-size: 26px;
+    }
+    .idea-author {
+        font-size: 18px;
+    }
 }
