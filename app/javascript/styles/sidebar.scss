@@ -3,6 +3,7 @@ header {
     --color-side-menu:  #{$color-accent};
     //Special elements color
     --color-spec: #{$color-accent3};
+    padding: 0;
 
     //SideBar Styles
     .menu{
@@ -15,7 +16,7 @@ header {
         left: 0;
         z-index: 5;
         outline: none;
-        box-shadow: 0 0 0 120em rgba(0,0,0,0);
+        box-shadow: 0 0 0 120px rgba(0,0,0,0);
         transform: translate3d(-$menu-width,0,0);
         transition: all 0.3s ease-in-out;
     
