@@ -13,7 +13,7 @@ p{
   font-size: 1.2rem;
 }
 
-body{
+.page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -26,3 +26,13 @@ body{
 footer{
   margin-top: auto;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    -webkit-appearance:none;
+}
+
+

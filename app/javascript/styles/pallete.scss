@@ -1,23 +1,26 @@
 .content{  
-    padding:5% 10%;
+    //padding:5% 10%;
+    padding: 30px 0;
     text-align:justify
 }
 .title{
-    font-weight: 1000;
+    font-weight: 900;
 }
-
-$primary: #7F5CE2;
-$dark: #000;
 
 
 //Input
 form.nice {
+    --primary: #{$color-accent}; 
+    --dark: 0, 0, 0;
+    --opacity-label: 0.5;
+    --opacity-line: 0.3;
+
     display: flex;
     flex-direction: column;
     .inp {
         position: relative;
         width: 100%;
-        max-width: 280px;
+        // max-width: 280px;
         border-radius: 3px;
         overflow: hidden;
         height: 56px;
@@ -27,7 +30,7 @@ form.nice {
             top: 20px;
             left: 12px;
             font-size: 16px;
-            color: rgba($dark,.5);
+            color: rgba(var(--dark), var(--opacity-label));
             font-weight: 500;
             transform-origin: 0 0;
             transform: translate3d(0,0,0);
@@ -41,7 +44,7 @@ form.nice {
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba($dark,.05);
+            background: rgba(var(--dark),.05);
             z-index: -1;
             transform: scaleX(0);
             transform-origin: left;
@@ -57,34 +60,34 @@ form.nice {
             height: 56px;
             font-size: 16px;
             font-weight: 400;
-            background: rgba($dark,.02);
-            box-shadow: inset 0 -2px 0 rgba($dark,.3);
-            color: $dark;
+            background: rgba(var(--dark),.02);
+            box-shadow: inset 0 -2px 0 rgba(var(--dark), var(--opacity-line));
+            color: var(--dark);
             transition: all .15s ease;
 
             &:hover {
-                background: rgba($dark,.04);
-                box-shadow: inset 0 -2px 0 rgba($dark,.5);  
+                background: rgba(var(--dark),.04);
+                box-shadow: inset 0 -2px 0 rgba(var(--dark), var(--opacity-label));  
             }
 
             &:not(:placeholder-shown) + .label {
-                color: rgba($dark,.5);
+                color: rgba(var(--dark), var(--opacity-label));
                 transform: translate3d(0,-12px,0) scale(.75);
             }
 
             &:not(:placeholder-shown) {
-                box-shadow: inset 0 -2px 0 $color-accent;
+                box-shadow: inset 0 -2px 0 var(--primary);
                 + .label {
-                    color: $color-accent;
+                    color: var(--primary);
                 }
             }
 
             &:focus {
-                background: rgba($dark,.05);
+                background: rgba(var(--dark),.05);
                 outline: none;
-                box-shadow: inset 0 -2px 0 $color-accent;
+                box-shadow: inset 0 -2px 0 var(--primary);
                 + .label {
-                    color: $color-accent;
+                    color: var(--primary);
                     transform: translate3d(0,-12px,0) scale(.75);
                     + .focus-bg {
                         transform: scaleX(1);
