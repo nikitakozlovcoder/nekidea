@@ -4,19 +4,19 @@
         <div class = "logo">
             <%= image_tag "logo.svg" %>
         </div>
-        <form class = "nice">
+      <%= form_with class: "nice" do %>
             <label for="input1" class="inp">
-                <input type="text" id="inp" placeholder="&nbsp;"  autocomplete="off">
-                <span class="label">Логин</span>
+                <input name = "mail" type="email" id="inp" placeholder="&nbsp;"  autocomplete="off">
+                <span class="label">Почта</span>
                 <span class="focus-bg"></span>
             </label>
             <label for="input1" class="inp">
-                <input type="password" id="inp" placeholder="&nbsp;">
+                <input name = "password" type="password" id="inp" placeholder="&nbsp;">
                 <span class="label">Пароль</span>
                 <span class="focus-bg"></span>
             </label>
             <label class="checkbox bounce">
-                <input type="checkbox">
+                <input name = "remember" type="checkbox">
                 Запомнить меня
                 <svg viewBox="0 0 21 21">
                     <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
@@ -24,7 +24,7 @@
             </label>
 
             <button class="btn-outline" type="submit">Войти</button>
-        </form>
+        <% end %>
     </div>
 </div>
 

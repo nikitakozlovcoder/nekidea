@@ -24,11 +24,14 @@ class UsersController < ApplicationController
       require 'csv'
       i = 0
       CSV.foreach(params["file"], headers: true) do |row|
-        user = User.new(mail: row["mail"], password: row["password"], name: row["name"], surname: row["surname"],
-                        patronymic: row["patronymic"])
+        user = User.new(mail: row["mail"].to_s, name: row["name"].to_s,
+                        surname: row["surname"].to_s)
+        user.patronymic = row["patronymic"] if row["patronymic"] != nil
         user.birth_date = row["birth_date"] if row["birth_date"] != nil
         user.is_admin = row["is_admin"] if row["is_admin"] != nil
         user.rating = row["rating"] if row["rating"] != nil
+        code = SecureRandom.hex(5)
+        user.password = code
         user.duties << Duty.find_by(is_general: true)
         if row["duties"] != nil
           row["duties"].split(" ").each do |el|
@@ -38,7 +41,9 @@ class UsersController < ApplicationController
         end
         i+=1
         error_str = "В строке #{i}:\n"
-        user.save
+        if user.save
+          UserMailer.with(mail: user.mail, password: code).welcome_email.deliver_later
+        end
         user.errors.messages.each do |key, value|
           error_str += value.join(". ") + "\n"
         end

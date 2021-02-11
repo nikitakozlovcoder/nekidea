@@ -1,6 +1,7 @@
 <div class = "page-wrapper">
     <%= render partial: './header.html.erb' %>
     <section class="content">
+      <%= current_user.mail if current_user != nil %>
     <h1 class = "title">Некоторый заголовок</h1>
     <h2 class = "title">Некоторый заголовок</h2>
     <h3 class = "title">Некоторый заголовок</h3>

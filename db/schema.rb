@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_02_04_063904) do
-
+ActiveRecord::Schema.define(version: 2021_02_06_150858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +36,6 @@ ActiveRecord::Schema.define(version: 2021_02_04_063904) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-
   create_table "duties", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -53,7 +50,6 @@ ActiveRecord::Schema.define(version: 2021_02_04_063904) do
     t.index ["user_id"], name: "index_duties_users_on_user_id"
   end
 
-
   create_table "users", force: :cascade do |t|
     t.string "mail"
     t.text "password_digest"
@@ -65,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_063904) do
     t.string "name", default: ""
     t.string "surname", default: ""
     t.string "patronymic", default: ""
-    t.datetime "restore_date"
+    t.datetime "restore_date", default: "2021-02-06 15:13:09"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
