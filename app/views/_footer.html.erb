@@ -4,6 +4,7 @@
           <%= image_tag "logo.svg", :class => "footer-logo" %>
       </div>
       <div class="footer-middle-block">
+        <h3 class = "title">О проекте</h3>
         <div class="footer-text">
           Данный сервис предоставляет возможность пользователям голосовать за идеи, которые другие пользвоатели могут
           предлагать. Также на нашем сайте доступен функционал отслеживания идей по тематикам и поиск самых активных сотрудников.
@@ -17,25 +18,27 @@
         </div>
       </div>
       <div class="footer-right-block">
-        <div class="footer-text footer-text-right-block">Остались вопросы?</div>
-        <div class="footer-link-text">
-          <div class="footer-text footer-text-right-block">
-            Напишите нам на&nbsp;почту:
+        <h3 class = "title">Наши контакты</h3>
+        <div class = "contacts">
+          <div class = "item">
+            <a class="footer-link" href="https://gmail.com">
+              <i class="fas fa-at"></i>
+              support@ideahub.com
+            </a>
           </div>
-          <div class="footer-text footer-text-right-block">
-            <a class="footer-link" href="https://gmail.com">support@ideahub.com</a>
+          <div class = "item">
+           <a class="footer-link" href="https://gmail.com">
+            <i class="fab fa-vk"></i>
+            ideahub.vk.com
+           </a>
+          </div>
+          <div class = "item">
+            <a class="footer-link" href="https://gmail.com">
+              <i class="fab fa-github"></i>
+              ideahub@github.com
+            </a>
           </div>
         </div>
-        <div class="footer-link-text">
-          <div class="footer-text footer-text-right-block">
-            Или ВКонтакте:
-          </div>
-          <div class="footer-text footer-text-right-block">
-            <%= image_tag "vk1.png", :class => "footer-image" %>
-            <a class="footer-link" href="https://vk.com">Наша группа ВК</a>
-          </div>
-        </div>
-        <div class="footer-text footer-text-right-block">Мы онлайн 24/7</div>
         <div class="footer-copyright">
           NekWeb &copy; 2021
         </div>

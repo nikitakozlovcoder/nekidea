@@ -29,13 +29,13 @@
 }
 
 .footer-middle-block {
-    max-width: 700px;
-    margin: 0 20px;
+    max-width: 800px;
+    margin: 0 40px;
 }
 
 .footer-text-right-block {
     text-align: right;
-    margin: 0;
+    margin-left: 0;
 }
 
 .footer-link {
@@ -47,9 +47,19 @@
     margin-right: 3px;
 }
 
+.footer-logo {
+    max-width: 200px;
+}
+
+.contacts {
+    .item {
+        font-size: 1.5rem;
+    }
+}
+
 @media screen and (max-width: 1620px) {
     .footer-middle-block {
-        max-width: 600px;
+        max-width: 700px;
     }
 }
 
