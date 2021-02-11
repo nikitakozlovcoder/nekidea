@@ -1,12 +1,14 @@
 <div class = "page-wrapper">
+
     <%= render partial: './header.html.erb' %>
-    <section class="content">
+    <section class="content container">
+      <%= current_user.mail if current_user != nil %>
     <h1 class = "title">Некоторый заголовок</h1>
     <h2 class = "title">Некоторый заголовок</h2>
     <h3 class = "title">Некоторый заголовок</h3>
     <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
     </section>
-    <section class="content">
+    <section class="content container">
     <h1 class = "title">Checkbox элемент</h1>
     <!-- Checkbox element -->
     <label class="checkbox bounce">
@@ -45,7 +47,7 @@
   </label></div>
     <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
     </section>
-    <section class="content">
+    <section class="content container">
     <h1 class = "title">Input элемент</h1>
     <form class = "nice">
     <label for="input1" class="inp">
@@ -62,31 +64,14 @@
     </form>
     <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
     </section>
-    <section class="content">
+    <section class="content container">
         <h1 class = "title">Editable Text элемент</h1>
         <div id="editor"></div>
     </section>
-    <div class = "container">
-        <div class = "row">
-            <div class = "col-4 text-end"> 23</div>
-            <div class = "col-4"> 34</div>
-            <div class = "col-4"> 54</div>
-        </div>
-        <div class = "row">
-            <div class = "col-12 col-lg-4"> 23</div>
-            <div class = "col-12 col-lg-4"> 34</div>
-            <div class = "col-12 col-lg-4"> 54</div>
-        </div> 
-        <div class = "row">
-            <div class = "col-4"> 23</div>
-            <div class = "col-4"> 34</div>
-            <div class = "col-4"> 54</div>
-        </div> 
-    </div>
-    <section class="content">
+    <section class="content container">
     <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
     </section>
-    <section class="content">
+    <section class="content container">
     <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
     <!-- Checkbox element -->
     <label class="checkbox bounce">
