@@ -1,106 +1,101 @@
-<%= render partial: './header.html.erb' %>
-
-<main class="page-main">
-   <section class="idea-section content">
-        <div class="idea-header">
+<div class="page-wrapper">
+  <%= render partial: './header.html.erb' %>
+  <main class="page-main">
+    <section class="idea-section content container">
+      <div class="idea-header">
         <div class="idea-block-header">
-            <h1 class="idea-name title">Создание игровой комнаты в офисе для персонала</h1>
-            <p class="idea-author">Иванов Валентин Петрович</p>
+          <h1 class="idea-name title">Создание игровой комнаты в офисе для персонала</h1>
+          <p class="idea-author">Иванов Валентин Петрович</p>
         </div>
         <div class="section-header-checkbox">
-                    <label class="checkbox bounce">
-                        <input type="checkbox">
-                        Проголосовать
-                        <svg viewBox="0 0 21 21">
-                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                        </svg>
-                    </label>
-                </div>
-        <p class="idea-copyright">Основывается на: <a href="#">(ссылка)</a></p>    
+          <button type="button" class="btn btn-primary">Голосовать</button>
         </div>
-        <main class="idea-main">
-            <h2 class="idea-description-title">Описание<h2>
-            <div class="idea-description">
-                Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
-                сути, мыслей автора, возможно завлечение сотрудников для дальнейшего голосования именно за эту идею.
-                Также сюда можно написать дальнейшие перспективы развития данной идеи, польза для руководства либо для
-                сотрудников кампании или организации.
-            </div>
-            <div class="idea-images-block">
-                <%= image_tag "pic.png", :class => "idea-content-image" %>
-                <%= image_tag "pic.png", :class => "idea-content-image idea-content-image-center" %>
-                <%= image_tag "pic.png", :class => "idea-content-image" %>
-            </div>
-            <div class="idea-important-links-block">
-                Важные ссылки:
-                <a class="idea-important-link" href="#">Материал для поддержки голосования</a>,
-                <a class="idea-important-link" href="#">Источник новостей</a>,
-                <a class="idea-important-link" href="#">Ресурсы</a>,
-                <a class="idea-important-link" href="#">Пруфы</a>
-            </div>
-            <div class="button">
-                <div class="button-container">
-                    <a href="#" class="btn effect01" target="_blank"><span>Развить идею</span></a>
-                </div>
-            </div>
-            <div class="idea-comments">
-                Комментарии
-            </div>
-        </main>
-   </section>
-</main>
-
-<!--<section class="content">
-    <div class="section-header">
-        <div class="section-header-full-name">
-            Иванов Валентин Петрович
+        <hr>
+        <p class="idea-copyright">Основывается на: <a href="#">(ссылка)</a></p>
+      </div>
+      <main class="idea-main">
+        <br>
+        <h2 class="title">Описание</h2>
+        <div class="">
+          Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
+          сути, мыслей автора, возможно завлечение сотрудников для дальнейшего голосования именно за эту идею.
+          Также сюда можно написать дальнейшие перспективы развития данной идеи, польза для руководства либо для
+          сотрудников кампании или организации.
         </div>
-        <div class="section-header-idea-name">
-            Создание игровой комнаты в офисе для персонала
+        <div class="idea-images-block">
+          <%= image_tag "pic.png", :class => "idea-content-image" %>
+          <%= image_tag "pic.png", :class => "idea-content-image idea-content-image-center" %>
+          <%= image_tag "pic.png", :class => "idea-content-image" %>
         </div>
-        <div class="section-header-checkbox">
-            <label class="checkbox bounce">
-                <input type="checkbox">
-                Проголосовать
-                <svg viewBox="0 0 21 21">
-                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                </svg>
-            </label>
+        <div class="idea-important-links-block">
+          Важные ссылки:
+          <a class="idea-important-link" href="#">Материал для поддержки голосования</a>,
+          <a class="idea-important-link" href="#">Источник новостей</a>,
+          <a class="idea-important-link" href="#">Ресурсы</a>,
+          <a class="idea-important-link" href="#">Пруфы</a>
         </div>
-    </div>
-    <div class="content-text-link">
-        Основывается на: <a class="content-link" href="#">(ссылка)</a>
-    </div>
-    <h4 class="description-title">
-        Описание
-    <h4>
-    <div class="content-short-description">
-        Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
-        сути, мыслей автора, возможно завлечение сотрудников для дальнейшего голосования именно за эту идею.
-        Также сюда можно написать дальнейшие перспективы развития данной идеи, польза для руководства лиюо для
-        сотрудников кампании или организации.
-    </div>
-    <div class="content-images-block">
-        <%= image_tag "pic.png", :class => "content-image" %>
-        <%= image_tag "pic.png", :class => "content-image" %>
-        <%= image_tag "pic.png", :class => "content-image" %>
-    </div>
-    <div class="important-links-block">
-        <div class="important-text">Важные ссылки:</div>
-        <a class="important-link" href="#">Материал для поддержки голосования</a>,
-        <a class="important-link" href="#">Источник новостей</a>,
-        <a class="important-link" href="#">Ресурсы</a>,
-        <a class="important-link" href="#">Пруфы</a>
-    </div>
-    <div class="button">
-        <div class="button-container">
+        <div class="button">
+          <div class="button-container">
             <a href="#" class="btn effect01" target="_blank"><span>Развить идею</span></a>
+          </div>
         </div>
-    </div>
-    <div class="comments">
-        Комментарии
-    </div>
-</section>
--->
-
-<%= render partial: './footer.html.erb' %>
+        <div class="idea-comments">
+          Комментарии
+        </div>
+      </main>
+    </section>
+  </main>
+  <!--<section class="content">
+      <div class="section-header">
+          <div class="section-header-full-name">
+              Иванов Валентин Петрович
+          </div>
+          <div class="section-header-idea-name">
+              Создание игровой комнаты в офисе для персонала
+          </div>
+          <div class="section-header-checkbox">
+              <label class="checkbox bounce">
+                  <input type="checkbox">
+                  Проголосовать
+                  <svg viewBox="0 0 21 21">
+                      <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                  </svg>
+              </label>
+          </div>
+      </div>
+      <div class="content-text-link">
+          Основывается на: <a class="content-link" href="#">(ссылка)</a>
+      </div>
+      <h4 class="description-title">
+          Описание
+      <h4>
+      <div class="content-short-description">
+          Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
+          сути, мыслей автора, возможно завлечение сотрудников для дальнейшего голосования именно за эту идею.
+          Также сюда можно написать дальнейшие перспективы развития данной идеи, польза для руководства лиюо для
+          сотрудников кампании или организации.
+      </div>
+      <div class="content-images-block">
+          <%= image_tag "pic.png", :class => "content-image" %>
+          <%= image_tag "pic.png", :class => "content-image" %>
+          <%= image_tag "pic.png", :class => "content-image" %>
+      </div>
+      <div class="important-links-block">
+          <div class="important-text">Важные ссылки:</div>
+          <a class="important-link" href="#">Материал для поддержки голосования</a>,
+          <a class="important-link" href="#">Источник новостей</a>,
+          <a class="important-link" href="#">Ресурсы</a>,
+          <a class="important-link" href="#">Пруфы</a>
+      </div>
+      <div class="button">
+          <div class="button-container">
+              <a href="#" class="btn effect01" target="_blank"><span>Развить идею</span></a>
+          </div>
+      </div>
+      <div class="comments">
+          Комментарии
+      </div>
+  </section>
+  -->
+  <%= render partial: './footer.html.erb' %>
+</div>
