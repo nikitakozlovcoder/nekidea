@@ -18,6 +18,14 @@ header {
         box-shadow: 0 0 0 120em rgba(0,0,0,0);
         transform: translate3d(-$menu-width,0,0);
         transition: all 0.3s ease-in-out;
+
+        // .overlay {
+        //     position: absolute;
+        //     width: 1000px;
+        //     height: 1000px;
+        //     color: #000;
+        //     z-index: 99;
+        // }
     
         .smartphone-menu-trigger{
             width: 40px;
