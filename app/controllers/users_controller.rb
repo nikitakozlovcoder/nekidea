@@ -23,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def generate
-    p "GENERATE!!!!!!!!!!!!!!!!!!!!!!!!"
     @type = params["type"]
     if params["type"] == "single"
       @user = User.new(name: params['name'], mail: params['mail'], surname: params['surname'], patronymic: params['patronymic'])
