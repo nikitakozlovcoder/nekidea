@@ -4,7 +4,7 @@
         <div class = "logo">
             <%= image_tag "logo.svg" %>
         </div>
-      <%= form_with class: "nice" do %>
+      <%= form_with class: "nice", local: false do %>
             <label for="input1" class="inp">
                 <input name = "mail" type="email" id="inp" placeholder="&nbsp;"  autocomplete="off">
                 <span class="label">Почта</span>
@@ -15,6 +15,9 @@
                 <span class="label">Пароль</span>
                 <span class="focus-bg"></span>
             </label>
+            <div class="error-fields" style="max-width: 330px">
+
+            </div>
             <label class="checkbox bounce">
                 <input name = "remember" type="checkbox">
                 Запомнить меня

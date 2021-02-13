@@ -53,6 +53,8 @@ header {
             text-align: center;
             
             img{
+                height: 100px;
+                object-fit: cover;
                 width: 100px;
                 border-radius: 50%;
                 overflow: hidden;

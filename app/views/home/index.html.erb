@@ -1,8 +1,22 @@
 <div class = "page-wrapper">
-
+    
     <%= render partial: './header.html.erb' %>
     <section class="content container">
       <%= current_user.mail if current_user != nil %>
+
+
+      <%= form_with url:'users/generate?type=single', local: false do %>
+        <label for="input1" class="inp">
+          <input name = "mail" type="email" id="inp" placeholder="&nbsp;"  >
+          <input name = "name" type="text" id="inp" placeholder="&nbsp;" >
+          <input name = "surname" type="text" id="inp" placeholder="&nbsp;" >
+          <input name = "patronymic" type="text" id="inp" placeholder="&nbsp;" >
+        </label>
+        </label>
+
+        <button class="btn-outline" type="submit">Войти</button>
+      <% end %>
+
     <h1 class = "title">Некоторый заголовок</h1>
     <h2 class = "title">Некоторый заголовок</h2>
     <h3 class = "title">Некоторый заголовок</h3>
