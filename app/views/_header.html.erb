@@ -23,23 +23,25 @@
 
   <!-- Sidebar menu -->
   <nav tabindex="0" class="menu">
-    <%# <div class="overlay"></div> %>
     <div class="smartphone-menu-trigger"></div>
-    <div class="avatar">
-      <a href="/login">
-        <img src="https://w3schoolsrus.github.io/w3images/avatar2.png" />
-        <h2>Omari Starks</h2>
-      </a>
+    <div style = "overflow-y: auto; height: 100vh; display: flex; flex-direction: column;">
+      <div class="avatar">
+        <a href="/login">
+          <img src="https://w3schoolsrus.github.io/w3images/avatar2.png" />
+          <h2>Omari Starks</h2>
+        </a>
+      </div>
+
+      <ul style = " display:flex; flex-direction: column; flex: 1;">
+        <li tabindex="0" class="active"><span>Главная</span></li>
+        <li tabindex="0"><span>Тематики</span></li>
+        <li tabindex="0"><span>Пользователи</span></li>
+        <li tabindex="0"><span>Мой профиль</span></li>
+        <li tabindex="0" class="last"><span>Выход</span></li>
+      </ul>
     </div>
-
-    <ul>
-      <li tabindex="0" class="active"><span>Главная</span></li>
-      <li tabindex="0"><span>Тематики</span></li>
-      <li tabindex="0"><span>Пользователи</span></li>
-      <li tabindex="0"><span>Мой профиль</span></li>
-    </ul>
   </nav>
-
+  <div class="overlay">awwad</div>
 </header>
 
 

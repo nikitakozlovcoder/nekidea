@@ -3,6 +3,7 @@
 a:hover { 
   text-decoration: none;
   -webkit-text-decoration: none;
+  color: $color-accent;
 }
 
 a{
@@ -11,6 +12,7 @@ a{
 
 p{
   font-size: 1.2rem;
+  margin-bottom: 0;
 }
 
 .page-wrapper {
@@ -33,6 +35,14 @@ footer{
 // button:focus {
 //     outline: none;
 //     -webkit-appearance:none;
+// }
+
+// @media screen and (max-width: 576px)  {
+//     .container{
+//       width: auto;
+//       margin-left: 5%;
+//       margin-right: 5%;
+//     }
 // }
 
 

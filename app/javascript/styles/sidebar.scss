@@ -16,19 +16,22 @@ header {
         left: 0;
         z-index: 5;
         outline: none;
-        box-shadow: 0 0 0 120px rgba(0,0,0,0);
         transform: translate3d(-$menu-width,0,0);
         transition: all 0.3s ease-in-out;
 
-        // .overlay {
-        //     position: absolute;
-        //     width: 1000px;
-        //     height: 1000px;
-        //     color: #000;
-        //     z-index: 99;
-        // }
+        & + .overlay {
+            pointer-events:none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out
+        }
     
         .smartphone-menu-trigger{
+            cursor: pointer;
             width: 40px;
             height: 40px;
             position: absolute;
@@ -104,6 +107,10 @@ header {
                     outline:none;
                 }
 
+                &.active {
+                    padding-left: 38px;
+                }
+
                 &.active::before {
                     content: "\2022";
                     font-size: 2rem;
@@ -111,15 +118,21 @@ header {
                     color: var(--color-spec);
                 }
                 
+                &.last {
+                    margin-top: auto;
+                }
             }
         }
     
         &:focus{
             transform:translate3d(0,0,0);
-            box-shadow:0 0 0 120em rgba(0,0,0,0.6);
             
             .smartphone-menu-trigger{
                 pointer-events:none;
+            }
+
+            & + .overlay {
+                opacity: 0.3;
             }
         }
     }
