@@ -1,7 +1,7 @@
 
-if( <%= @type  == "single" %>)
+if(<%= @type  == "single" %>)
 {
-    if(<%= @user.errors.empty?%>)
+    if(<%= !@user.nil? &&  @user.errors.empty? %>)
     {
         alert('hi single! no errors');
     }
@@ -9,14 +9,20 @@ if( <%= @type  == "single" %>)
     {
         alert('hi single! errors');
     }
-
-
-
 }
 else
 {
+    if(<%= @file != nil %>)
+    {
+        alert('hi csv!');
+        //TODO @error_str validation
+    }
+    else
+    {
+        alert('hi csv no files!');
+    }
 
-    alert('hi csv!');
+
 }
 
 

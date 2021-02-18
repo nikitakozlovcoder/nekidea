@@ -23,7 +23,9 @@ class UsersController < ApplicationController
   end
 
   def generate
+    @error_str = ""
     @type = params["type"]
+    @file = params["file"]
     if params["type"] == "single"
       @user = User.new(name: params['name'], mail: params['mail'], surname: params['surname'], patronymic: params['patronymic'])
       #TODO check @user.errors
@@ -40,7 +42,18 @@ class UsersController < ApplicationController
         format.js
       end
     elsif params["type"] == "csv"
-      csv_generate
+      if params["file"] != nil
+        csv_generate
+      else
+        respond_to do |format|
+          format.json{
+            render json: {errors: "no file error"}
+          }
+          format.js
+        end
+      end
+
+
     end
   end
 
@@ -57,8 +70,9 @@ class UsersController < ApplicationController
   def csv_generate
     require 'csv'
     i = 0
-    @error_str = ""
-    CSV.foreach(params["file"], headers: true) do |row|
+    @error = false
+
+    CSV.foreach(@file, headers: true) do |row|
       user = User.new(mail: row["mail"].to_s, name: row["name"].to_s,
                       surname: row["surname"].to_s)
       user.patronymic = row["patronymic"] if row["patronymic"] != nil
@@ -67,17 +81,20 @@ class UsersController < ApplicationController
       user.rating = row["rating"] if row["rating"] != nil
       code = SecureRandom.hex(5)
       user.password = code
-      user.duties << Duty.find_by(is_general: true)
+      saved = user.save
+      user.add_duty Duty.find_by(is_general: true)
       if row["duties"] != nil
         row["duties"].split(" ").each do |el|
           duty = Duty.find_by(name: el)
-          user.duties << duty if duty != nil
+          user.add_duty duty if duty != nil
         end
       end
       i+=1
       @error_str += "В строке #{i}:\n"
-      if user.save
+      if saved
         UserMailer.with(mail: user.mail, password: code).welcome_email.deliver_later
+      else
+        @error = true
       end
       user.errors.messages.each do |key, value|
         @error_str += value.join(". ") + "\n"
@@ -90,7 +107,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.json{
-        render json: {errors: @error_str}
+        render json: {errors: @error ? @error_str : ''}
       }
       format.js
     end
