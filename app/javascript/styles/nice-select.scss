@@ -33,7 +33,7 @@ $arrow_color_after: $color-elem;
   float: left;
   font-family: inherit;
   font-size: $font_size;
-  font-weight: normal;
+  font-weight: 500;
   height: $input_height;
   line-height: $input_height - 2;
   outline: none;
@@ -171,7 +171,7 @@ $arrow_color_after: $color-elem;
       color: $primary_light;
     }
     &.selected { 
-      font-weight: bold;
+      font-weight: 500;
     }
     &.disabled {
       background-color: transparent;

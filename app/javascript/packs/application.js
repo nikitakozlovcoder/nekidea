@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+import '../vendor/jquery.nice-select.min.js'
 
 import '../styles/application.scss'
 
@@ -15,7 +16,14 @@ import {Router} from "../general/router.js"
 let router = new Router();
 
 document.addEventListener("turbolinks:load", function() {    
-   router.callWhen((entry)=>{
+    
+    router.callAlways ((entry) => {
+        $(document).ready(function() {
+            $('select').niceSelect();
+        });
+    })
+
+    router.callWhen((entry)=>{
        require('pages/home.js').start();
        //Log js-file object
        console.log(require('pages/home.js'));
@@ -24,6 +32,10 @@ document.addEventListener("turbolinks:load", function() {
     router.callWhen((entry)=>{
         require('pages/login.js').start();
     }, "users/login")
+
+    router.callWhen((entry)=>{
+        require('pages/vote_create.js').PhotoAppender;
+    }, "test/vote_create")
     
   
 });
