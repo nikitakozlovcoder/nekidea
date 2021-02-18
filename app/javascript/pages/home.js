@@ -1,4 +1,4 @@
-//import '../general/trix.js'
+import '../vendor/jquery.nice-select.min.js'
 
 export class Animal{
     
@@ -8,4 +8,7 @@ function sayhi(){
 }
 export function start() {
     sayhi();
+    $(document).ready(function() {
+        $('select').niceSelect();
+    });
 }
