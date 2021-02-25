@@ -78,6 +78,7 @@ class UsersController < ApplicationController
       user.patronymic = row["patronymic"] if row["patronymic"] != nil
       user.birth_date = row["birth_date"] if row["birth_date"] != nil
       user.is_admin = row["is_admin"] if row["is_admin"] != nil
+      user.is_boss = row["is_boss"] if row["is_boss"] != nil
       user.rating = row["rating"] if row["rating"] != nil
       code = SecureRandom.hex(5)
       user.password = code
