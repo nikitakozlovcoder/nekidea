@@ -24,22 +24,24 @@
   <!-- Sidebar menu -->
   <nav tabindex="0" class="menu">
     <div class="smartphone-menu-trigger"></div>
-    <div class="avatar">
+
+    <div class="avatar" style = "overflow-y: auto; height: 100vh; display: flex; flex-direction: column;">
       <a href="/login">
         <%= image_tag user_avatar %>
-
         <h5>Omari Starks</h5>
       </a>
     </div>
 
-    <ul>
-      <li tabindex="0" class="active"><span>Главная</span></li>
-      <li tabindex="0"><span>Тематики</span></li>
-      <li tabindex="0"><span>Пользователи</span></li>
-      <li tabindex="0"><span>Мой профиль</span></li>
-    </ul>
+      <ul style = " display:flex; flex-direction: column; flex: 1;">
+        <li tabindex="0" class="active"><span>Главная</span></li>
+        <li tabindex="0"><span>Тематики</span></li>
+        <li tabindex="0"><span>Пользователи</span></li>
+        <li tabindex="0"><span>Мой профиль</span></li>
+        <li tabindex="0" class="last"><span>Выход</span></li>
+      </ul>
+    </div>
   </nav>
-
+  <div class="overlay">awwad</div>
 </header>
 
 

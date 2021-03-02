@@ -1,5 +1,3 @@
-//import '../general/trix.js'
-
 export class Animal{
     
 }
