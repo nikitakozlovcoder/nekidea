@@ -4,21 +4,7 @@
         <div class = "logo">
             <%= image_tag "logo.svg" %>
         </div>
-      <%= form_with class: "", local: false do %>
-
-        <div class="input-field">
-          <input id="mail" name = "mail" type="email" class="validate" autocomplete="off" style="color: #FFFFFF">
-          <label for="mail">Почта</label>
-        </div>
-        <div class="input-field">
-          <input id="password" type="password" name="password" class="validate" style="color: #FFFFFF">
-          <label for="password">Пароль</label>
-        </div>
-        <div class="error-fields" style="max-width: 330px; padding-bottom: 20px;">
-
-        </div>
-
-        <!--
+      <%= form_with class: "nice", local: false do %>
             <label for="input1" class="inp">
                 <input name = "mail" type="email" id="inp" placeholder="&nbsp;"  autocomplete="off">
                 <span class="label">Эл. почта</span>
@@ -29,20 +15,18 @@
                 <span class="label">Пароль</span>
                 <span class="focus-bg"></span>
             </label>
+            <div class="error-fields" style="max-width: 330px">
 
+            </div>
             <label class="checkbox bounce">
                 <input name = "remember" type="checkbox">
                 Запомнить меня
                 <svg viewBox="0 0 21 21">
                     <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
                 </svg>
-            </label>-->
-            <label>
-              <input type="checkbox" checked="checked" name = "remember"  class="filled-in" />
-              <span>Запомнить</span>
             </label>
-        <br><br>
-            <button class="waves-effect waves-light btn-large btn-full-width" type="submit">Войти</button>
+
+            <button class="btn-outline" type="submit">Войти</button>
         <% end %>
     </div>
 </div>

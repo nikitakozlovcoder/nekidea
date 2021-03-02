@@ -10,13 +10,12 @@ require("channels")
 import '../vendor/jquery.nice-select.min.js'
 
 import '../styles/application.scss'
-import '../general/materialize.js'
-
 
 import {Router} from "../general/router.js"
 
 let router = new Router();
 
+<<<<<<< HEAD
 document.addEventListener("turbolinks:load", function() {
 
     router.callAlways(()=>{
@@ -40,6 +39,10 @@ document.addEventListener("turbolinks:load", function() {
 
 
     router.callWhen((entry)=>{
+=======
+document.addEventListener("turbolinks:load", function() {    
+   router.callWhen((entry)=>{
+>>>>>>> parent of dfa784d... materializecss
        require('pages/home.js').start();
        //Log js-file object
        console.log(require('pages/home.js'));
