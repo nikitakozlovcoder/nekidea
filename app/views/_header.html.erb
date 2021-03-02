@@ -24,13 +24,13 @@
   <!-- Sidebar menu -->
   <nav tabindex="0" class="menu">
     <div class="smartphone-menu-trigger"></div>
-    <div style = "overflow-y: auto; height: 100vh; display: flex; flex-direction: column;">
-      <div class="avatar">
-        <a href="/login">
-          <img src="https://w3schoolsrus.github.io/w3images/avatar2.png" />
-          <h2>Omari Starks</h2>
-        </a>
-      </div>
+
+    <div class="avatar" style = "overflow-y: auto; height: 100vh; display: flex; flex-direction: column;">
+      <a href="/login">
+        <%= image_tag user_avatar %>
+        <h5>Omari Starks</h5>
+      </a>
+    </div>
 
       <ul style = " display:flex; flex-direction: column; flex: 1;">
         <li tabindex="0" class="active"><span>Главная</span></li>

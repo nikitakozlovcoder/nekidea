@@ -1,0 +1,32 @@
+
+if(<%= @type  == "single" %>)
+{
+    if(<%= !@user.nil? &&  @user.errors.empty? %>)
+    {
+        alert('hi single! no errors');
+    }
+    else
+    {
+        alert('hi single! errors');
+    }
+}
+else
+{
+    if(<%= @file != nil %>)
+    {
+        alert('hi csv!');
+        //TODO @error_str validation
+    }
+    else
+    {
+        alert('hi csv no files!');
+    }
+
+
+}
+
+
+
+
+
+

@@ -6,8 +6,14 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :surname, presence: true
     validates :mail, presence: true
-    has_and_belongs_to_many :duties
-    def uniq_duties
-        duties.distinct
+    has_many :duties_users, class_name: "DutyUser", dependent: :destroy
+    has_many :duties, through: :duties_users, class_name: "Duty"
+
+    def add_duty duty
+        if  duties.find_by(id: duty.id)== nil
+            duties << duty
+        end
     end
+
+
 end

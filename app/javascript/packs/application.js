@@ -5,23 +5,39 @@
 import 'bootstrap'
 require("@rails/ujs").start()
 require("turbolinks").start()
-require("@rails/activestorage").start()
+require("@rails/activestorage").start();
 require("channels")
 import '../vendor/jquery.nice-select.min.js'
 
 import '../styles/application.scss'
+import '../general/materialize.js'
+
 
 import {Router} from "../general/router.js"
 
 let router = new Router();
 
-document.addEventListener("turbolinks:load", function() {    
+document.addEventListener("turbolinks:load", function() {
+
+    router.callAlways(()=>{
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {setDefaultDate: true});
+        instances.forEach((ins)=>{
+
+
+            ins.setDate(new Date());
+            ins._finishSelection();
+        })
+
+    });
+  
     
-    router.callAlways ((entry) => {
-        $(document).ready(function() {
-            $('select').niceSelect();
-        });
-    })
+    //router.callAlways ((entry) => {
+     //   $(document).ready(function() {
+     //       $('select').niceSelect();
+      //  });
+    //})
+
 
     router.callWhen((entry)=>{
        require('pages/home.js').start();

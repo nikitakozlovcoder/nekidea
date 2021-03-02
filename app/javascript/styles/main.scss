@@ -1,4 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+  box-sizing: border-box !important;
+}
+.btn-full-width{
+  max-width: 100% !important;
+
+}
+
+form{
+  text-align: left;
+}
+.content{
+  //text-align: left !important;
+}
+.input-field.col label{
+  //left: 0;
+}
+$i: 1;
+@while $i<=6 {
+  h#{$i} {
+    text-align: left;
+  }
+
+  $i: $i + 1;
+}
+
+
+@media screen and (min-width: 620px) {
+   .content{
+    //text-align: left !important;
+  }
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 
 a:hover { 
   text-decoration: none;

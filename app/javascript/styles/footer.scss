@@ -6,8 +6,8 @@
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-between;
+
+
 }
 
 .footer-text {
@@ -29,7 +29,7 @@
 
 .footer-middle-block {
     max-width: 800px;
-    margin: 0 40px;
+
 }
 
 .footer-text-right-block {
@@ -47,7 +47,9 @@
 }
 
 .footer-logo {
-    max-width: 200px;
+    max-width: 100%;
+    width: 200px;
+    margin-top: 22px;
 }
 
 .contacts {
@@ -55,7 +57,7 @@
         font-size: 1.5rem;
     }
 }
-
+/*
 @media screen and (max-width: 1620px) {
     .footer-middle-block {
         max-width: 700px;
@@ -130,3 +132,4 @@
         font-size: 1.2rem;
     }
 }
+*/

@@ -10,9 +10,12 @@ export class Router {
                 
         });
     }
+
     callAlways(it) {
         let currentEntry =  document.body.dataset.entry;
         it(currentEntry);
-    }
+
+    };
+
 }
 
