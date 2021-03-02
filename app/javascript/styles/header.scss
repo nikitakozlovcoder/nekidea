@@ -9,7 +9,6 @@ header.header{
     
     display: flex;
     justify-content: space-around;
-    padding-left: 20px;
     color: $light-font;
     min-height: 69px;
     
@@ -31,7 +30,7 @@ header.header{
             display: inline-flex;
             padding: 1.6rem 2.5rem;
             color: $light-font;
-            font-weight: 700;
+            font-weight: 500;
             text-transform: uppercase;
 
             position: relative;
@@ -100,8 +99,9 @@ header.header{
     @media screen and (max-width: 900px) {
         & {
             justify-content: start;
-            padding-left: 50px;
+            //padding-left: 50px;
             .links{
+                margin-left: 50px;
                 margin-right: 20px;
                 .item{
                     padding-left: 15px;
@@ -137,7 +137,7 @@ header.header{
     @media screen and (max-width: 580px) {
         & {
             justify-content: center;
-            padding-left: 0;
+            //padding-left: 0;
             .links{
                 display: none;
             }

@@ -16,11 +16,22 @@ header {
         left: 0;
         z-index: 5;
         outline: none;
-        box-shadow: 0 0 0 120px rgba(0,0,0,0);
         transform: translate3d(-$menu-width,0,0);
         transition: all 0.3s ease-in-out;
+
+        & + .overlay {
+            pointer-events:none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out
+        }
     
         .smartphone-menu-trigger{
+            cursor: pointer;
             width: 40px;
             height: 40px;
             position: absolute;
@@ -79,9 +90,9 @@ header {
             li{
                 display: flex;
                 align-items: center;
-                padding:1em 1em 1em 3em;
+                padding:1em 1em 1em 2.5em;
                 font-size:1.2em;
-                font-weight: 900;
+                font-weight: 500;
                 background-repeat: no-repeat;
                 background-position: left 15px center;
                 background-size: auto 20px;
@@ -91,10 +102,22 @@ header {
                 &:hover, &.active {
                     background-color:rgba(0,0,0,0.1);
                 }
+
+                &.active:hover {
+                    padding-left: 2.5em;
+                }
                 
+                &:hover {
+                    padding-left: 3.5em;
+                }
+
                 &:focus{
                     outline:none;
                 }
+
+                // &.active {
+                //     padding-left: 38px;
+                // }
 
                 &.active::before {
                     content: "\2022";
@@ -103,15 +126,21 @@ header {
                     color: var(--color-spec);
                 }
                 
+                &.last {
+                    margin-top: auto;
+                }
             }
         }
     
         &:focus{
             transform:translate3d(0,0,0);
-            box-shadow:0 0 0 120em rgba(0,0,0,0.6);
             
             .smartphone-menu-trigger{
                 pointer-events:none;
+            }
+
+            & + .overlay {
+                opacity: 0.3;
             }
         }
     }

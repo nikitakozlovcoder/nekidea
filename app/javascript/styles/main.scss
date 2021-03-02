@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 a:hover { 
   text-decoration: none;
   -webkit-text-decoration: none;
+  color: $color-accent;
 }
 
 a{
@@ -11,6 +12,7 @@ a{
 
 p{
   font-size: 1.2rem;
+  margin-bottom: 0;
 }
 
 .page-wrapper {
@@ -21,18 +23,31 @@ p{
   margin: 0;
   position:relative;
   min-width: 320px;
+  font-weight:400;
 }
 
 footer{
   margin-top: auto;
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-    -webkit-appearance:none;
+.fullhidden {
+  display: none;
 }
+
+// input:focus,
+// select:focus,
+// textarea:focus,
+// button:focus {
+//     outline: none;
+//     -webkit-appearance:none;
+// }
+
+// @media screen and (max-width: 576px)  {
+//     .container{
+//       width: auto;
+//       margin-left: 5%;
+//       margin-right: 5%;
+//     }
+// }
 
 
