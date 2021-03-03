@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 *{
   box-sizing: border-box !important;
 }
@@ -34,7 +33,7 @@ $i: 1;
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 
 
 a:hover { 
@@ -88,43 +87,3 @@ footer{
 // }
 
 
-=======
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
-a:hover { 
-  text-decoration: none;
-  -webkit-text-decoration: none;
-}
-
-a{
-  transition: all 0.4s ease;
-}
-
-p{
-  font-size: 1.2rem;
-}
-
-.page-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  position:relative;
-  min-width: 320px;
-}
-
-footer{
-  margin-top: auto;
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-    -webkit-appearance:none;
-}
-
-
->>>>>>> parent of dfa784d... materializecss

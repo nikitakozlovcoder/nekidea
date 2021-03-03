@@ -15,34 +15,20 @@ import {Router} from "../general/router.js"
 
 let router = new Router();
 
-<<<<<<< HEAD
 document.addEventListener("turbolinks:load", function() {
 
-    router.callAlways(()=>{
-        var elems = document.querySelectorAll('.datepicker');
-        var instances = M.Datepicker.init(elems, {setDefaultDate: true});
-        instances.forEach((ins)=>{
-
-
-            ins.setDate(new Date());
-            ins._finishSelection();
-        })
-
-    });
-  
     
-    //router.callAlways ((entry) => {
-     //   $(document).ready(function() {
-     //       $('select').niceSelect();
-      //  });
-    //})
+    router.callAlways ((entry) => {
+        $(document).ready(function() {
+            $('select').niceSelect();
+        });
+    });
 
 
     router.callWhen((entry)=>{
-=======
-document.addEventListener("turbolinks:load", function() {    
-   router.callWhen((entry)=>{
->>>>>>> parent of dfa784d... materializecss
+
+
+
        require('pages/home.js').start();
        //Log js-file object
        console.log(require('pages/home.js'));
