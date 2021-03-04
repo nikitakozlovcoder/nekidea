@@ -22,7 +22,9 @@ document.addEventListener("turbolinks:load", function() {
         $(document).ready(function() {
             $('select').niceSelect();
         });
-    });
+
+        require('general/textarea_scroll.js').start();
+    })
 
 
     router.callWhen((entry)=>{
@@ -39,6 +41,7 @@ document.addEventListener("turbolinks:load", function() {
     router.callWhen((entry)=>{
         require('pages/vote_create.js');
     }, "test/vote_create", "votes/new", "votes/edit", "votes/update", "votes/create")
+
     
   
 });
