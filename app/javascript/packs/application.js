@@ -5,7 +5,7 @@
 import 'bootstrap'
 require("@rails/ujs").start()
 require("turbolinks").start()
-require("@rails/activestorage").start()
+require("@rails/activestorage").start();
 require("channels")
 import '../vendor/jquery.nice-select.min.js'
 
@@ -15,7 +15,8 @@ import {Router} from "../general/router.js"
 
 let router = new Router();
 
-document.addEventListener("turbolinks:load", function() {    
+document.addEventListener("turbolinks:load", function() {
+
     
     router.callAlways ((entry) => {
         $(document).ready(function() {
@@ -25,7 +26,11 @@ document.addEventListener("turbolinks:load", function() {
         require('general/textarea_scroll.js').start();
     })
 
+
     router.callWhen((entry)=>{
+
+
+
        require('pages/home.js').start();
        //Log js-file object
        console.log(require('pages/home.js'));
