@@ -39,6 +39,11 @@
   <strong>Current iter:</strong>
   <%= @vote.current_iter %>
 </p>
+<div>
+  <% @vote.pictures.each do |pict| %>
+  <%= image_tag pict %>
+  <% end %>
 
+</div>
 <%= link_to 'Edit', edit_vote_path(@vote) %> |
 <%= link_to 'Back', votes_path %>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'idea', to: 'test#idea'
   get 'photos', to: 'test#photos'
-  get 'vote_create', to: 'test#vote_create'
+  #get 'vote_create', to: 'test#vote_create'
 
   post 'users/generate', to: 'users#generate'
 

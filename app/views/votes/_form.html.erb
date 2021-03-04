@@ -57,8 +57,8 @@
 <% end %>
 -->
 
-<%= form_with(model: vote, local: true, html: {class: "nice outline"}) do |form| %>
-  <%= form.text_field :iter_array, placeholder: " " %>
+<%= form_with(model: vote, local: true, html: {class: "nice outline"}, multipart: true) do |form| %>
+  <%= form.hidden_field :iter_array, placeholder: " " %>
 
   <% if vote.errors.any? %>
     <div id="error_explanation">
@@ -88,8 +88,13 @@
     <div class ="images_label">
       <label for="images" class="btn-simple">Загрузить изображения</label>
     </div>
-    <input id = "images" class = "fullhidden" type = "file" accept = "image/*" multiple>
-    <input class = "fullhidden" name="changed" type="text" value="No">
+    <input id = "images" class = "fullhidden" type = "file" accept = "image/*" multiple name="pictures[]">
+    <input class = "fullhidden" name="pictures_changed" type="text" value="No">
+    <div class="img-wrapper">
+      <% @vote.pictures.each do |pict| %>
+        <%= image_tag pict %>
+      <% end %>
+    </div>
   </div>
   <div class = "form-group">
     <p class = "title">Выберите тип голосования</p>
@@ -122,9 +127,9 @@
         <span class="focus-bg"></span>
       </label>
     </div>
-    <br><br><div>
-      <button type="submit" class="btn btn-primary">Отправить</button>
-    </div>
 
+  </div>
+  <div class="form-group">
+      <button type="submit" class="btn btn-primary">Отправить</button>
   </div>
 <% end %>
