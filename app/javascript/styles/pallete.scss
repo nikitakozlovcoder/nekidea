@@ -46,7 +46,6 @@ form.nice {
 
     .textarea.inp {
         max-height: 500px;
-        --height: 150px;
         .focus-bg {
             display: none;
         }
@@ -54,6 +53,12 @@ form.nice {
             padding-top: 0px;
             resize: none;
             border-top: solid 25px transparent;
+            
+            overflow:hidden;
+            box-sizing: padding-box;
+            // padding:10px;
+            // font-size:14px;
+            // margin:50px auto;
         }
         .label {
             font-size: 1.2rem;
@@ -69,7 +74,7 @@ form.nice {
         width: 100%;
         // max-width: 280px;
         border-radius: 3px;
-        overflow: hidden;
+        // overflow: hidden;
         height: var(--height);
 
 
