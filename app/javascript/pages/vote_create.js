@@ -20,6 +20,7 @@ function preview_image(input) {
          elements[0].parentNode.removeChild(elements[0]);
       }
       //add images
+      var images_container = container.querySelector('input[type="text"]');
       for(var i = 0; i<filesCount; i++){
           var reader = new FileReader();
           reader.onload = function(e) {

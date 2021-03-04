@@ -27,7 +27,9 @@
     height: 150px;
     margin-bottom: 15px;
     img {
-        max-height: 150px;
+        height: 150px;
+        width: 150px;
+        object-fit: scale-down;
         margin-right: 15px;
     }
 }
