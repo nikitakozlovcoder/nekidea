@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Votes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Vote Type</th>
+      <th>Vote Status</th>
+      <th>Body</th>
+      <th>Title</th>
+      <th>Active to</th>
+      <th>Iter array</th>
+      <th>Current iter</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votes.each do |vote| %>
+      <tr>
+        <td><%= vote.user_id %></td>
+        <td><%= vote.vote_type %></td>
+        <td><%= vote.vote_status %></td>
+        <td><%= vote.body %></td>
+        <td><%= vote.title %></td>
+        <td><%= vote.active_to %></td>
+        <td><%= vote.iter_array %></td>
+        <td><%= vote.current_iter %></td>
+        <td><%= link_to 'Show', vote %></td>
+        <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
+        <td><%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vote', new_vote_path %>

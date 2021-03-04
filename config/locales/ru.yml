@@ -32,6 +32,8 @@
 ru:
   incorrect_credentials: "Не удалось выполнить вход: проверьте корректнось введенных данных"
   hello: "Привет мир"
+  date:
+    order: ["year", "month", "day"]
   activerecord:
     errors:
       models:

@@ -29,8 +29,6 @@ document.addEventListener("turbolinks:load", function() {
 
     router.callWhen((entry)=>{
 
-
-
        require('pages/home.js').start();
        //Log js-file object
        console.log(require('pages/home.js'));
@@ -42,7 +40,8 @@ document.addEventListener("turbolinks:load", function() {
 
     router.callWhen((entry)=>{
         require('pages/vote_create.js');
-    }, "test/vote_create")
+    }, "test/vote_create", "votes/new", "votes/edit", "votes/update", "votes/create")
+
     
   
 });
