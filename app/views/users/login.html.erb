@@ -4,13 +4,14 @@
         <div class = "logo">
             <%= image_tag "logo.svg" %>
         </div>
+
       <%= form_with class: "nice", local: false do %>
-            <label for="input1" class="inp">
+            <label for="input1" class="inp background">
                 <input name = "mail" type="email" id="inp" placeholder="&nbsp;"  autocomplete="off">
                 <span class="label">Эл. почта</span>
                 <span class="focus-bg"></span>
             </label>
-            <label for="input1" class="inp">
+            <label for="input1" class="inp background">
                 <input name = "password" type="password" id="inp" placeholder="&nbsp;">
                 <span class="label">Пароль</span>
                 <span class="focus-bg"></span>

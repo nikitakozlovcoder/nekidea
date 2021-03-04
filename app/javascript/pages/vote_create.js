@@ -44,13 +44,3 @@ $("div[data-id = 'iter']").each((i, el) => {
         };
     });
 });
-// document.querySelectorAll("div[data-id = 'iter']").forEach((el) => {
-//     let drop = el.parentNode.querySelector('.nice-select');//.querySelector('.nice-select');
-//     console.log(drop);
-//     /*drop.addEventListener('change', () => {
-//         console.log("awdawd");
-//         if(el.value == 'other') {
-//             el.parentNode.querySelector('div').classList.toggle('fullhidden');
-//         };
-//     })*/
-// });

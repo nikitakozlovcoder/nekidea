@@ -46,7 +46,6 @@ form.nice {
 
     .textarea.inp {
         max-height: 500px;
-        --height: 150px;
         .focus-bg {
             display: none;
         }
@@ -54,6 +53,12 @@ form.nice {
             padding-top: 0px;
             resize: none;
             border-top: solid 25px transparent;
+            
+            overflow:hidden;
+            box-sizing: padding-box;
+            // padding:10px;
+            // font-size:14px;
+            // margin:50px auto;
         }
         .label {
             font-size: 1.2rem;
@@ -69,8 +74,9 @@ form.nice {
         width: 100%;
         // max-width: 280px;
         border-radius: 3px;
-        overflow: hidden;
+        // overflow: hidden;
         height: var(--height);
+
 
         .label {
             position: absolute;
@@ -107,14 +113,14 @@ form.nice {
             padding: 16px 12px 0 12px;
             height: var(--height);
             font-size: 16px;
-            background: rgba(var(--dark),.02);
+            //background: rgba(var(--dark),.02);
             border-bottom: solid 2px #AFAFAF;
             //box-shadow: inset 0 -2px 0 rgba(var(--dark), var(--opacity-line));
             color: var(--dark);
             transition: all .15s ease;
 
             &:hover {
-                background: rgba(var(--dark),.04);
+                //background: rgba(var(--dark),.04);
                 //box-shadow: inset 0 -2px 0 rgba(var(--dark), var(--opacity-label));
                 border-bottom-color: #7A7A7A;
             }
@@ -133,7 +139,7 @@ form.nice {
             }
 
             &:focus {
-                background: rgba(var(--dark),.05);
+                //background: rgba(var(--dark),.05);
                 outline: none;
                 //box-shadow: inset 0 -2px 0 var(--primary);
                 border-bottom-color: var(--primary);
@@ -144,6 +150,18 @@ form.nice {
                         transform: scaleX(1);
                         transition: all .1s ease;
                     }
+                }
+            }
+        }
+
+        &.background {
+            input, textarea {
+                background: rgba(var(--dark),.02);
+                &:hover {
+                    background: rgba(var(--dark),.04);
+                }
+                &:focus {
+                    background: rgba(var(--dark),.05);
                 }
             }
         }
