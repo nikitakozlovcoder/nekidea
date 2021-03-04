@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vote.user_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @vote.vote_type %>
+</p>
+
+<p>
+  <strong>Vote status:</strong>
+  <%= @vote.vote_status %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @vote.body %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @vote.title %>
+</p>
+
+<p>
+  <strong>Active to:</strong>
+  <%= @vote.active_to %>
+</p>
+
+<p>
+  <strong>Iter array:</strong>
+  <%= @vote.iter_array %>
+</p>
+
+<p>
+  <strong>Current iter:</strong>
+  <%= @vote.current_iter %>
+</p>
+
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'Back', votes_path %>

@@ -40,7 +40,7 @@ document.addEventListener("turbolinks:load", function() {
 
     router.callWhen((entry)=>{
         require('pages/vote_create.js').PhotoAppender;
-    }, "test/vote_create")
+    }, "test/vote_create", "vote/new", "vote/edit")
     
   
 });
