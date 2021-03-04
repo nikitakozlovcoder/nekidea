@@ -1,8 +1,11 @@
 class ApplicationController < ActionController::Base
   skip_forgery_protection
   helper_method :current_user
+  helper_method :user_avatar
+
   def current_user
     puts "I am working 1111111111111111111111111"
+
     if cookies.signed["user"]
       puts "I am working 22222222222222222222222222222"
       hash = JSON.parse(cookies.signed["user"])
@@ -21,5 +24,14 @@ class ApplicationController < ActionController::Base
       nil
     end
 
+  end
+
+
+  def user_avatar
+    if current_user != nil and current_user.avatar.attached?
+      current_user.avatar
+    else
+       "https://w3schoolsrus.github.io/w3images/avatar2.png"
+    end
   end
 end

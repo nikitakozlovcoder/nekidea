@@ -1,0 +1,2 @@
+class AddIdToJoinTable < ApplicationRecord
+end

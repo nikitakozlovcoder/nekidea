@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_06_150858) do
+ActiveRecord::Schema.define(version: 2021_03_03_073111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,11 +41,13 @@ ActiveRecord::Schema.define(version: 2021_02_06_150858) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_general", default: false
+    t.boolean "write_all", default: true
   end
 
-  create_table "duties_users", id: false, force: :cascade do |t|
+  create_table "duties_users", force: :cascade do |t|
     t.bigint "duty_id"
     t.bigint "user_id"
+    t.boolean "has_write_access", default: true
     t.index ["duty_id"], name: "index_duties_users_on_duty_id"
     t.index ["user_id"], name: "index_duties_users_on_user_id"
   end
@@ -62,7 +64,23 @@ ActiveRecord::Schema.define(version: 2021_02_06_150858) do
     t.string "surname", default: ""
     t.string "patronymic", default: ""
     t.datetime "restore_date", default: "2021-02-06 15:13:09"
+    t.boolean "is_boss", default: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "vote_type"
+    t.text "body"
+    t.string "title"
+    t.datetime "active_to"
+    t.text "iter_array"
+    t.integer "current_iter"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "vote_status"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "votes", "users"
 end
