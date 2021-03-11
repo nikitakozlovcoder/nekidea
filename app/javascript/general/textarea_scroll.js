@@ -15,14 +15,10 @@ export function start() {
         this.baseScrollHeight = this.scrollHeight;
         this.value = savedValue;
     }).on('input.textarea', '.autoExpand', function(){
-        console.log('there');
         var minRows = this.getAttribute('data-min-rows')|0,
             rows;
         this.rows = minRows;
-        console.log('scroll:', this.scrollHeight);
-        console.log('base scroll:', this.baseScrollHeight);
         rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 24);
-        console.log('rows:', rows);
         this.rows = minRows + rows;
     });
 

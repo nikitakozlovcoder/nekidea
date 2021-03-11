@@ -76,8 +76,10 @@
     font-weight: 500;
     font-size: 1.2rem;
     color: $light-font;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
     padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
 
     &:hover, &:focus {
         background-color: $color-accent;
@@ -98,8 +100,10 @@
     background-color: rgba(var(--dark), 0.02);
     font-weight: 500;
     font-size: 1.2rem;
-    border-radius: 0.5rem;
-    padding: 10px;
+    border-radius: 0.4rem;
+    padding: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
 
     &:hover {
         background-color: rgba(var(--dark), 0.06);
