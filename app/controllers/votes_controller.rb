@@ -68,6 +68,7 @@ class VotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vote_params
+      params['vote']['vote_type'] = params['vote']['vote_type'].to_i unless params['vote']['vote_type'].nil?
       params.require(:vote).permit( :vote_type, :vote_status, :body, :title, :active_to, :iter_array, :current_iter)
     end
     def require_login
