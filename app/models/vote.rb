@@ -15,7 +15,7 @@ class Vote < ApplicationRecord
     arr.each_with_index do |el, i|
         created = created.advance(days: el['days_collecting'])
         unless current_datetime>=created
-          new_iter = i
+          new_iter = i+1
           new_status = 0
           puts "!!!!!!!!!!!"
           archived = false
@@ -37,14 +37,11 @@ class Vote < ApplicationRecord
       self.current_iter = new_iter
       self.vote_status = new_status
       self.save
-      if t != new_iter
+      if t != new_iter || new_status == 2
         update_ideas
       end
 
     end
-
-
-
 
   end
   private
