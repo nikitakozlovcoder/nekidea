@@ -32,8 +32,10 @@ class UsersController < ApplicationController
       code = SecureRandom.hex(5)
       @user.password = code
       if @user.save
+        user.add_duty Duty.find_by(is_general: true)
         UserMailer.with(mail: @user.mail, password: code).welcome_email.deliver_later
       end
+
       p @user.errors
       respond_to do |format|
         format.json{
@@ -84,7 +86,7 @@ class UsersController < ApplicationController
       user.password = code
       saved = user.save
       user.add_duty Duty.find_by(is_general: true)
-      if row["duties"] != nil
+      if row["duties"] != nil and saved
         row["duties"].split(" ").each do |el|
           duty = Duty.find_by(name: el)
           user.add_duty duty if duty != nil

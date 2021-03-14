@@ -2,6 +2,7 @@ class Vote < ApplicationRecord
   enum vote_status: [ :collecting, :voting, :archived ]
   enum vote_type: [ :multi ]
   belongs_to :user
+  belongs_to :duty
   has_many_attached :pictures
 
   def update_iteration
@@ -35,6 +36,7 @@ class Vote < ApplicationRecord
     if self.current_iter != new_iter || self.vote_status != new_status
       t =  self.current_iter
       self.current_iter = new_iter
+
       self.vote_status = new_status
       self.save
       if t != new_iter || new_status == 2
