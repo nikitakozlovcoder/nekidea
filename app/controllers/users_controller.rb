@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: %i[ login_post login logout ]
   def login_post
     mail = params["mail"]
     password = params["password"]

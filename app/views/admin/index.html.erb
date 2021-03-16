@@ -1,0 +1,31 @@
+
+
+<div class="page-wrapper vote-create">
+  <%= render partial: './header.html.erb' %>
+  <section class ="content container">
+    <h1 class = "title">Admin Page</h1>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Patronymic</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each_with_index do |u, i |  %>
+      <tr>
+        <th scope="row">1</th>
+        <td><%= u.name  %></td>
+        <td><%= u.surname  %></td>
+        <td><%= u.patronymic.blank? ? '-----' :  u.patronymic %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <%= render partial: './footer.html.erb' %>
+</div>
+
