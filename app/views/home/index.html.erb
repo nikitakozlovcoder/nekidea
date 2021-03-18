@@ -1,5 +1,4 @@
-
-    
+<div class ="page-wrapper home">    
     <%= render partial: './header.html.erb' %>
     <section class="content container">
       <%= current_user.mail if current_user != nil %>
@@ -75,6 +74,12 @@
     <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
     </section>
     <section class="content container">
+        <h1 class = "title">Кнопки</h1>
+        <button class ="btn-simple">Кнопка</button>
+        <button class ="btn-simple-outline"> Кнопка</button>
+        <button class ="btn-outline"> Кнопка</button>
+    </section>
+    <section class="content container">
         <h1 class = "title">Editable Text элемент</h1>
         <div id="editor"></div>
     </section>
@@ -101,5 +106,5 @@
     </label>
     </section>
     <%= render partial: './footer.html.erb' %>
-
+</div>
 

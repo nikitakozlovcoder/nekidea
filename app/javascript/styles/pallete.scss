@@ -24,17 +24,20 @@
 }
 
 .img-wrapper {
-    display: block;
-    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
     img {
-        max-height: 150px;
+        margin-bottom: 15px;
+        height: 150px;
+        width: 150px;
+        object-fit: scale-down;
         margin-right: 15px;
     }
 }
 
 .wrapper {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 //Inputs
@@ -45,10 +48,6 @@ form.nice {
     --opacity-line: 0.3;
 
     .textarea.inp {
-        max-height: 500px;
-        .focus-bg {
-            display: none;
-        }
         textarea {
             padding-top: 0px;
             resize: none;
@@ -56,9 +55,6 @@ form.nice {
             
             overflow:hidden;
             box-sizing: padding-box;
-            // padding:10px;
-            // font-size:14px;
-            // margin:50px auto;
         }
         .label {
             font-size: 1.2rem;
@@ -75,7 +71,7 @@ form.nice {
         // max-width: 280px;
         border-radius: 3px;
         // overflow: hidden;
-        height: var(--height);
+        //height: var(--height);
 
 
         .label {
@@ -111,7 +107,6 @@ form.nice {
             border: 0;
             font-family: inherit;
             padding: 16px 12px 0 12px;
-            height: var(--height);
             font-size: 16px;
             //background: rgba(var(--dark),.02);
             border-bottom: solid 2px #AFAFAF;
@@ -152,6 +147,11 @@ form.nice {
                     }
                 }
             }
+        }
+
+        input {
+            //height: var(--height);
+            padding-top: 26px;
         }
 
         &.background {
