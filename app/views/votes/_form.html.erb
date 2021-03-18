@@ -62,8 +62,6 @@
 
   <% if vote.errors.any? %>
     <div id="error_explanation">
-
-
       <ul>
         <% vote.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -77,6 +75,18 @@
       <span class="label">Название голосования</span>
       <span class="focus-bg"></span>
     </label>
+  </div>
+  <div class = "form-group">
+    <p class = "title">Выберите duty</p>
+    <div>
+      <select name = "vote[duty_id]">
+        <% current_user.duties.each do |d| %>
+          <option value=<%=d.id %> <%= 'selected' if d.id == vote.duty_id %>><%= d.name %></option>
+        <% end %>
+
+
+      </select>
+    </div>
   </div>
   <div class = "form-group">
     <label for="vote_description" class="inp textarea">
@@ -96,15 +106,15 @@
       <% end %>
     </div>
   </div>
-  <div class = "form-group">
+  <!--<div class = "form-group">
     <p class = "title">Выберите тип голосования</p>
     <div>
       <select name = "vote[vote_type]">
-        <option value="1">Одноэтапное</option>
-        <option value="2">Многоэтапное</option>
+        <option value=0>Одноэтапное</option>
+        <option value=1>Многоэтапное</option>
       </select>
     </div>
-  </div>
+  </div>-->
 
   <div class = "form-group">
     <p class = "title">Количество этапов</p>
