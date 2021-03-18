@@ -62,8 +62,6 @@
 
   <% if vote.errors.any? %>
     <div id="error_explanation">
-
-
       <ul>
         <% vote.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -76,6 +74,18 @@
       <%= form.text_field :title, id: "vote_name", placeholder: " " %>
       <span class="label">Название голосования</span>
     </label>
+  </div>
+  <div class = "form-group">
+    <p class = "title">Выберите duty</p>
+    <div>
+      <select name = "vote[duty_id]">
+        <% current_user.duties.each do |d| %>
+          <option value=<%=d.id %> <%= 'selected' if d.id == vote.duty_id %>><%= d.name %></option>
+        <% end %>
+
+
+      </select>
+    </div>
   </div>
   <div class = "form-group">
     <label for="vote_description" class="inp textarea">
@@ -95,6 +105,7 @@
       <% end %>
     </div>
   </div>
+
   <div class="form-group">
         <p class = "title">Продолжительность фазы предложения идей</p>
         <label for="vote_collecting" class="inp number">
@@ -125,7 +136,9 @@
   </div>
   <div class = "form-group">
     <button type="button" id = "add_iter" class="btn-simple-outline right">Добавить этап</button>
+
   </div>
+
 
   <%# <div class = "form-group">
     <p class = "title">Количество этапов</p>

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_one_attached :avatar
     has_secure_password
-
+    has_many :votes, dependent: :nullify
     validates :mail, uniqueness: true
     validates :name, presence: true
     validates :surname, presence: true

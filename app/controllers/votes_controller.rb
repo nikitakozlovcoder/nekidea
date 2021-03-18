@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: %i[ show edit update destroy ]
-  before_action :require_login, only: %i[ create new edit update destroy ]
+
 
   # GET /votes or /votes.json
   def index
@@ -69,9 +69,7 @@ class VotesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def vote_params
       params['vote']['vote_type'] = params['vote']['vote_type'].to_i unless params['vote']['vote_type'].nil?
-      params.require(:vote).permit( :vote_type, :vote_status, :body, :title, :active_to, :iter_array, :current_iter)
+      params.require(:vote).permit( :vote_type, :vote_status, :body, :title, :active_to, :iter_array, :current_iter, :duty_id)
     end
-    def require_login
-      redirect_to controller: 'users', action: 'login' if current_user.nil?
-    end
+
 end
