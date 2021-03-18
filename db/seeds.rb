@@ -6,11 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
+
 user = User.new(mail: "example@gmail.com", password: "qwerty123", birth_date: 20.years.ago, is_admin: true, rating: 228,
  name: "Omari", surname: "Starks", patronymic: "Ivanovich", restore_date: Time.now.getutc)
+
 user.avatar.attach(io: File.open(File.join(File.dirname(__FILE__), '35.jpg')), filename: '35.jpg')
 user.save
 Duty.destroy_all
-Duty.where(name: "Все", is_general: true).first_or_create
+d = Duty.where(name: "Все", is_general: true).first_or_create
 Duty.where(name: "Разработчики").first_or_create
+user.duties << d
 
