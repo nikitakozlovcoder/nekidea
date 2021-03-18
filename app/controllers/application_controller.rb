@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :user_avatar
 
+
+
   def current_user
     #puts "I am working 1111111111111111111111111"
 
