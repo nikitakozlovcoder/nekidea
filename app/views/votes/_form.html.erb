@@ -73,7 +73,6 @@
     <label for="vote_name" class="inp">
       <%= form.text_field :title, id: "vote_name", placeholder: " " %>
       <span class="label">Название голосования</span>
-      <span class="focus-bg"></span>
     </label>
   </div>
   <div class = "form-group">
@@ -106,10 +105,38 @@
       <% end %>
     </div>
   </div>
+
+  <div class="form-group">
+        <p class = "title">Продолжительность фазы предложения идей</p>
+        <label for="vote_collecting" class="inp number">
+            <input id="vote_collecting" placeholder=" " type="text" name="vote[days_collecting]">
+            <span class="label">Количество дней</span>
+        </label>
+  </div>
+  <div class="form-group">
+        <p class = "title">Продолжительность фазы оценивания идей</p>
+        <label for="vote_voting" class="inp number">
+            <input id="vote_voting" placeholder=" " type="text" name="vote[days_voting]">
+            <span class="label">Количество дней</span>
+        </label>
+  </div>
+  <div class = "form-group">
+    <p class = "title down">Выберите группу для голосования</p>
+    <div id = "vote_type">
+      <select>
+        <option value=0>Все</option>
+        <option value=1>Старший сотрудник</option>
+        <option value=1>Уборщик</option>
+        <option value=1>Руководитель</option>
+      </select>
+    </div>
   </div>
 
-  <div class = "form-group fullhidden" id = "add_iter">
-    <button class="btn-simple-outline">Добавить этап</button>
+  <div id="iters">
+  </div>
+  <div class = "form-group">
+    <button type="button" id = "add_iter" class="btn-simple-outline right">Добавить этап</button>
+
   </div>
 
 
