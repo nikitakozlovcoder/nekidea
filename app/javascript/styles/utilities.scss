@@ -1,0 +1,20 @@
+form {
+    .right {
+        float: right;
+    }
+    
+    .inp.number {
+        max-width: 185px;
+        input {
+            font-size: 1.3rem;
+            padding-top: 19px;
+        }
+        .label {
+            top: 14px;
+        }
+    }
+
+    .title.down {
+        margin-bottom: 15px;
+    }
+}

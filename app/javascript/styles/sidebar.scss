@@ -89,7 +89,8 @@ header {
             padding: 0.5em 0;
             margin: 0;
             
-            li{
+            a{
+                color: $light-font;
                 display: flex;
                 align-items: center;
                 padding:1em 1em 1em 2.5em;

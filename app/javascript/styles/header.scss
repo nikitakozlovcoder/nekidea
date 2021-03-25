@@ -60,17 +60,30 @@ header.header{
             }
 
             &:hover::before,
-            &:hover::after,
-            &.active::before,
-            &.active::after {
+            &:hover::after
+            {
+                width: 100%;
+                transition-duration: .3s;
+            }
+            
+        }
+
+        li.active .item {
+            &::before,
+            &::after {
                 width: 100%;
                 transition-duration: .3s;
             }
         }
-        &:hover .item:not(:hover){
-            color: var(--link-color-onhover);
-            // color: rgba(22, 22, 22, .35);
-        }
+
+        // &:hover {
+        //     .item:not(:hover) {
+        //         color: var(--link-color-onhover);
+        //     }
+        //     // .active.item:hover{
+        //     //     color: $light-font;
+        //     // }
+        // }
     }
 
     .logo {
