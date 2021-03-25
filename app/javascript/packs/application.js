@@ -24,7 +24,7 @@ document.addEventListener("turbolinks:load", function() {
         });
     });
 
-
+    задлейстованных людей
     router.callWhen((entry)=>{
 
 
