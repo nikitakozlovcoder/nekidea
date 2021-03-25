@@ -27,6 +27,9 @@ class User < ApplicationRecord
         arr
     end
 
+    def delete_duty id
+        self.duties.delete(id)
+    end
     def all_duties
         self.duties
     end

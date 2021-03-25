@@ -56,7 +56,7 @@
   </div>
 <% end %>
 -->
-<% if current_user.writable_duties.count > 0 %>
+<% if @writable_duties.count > 0 %>
   <%= form_with(model: vote, local: true, html: {class: "nice outline"}, multipart: true) do |form| %>
     <%= form.hidden_field :iter_array, placeholder: " " %>
 
@@ -114,7 +114,7 @@
       <div id = "vote_type">
         <select name = "vote[duty_id]">
 
-          <% current_user.writable_duties.each do |d| %>
+          <% @writable_duties.each do |d| %>
 
             <option value=<%=d.id %> <%= 'selected' if d.id == vote.duty_id %>><%= d.name %></option>
 

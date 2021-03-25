@@ -13,11 +13,15 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
+    @writable_duties = current_user.writable_duties
     @vote = Vote.new
   end
 
   # GET /votes/1/edit
   def edit
+    @writable_duties = current_user.writable_duties
+    @writable_duties << @vote.duty
+    @writable_duties = @writable_duties.uniq
   end
 
   # POST /votes or /votes.json
