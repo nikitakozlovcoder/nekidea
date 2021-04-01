@@ -4,7 +4,12 @@ class Vote < ApplicationRecord
   belongs_to :user
   belongs_to :duty
   has_many_attached :pictures
-
+  def can_write user
+    self.user_id == user.id or user.is_admin or user.is_boss
+  end
+  def iterations
+    JSON.parse self.iter_array
+  end
   def update_iteration
 
     new_status = 0

@@ -60,6 +60,13 @@ document.querySelectorAll("input[type = 'file']").forEach((el) => {
 //         };
 //     });
 // });
+document.querySelectorAll('.del.btn-simple-outline').forEach((el)=>{
+    el.addEventListener('click', (e)=>{
+        console.log(el.dataset.id);
+        document.querySelector('#'+el.dataset.id).remove();
+    })
+})
+
 let id_iter = 0;
 $('#add_iter').on('click', (e) => {
     let container = $('div#iters');

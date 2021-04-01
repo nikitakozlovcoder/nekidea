@@ -19,9 +19,14 @@ class VotesController < ApplicationController
 
   # GET /votes/1/edit
   def edit
-    @writable_duties = current_user.writable_duties
-    @writable_duties << @vote.duty
-    @writable_duties = @writable_duties.uniq
+    unless @vote.can_write current_user
+      redirect_to :index
+    else
+      @writable_duties = current_user.writable_duties
+      @writable_duties << @vote.duty
+      @writable_duties = @writable_duties.uniq
+    end
+
   end
 
   # POST /votes or /votes.json
@@ -57,11 +62,21 @@ class VotesController < ApplicationController
 
   # DELETE /votes/1 or /votes/1.json
   def destroy
-    @vote.destroy
-    respond_to do |format|
-      format.html { redirect_to votes_url, notice: "Vote was successfully destroyed." }
-      format.json { head :no_content }
+    if @vote.can_write current_user
+      @vote.destroy
+      respond_to do |format|
+        format.html { redirect_to votes_url, notice: "Vote was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+
+      respond_to do |format|
+        format.html { redirect_to votes_url, notice: "Vote wasnt successfully destroyed." }
+        format.json { head :no_content }
+      end
+
     end
+
   end
 
   private

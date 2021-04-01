@@ -57,6 +57,7 @@
 <% end %>
 -->
 <% if @writable_duties.count > 0 %>
+
   <%= form_with(model: vote, local: true, html: {class: "nice outline voteform"}, multipart: true) do |form| %>
     <%= form.hidden_field :iter_array, placeholder: " " %>
 
@@ -97,15 +98,16 @@
     </div>
       <div class="form-group">
         <p class = "title">Продолжительность фазы предложения идей</p>
+        <% console %>
         <label for="vote_collecting" class="inp number">
-          <input id="vote_collecting" class = "vote_collecting" placeholder=" " type="text" name="vote[days_collecting]" required>
+          <input id="vote_collecting" class = "vote_collecting" placeholder=" " type="text" name="vote[days_collecting]" required value="<%= @vote.iterations.first['days_collecting'] if @vote.iterations.first != nil %>">
           <span class="label">Количество дней</span>
         </label>
       </div>
       <div class="form-group">
         <p class = "title">Продолжительность фазы оценивания идей</p>
         <label for="vote_voting" class="inp number">
-          <input id="vote_voting" class = "vote_voting" placeholder=" " type="text" name="vote[days_voting]" required>
+          <input id="vote_voting" class = "vote_voting" placeholder=" " type="text" name="vote[days_voting]" required value="<%= @vote.iterations.first['days_voting'] if @vote.iterations.first != nil%>">
           <span class="label">Количество дней</span>
         </label>
       </div>
@@ -126,6 +128,41 @@
       </div>
     </div>
 
+    <% @vote.iterations[1..-1].each_with_index do |iter, idx| %>
+      <div class = "iter" data-id = "<%= 10000+idx %>" id="iter<%=10000+idx %>">
+
+        <div class = "form-group">
+          <label class="del btn-simple-outline right" data-id="iter<%=10000+idx %>"><i class="fas fa-times"></i></label>
+        </div>
+        <div class="form-group">
+          <label for="vote_name<%= 10000+idx %>" class="inp">
+            <input id="vote_name<%= 10000+idx %>" placeholder=" " class="vote_name" type="text" required value="<%= iter['title'] %>">
+            <span class="label">Название этапа</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="vote_description<%= 10000+idx %>" class="inp textarea">
+            <textarea id="vote_description<%= 10000+idx %>" placeholder=" " class="autoExpand vote_description" rows="1" data-min-rows="1" required><%= iter['body'] %></textarea>
+            <span class="label">Описание этапа</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <p class = "title">Продолжительность фазы предложения идей</p>
+          <label for="vote_collecting<%= 10000+idx %>" class="inp number">
+            <input id="vote_collecting<%= 10000+idx %>" class = "vote_collecting" placeholder=" " type="text" required value="<%= iter['days_collecting'] %>">
+            <span class="label">Количество дней</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <p class = "title">Продолжительность фазы оценивания идей</p>
+          <label for="vote_voting<%= 10000+idx %>" class="inp number">
+            <input id="vote_voting<%= 10000+idx %>" class = "vote_voting" placeholder=" " type="text" required value="<%= iter['days_voting'] %>">
+            <span class="label">Количество дней</span>
+          </label>
+        </div>
+
+      </div>
+    <% end %>
     <div id="iters">
     </div>
     <div class = "form-group">
