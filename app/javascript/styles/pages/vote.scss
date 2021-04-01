@@ -1,0 +1,103 @@
+@use "sass:color";
+
+.vote.head {
+    padding: 10px 20px;
+    background-color: $color-main2;
+    font-weight: 500;
+    p{
+        font-size: 1.4rem;
+    }
+    span {
+        color: $color-elem;
+    }
+    .head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .person {
+            display: flex;
+            flex-direction: row;
+            p {
+                margin: auto;
+                text-align: center;
+            }
+            .avatar {
+                margin-right: 10px;
+                img {
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 100%;
+                    border: 2px solid $color-accent3;
+                }
+            }
+            .name {
+                display: flex;
+            }
+        }
+        .time {
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            p {
+                margin: auto;
+                text-align: center;
+            }
+        }
+    }   
+}
+
+.vote.main {
+    box-shadow: 0px 0px 15px #0000001a;
+    padding: 20px 40px 20px 4px;
+    counter-reset: headings;
+    .vote_title, .vote_body {
+        margin-left: 36px;
+    }
+    .iter {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        .body {
+            display: flex;
+            flex-grow: 10;
+            box-shadow: 0px 0px 15px #0000001a;
+            .strip {
+                min-width: 7px;
+                width: 7px;
+                background-color: #bdbdc4;
+            }
+            .text {
+                padding: 20px 20px;
+            }
+        }
+        .num {
+            display: inline-flex;
+            background-color: #adadb6;
+            border-radius: 100%;
+            height: 30px;
+            width: 30px;
+            min-width: 30px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 5px;
+        }
+        .num::before {
+            counter-increment: headings;
+            content: counter(headings); 
+        }
+    }
+    .iter.active {
+        .body {
+            box-shadow: 0px 0px 15px rgba( $color-accent, .4 );
+            .strip {
+                background-color: $color-accent;
+            }
+        }
+        .num {
+            background-color: $color-accent;
+        }
+    }
+}
