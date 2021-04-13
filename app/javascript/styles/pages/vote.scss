@@ -15,6 +15,10 @@
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
+        .left {
+            display: flex;
+            align-items: center;
+        }
         .person {
             display: flex;
             flex-direction: row;
@@ -24,9 +28,10 @@
             }
             .avatar {
                 margin-right: 10px;
+                margin-left: 10px;
                 img {
-                    height: 70px;
-                    width: 70px;
+                    height: 50px;
+                    width: 50px;
                     border-radius: 100%;
                     border: 2px solid $color-accent3;
                 }
@@ -44,6 +49,9 @@
                 text-align: center;
             }
         }
+        .phase {
+            margin-top: 5px;
+        }
     }   
 }
 
@@ -51,7 +59,7 @@
     box-shadow: 0px 0px 15px #0000001a;
     padding: 20px 40px 20px 4px;
     counter-reset: headings;
-    .vote_title, .vote_body {
+    .vote_title, .vote_body, .images {
         margin-left: 36px;
     }
     .iter {
@@ -99,5 +107,8 @@
         .num {
             background-color: $color-accent;
         }
+    }
+    .images {
+        margin-top: 30px;   
     }
 }

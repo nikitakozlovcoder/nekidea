@@ -72,6 +72,20 @@ footer{
   display: none;
 }
 
+.owl-nav {
+  display: none;
+}
+.owl-dots {
+  margin-top: 10px;
+}
+.owl-item {
+  img {
+    object-fit: contain;
+    max-width: 160px;
+    max-height: 160px;
+  }
+}
+
 // input:focus,
 // select:focus,
 // textarea:focus,
