@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'idea', to: 'test#idea'
   get 'photos', to: 'test#photos'
   #get 'vote_create', to: 'test#vote_create'
-
+  get 'logout', to: 'users#logout'
   post 'users/generate', to: 'users#generate'
 
 end

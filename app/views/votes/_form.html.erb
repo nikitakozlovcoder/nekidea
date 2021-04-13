@@ -98,7 +98,7 @@
     </div>
       <div class="form-group">
         <p class = "title">Продолжительность фазы предложения идей</p>
-        <% console %>
+
         <label for="vote_collecting" class="inp number">
           <input id="vote_collecting" class = "vote_collecting" placeholder=" " type="text" name="vote[days_collecting]" required value="<%= @vote.iterations.first['days_collecting'] if @vote.iterations.first != nil %>">
           <span class="label">Количество дней</span>
@@ -127,8 +127,8 @@
         </select>
       </div>
     </div>
-
-    <% @vote.iterations[1..-1].each_with_index do |iter, idx| %>
+  <% if (iters = @vote.iterations[1..-1]) != nil %>
+    <%  iters.each_with_index do |iter, idx| %>
       <div class = "iter" data-id = "<%= 10000+idx %>" id="iter<%=10000+idx %>">
 
         <div class = "form-group">
@@ -163,6 +163,7 @@
 
       </div>
     <% end %>
+      <% end %>
     <div id="iters">
     </div>
     <div class = "form-group">

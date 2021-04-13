@@ -48,7 +48,7 @@ document.addEventListener("turbolinks:load", function() {
 
     router.callWhen((entry)=>{
         require('pages/vote.js');
-    }, "votes/show")
+    }, "votes/show", "test/idea")
 
 
     
