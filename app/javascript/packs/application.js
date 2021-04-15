@@ -22,6 +22,7 @@ document.addEventListener("turbolinks:load", function() {
 
     
     router.callAlways ((entry) => {
+        //alert('hi!');
         $(document).ready(function() {
             $('select').niceSelect();
         });

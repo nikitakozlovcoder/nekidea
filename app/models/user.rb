@@ -12,8 +12,8 @@ class User < ApplicationRecord
     has_many :duties, through: :duties_users, class_name: "Duty"
     private :duties_users, :duties_users=, :duties, :duties=
     def add_duty duty
-        if  duties.find_by(id: duty.id)== nil
-            duties << duty
+        if  self.duties.find_by(id: duty.id)== nil
+            self.duties << duty
         end
     end
 

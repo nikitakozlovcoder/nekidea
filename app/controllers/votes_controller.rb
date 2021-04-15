@@ -13,12 +13,14 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
+    set_writable_duties false
     @writable_duties = current_user.writable_duties
     @vote = Vote.new
   end
 
   # GET /votes/1/edit
   def edit
+    set_writable_duties true
     unless @vote.can_write current_user
       redirect_to :index
     else
@@ -31,6 +33,7 @@ class VotesController < ApplicationController
 
   # POST /votes or /votes.json
   def create
+    set_writable_duties false
     @vote = Vote.new(vote_params)
     @vote.user_id = current_user.id
     @vote.pictures.attach(params[:pictures]) unless params[:pictures].nil?
@@ -47,6 +50,7 @@ class VotesController < ApplicationController
 
   # PATCH/PUT /votes/1 or /votes/1.json
   def update
+    set_writable_duties true
     respond_to do |format|
       @vote.pictures.purge if params[:pictures_changed] == "Yes"
       @vote.pictures.attach(params[:pictures]) if (!params[:pictures].nil? and  params[:pictures_changed] == "Yes")
@@ -90,5 +94,10 @@ class VotesController < ApplicationController
       params['vote']['vote_type'] = params['vote']['vote_type'].to_i unless params['vote']['vote_type'].nil?
       params.require(:vote).permit( :vote_type, :vote_status, :body, :title, :active_to, :iter_array, :current_iter, :duty_id)
     end
-
+  private
+  def set_writable_duties expanded
+    @writable_duties = current_user.writable_duties
+    @writable_duties << @vote.duty if expanded
+    @writable_duties = @writable_duties.uniq if expanded
+  end
 end
