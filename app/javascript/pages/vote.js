@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    console.log('Hi1');
+
     $('.owl-carousel').owlCarousel({
         loop:true,
         margin:10,
