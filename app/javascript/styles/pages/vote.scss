@@ -1,7 +1,7 @@
 @use "sass:color";
 
 .vote.head {
-    padding: 10px 20px;
+    padding: 20px 40px;
     background-color: $color-main2;
     font-weight: 500;
     p{
@@ -25,6 +25,10 @@
             p {
                 margin: auto;
                 text-align: center;
+            }
+            a {
+                display: flex;
+                color: #212529;
             }
             .avatar {
                 margin-right: 10px;
@@ -189,65 +193,68 @@
             flex-grow: 1;
             display: flex;
             align-items: center;
-            
-            .rating {
-                display: flex;
-                width: 300px;
-                text-align: center;
-                justify-content: center;
-                z-index: 1;
-            }
-              
-            .like,
-            .dislike {
-                display: inline-block;
-                cursor: pointer;
-                
-                font-size: 2rem;
-            }
-              
-            .dislike:hover,
-            .like:hover {
-                color: $color-accent2;
-                transition: all .2s ease-in-out;
-                transform: scale(1.1);
-            }
-              
-            .active {
-                color: $color-accent2;
-            }
-
-            .dislike {
-                margin-top: 8px;
-            }
-
-            .value {
-                display: flex;
-                background-color: #fff;
-                align-items: center;
-                padding-left: 15px;
-                padding-right: 15px;
-                border: 1px solid #ddd;
-                border-radius: 20%;
-                margin-left: 10px;
-                margin-right: 10px;
-                width: 74px;
-                text-align: center;
-                font-size: 1.2rem;
-            }
         }
     }
 }
-@media screen and (max-width: 994px) {
-    .vote-show .container {
-        max-width: 830px;
-        padding-left: 0;
-        padding-right: 0;
+
+.rating {
+    display: flex;
+    width: 300px;
+    text-align: center;
+    justify-content: center;
+    z-index: 1;
+
+    .like,
+    .dislike {
+        display: inline-block;
+        cursor: pointer;
+        
+        font-size: 2rem;
+    }
+      
+    .dislike:hover,
+    .like:hover {
+        color: $color-accent2;
+        transition: all .2s ease-in-out;
+        transform: scale(1.1);
+    }
+      
+    .active {
+        color: $color-accent2;
+    }
+
+    .dislike {
+        margin-top: 8px;
+    }
+
+    .value {
+        display: flex;
+        background-color: #fff;
+        align-items: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 1px solid #ddd;
+        border-radius: 20%;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 74px;
+        text-align: center;
+        font-size: 1.2rem;
     }
 }
 
-@media screen and (max-width: 870px) {
-    .content {
-        padding-bottom: 0;
+.page-wrapper.vote-show{
+    @media screen and (max-width: 994px) {
+        .vote-show .container {
+            max-width: 830px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @media screen and (max-width: 870px) {
+        .content {
+            padding-bottom: 0;
+        }
     }
 }

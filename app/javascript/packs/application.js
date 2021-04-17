@@ -26,7 +26,7 @@ document.addEventListener("turbolinks:load", function() {
             $('select').niceSelect();
         });
 
-
+        require('general/carousel.js').start();
         require('general/textarea_scroll.js').start();
     })
 
@@ -47,8 +47,8 @@ document.addEventListener("turbolinks:load", function() {
     }, "test/vote_create", "votes/new", "votes/edit", "votes/update", "votes/create")
 
     router.callWhen((entry)=>{
-        require('pages/vote.js');
-    }, "votes/show")
+        require('pages/vote.js').start();
+    }, "votes/show", "test/idea");
 
 
     
