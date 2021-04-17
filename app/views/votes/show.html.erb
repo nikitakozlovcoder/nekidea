@@ -1,4 +1,4 @@
-<div class="page-wrapper vote-create">
+<div class="page-wrapper vote-show">
   <%= render partial: './header.html.erb' %>
   <section class ="content container">
     <div class = "vote head">
@@ -6,14 +6,14 @@
         <div class = "right">
           <div class = "person">
             <p>Создатель:</p>
-            <div class = "avatar">
-              <a href="/login">
-                <img src="https://w3schoolsrus.github.io/w3images/avatar2.png">
-              </a>
-            </div>
-            <div class = "name">
-              <p>Иванов Иван Иваныч</p>
-            </div>
+            <a href="/login">
+              <div class = "avatar">
+                  <img src="https://w3schoolsrus.github.io/w3images/avatar2.png">
+              </div>
+              <div class = "name">
+                <p>Иванов Иван Иваныч</p>
+              </div>
+            </a>
           </div>
           <div class = "properties">
             <p>Тип: <span>многоэтапаная тематика</span></p>
@@ -75,46 +75,230 @@
         </div>
       </div>
       <div class = "images">
-        <h4>Фото к проблеме</h4>
+        <h3>Фото к проблеме</h3>
         <div class="owl-carousel owl-theme">
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/default_idea.svg"></a></div>
-          <div class = "item-img"> <a><img src = "/img/2.jpg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/2.jpg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/2.jpg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/2.jpg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/2.jpg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/2.jpg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+          <div> <a><img src = "/img/default_idea.svg"></a></div>
+        </div>
+      </div>
+      <div class = "ideas">
+        <h2>Предложенные идеи</h2>
+        <div class = "head-container">
+          <div class = "list-item num">
+              <p>№</p>
+          </div>
+          <div class = "list-item img">
+          </div>
+          <div class = "list-item info">
+            <p>Название / Описание</p>
+          </div>
+          <div class = "list-item actions">
+            <p>Рейтинг</p>
+          </div>
+        </div>
+        <div class = "list-container">
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>1</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 идей...</p>
+              </div>
+              <div class = "actions">
+                <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="2" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>2</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 идей...</p>
+              </div>
+              <div class = "actions">
+                <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="-12" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>3</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 идей...</p>
+              </div>
+              <div class = "actions">
+                <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="1234" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>4</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 идей...</p>
+              </div>
+              <div class = "actions">
+                <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="-12" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          
+          <a href = "/idea">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>5</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 идей...</p>
+              </div>
+              <div class = "actions">
+                <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="-12" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!--
+          <div class = "list-item">
+            <div class = "num">
+              <h5>2</h5>
+            </div>
+            <div class = "img">
+              <img src = "/img/default_idea.svg">
+            </div>
+            <div class = "info">
+              <p class = "name">Имя1</p>
+              <p class = "descr">Некторое описание 1 идей...</p>
+            </div>
+            <div class = "actions">
+              <p>Голосов: 12</p> <img src = "/img/idea_icon.svg">
+            </div>
+          </div>
+          <div class = "list-item">
+            <div class = "num">
+              <h5>3</h5>
+            </div>
+            <div class = "img">
+              <img src = "/img/default_idea.svg">
+            </div>
+            <div class = "info">
+              <p class = "name">Имя1</p>
+              <p class = "descr">Некторое описание 1 идей...</p>
+            </div>
+            <div class = "actions">
+              <p>Голосов: 12</p>
+            </div>
+          </div>
+          <div class = "list-item">
+            <div class = "num">
+              <h5>4</h5>
+            </div>
+            <div class = "img">
+              <img src = "/img/default_idea.svg">
+            </div>
+            <div class = "info">
+              <p class = "name">Имя1</p>
+              <p class = "descr">Некторое описание 1 идей...</p>
+            </div>
+            <div class = "actions">
+              <p>12</p> 
+            </div>
+          </div>
+         -->
         </div>
       </div>
     </div>

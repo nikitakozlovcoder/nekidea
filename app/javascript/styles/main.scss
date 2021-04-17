@@ -41,11 +41,12 @@ $i: 1;
 a:hover { 
   text-decoration: none;
   -webkit-text-decoration: none;
-  color: $color-accent;
+  color: #007bff;
 }
 
 a{
   transition: all 0.4s ease;
+  color: $color-accent;
 }
 
 p{
@@ -86,6 +87,13 @@ footer{
   }
 }
 
+.col-fit {
+  width: 1%;
+  white-space: nowrap;
+}
+.col-min {
+  min-width: 160px;
+}
 // input:focus,
 // select:focus,
 // textarea:focus,
