@@ -1,0 +1,35 @@
+.page-wrapper.users-index {
+    .head-container {
+        .ideas {
+            display: flex;
+            justify-content: center;
+        }
+        .commited_ideas {
+            display: flex;
+            justify-content: center;
+            width: 220px;
+        }
+    }
+    .list-container {
+        .list-item {
+            .ideas {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 200px;
+            }
+            .commited_ideas {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 200px;
+            }
+            .ideas, .commited_ideas {
+                p {
+                    font-weight: 500;
+                    font-size: 1.5rem;
+                }
+            }
+        }   
+    }
+}

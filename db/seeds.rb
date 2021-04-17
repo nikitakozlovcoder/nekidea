@@ -15,5 +15,5 @@ user.save
 Duty.destroy_all
 d = Duty.where(name: "Все", is_general: true).first_or_create
 Duty.where(name: "Разработчики").first_or_create
-user.duties << d
+user.add_duty d
 

@@ -1,6 +1,12 @@
-<h1>Editing Vote</h1>
-
-<%= render 'form', vote: @vote %>
-
+<div class="page-wrapper vote-create">
+  <%= render partial: './header.html.erb' %>
+  <section class ="content container">
+    <h1 class = "title">Редактирование голосования</h1>
+    <%= render 'form', vote: @vote %>
+  </section>
+  <%= render partial: './footer.html.erb' %>
+</div>
+<!--
 <%= link_to 'Show', @vote %> |
 <%= link_to 'Back', votes_path %>
+-->

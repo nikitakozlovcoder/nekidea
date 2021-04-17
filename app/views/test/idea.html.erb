@@ -5,56 +5,107 @@
       <a>Тематики</a> <i class="fas fa-arrow-right"></i> <a>Тематика №1</a> 
     </div>
   </div>
-  <main class="page-main">
     <section class="idea-section content container">
       <div class="idea-header">
         <div class="idea-block-header">
           <h1 class="idea-name title">Создание игровой комнаты в офисе для персонала</h1>
         </div>
-        <div class="author">
-            <a href="/login">
-              <img src="https://w3schoolsrus.github.io/w3images/avatar2.png" />
-            </a>
-              <h2 class="idea-author">Иванов Валентин Петрович</h2>
-        </div>
-        <div class="section-header-checkbox">
-          <button type="button" class="btn btn-primary">Голосовать</button>
+        <div class = "vote head">
+          <div class = "head">
+            <div class = "right">
+              <div class = "person">
+                <p>Создатель:</p>
+                <a href="/login">
+                  <div class = "avatar">
+                    <img src="https://w3schoolsrus.github.io/w3images/avatar2.png">
+                  </div>
+                  <div class = "name">
+                    <p>Иванов Иван Иваныч</p>
+                  </div>
+                </a>
+              </div>
+              <div class = "properties">
+                <p>Дата: <span>12.7.2021</span></p>
+              </div>    
+            </div>
+            <div class = "left">
+              <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="-12" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>
         <hr>
-        <p class="idea-copyright">Основывается на:</p> <a href="#">Название другой идеи</a>
+        <div class = "idea-additional">
+          <div class = "idea-copyright">
+            <p>Основывается на: </p> <a href="#">Название другой идеи</a>
+          </div>
+          <div class = "idea-add">
+            Добавить в заметки
+          </div>
+        </div>
       </div>
+
       <main class="idea-main">
-        <br>
         <h2 class="title">Описание</h2>
-        <div class="">
-          Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
+        <div class="info">
+          <p>Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
           сути, мыслей автора, возможно завлечение сотрудников для дальнейшего голосования именно за эту идею.
           Также сюда можно написать дальнейшие перспективы развития данной идеи, польза для руководства либо для
           сотрудников кампании или организации.
         </div>
-        <div class="idea-images-block">
-          <%= image_tag "pic.png", :class => "idea-content-image" %>
-          <%= image_tag "pic.png", :class => "idea-content-image idea-content-image-center" %>
-          <%= image_tag "pic.png", :class => "idea-content-image" %>
-        </div>
-        <div class="idea-important-links-block">
-          Важные ссылки:
-          <a class="idea-important-link" href="#">Материал для поддержки голосования</a>,
-          <a class="idea-important-link" href="#">Источник новостей</a>,
-          <a class="idea-important-link" href="#">Ресурсы</a>,
-          <a class="idea-important-link" href="#">Пруфы</a>
-        </div>
-        <div class="button">
-          <div class="button-container">
-            <a href="#" class="btn effect01" target="_blank"><span>Развить идею</span></a>
+        <div class = "images">
+          <h2>Прилагаемые фото</h2>
+          <div class="owl-carousel owl-theme">
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
           </div>
         </div>
-        <button class="btn-outline" type="submit">Войти</button>
+        <div class="idea-important-links-block">
+          <h2>Прилагаемые ресурсы</h2>
+          <div class = "links">
+           <div class = "link"><i class="fas fa-link"></i><a  href="#">Источник новостей</a></div>
+           <div class = "link"><i class="fas fa-link"></i><a  href="#">Ресурсы</a></div>
+           <div class = "link"><i class="fas fa-link"></i><a  href="#">Пруфы</a></div>
+          </div>
+        </div>
         <div class="idea-comments">
-          Комментарии
+          <h2>Комментарии</h2>
+          <div class="comment">
+            <div class="head">
+              <div class = "img">
+                <img>
+              </div>
+              <div class = "name">
+              </div>
+            </div>
+            <div class="body">
+          </div>
         </div>
       </main>
     </section>
-  </main>
   <%= render partial: './footer.html.erb' %>
 </div>

@@ -1,5 +1,230 @@
-<p id="notice"><%= notice %></p>
+<div class="page-wrapper vote-index">
+  <%= render partial: './header.html.erb' %>
+  <section class ="content container">
+    <div class = "global_themes">
+      <h2>Основные направления</h2>
+      <div class = "box">
+        <a href = "/votes/31">
+          <div class = "theme_card">
+            <div class = "img">
+              <img src = "/img/default_idea.svg">
+            </div>
+            <div class = "title">
+              <p>Название1</p>
+            </div>
+            <div class = "info">
+              Некоторое описание оди...
+            </div>
+          </div>
+        </a>
+        
+        <a href = "/votes/new">
+          <div class = "theme_card">
+            <div class = "img">
+              <img src = "/img/default_idea.svg">
+            </div>
+            <div class = "title">
+              <p>Название1</p>
+            </div>
+            <div class = "info">
+              Некоторое описание оди...
+            </div>
+          </div>
+        </a>
 
+        <a href = "/votes/new">
+          <div class = "theme_card">
+            <div class = "img">
+              <img src = "/img/default_idea.svg">
+            </div>
+            <div class = "title">
+              <p>Название1</p>
+            </div>
+            <div class = "info">
+              Некоторое описание оди...
+            </div>
+          </div>
+        </a>
+
+        <a href = "/votes/new">
+          <div class = "theme_card">
+            <div class = "img">
+              <img src = "/img/default_idea.svg">
+            </div>
+            <div class = "title">
+              <p>Название1</p>
+            </div>
+            <div class = "info">
+              Некоторое описание оди...
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class = "active_themes">
+      <h2>Активные тематики</h2>
+      <!--
+      <div class = "table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col col-min">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      -->
+        
+        <div class = "head-container">
+          <div class = "list-item img">
+          </div>
+          <div class = "list-item info">
+            <p>Название / Описание</p>
+          </div>
+          <div class = "list-item status">
+            <p>Статус</p>
+          </div>
+          <div class = "list-item phase">
+            <p>Фаза</p>
+          </div>
+        </div>
+        <div class = "list-container">
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 темы...</p>
+              </div>
+              <div class = "status">
+                <p>Находится на этапе 3</p>
+              </div>
+              <div class = "phase">
+                <p>Приём заявок</p>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 темы...</p>
+              </div>
+              <div class = "status">
+                <p>Активно</p>
+              </div>
+              <div class = "phase">
+                <p>Голосование</p>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 темы...</p>
+              </div>
+              <div class = "status">
+                <p>Находится на этапе 3</p>
+              </div>
+              <div class = "phase">
+                <p>Приём заявок</p>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 темы...</p>
+              </div>
+              <div class = "status">
+                <p>Находится на этапе 3</p>
+              </div>
+              <div class = "phase">
+                <p>Приём заявок</p>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 темы...</p>
+              </div>
+              <div class = "status">
+                <p>Находится на этапе 3</p>
+              </div>
+              <div class = "phase">
+                <p>Приём заявок</p>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 темы...</p>
+              </div>
+              <div class = "status">
+                <p>Находится на этапе 3</p>
+              </div>
+              <div class = "phase">
+                <p>Приём заявок</p>
+              </div>
+            </div>
+          </a>
+        </div>
+    </div>
+  </section>
+  <%= render partial: './footer.html.erb' %>
+</div>
+<!-- 
 <h1>Votes</h1>
 
 <table>
@@ -39,3 +264,4 @@
 <br>
 
 <%= link_to 'New Vote', new_vote_path %>
+-->

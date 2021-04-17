@@ -8,6 +8,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start();
 require("channels")
 import '../vendor/jquery.nice-select.min.js'
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import 'owl.carousel';
 
 import '../styles/application.scss'
 
@@ -23,6 +26,7 @@ document.addEventListener("turbolinks:load", function() {
             $('select').niceSelect();
         });
 
+        require('general/carousel.js').start();
         require('general/textarea_scroll.js').start();
     })
 
@@ -41,6 +45,11 @@ document.addEventListener("turbolinks:load", function() {
     router.callWhen((entry)=>{
         require('pages/vote_create.js');
     }, "test/vote_create", "votes/new", "votes/edit", "votes/update", "votes/create")
+
+    router.callWhen((entry)=>{
+        require('pages/vote.js').start();
+    }, "votes/show", "test/idea");
+
 
     
   
