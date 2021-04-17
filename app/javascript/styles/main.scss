@@ -32,7 +32,9 @@ $i: 1;
     //text-align: left !important;
   }
 }
-
+.avatar img{
+  object-fit: cover;
+}
 .error-fields {
   color: #df5555;
 }

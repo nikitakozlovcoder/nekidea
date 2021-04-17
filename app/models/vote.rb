@@ -1,11 +1,11 @@
 class Vote < ApplicationRecord
   enum vote_status: [ :collecting, :voting, :archived ]
   enum vote_type: [ :multi ]
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :duty
   has_many_attached :pictures
   def can_write user
-    self.user_id == user.id or user.is_admin or user.is_boss
+    self.user_id == user.id or user.is_admin
   end
   def iterations
     JSON.parse self.iter_array
@@ -20,8 +20,8 @@ class Vote < ApplicationRecord
     created =  self.created_at.beginning_of_day
     arr.each_with_index do |el, i|
         created = created.advance(days: el['days_collecting'].to_i)
-        unless current_datetime>=created
-          new_iter = i+1
+        if current_datetime < created
+          new_iter = i + 1
           new_status = 0
           puts "!!!!!!!!!!!"
           archived = false
@@ -29,8 +29,8 @@ class Vote < ApplicationRecord
         end
 
         created = created.advance(days: el['days_voting'].to_i)
-        unless current_datetime>=created
-          new_iter = i+1
+        if current_datetime < created
+          new_iter = i + 1
           new_status = 1
           archived = false
           break
