@@ -1,7 +1,7 @@
 <div class="page-wrapper users-index">
   <%= render partial: './header.html.erb' %>
   <section class ="content container">
-    <h1>Пользователи</h1>    
+    <h2>Пользователи (leaderboard)</h2>    
     <div class = "head-container">
           <div class = "list-item num">
               <p>№</p>
@@ -11,8 +11,11 @@
           <div class = "list-item info">
             <p>ФИО / Должность</p>
           </div>
-          <div class = "list-item actions">
-            <p>Рейтинг</p>
+          <div class = "list-item ideas">
+            <p>Предложено идей</p>
+          </div>
+          <div class = "list-item commited_ideas">
+            <p>Принято идей</p>
           </div>
         </div>
         <div class = "list-container">
@@ -28,7 +31,11 @@
                 <p class = "name">Иванов Иван Иваныч</p>
                 <p class = "descr">Старший сотрудник</p>
               </div>
-              <div class = "commited_idea">
+              <div class = "ideas">
+                <p>12</p>
+              </div>
+              <div class = "commited_ideas">
+                <p>3</p>
               </div>
             </div>
           </a>
@@ -42,21 +49,14 @@
                 <img src = "/img/default_idea.svg">
               </div>
               <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 идей...</p>
+                <p class = "name">Иванов Иван Иваныч</p>
+                <p class = "descr">Старший сотрудник</p>
               </div>
-              <div class = "actions">
-                <div class="rating">
-                  <!-- Thumbs up -->
-                  <div class="like grow">
-                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                  </div>
-                  <input class="value" value ="-12" disabled/>
-                  <!-- Thumbs down -->
-                  <div class="dislike grow">
-                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                  </div>
-                </div>
+              <div class = "ideas">
+                <p>15</p>
+              </div>
+              <div class = "commited_ideas">
+                <p>6</p>
               </div>
             </div>
           </a>
@@ -70,21 +70,14 @@
                 <img src = "/img/default_idea.svg">
               </div>
               <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 идей...</p>
+                <p class = "name">Иванов Иван Иваныч</p>
+                <p class = "descr">Старший сотрудник</p>
               </div>
-              <div class = "actions">
-                <div class="rating">
-                  <!-- Thumbs up -->
-                  <div class="like grow">
-                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                  </div>
-                  <input class="value" value ="1234" disabled/>
-                  <!-- Thumbs down -->
-                  <div class="dislike grow">
-                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                  </div>
-                </div>
+              <div class = "ideas">
+                <p>1234</p>
+              </div>
+              <div class = "commited_ideas">
+                <p>0</p>
               </div>
             </div>
           </a>
@@ -98,25 +91,18 @@
                 <img src = "/img/default_idea.svg">
               </div>
               <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 идей...</p>
+                <p class = "name">Иванов Иван Иваныч</p>
+                <p class = "descr">Старший сотрудник</p>
               </div>
-              <div class = "actions">
-                <div class="rating">
-                  <!-- Thumbs up -->
-                  <div class="like grow">
-                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                  </div>
-                  <input class="value" value ="-12" disabled/>
-                  <!-- Thumbs down -->
-                  <div class="dislike grow">
-                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                  </div>
-                </div>
+              <div class = "ideas">
+                <p>1234</p>
+              </div>
+              <div class = "commited_ideas">
+                <p>1234</p>
               </div>
             </div>
           </a>
-          
+
           <a href = "/votes/new">
             <div class = "list-item">
               <div class = "num">
@@ -126,21 +112,56 @@
                 <img src = "/img/default_idea.svg">
               </div>
               <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 идей...</p>
+                <p class = "name">Иванов Иван Иваныч</p>
+                <p class = "descr">Старший сотрудник</p>
               </div>
-              <div class = "actions">
-                <div class="rating">
-                  <!-- Thumbs up -->
-                  <div class="like grow">
-                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                  </div>
-                  <input class="value" value ="-12" disabled/>
-                  <!-- Thumbs down -->
-                  <div class="dislike grow">
-                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                  </div>
-                </div>
+              <div class = "ideas">
+                <p>5</p>
+              </div>
+              <div class = "commited_ideas">
+                <p>5</p>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>6</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Иванов Иван Иваныч</p>
+                <p class = "descr">Старший сотрудник</p>
+              </div>
+              <div class = "ideas">
+                <p>12</p>
+              </div>
+              <div class = "commited_ideas">
+                <p>3</p>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>7</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Иванов Иван Иваныч</p>
+                <p class = "descr">Старший сотрудник</p>
+              </div>
+              <div class = "ideas">
+                <p>12</p>
+              </div>
+              <div class = "commited_ideas">
+                <p>3</p>
               </div>
             </div>
           </a>

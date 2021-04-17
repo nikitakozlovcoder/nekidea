@@ -5,7 +5,7 @@
       <a>Тематики</a> <i class="fas fa-arrow-right"></i> <a>Тематика №1</a> 
     </div>
   </div>
-  <main class="page-main">
+  <section class ="content container">
     <section class="idea-section content container">
       <div class="idea-header">
         <div class="idea-block-header">
@@ -27,10 +27,10 @@
         <br>
         <h2 class="title">Описание</h2>
         <div class="">
-          Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
+          <p>Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
           сути, мыслей автора, возможно завлечение сотрудников для дальнейшего голосования именно за эту идею.
           Также сюда можно написать дальнейшие перспективы развития данной идеи, польза для руководства либо для
-          сотрудников кампании или организации.
+          сотрудников кампании или организации.</p>
         </div>
         <div class="idea-images-block">
           <%= image_tag "pic.png", :class => "idea-content-image" %>
@@ -55,6 +55,6 @@
         </div>
       </main>
     </section>
-  </main>
+  </section>
   <%= render partial: './footer.html.erb' %>
 </div>
