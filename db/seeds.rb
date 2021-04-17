@@ -5,15 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
 
-user = User.new(mail: "example@gmail.com", password: "qwerty123", birth_date: 20.years.ago, is_admin: true, rating: 228,
- name: "Omari", surname: "Starks", patronymic: "Ivanovich", restore_date: Time.now.getutc)
+User.all.each{|u| u.destroy if u.mail != "example@gmail.com" }
+Schedule.destroy_all
+Schedule.create(checked_at: nil)
 
-user.avatar.attach(io: File.open(File.join(File.dirname(__FILE__), '35.jpg')), filename: '35.jpg')
-user.save
-Duty.destroy_all
+
 d = Duty.where(name: "Все", is_general: true).first_or_create
 Duty.where(name: "Разработчики").first_or_create
-user.add_duty d
+
+
+if (u = User.find_by(mail: "example@gmail.com")) == nil
+  user = User.new(mail: "example@gmail.com", password: "qwerty123", birth_date: 20.years.ago, is_admin: true, rating: 228,
+                  name: "Omari", surname: "Starks", patronymic: "Ivanovich", restore_date: Time.now.getutc)
+  user.avatar.attach(io: File.open(File.join(File.dirname(__FILE__), '35.jpg')), filename: '35.jpg')
+  user.save
+  user.add_duty d
+else
+  u.add_duty d
+end
+
+#Duty.destroy_all
+
+
 

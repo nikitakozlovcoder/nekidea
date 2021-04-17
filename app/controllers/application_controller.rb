@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :require_login
+  before_action :check_schedule
   skip_forgery_protection
   helper_method :current_user
   helper_method :user_avatar
@@ -40,5 +41,17 @@ class ApplicationController < ActionController::Base
 
   def require_login
     redirect_to controller: 'users', action: 'login' if current_user.nil?
+  end
+
+  def check_schedule
+    cur_day = DateTime.now.to_date
+    sc = Schedule.first
+    if sc.checked_at == nil or cur_day != sc.checked_at.to_date
+      Vote.all.each{|v| v.update_iteration}
+      sc.update checked_at: DateTime.now
+      p "check_schedule task fired"
+    end
+
+    p "check_schedule"
   end
 end

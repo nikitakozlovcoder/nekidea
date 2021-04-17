@@ -4,7 +4,12 @@ class Vote < ApplicationRecord
   belongs_to :user
   belongs_to :duty
   has_many_attached :pictures
-
+  def can_write user
+    self.user_id == user.id or user.is_admin or user.is_boss
+  end
+  def iterations
+    JSON.parse self.iter_array
+  end
   def update_iteration
 
     new_status = 0
@@ -14,7 +19,7 @@ class Vote < ApplicationRecord
     current_datetime = DateTime.now
     created =  self.created_at.beginning_of_day
     arr.each_with_index do |el, i|
-        created = created.advance(days: el['days_collecting'])
+        created = created.advance(days: el['days_collecting'].to_i)
         unless current_datetime>=created
           new_iter = i+1
           new_status = 0
@@ -23,7 +28,7 @@ class Vote < ApplicationRecord
           break
         end
 
-        created = created.advance(days: el['days_voting'])
+        created = created.advance(days: el['days_voting'].to_i)
         unless current_datetime>=created
           new_iter = i+1
           new_status = 1
@@ -33,7 +38,7 @@ class Vote < ApplicationRecord
     end
     new_status = 2 if archived
 
-    if self.current_iter != new_iter || self.vote_status != new_status
+    if self.current_iter < new_iter || read_attribute_before_type_cast(:vote_status) < new_status
       t =  self.current_iter
       self.current_iter = new_iter
 

@@ -22,6 +22,7 @@ document.addEventListener("turbolinks:load", function() {
 
     
     router.callAlways ((entry) => {
+        //alert('hi!');
         $(document).ready(function() {
             $('select').niceSelect();
         });
@@ -47,6 +48,7 @@ document.addEventListener("turbolinks:load", function() {
     }, "test/vote_create", "votes/new", "votes/edit", "votes/update", "votes/create")
 
     router.callWhen((entry)=>{
+
         require('pages/vote.js').start();
     }, "votes/show", "test/idea");
 
