@@ -1,0 +1,150 @@
+<div class="page-wrapper users-index">
+  <%= render partial: './header.html.erb' %>
+  <section class ="content container">
+    <h1>Пользователи</h1>    
+    <div class = "head-container">
+          <div class = "list-item num">
+              <p>№</p>
+          </div>
+          <div class = "list-item img">
+          </div>
+          <div class = "list-item info">
+            <p>ФИО / Должность</p>
+          </div>
+          <div class = "list-item actions">
+            <p>Рейтинг</p>
+          </div>
+        </div>
+        <div class = "list-container">
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>1</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Иванов Иван Иваныч</p>
+                <p class = "descr">Старший сотрудник</p>
+              </div>
+              <div class = "commited_idea">
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>2</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 идей...</p>
+              </div>
+              <div class = "actions">
+                <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="-12" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>3</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 идей...</p>
+              </div>
+              <div class = "actions">
+                <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="1234" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>4</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 идей...</p>
+              </div>
+              <div class = "actions">
+                <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="-12" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          
+          <a href = "/votes/new">
+            <div class = "list-item">
+              <div class = "num">
+                <h5>5</h5>
+              </div>
+              <div class = "img">
+                <img src = "/img/default_idea.svg">
+              </div>
+              <div class = "info">
+                <p class = "name">Имя1</p>
+                <p class = "descr">Некторое описание 1 идей...</p>
+              </div>
+              <div class = "actions">
+                <div class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="-12" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+  </section>
+  <%= render partial: './footer.html.erb' %>
+</div>
