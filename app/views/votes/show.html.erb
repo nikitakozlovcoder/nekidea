@@ -34,72 +34,41 @@
 
     </div>
     <div class = "vote main">
-      <h1 class = "vote_title">Нужны новые инструменты!</h1>
+      <h1 class = "vote_title"><%= @vote.title %></h1>
       <div class = "vote_body">
-        <p>Наша фирма встала в тупик: многие станки и важные инструменты, необходимые нам в производственной деятельности больше не оправдывают себя. Дорогие сотрудники, ждём ваших предложений, как поступить!</p>
+        <p><%= @vote.body %></p>
       </div>
-      <div class = "iter">
-        <div class = "num"></div>
-        <div class = "body">
-          <div class = "strip"></div>
-          <div class = "text">
-            <h4>А что по эффективности?</h4>
-            <p>Наша фирма встала в тупик: многие станки и важные инструменты, необходимые нам в производственной деятельности больше не оправдывают себя. Дорогие сотрудники, ждём ваших предложений, как поступить!</p>
+      <% iterations = @vote.iterations %>
+      <% current_iter = @vote.current_iter %>
+      <% current_iter = -1 + iterations.count if @vote.vote_status == "archived" %>
+      <% iterations.each_with_index do |el, i| %>
+        <% next if i==0  %>
+        <div class = "iter <%= 'active' if i== current_iter  %>">
+          <div class = "num"></div>
+          <div class = "body">
+            <div class = "strip"></div>
+            <div class = "text">
+              <h4><%= el['title'] %></h4>
+              <p><%= el['body'] %></p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class = "iter">
-        <div class = "num"></div>
-        <div class = "body">
-          <div class = "strip"></div>
-          <div class = "text">
-            <h4>А что насчёт с экономичной точки зрениия?</h4>
-            <p>Наша фирма встала в тупик: многие станки и важные инструменты, необходимые нам в производственной деятельности больше не оправдывают себя. Дорогие сотрудники, ждём ваших предложений, как поступить!</p>
-          </div>
-        </div>
-      </div>
-      <div class = "iter active">
-        <div class = "num"></div>
-        <div class = "body">
-          <div class = "strip"></div>
-          <div class = "text">
-            <h4>А что по внедряемости?</h4>
-            <p>Наша фирма встала в тупик: многие станки и важные инструменты, необходимые нам в производственной деятельности больше не оправдывают себя. Дорогие сотрудники, ждём ваших предложений, как поступить!</p>
-          </div>
-        </div>
-      </div>
-      <div class = "iter">
-        <div class = "num"></div>
-        <div class = "body">
-          <div class = "strip"></div>
-          <div class = "text">
-            <h4>А что насчёт с экономичной точки зрениия?</h4>
-            <p>Наша фирма встала в тупик: многие станки и важные инструменты, необходимые нам в производственной деятельности больше не оправдывают себя. Дорогие сотрудники, ждём ваших предложений, как поступить!</p>
-          </div>
-        </div>
-      </div>
-      <div class = "images">
+      <% end %>
+
+
+      <br>
+      <% if @vote.pictures.count > 0 %>
+        <div class = "images">
         <h3>Фото к проблеме</h3>
         <div class="owl-carousel owl-theme">
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/2.jpg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/2.jpg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/2.jpg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/2.jpg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/2.jpg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
-          <div> <a><img src = "/img/default_idea.svg"></a></div>
+
+          <% @vote.pictures.each do |pict| %>
+            <div> <a><%= image_tag pict %></a></div>
+          <% end %>
         </div>
       </div>
+      <% end %>
+      <br>
       <div class = "ideas">
         <h2>Предложенные идеи</h2>
         <div class = "head-container">
