@@ -42,7 +42,17 @@ module ApplicationHelper
       "Одноэтапная тематика"
     end
   end
-
+  def vote_status vote
+    if vote.vote_status == 'archived'
+      "В архиве"
+    else
+      if vote.iterations.count == 1
+        "активно"
+      else
+        "Находится на этапе "+vote.iteration.to_s
+      end
+    end
+  end
   def vote_phase vote
     case vote.vote_status
     when "collecting"
@@ -53,13 +63,23 @@ module ApplicationHelper
       "Архива"
     end
   end
+  def vote_phase_2 vote
+    case vote.vote_status
+    when "collecting"
+      "Прием заявок"
+    when "voting"
+      "Голосование"
+    when "archived"
+      "----"
+    end
+  end
   def phase_upto vote
-    cur_iter = -1 + vote.current_iter
+    cur_iter = -1 + vote.iteration
 
     start_date = vote.created_at.to_date
     advance = 0
     iters = vote.iterations
-    cur_iter = -1 + vote.iterations.count if vote.vote_status == 'archived'
+    #cur_iter = -1 + vote.iterations.count if vote.vote_status == 'archived'
     (cur_iter-1).times do |i|
       advance += iters[i]['days_collecting'].to_i
       advance += iters[i]['days_voting'].to_i
@@ -72,5 +92,14 @@ module ApplicationHelper
 
     start_date.advance(days: advance).strftime('%d.%m.%y')
 
+  end
+  def less_text(txt, n)
+    if txt != nil
+
+      t = txt[0...n].strip()
+      t+="..." if txt.length>n
+      return t
+
+    end
   end
 end

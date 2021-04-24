@@ -1,3 +1,4 @@
+
 <div class="page-wrapper vote-show">
   <%= render partial: './header.html.erb' %>
   <section class ="content container">
@@ -23,11 +24,17 @@
           </div>        
         </div>
 
-          <div class = "left">
+        <div class = "left">
 
             <div class = "time">
               <p><%= @vote.vote_status != 'archived'? 'Приём заявок до':'Дата архивации' %>: <span><%=  phase_upto @vote%></span></p>
             </div>
+          <% if @vote.can_update? %>
+            <div class="head-left-link"><%= link_to 'Редактировать', :edit_vote  %></div>
+          <% end %>
+          <% if @vote.can_delete? %>
+            <div class="head-left-link head-left-link_delete"><%= link_to 'Удалить', :vote, method: :delete, data: {confirm: "Удалить голосование?"}  %></div>
+          <% end %>
 
           </div>
         </div>
@@ -39,11 +46,11 @@
         <p><%= @vote.body %></p>
       </div>
       <% iterations = @vote.iterations %>
-      <% current_iter = @vote.current_iter %>
-      <% current_iter = -1 + iterations.count if @vote.vote_status == "archived" %>
+      <% current_iter = @vote.iteration %>
       <% iterations.each_with_index do |el, i| %>
-        <% next if i==0  %>
-        <div class = "iter <%= 'active' if i== current_iter  %>">
+        <% i=i+1 %>
+        <% next if i==1  %>
+        <div class = "iter <%= 'active' if i == current_iter  %>">
           <div class = "num"></div>
           <div class = "body">
             <div class = "strip"></div>

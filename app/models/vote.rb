@@ -51,8 +51,20 @@ class Vote < ApplicationRecord
     end
 
   end
+
+  def can_update?
+    true
+  end
+  def can_delete?
+    true
+  end
+  def iteration
+    return self.current_iter if self.vote_status != 'archived'
+    self.iterations.count if self.vote_status == 'archived'
+  end
   private
   def update_ideas
     puts 'update ideas'
   end
+
 end
