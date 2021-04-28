@@ -1,48 +1,49 @@
-.btn-anim {
-    --font-size: 1.5rem;
-    background: $color-accent;
-    color: $light-font;
-    cursor: pointer;
-    font-size: var(--font-size);
-    padding: 10px 0px;
-    border: 0;
-    transition: all 0.5s;
-    border-radius: 5px;
-    width: auto;
-    position: relative;
-    display: inline-block;
+// .btn-anim {
+//     --font-size: 1.5rem;
+//     background: $color-accent;
+//     color: $light-font;
+//     cursor: pointer;
+//     font-size: var(--font-size);
+//     padding: 10px 0px;
+//     border: 0;
+//     transition: all 0.5s;
+//     border-radius: 5px;
+//     width: auto;
+//     position: relative;
+//     display: inline-block;
 
-    &::after {
-        color: $color-accent3;
-        content: ">>";
-        font-size:  calc(var(--font-size)*2);
-        font-family: "Font Awesome 5 Pro";
-        font-weight: 700;
-        position: absolute;
-        left: 70%;
-        top: -5px;
-        right: 5%;
-        bottom: 0;
-        opacity: 0;
+//     &::after {
+//         color: $color-accent3;
+//         content: ">>";
+//         font-size:  calc(var(--font-size)*2);
+//         font-family: "Font Awesome 5 Pro";
+//         font-weight: 700;
+//         position: absolute;
+//         left: 70%;
+//         top: -5px;
+//         right: 5%;
+//         bottom: 0;
+//         opacity: 0;
 
-    }
+//     }
 
-    &:hover, &.active {
-        background: #2b2bff;
-        transition: all 0.5s;
-        border-radius: 10px;
-        box-shadow: 0px 6px 15px #0000ff61;
-        padding: 10px 40px 10px 10px;
+//     &:hover, &.active {
+//         background: #2b2bff;
+//         transition: all 0.5s;
+//         border-radius: 10px;
+//         box-shadow: 0px 6px 15px #0000ff61;
+//         padding: 10px 40px 10px 10px;
 
-        &::after {
-            opacity: 1;
-            transition: all 0.5s;
+//         &::after {
+//             opacity: 1;
+//             transition: all 0.5s;
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 .btn-outline {
+    cursor: pointer;
     margin-bottom: 12px;
     transition: all ease-in 0.2s;
     display: inline-block;
@@ -50,7 +51,7 @@
     vertical-align: middle;
     background-color: transparent;
     border: 2px solid;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1.5rem;
     color: $color-accent;
     border-color: $color-accent;
@@ -60,5 +61,56 @@
     &:hover, &:focus {
         color: $light-font;
         background-color: $color-accent;
+    }
+}
+
+.btn-simple {
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: all ease-in 0.2s;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #2B2743;
+    border: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: $light-font;
+    border-radius: 0.4rem;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    &:hover, &:focus {
+        background-color: $color-accent;
+    }
+}
+
+.btn-simple-outline {
+    --dark: 0, 0, 0;
+    --opacity-label: 0.5;
+    cursor: pointer;
+    color: rgba(var(--dark), var(--opacity-label));
+    margin-bottom: 12px;
+    transition: all ease-in 0.2s;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border: solid 2px #AFAFAF;
+    background-color: rgba(var(--dark), 0.02);
+    font-weight: 500;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    padding: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    &:hover {
+        background-color: rgba(var(--dark), 0.06);
+        border-color: #7c7c7c;
+    }
+    &:focus {
+        border-color: $color-accent;
+        color: $color-accent;
     }
 }
