@@ -21,8 +21,8 @@ class User < ApplicationRecord
 
     def writable_duties
         arr = []
-        if self.is_admin == true
-         arr << Duty.all
+        if self.is_admin
+         arr = Duty.all.to_a
         else
             self.duties_users.each do |d|
                 if d.duty.write_all and d.has_write_access
@@ -38,7 +38,12 @@ class User < ApplicationRecord
         self.duties.delete(id)
     end
     def all_duties
-        self.duties
+        if self.is_admin
+            Duty.all
+        else
+            self.duties
+        end
+
     end
 
 end

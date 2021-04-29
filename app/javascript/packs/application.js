@@ -44,7 +44,7 @@ document.addEventListener("turbolinks:load", function() {
     }, "users/login")
 
     router.callWhen((entry)=>{
-        require('pages/vote_create.js');
+        require('pages/vote_create.js').start();
     }, "test/vote_create", "votes/new", "votes/edit", "votes/update", "votes/create")
 
     router.callWhen((entry)=>{

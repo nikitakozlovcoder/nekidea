@@ -14,19 +14,16 @@ class VotesController < ApplicationController
   # GET /votes/new
   def new
     set_writable_duties false
-    @writable_duties = current_user.writable_duties
     @vote = Vote.new
   end
 
   # GET /votes/1/edit
   def edit
-    set_writable_duties true
+
     unless @vote.can_write current_user
       redirect_to :index
     else
-      @writable_duties = current_user.writable_duties
-      @writable_duties << @vote.duty
-      @writable_duties = @writable_duties.uniq
+      set_writable_duties true
     end
 
   end
@@ -97,7 +94,11 @@ class VotesController < ApplicationController
   private
   def set_writable_duties expanded
     @writable_duties = current_user.writable_duties
-    @writable_duties << @vote.duty if expanded
-    @writable_duties = @writable_duties.uniq if expanded
+
+    if expanded
+      #@writable_duties = [@writable_duties, @vote.duty].flatten.uniq
+      @writable_duties << @vote.duty
+      @writable_duties.uniq!
+    end
   end
 end

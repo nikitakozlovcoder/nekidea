@@ -76,8 +76,13 @@
       </div>
       <% end %>
       <br>
+      <% if (ideas = @vote.ideas.where(idea_status: 'active')).count > 0 %>
       <div class = "ideas">
-        <h2>Предложенные идеи</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center">
+          <h2>Предложенные идеи</h2>
+          <div style="font-size: 44px; padding-right: 5px;"><%= link_to '+' %></div>
+        </div>
+
         <div class = "head-container">
           <div class = "list-item num">
               <p>№</p>
@@ -91,196 +96,50 @@
             <p>Рейтинг</p>
           </div>
         </div>
+
         <div class = "list-container">
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "num">
-                <h5>1</h5>
-              </div>
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 идей...</p>
-              </div>
-              <div class = "actions">
-                <div class="rating">
-                  <!-- Thumbs up -->
-                  <div class="like grow">
-                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                  </div>
-                  <input class="value" value ="2" disabled/>
-                  <!-- Thumbs down -->
-                  <div class="dislike grow">
-                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
 
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "num">
-                <h5>2</h5>
-              </div>
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 идей...</p>
-              </div>
-              <div class = "actions">
-                <div class="rating">
-                  <!-- Thumbs up -->
-                  <div class="like grow">
-                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                  </div>
-                  <input class="value" value ="-12" disabled/>
-                  <!-- Thumbs down -->
-                  <div class="dislike grow">
-                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
+            <% ideas.each_with_index do |idea, i| %>
 
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "num">
-                <h5>3</h5>
-              </div>
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 идей...</p>
-              </div>
-              <div class = "actions">
-                <div class="rating">
-                  <!-- Thumbs up -->
-                  <div class="like grow">
-                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                  </div>
-                  <input class="value" value ="1234" disabled/>
-                  <!-- Thumbs down -->
-                  <div class="dislike grow">
-                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+            <a href = "/ideas/<%= idea.id %>">
+              <div class = "list-item">
+                <div class = "num">
+                  <h5><%= i+1 %></h5>
+                </div>
+                <div class = "img">
+                  <img src = "/img/default_idea.svg">
+                </div>
+                <div class = "info">
+                  <p class = "name"><%= idea.title %></p>
+                  <p class = "descr"><%= less_text(idea.body, 20) %></p>
+                </div>
+                <div class = "actions">
+                  <div data-idea_id = "<%= idea.id %>" class="rating">
+                    <!-- Thumbs up -->
+                    <% user_action = idea.user_action current_user %>
+                    <div class="like grow <%= 'active ' if user_action == :upvote %>">
+                      <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                    </div>
+                    <input class="value" value ="<%= idea.rating %>" disabled/>
+                    <!-- Thumbs down -->
+                    <div class="dislike grow <%= 'active ' if user_action == :downvote %>">
+                      <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+            <% end %>
 
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "num">
-                <h5>4</h5>
-              </div>
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 идей...</p>
-              </div>
-              <div class = "actions">
-                <div class="rating">
-                  <!-- Thumbs up -->
-                  <div class="like grow">
-                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                  </div>
-                  <input class="value" value ="-12" disabled/>
-                  <!-- Thumbs down -->
-                  <div class="dislike grow">
-                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-          
-          <a href = "/idea">
-            <div class = "list-item">
-              <div class = "num">
-                <h5>5</h5>
-              </div>
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 идей...</p>
-              </div>
-              <div class = "actions">
-                <div class="rating">
-                  <!-- Thumbs up -->
-                  <div class="like grow">
-                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                  </div>
-                  <input class="value" value ="-12" disabled/>
-                  <!-- Thumbs down -->
-                  <div class="dislike grow">
-                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
 
-          <!--
-          <div class = "list-item">
-            <div class = "num">
-              <h5>2</h5>
-            </div>
-            <div class = "img">
-              <img src = "/img/default_idea.svg">
-            </div>
-            <div class = "info">
-              <p class = "name">Имя1</p>
-              <p class = "descr">Некторое описание 1 идей...</p>
-            </div>
-            <div class = "actions">
-              <p>Голосов: 12</p> <img src = "/img/idea_icon.svg">
-            </div>
-          </div>
-          <div class = "list-item">
-            <div class = "num">
-              <h5>3</h5>
-            </div>
-            <div class = "img">
-              <img src = "/img/default_idea.svg">
-            </div>
-            <div class = "info">
-              <p class = "name">Имя1</p>
-              <p class = "descr">Некторое описание 1 идей...</p>
-            </div>
-            <div class = "actions">
-              <p>Голосов: 12</p>
-            </div>
-          </div>
-          <div class = "list-item">
-            <div class = "num">
-              <h5>4</h5>
-            </div>
-            <div class = "img">
-              <img src = "/img/default_idea.svg">
-            </div>
-            <div class = "info">
-              <p class = "name">Имя1</p>
-              <p class = "descr">Некторое описание 1 идей...</p>
-            </div>
-            <div class = "actions">
-              <p>12</p> 
-            </div>
-          </div>
-         -->
+
+
+
+
+
         </div>
       </div>
+      <% end %>
     </div>
 
   </section>

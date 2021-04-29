@@ -33,9 +33,7 @@ function preview_image(input) {
     }
 }
 
-document.querySelectorAll("input[type = 'file']").forEach((el) => {
-    el.addEventListener('change', () => {preview_image(el);})
-});
+
 
 // $("div#iter").each((i, el) => {
 //     $(el).on('change', 'select', () => {
@@ -60,18 +58,25 @@ document.querySelectorAll("input[type = 'file']").forEach((el) => {
 //         };
 //     });
 // });
-document.querySelectorAll('.del.btn-simple-outline').forEach((el)=>{
-    el.addEventListener('click', (e)=>{
-        console.log(el.dataset.id);
-        document.querySelector('#'+el.dataset.id).remove();
-    })
-})
 
-let id_iter = 0;
-$('#add_iter').on('click', (e) => {
-    let container = $('div#iters');
-    let iter_num = ++id_iter;
-    let el = $(`<div class = "iter" data-id = "${iter_num}"></div>`).append(`
+
+
+export function start() {
+    document.querySelectorAll("input[type = 'file']").forEach((el) => {
+        el.addEventListener('change', () => {preview_image(el);})
+    });
+    document.querySelectorAll('.del.btn-simple-outline').forEach((el)=>{
+        el.addEventListener('click', (e)=>{
+            console.log(el.dataset.id);
+            document.querySelector('#'+el.dataset.id).remove();
+        })
+    })
+
+    let id_iter = 0;
+    $('#add_iter').on('click', (e) => {
+        let container = $('div#iters');
+        let iter_num = ++id_iter;
+        let el = $(`<div class = "iter" data-id = "${iter_num}"></div>`).append(`
     <div class = "form-group">
         <label class="del btn-simple-outline right"><i class="fas fa-times"></i></label>
     </div>
@@ -101,31 +106,32 @@ $('#add_iter').on('click', (e) => {
             <span class="label">Количество дней</span>
         </label>
   </div>`);
-  container.append(el);
-  el = container.find(`div[data-id = "${iter_num}"]`);
-  el.find('.del.btn-simple-outline').on('click', (e) => {
-     el.remove();
-     console.log(iter_num);
- });
-});
-
-$('.voteform').on('submit', (e) => {
-    e.preventDefault();
-    let json_array = [];
-    let el = $('.voteform');
-    el.find('.iter').each((i, el) => {
-        let obj = {title:null, body:null};
-        if(i != 0) {
-            obj.title = $(el).find('.vote_name').val();
-            obj.body = $(el).find('.vote_description').val();
-        }
-        obj.days_collecting = $(el).find('.vote_collecting').val();
-        obj.days_voting = $(el).find('.vote_voting').val();
-
-        json_array.push(obj);
+        container.append(el);
+        el = container.find(`div[data-id = "${iter_num}"]`);
+        el.find('.del.btn-simple-outline').on('click', (e) => {
+            el.remove();
+            console.log(iter_num);
+        });
     });
-    
-    $(el).find('#vote_iter_array').val(JSON.stringify(json_array));
-    let form = document.querySelector('.voteform');
-    form.submit();
-});
+
+    $('.voteform').on('submit', (e) => {
+        e.preventDefault();
+        let json_array = [];
+        let el = $('.voteform');
+        el.find('.iter').each((i, el) => {
+            let obj = {title:null, body:null};
+            if(i != 0) {
+                obj.title = $(el).find('.vote_name').val();
+                obj.body = $(el).find('.vote_description').val();
+            }
+            obj.days_collecting = $(el).find('.vote_collecting').val();
+            obj.days_voting = $(el).find('.vote_voting').val();
+
+            json_array.push(obj);
+        });
+
+        $(el).find('#vote_iter_array').val(JSON.stringify(json_array));
+        let form = document.querySelector('.voteform');
+        form.submit();
+    });
+}

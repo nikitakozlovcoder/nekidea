@@ -4,6 +4,7 @@ class Vote < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :duty
   has_many_attached :pictures
+  has_many :ideas
   def can_write user
     self.user_id == user.id or user.is_admin
   end
