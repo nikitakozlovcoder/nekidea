@@ -49,7 +49,7 @@
       <% current_iter = @vote.iteration %>
       <% iterations.each_with_index do |el, i| %>
         <% i=i+1 %>
-        <% next if i==1  %>
+        <% next if el['title'] == nil  %>
         <div class = "iter <%= 'active' if i == current_iter  %>">
           <div class = "num"></div>
           <div class = "body">
@@ -76,11 +76,14 @@
       </div>
       <% end %>
       <br>
-      <% if (ideas = @vote.ideas.where(idea_status: 'active')).count > 0 %>
+
       <div class = "ideas">
         <div style="display: flex; justify-content: space-between; align-items: center">
           <h2>Предложенные идеи</h2>
-          <div style="font-size: 44px; padding-right: 5px;"><%= link_to '+' %></div>
+          <% if @vote.can_create_fresh_idea? %>
+            <div style="font-size: 44px; padding-right: 5px;"><%= link_to '+' %></div>
+          <% end %>
+
         </div>
 
         <div class = "head-container">
@@ -98,8 +101,8 @@
         </div>
 
         <div class = "list-container">
-
-            <% ideas.each_with_index do |idea, i| %>
+          <% if (ideas = @vote.ideas.where(idea_status: 'active')).count > 0 %>
+          <% ideas.each_with_index do |idea, i| %>
 
             <a href = "/ideas/<%= idea.id %>">
               <div class = "list-item">
@@ -130,7 +133,7 @@
               </div>
             </a>
             <% end %>
-
+          <% end %>
 
 
 
@@ -139,7 +142,7 @@
 
         </div>
       </div>
-      <% end %>
+
     </div>
 
   </section>

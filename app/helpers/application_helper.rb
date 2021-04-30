@@ -80,7 +80,7 @@ module ApplicationHelper
     advance = 0
     iters = vote.iterations
     #cur_iter = -1 + vote.iterations.count if vote.vote_status == 'archived'
-    (cur_iter-1).times do |i|
+    (cur_iter).times do |i|
       advance += iters[i]['days_collecting'].to_i
       advance += iters[i]['days_voting'].to_i
     end

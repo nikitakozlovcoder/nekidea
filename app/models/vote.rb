@@ -1,6 +1,6 @@
 class Vote < ApplicationRecord
   enum vote_status: [ :collecting, :voting, :archived ]
-  enum vote_type: [ :multi ]
+  enum vote_type: [ :multi, :single]
   belongs_to :user, optional: true
   belongs_to :duty
   has_many_attached :pictures
@@ -52,7 +52,9 @@ class Vote < ApplicationRecord
     end
 
   end
-
+  def can_create_fresh_idea?
+    self.iteration == 1 && self.vote_status == "collecting"
+  end
   def can_update?
     true
   end
