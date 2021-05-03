@@ -1,49 +1,154 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @vote.user_id %>
-</p>
+<div class="page-wrapper vote-show">
+  <%= render partial: './header.html.erb' %>
+  <section class ="content container">
+    <div class = "vote head">
+      <div class = "head">
+        <div class = "right">
+          <div class = "person">
+            <p>Создатель:</p>
+            <a href="">
+              <div class = "avatar">
+                <%= image_tag user_avatar @vote.user %>
+              </div>
+              <div class = "name">
+                <p><%= user_name @vote.user %></p>
+              </div>
+            </a>
+          </div>
+          <div class = "properties">
+            <p>Тип: <span><%= vote_type @vote%></span></p>
+          </div>
+          <div class = "phase">
+            <p>Находится в фазе: <span><%= vote_phase @vote%></span></p>
+          </div>        
+        </div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @vote.vote_type %>
-</p>
+        <div class = "left">
 
-<p>
-  <strong>Vote status:</strong>
-  <%= @vote.vote_status %>
-</p>
+            <div class = "time">
+              <p><%= @vote.vote_status != 'archived'? 'Приём заявок до':'Дата архивации' %>: <span><%=  phase_upto @vote%></span></p>
+            </div>
+          <% if @vote.can_be_updated? @current_user %>
+            <div class="head-left-link"><%= link_to 'Редактировать', :edit_vote  %></div>
+          <% end %>
+          <% if @vote.can_be_deleted? @current_user %>
+            <div class="head-left-link head-left-link_delete"><%= link_to 'Удалить', :vote, method: :delete, data: {confirm: "Удалить голосование?"}  %></div>
+          <% end %>
 
-<p>
-  <strong>Body:</strong>
-  <%= @vote.body %>
-</p>
+          </div>
+        </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @vote.title %>
-</p>
+    </div>
+    <div class = "vote main">
+      <h1 class = "vote_title"><%= @vote.title %></h1>
+      <div class = "vote_body">
+        <p><%= @vote.body %></p>
+      </div>
+      <% iterations = @vote.iterations %>
+      <% current_iter = @vote.iteration %>
+      <% iterations.each_with_index do |el, i| %>
+        <% i=i+1 %>
+        <% next if i==1  %>
+        <div class = "iter <%= 'active' if i == current_iter  %>">
+          <div class = "num"></div>
+          <div class = "body">
+            <div class = "strip"></div>
+            <div class = "text">
+              <h4><%= el['title'] %></h4>
+              <p><%= el['body'] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
-<p>
-  <strong>Active to:</strong>
-  <%= @vote.active_to %>
-</p>
 
-<p>
-  <strong>Iter array:</strong>
-  <%= @vote.iter_array %>
-</p>
+      <br>
+      <% if @vote.pictures.count > 0 %>
+        <div class = "images">
+        <h3>Фото к проблеме</h3>
+        <div class="owl-carousel owl-theme">
 
-<p>
-  <strong>Current iter:</strong>
-  <%= @vote.current_iter %>
-</p>
-<div>
-  <% @vote.pictures.each do |pict| %>
-  <%= image_tag pict %>
-  <% end %>
+          <% @vote.pictures.each do |pict| %>
+            <div>
+              <%= link_to pict, :target => "_blank" do%>
+                <%= image_tag pict %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+      <br>
 
+      <div class = "ideas">
+        <div style="display: flex; justify-content: space-between; align-items: center">
+          <h2>Предложенные идеи</h2>
+          <div style="font-size: 44px; padding-right: 5px;"><%= link_to '+' %></div>
+        </div>
+
+        <div class = "head-container">
+          <div class = "list-item num">
+              <p>№</p>
+          </div>
+          <div class = "list-item img">
+          </div>
+          <div class = "list-item info">
+            <p>Название / Описание</p>
+          </div>
+          <div class = "list-item actions">
+            <p>Рейтинг</p>
+          </div>
+        </div>
+
+        <div class = "list-container">
+          <% if (ideas = @vote.ideas.where(idea_status: 'active')).count > 0 %>
+            <% ideas.each_with_index do |idea, i| %>
+
+            <a href = "/ideas/<%= idea.id %>">
+              <div class = "list-item">
+                <div class = "num">
+                  <h5><%= i+1 %></h5>
+                </div>
+                <div class = "img">
+                  <img src = "/img/default_idea.svg">
+                </div>
+                <div class = "info">
+                  <p class = "name"><%= idea.title %></p>
+                  <p class = "descr"><%= less_text(idea.body, 20) %></p>
+                </div>
+                <div class = "actions">
+                  <div data-idea_id = "<%= idea.id %>" class="rating">
+                    <!-- Thumbs up -->
+                    <% user_action = idea.user_action current_user %>
+                    <div class="like grow <%= 'active ' if user_action == :upvote %>">
+                      <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                    </div>
+                    <input class="value" value ="<%= idea.rating %>" disabled/>
+                    <!-- Thumbs down -->
+                    <div class="dislike grow <%= 'active ' if user_action == :downvote %>">
+                      <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <% end %>
+            <% else %> <h3 style = " text-align: center; padding: 20px 0;">К сожалению, еще не было предложено ни одной идеи</h3>
+          <% end %>
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <%= render partial: './footer.html.erb' %>
 </div>
-<%= link_to 'Edit', edit_vote_path(@vote) %> |
-<%= link_to 'Back', votes_path %>
+

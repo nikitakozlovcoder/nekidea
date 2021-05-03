@@ -66,7 +66,7 @@ class UsersController < ApplicationController
    end
    def logout
         cookies.signed["user"] = nil
-        redirect_to controller: 'home', action: 'index'
+        redirect_to controller: 'users', action: 'login'
    end
 
   private

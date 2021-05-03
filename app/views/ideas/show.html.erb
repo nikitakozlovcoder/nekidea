@@ -1,0 +1,115 @@
+<div class="page-wrapper idea">
+  <%= render partial: './header.html.erb' %>
+  <div class = "breadcrumbs">
+    <div class="container">
+      <a>Тематики</a> <i class="fas fa-arrow-right"></i> <a>Тематика №1</a> 
+    </div>
+  </div>
+    <section class="idea-section content container">
+      <div class="idea-header">
+        <div class="idea-block-header">
+          <h1 class="idea-name title">Создание игровой комнаты в офисе для персонала</h1>
+        </div>
+        <div class = "vote head">
+          <div class = "head">
+            <div class = "right">
+              <div class = "person">
+                <p>Создатель:</p>
+                <a href="/login">
+                  <div class = "avatar">
+                    <img src="https://w3schoolsrus.github.io/w3images/avatar2.png">
+                  </div>
+                  <div class = "name">
+                    <p>Иванов Иван Иваныч</p>
+                  </div>
+                </a>
+              </div>
+              <div class = "properties">
+                <p>Дата: <span>12.7.2021</span></p>
+              </div>    
+            </div>
+
+          <% user_action = @idea.user_action current_user %>
+
+            <div class = "left">
+              <div data-idea_id = "<%= @idea.id %>" class="rating">
+                  <!-- Thumbs up -->
+                  <div class="like grow <%= 'active ' if user_action == :upvote %>">
+                    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                  </div>
+                  <input class="value" value ="<%= @idea.rating %>" disabled/>
+                  <!-- Thumbs down -->
+                  <div class="dislike grow <%= 'active ' if user_action == :downvote %>">
+                    <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class = "idea-additional">
+          <div class = "idea-copyright">
+            <p>Основывается на: </p> <a href="#">Название другой идеи</a>
+          </div>
+          <div class = "idea-add">
+            Добавить в заметки
+          </div>
+        </div>
+      </div>
+
+      <main class="idea-main">
+        <h2 class="title">Описание</h2>
+        <div class="info">
+          <p>Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
+          сути, мыслей автора, возможно завлечение сотрудников для дальнейшего голосования именно за эту идею.
+          Также сюда можно написать дальнейшие перспективы развития данной идеи, польза для руководства либо для
+          сотрудников кампании или организации.
+        </div>
+
+        <div class = "images">
+          <h2>Прилагаемые фото</h2>
+          <div class="owl-carousel owl-theme">
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/2.jpg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+            <div> <a><img src = "/img/default_idea.svg"></a></div>
+          </div>
+        </div>
+        <div class="idea-important-links-block">
+          <h2>Прилагаемые ресурсы</h2>
+          <div class = "links">
+           <div class = "link"><i class="fas fa-link"></i><a  href="#">Источник новостей</a></div>
+           <div class = "link"><i class="fas fa-link"></i><a  href="#">Ресурсы</a></div>
+           <div class = "link"><i class="fas fa-link"></i><a  href="#">Пруфы</a></div>
+          </div>
+        </div>
+        <div class="idea-comments">
+          <h2>Комментарии</h2>
+          <div class="comment">
+            <div class="head">
+              <div class = "img">
+                <img>
+              </div>
+              <div class = "name">
+              </div>
+            </div>
+            <div class="body">
+          </div>
+        </div>
+      </main>
+    </section>
+  <%= render partial: './footer.html.erb' %>
+</div>

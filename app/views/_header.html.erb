@@ -2,18 +2,20 @@
 
 <header class="header">
   <nav class="links">
-    <li  class="active">
-      <a href="/" class="item">Главная</a>
+    <li  class="<%= set_active_if :root_path %>">
+      <%= link_to 'Главная', :root_path, class: 'item' %>
+
     </li>
-    <li>
+    <li class="<%= set_active_if :votes %>">
       <span>|</span>
-      <a href="/votes/new" class="item">Тематики</a>
+      <%= link_to 'Тематики', :votes, class: 'item' %>
     </li>
-    <li>
+    <li class="<%= set_active_if :users_path %>">
       <span>|</span>
-      <a href="#" class="item">Пользователи</a>
+      <%= link_to 'Пользователи', :users_path, class: 'item' %>
+
     </li>
-    <li>
+    <li class="<%=  %>">
       <span>|</span>
       <a href="#" class="item">Мой профиль</a>
     </li>
@@ -28,18 +30,19 @@
     <div class="smartphone-menu-trigger"></div>
   <div style = "overflow-y: auto; height: 100vh; display: flex; flex-direction: column;">
     <div class="avatar" >
-      <a href="/login">
-        <%= image_tag user_avatar %>
-        <h3 style="text-align: center; padding-top: 15px;">Omari Starks</h3>
+      <a href="">
+        <%= image_tag current_user_avatar %>
+        <h3 style="text-align: center; padding-top: 15px;"><%= current_user_name({patronymic: false}) %></h3>
       </a>
     </div>
 
       <ul style = " display:flex; flex-direction: column; flex: 1;">
-        <a href="/" tabindex="0" class="active"><span>Главная</span></a>
-        <a href="/votes/new" tabindex="0"><span>Тематики</span></a>
-        <a tabindex="0"><span>Пользователи</span></a>
-        <a tabindex="0"><span>Мой профиль</span></a>
-        <a href="/login" tabindex="0" class="last"><span>Выход</span></a>
+        <%= link_to 'Главная', :root_path, class: set_active_if(:root_path) %>
+        <%= link_to 'Тематики', :votes, class: set_active_if(:votes) %>
+        <%= link_to 'Пользователи', :users_path, class: set_active_if(:users_path) %>
+        <%= link_to 'Мой профиль'%>
+        <%= link_to 'Выход', :logout_path, class: 'last'%>
+
       </ul>
     </div>
   </nav>

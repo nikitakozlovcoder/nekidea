@@ -32,7 +32,9 @@ $i: 1;
     //text-align: left !important;
   }
 }
-
+.avatar img{
+  object-fit: cover;
+}
 .error-fields {
   color: #df5555;
 }
@@ -41,11 +43,12 @@ $i: 1;
 a:hover { 
   text-decoration: none;
   -webkit-text-decoration: none;
-  color: $color-accent;
+  color: #007bff;
 }
 
 a{
   transition: all 0.4s ease;
+  color: $color-accent;
 }
 
 p{
@@ -72,6 +75,27 @@ footer{
   display: none;
 }
 
+.owl-nav {
+  display: none;
+}
+.owl-dots {
+  margin-top: 10px;
+}
+.owl-item {
+  img {
+    object-fit: contain;
+    max-width: 160px;
+    max-height: 160px;
+  }
+}
+
+.col-fit {
+  width: 1%;
+  white-space: nowrap;
+}
+.col-min {
+  min-width: 160px;
+}
 // input:focus,
 // select:focus,
 // textarea:focus,

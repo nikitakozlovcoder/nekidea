@@ -8,6 +8,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start();
 require("channels")
 import '../vendor/jquery.nice-select.min.js'
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import 'owl.carousel';
 
 import '../styles/application.scss'
 
@@ -19,11 +22,19 @@ document.addEventListener("turbolinks:load", function() {
 
     
     router.callAlways ((entry) => {
+    	let owl_dots;
+       console.log(owl_dots = document.querySelectorAll('.owl-dots'));
+       for(let i = 0; i < owl_dots.length; i++)
+       {
+           owl_dots[i].style.display = 'none';
+       }
+
+        //alert('hi!');
         $(document).ready(function() {
             $('select').niceSelect();
         });
 
-
+        require('general/carousel.js').start();
         require('general/textarea_scroll.js').start();
     })
 
@@ -40,8 +51,14 @@ document.addEventListener("turbolinks:load", function() {
     }, "users/login")
 
     router.callWhen((entry)=>{
-        require('pages/vote_create.js');
+        require('pages/vote_create.js').start();
     }, "test/vote_create", "votes/new", "votes/edit", "votes/update", "votes/create")
+
+    router.callWhen((entry)=>{
+        
+        require('pages/vote.js').start();
+    }, "votes/show", "test/idea", "ideas/show");
+
 
     
   

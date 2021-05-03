@@ -11,8 +11,6 @@ function updateTextbox(text) {
 export function start() {
     $(document).on('focus.textarea', '.autoExpand', function(){
         if(!$(this).data('focused')) {
-            console.log(this);
-            console.log('one');
             var savedValue = this.value;
             this.value = '';
             this.baseScrollHeight = this.scrollHeight;
@@ -20,8 +18,6 @@ export function start() {
             $(this).data('focused', true);
         }
     }).on('input.textarea', '.autoExpand', function(){
-        console.log(this);
-        console.log('on');
         var minRows = this.getAttribute('data-min-rows')|0,
             rows;
         this.rows = minRows;
