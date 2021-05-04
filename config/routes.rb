@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'login', to: 'users#login', as: 'login_path'
   post 'login', to: 'users#login_post', as: 'login_post_path'
   get 'logout', to: 'users#logout', as: 'logout_path'
-
+  get 'user/:id', to:  'users#profile', as: 'user_profile'
   #admin section
   get 'admin', to: 'admin#index', as: 'admin_index_path'
 
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   #get 'vote_create', to: 'test#vote_create'
 
-  get 'users', to: 'test#users', as: 'users_path'
+  get 'users', to: 'users#leaderboard', as: 'users_path'
 
   #ideas section
   post 'users/generate', to: 'users#generate', as: 'users_generate_path'

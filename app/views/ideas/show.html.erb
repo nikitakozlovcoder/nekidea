@@ -2,7 +2,7 @@
   <%= render partial: './header.html.erb' %>
   <div class = "breadcrumbs">
     <div class="container">
-      <a>Тематики</a> <i class="fas fa-arrow-right"></i> <a>Тематика №1</a> 
+      <%= link_to 'Главная', :root_path %> <i class="fas fa-arrow-right"></i> <%= link_to 'Тематики', :votes %> <i class="fas fa-arrow-right"></i> <%= link_to @idea.vote.title, vote_path(@idea.vote) %><i class="fas fa-arrow-right"></i><a href=""><%= @idea.title %></a>
     </div>
   </div>
     <section class="idea-section content container">
@@ -97,19 +97,98 @@
           </div>
         </div>
         <div class="idea-comments">
-          <h2>Комментарии</h2>
-          <div class="comment">
-            <div class="head">
-              <div class = "img">
-                <img>
-              </div>
-              <div class = "name">
-              </div>
+          <form class = "nice">
+            <div class = "head">
+              <h2>Комментарии</h2>
+              <button class ="btn-simple"><i class="far fa-paper-plane"></i>Отправить</button>
             </div>
-            <div class="body">
-          </div>
+            <label for="vote_description" class="inp textarea">
+              <textarea class = "autoExpand vote_description" placeholder = " " rows = "1" data-min-rows = "1" required></textarea>
+              <span class="label">Ваше предложение</span>
+            </label>
+          </form>
         </div>
       </main>
+
+      <div class="comment-box">
+        <div class="comment">
+          <div class="head">
+            <a href = "/login">
+              <div class = "person">
+                <div class = "img">
+                  <img src = "https://w3schoolsrus.github.io/w3images/avatar2.png">
+                </div>
+                <div class = "person-info">
+                  <div class = "name">
+                    <p>Иванов Иван Иваныч</p>
+                  </div>
+                  <div>
+                    <p>Должность</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <div class = "date">
+              <p>21.04.2021</p>
+            </div>
+          </div>
+          <div class="body">
+            <p>
+              Некоторое длиннющее сообщение гдк имеется очень много текста: Несмотря на то, что чья-то карета стояла у подъезда, швейцар, оглядев мать с сыном (которые, не приказывая докладывать о себе, прямо вошли в стеклянные сени между рядами статуй в нишах), значительно посмотрев на старенький салоп, спросил, кого им угодно, княжон или графа, и, узнав, что графа, сказал, что их сиятельству нынче хуже и их сиятельство никого не принимают.
+            </p>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="head">
+            <div class = "person">
+              <div class = "img">
+                <img src = "https://w3schoolsrus.github.io/w3images/avatar2.png">
+              </div>
+              <div class = "person-info">
+                <div class = "name">
+                  <p>Иванов Иван Иваныч</p>
+                </div>
+                <div>
+                  <p>Должность</p>
+                </div>
+              </div>
+            </div>
+            <div class = "date">
+              <p>21.04.2021</p>
+            </div>
+          </div>
+          <div class="body">
+            <p>
+              Некоторое длиннющее сообщение гдк имеется очень много текста.
+            </p>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="head">
+            <div class = "person">
+              <div class = "img">
+                <img src = "https://w3schoolsrus.github.io/w3images/avatar2.png">
+              </div>
+              <div class = "person-info">
+                <div class = "name">
+                  <p>Иванов Иван Иваныч</p>
+                </div>
+                <div>
+                  <p>Должность</p>
+                </div>
+              </div>
+            </div>
+            <div class = "date">
+              <p>21.04.2021</p>
+            </div>
+          </div>
+          <div class="body">
+            <p>
+              Некоторое длиннющее сообщение гдк имеется очень много текста: Несмотря на то, что чья-то карета стояла у подъезда, швейцар, оглядев мать с сыном (которые, не приказывая докладывать о себе, прямо вошли в стеклянные сени между рядами статуй в нишах), значительно посмотрев на старенький салоп, спросил, кого им угодно, княжон или графа, и, узнав, что графа, сказал, что их сиятельству нынче хуже и их сиятельство никого не принимают.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   <%= render partial: './footer.html.erb' %>
 </div>

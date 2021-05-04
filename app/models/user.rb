@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_one_attached :avatar
     has_secure_password
     has_many :votes, dependent: :nullify
+    has_many :ideas
     validates :mail, uniqueness: true
     validates :name, presence: true
     validates :surname, presence: true
@@ -18,7 +19,11 @@ class User < ApplicationRecord
             self.duties << duty
         end
     end
-
+    def showable_duty
+        return "Администратор" if self.is_admin
+        return "Руководитель" if self.is_boss
+        "Сотрудник"
+    end
     def writable_duties
         arr = []
         if self.is_admin

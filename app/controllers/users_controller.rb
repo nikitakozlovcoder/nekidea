@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def generate
+   def generate
     @error_str = ""
     @type = params["type"]
     @file = params["file"]
@@ -69,6 +69,10 @@ class UsersController < ApplicationController
         redirect_to controller: 'users', action: 'login'
    end
 
+
+    def leaderboard
+
+    end
   private
   def csv_generate
     require 'csv'

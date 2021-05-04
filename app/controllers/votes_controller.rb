@@ -20,11 +20,7 @@ class VotesController < ApplicationController
   # GET /votes/1/edit
   def edit
 
-    unless @vote.can_write current_user
-      redirect_to :index
-    else
-      set_writable_duties true
-    end
+    (!@vote.can_write current_user) ? redirect_to(:index) : set_writable_duties(true)
 
   end
 
