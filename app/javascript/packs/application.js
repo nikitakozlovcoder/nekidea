@@ -22,6 +22,13 @@ document.addEventListener("turbolinks:load", function() {
 
     
     router.callAlways ((entry) => {
+    	let owl_dots;
+       console.log(owl_dots = document.querySelectorAll('.owl-dots'));
+       for(let i = 0; i < owl_dots.length; i++)
+       {
+           owl_dots[i].style.display = 'none';
+       }
+
         //alert('hi!');
         $(document).ready(function() {
             $('select').niceSelect();
@@ -48,9 +55,9 @@ document.addEventListener("turbolinks:load", function() {
     }, "test/vote_create", "votes/new", "votes/edit", "votes/update", "votes/create")
 
     router.callWhen((entry)=>{
-
+        
         require('pages/vote.js').start();
-    }, "votes/show", "test/idea");
+    }, "votes/show", "test/idea", "ideas/show");
 
 
     

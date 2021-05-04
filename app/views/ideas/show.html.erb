@@ -28,15 +28,18 @@
                 <p>Дата: <span>12.7.2021</span></p>
               </div>    
             </div>
+
+          <% user_action = @idea.user_action current_user %>
+
             <div class = "left">
-              <div class="rating">
+              <div data-idea_id = "<%= @idea.id %>" class="rating">
                   <!-- Thumbs up -->
-                  <div class="like grow">
+                  <div class="like grow <%= 'active ' if user_action == :upvote %>">
                     <i class="far fa-thumbs-up" aria-hidden="true"></i>
                   </div>
-                  <input class="value" value ="-12" disabled/>
+                  <input class="value" value ="<%= @idea.rating %>" disabled/>
                   <!-- Thumbs down -->
-                  <div class="dislike grow">
+                  <div class="dislike grow <%= 'active ' if user_action == :downvote %>">
                     <i class="far fa-thumbs-down" aria-hidden="true"></i>
                   </div>
               </div>

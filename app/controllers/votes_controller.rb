@@ -59,16 +59,19 @@ class VotesController < ApplicationController
         format.json { render json: @vote.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /votes/1 or /votes/1.json
   def destroy
+
     if @vote.can_write current_user
       @vote.destroy
       respond_to do |format|
         format.html { redirect_to votes_url, notice: "Vote was successfully destroyed." }
         format.json { head :no_content }
       end
+
     else
 
       respond_to do |format|
@@ -77,6 +80,7 @@ class VotesController < ApplicationController
       end
 
     end
+
 
   end
 

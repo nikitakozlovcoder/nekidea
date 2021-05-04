@@ -52,15 +52,20 @@ class Vote < ApplicationRecord
     end
 
   end
-  def can_create_fresh_idea?
+  
+  
+ def can_create_fresh_idea?
     self.iteration == 1 && self.vote_status == "collecting"
+ end
+
+  def can_be_updated? user
+   self.vote_status != :archived && self.current_iter == 1 && self.user == user && Time.now.getutc - self.created_at.getutc <= 60.minutes
   end
-  def can_update?
-    true
+  
+  def can_be_deleted? user
+    (self.vote_status != :archived && self.user == user && Time.now.getutc - self.created_at.getutc <= 60.minutes) || user.is_admin == true
   end
-  def can_delete?
-    true
-  end
+  
   def iteration
     return self.current_iter if self.vote_status != 'archived'
     self.iterations.count if self.vote_status == 'archived'
