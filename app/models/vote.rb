@@ -1,11 +1,12 @@
 class Vote < ApplicationRecord
   enum vote_status: [ :collecting, :voting, :archived ]
-  enum vote_type: [ :multi ]
-  belongs_to :user
+  enum vote_type: [ :multi, :single]
+  belongs_to :user, optional: true
   belongs_to :duty
   has_many_attached :pictures
+  has_many :ideas
   def can_write user
-    self.user_id == user.id or user.is_admin or user.is_boss
+    self.user_id == user.id or user.is_admin
   end
   def iterations
     JSON.parse self.iter_array
@@ -20,8 +21,8 @@ class Vote < ApplicationRecord
     created =  self.created_at.beginning_of_day
     arr.each_with_index do |el, i|
         created = created.advance(days: el['days_collecting'].to_i)
-        unless current_datetime>=created
-          new_iter = i+1
+        if current_datetime < created
+          new_iter = i + 1
           new_status = 0
           puts "!!!!!!!!!!!"
           archived = false
@@ -29,8 +30,8 @@ class Vote < ApplicationRecord
         end
 
         created = created.advance(days: el['days_voting'].to_i)
-        unless current_datetime>=created
-          new_iter = i+1
+        if current_datetime < created
+          new_iter = i + 1
           new_status = 1
           archived = false
           break
@@ -51,8 +52,22 @@ class Vote < ApplicationRecord
     end
 
   end
+  def can_create_fresh_idea?
+    self.iteration == 1 && self.vote_status == "collecting"
+  end
+  def can_update?
+    true
+  end
+  def can_delete?
+    true
+  end
+  def iteration
+    return self.current_iter if self.vote_status != 'archived'
+    self.iterations.count if self.vote_status == 'archived'
+  end
   private
   def update_ideas
     puts 'update ideas'
   end
+
 end

@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :check_schedule
   skip_forgery_protection
   helper_method :current_user
-  helper_method :user_avatar
-
-
-
   def current_user
     #puts "I am working 1111111111111111111111111"
 
@@ -30,14 +26,6 @@ class ApplicationController < ActionController::Base
 
   end
 
-
-  def user_avatar
-    if current_user != nil and current_user.avatar.attached?
-      current_user.avatar
-    else
-       "https://w3schoolsrus.github.io/w3images/avatar2.png"
-    end
-  end
 
   def require_login
     redirect_to controller: 'users', action: 'login' if current_user.nil?

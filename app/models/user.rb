@@ -10,7 +10,9 @@ class User < ApplicationRecord
     # & BOSSES MAY HAVE ADDITIONAL DUTIES NOT LISTED IN THEIR DB RELATIONS, OR U CAN KILL DB WITH DUPLICATES
     has_many :duties_users, class_name: "DutyUser", dependent: :destroy
     has_many :duties, through: :duties_users, class_name: "Duty"
+
     private :duties_users, :duties_users=, :duties, :duties=
+
     def add_duty duty
         if  self.duties.find_by(id: duty.id)== nil
             self.duties << duty
@@ -19,11 +21,16 @@ class User < ApplicationRecord
 
     def writable_duties
         arr = []
-        self.duties_users.each do |d|
-            if d.duty.write_all and d.has_write_access
-                arr << d.duty
+        if self.is_admin
+         arr = Duty.all.to_a
+        else
+            self.duties_users.each do |d|
+                if d.duty.write_all and d.has_write_access
+                    arr << d.duty
+                end
             end
         end
+
         arr
     end
 
@@ -31,7 +38,12 @@ class User < ApplicationRecord
         self.duties.delete(id)
     end
     def all_duties
-        self.duties
+        if self.is_admin
+            Duty.all
+        else
+            self.duties
+        end
+
     end
 
 end

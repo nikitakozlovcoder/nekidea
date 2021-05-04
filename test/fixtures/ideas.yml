@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vote_id: 1
+  user_id: 1
+  title: MyString
+  body: MyText
+  created_on: 1
+  archived_on: 1
+  instance_id: 1
+  idea_state: 1
+
+two:
+  vote_id: 1
+  user_id: 1
+  title: MyString
+  body: MyText
+  created_on: 1
+  archived_on: 1
+  instance_id: 1
+  idea_state: 1

@@ -62,7 +62,11 @@
       </div>
     </div>
     <div class = "active_themes">
-      <h2>Активные тематики</h2>
+      <div style="display: flex; justify-content: space-between; align-items: center">
+        <h2>Активные тематики</h2>
+        <div style="font-size: 44px; padding-right: 5px;"><%= link_to '+', :new_vote %></div>
+      </div>
+
       <!--
       <div class = "table-responsive">
         <table class="table">
@@ -97,7 +101,7 @@
         </table>
       </div>
       -->
-        
+
         <div class = "head-container">
           <div class = "list-item img">
           </div>
@@ -112,113 +116,30 @@
           </div>
         </div>
         <div class = "list-container">
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 темы...</p>
-              </div>
-              <div class = "status">
-                <p>Находится на этапе 3</p>
-              </div>
-              <div class = "phase">
-                <p>Приём заявок</p>
-              </div>
-            </div>
-          </a>
+          <% @votes.each do |vote| %>
+            <%= link_to(vote_path(vote)) do   %>
 
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
+              <div class = "list-item">
+                <div class = "img">
+                  <img src = "/img/default_idea.svg">
+                </div>
+                <div class = "info">
+                  <p class = "name"><%= vote.title %></p>
+                  <p class = "descr"><%= less_text(vote.body, 30) %></p>
+                </div>
+                <div class = "status" >
+                  <p style="width: 100%; text-align: center"><%= vote_status vote %></p>
+                </div>
+                <div class = "phase" >
+                  <p style="width: 100%; text-align: center"><%= vote_phase_2 vote %></p>
+                </div>
               </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 темы...</p>
-              </div>
-              <div class = "status">
-                <p>Активно</p>
-              </div>
-              <div class = "phase">
-                <p>Голосование</p>
-              </div>
-            </div>
-          </a>
 
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 темы...</p>
-              </div>
-              <div class = "status">
-                <p>Находится на этапе 3</p>
-              </div>
-              <div class = "phase">
-                <p>Приём заявок</p>
-              </div>
-            </div>
-          </a>
+            <% end %>
+          <% end %>
 
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 темы...</p>
-              </div>
-              <div class = "status">
-                <p>Находится на этапе 3</p>
-              </div>
-              <div class = "phase">
-                <p>Приём заявок</p>
-              </div>
-            </div>
-          </a>
 
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 темы...</p>
-              </div>
-              <div class = "status">
-                <p>Находится на этапе 3</p>
-              </div>
-              <div class = "phase">
-                <p>Приём заявок</p>
-              </div>
-            </div>
-          </a>
 
-          <a href = "/votes/new">
-            <div class = "list-item">
-              <div class = "img">
-                <img src = "/img/default_idea.svg">
-              </div>
-              <div class = "info">
-                <p class = "name">Имя1</p>
-                <p class = "descr">Некторое описание 1 темы...</p>
-              </div>
-              <div class = "status">
-                <p>Находится на этапе 3</p>
-              </div>
-              <div class = "phase">
-                <p>Приём заявок</p>
-              </div>
-            </div>
-          </a>
         </div>
     </div>
   </section>

@@ -17,7 +17,10 @@
         flex-wrap: wrap;
         .left {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+        }
+        &-left-link{
+            text-align: right;
         }
         .person {
             display: flex;
@@ -45,7 +48,7 @@
             }
         }
         .time {
-            height: 70px;
+            height: 54px;
             display: flex;
             flex-direction: column;
             p {
@@ -245,6 +248,9 @@
 
 .page-wrapper.vote-show{
     @media screen and (max-width: 994px) {
+        .head-left-link{
+            text-align: left;
+        }
         .vote-show .container {
             max-width: 830px;
             padding-left: 0;
