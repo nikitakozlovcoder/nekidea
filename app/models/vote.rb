@@ -1,6 +1,6 @@
 class Vote < ApplicationRecord
   enum vote_status: [ :collecting, :voting, :archived ]
-  enum vote_type: [ :multi ]
+  enum vote_type: [ :multi, :single]
   belongs_to :user, optional: true
   belongs_to :duty
   has_many_attached :pictures
@@ -52,19 +52,20 @@ class Vote < ApplicationRecord
     end
 
   end
+  
+  
+ def can_create_fresh_idea?
+    self.iteration == 1 && self.vote_status == "collecting"
+ end
 
   def can_be_updated? user
-    if self.vote_status != :archived && self.current_iter == 1 && self.user == user && Time.now.getutc - self.created_at.getutc <= 60.minutes
-      return true
-    end
-    return false
+   self.vote_status != :archived && self.current_iter == 1 && self.user == user && Time.now.getutc - self.created_at.getutc <= 60.minutes
   end
+  
   def can_be_deleted? user
-    if (self.vote_status != :archived && self.user == user && Time.now.getutc - self.created_at.getutc <= 60.minutes) || user.is_admin == true
-      return true
-    end
-    return false
+    (self.vote_status != :archived && self.user == user && Time.now.getutc - self.created_at.getutc <= 60.minutes) || user.is_admin == true
   end
+  
   def iteration
     return self.current_iter if self.vote_status != 'archived'
     self.iterations.count if self.vote_status == 'archived'

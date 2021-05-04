@@ -49,7 +49,7 @@
       <% current_iter = @vote.iteration %>
       <% iterations.each_with_index do |el, i| %>
         <% i=i+1 %>
-        <% next if i==1  %>
+        <% next if el['title'] == nil  %>
         <div class = "iter <%= 'active' if i == current_iter  %>">
           <div class = "num"></div>
           <div class = "body">
@@ -84,7 +84,10 @@
       <div class = "ideas">
         <div style="display: flex; justify-content: space-between; align-items: center">
           <h2>Предложенные идеи</h2>
-          <div style="font-size: 44px; padding-right: 5px;"><%= link_to '+' %></div>
+          <% if @vote.can_create_fresh_idea? %>
+            <div style="font-size: 44px; padding-right: 5px;"><%= link_to '+' %></div>
+          <% end %>
+
         </div>
 
         <div class = "head-container">
@@ -103,45 +106,40 @@
 
         <div class = "list-container">
           <% if (ideas = @vote.ideas.where(idea_status: 'active')).count > 0 %>
-            <% ideas.each_with_index do |idea, i| %>
 
-            <a href = "/ideas/<%= idea.id %>">
-              <div class = "list-item">
-                <div class = "num">
-                  <h5><%= i+1 %></h5>
-                </div>
-                <div class = "img">
-                  <img src = "/img/default_idea.svg">
-                </div>
-                <div class = "info">
-                  <p class = "name"><%= idea.title %></p>
-                  <p class = "descr"><%= less_text(idea.body, 20) %></p>
-                </div>
-                <div class = "actions">
-                  <div data-idea_id = "<%= idea.id %>" class="rating">
-                    <!-- Thumbs up -->
-                    <% user_action = idea.user_action current_user %>
-                    <div class="like grow <%= 'active ' if user_action == :upvote %>">
-                      <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                    </div>
-                    <input class="value" value ="<%= idea.rating %>" disabled/>
-                    <!-- Thumbs down -->
-                    <div class="dislike grow <%= 'active ' if user_action == :downvote %>">
-                      <i class="far fa-thumbs-down" aria-hidden="true"></i>
+            <% ideas.each_with_index do |idea, i| %>
+              <a href = "/ideas/<%= idea.id %>">
+                <div class = "list-item">
+                  <div class = "num">
+                    <h5><%= i+1 %></h5>
+                  </div>
+                  <div class = "img">
+                    <img src = "/img/default_idea.svg">
+                  </div>
+                  <div class = "info">
+                    <p class = "name"><%= idea.title %></p>
+                    <p class = "descr"><%= less_text(idea.body, 20) %></p>
+                  </div>
+                  <div class = "actions">
+                    <div data-idea_id = "<%= idea.id %>" class="rating">
+                      <!-- Thumbs up -->
+                      <% user_action = idea.user_action current_user %>
+                      <div class="like grow <%= 'active ' if user_action == :upvote %>">
+                        <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                      </div>
+                      <input class="value" value ="<%= idea.rating %>" disabled/>
+                      <!-- Thumbs down -->
+                      <div class="dislike grow <%= 'active ' if user_action == :downvote %>">
+                        <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
             <% end %>
-            <% else %> <h3 style = " text-align: center; padding: 20px 0;">К сожалению, еще не было предложено ни одной идеи</h3>
+            <% else %> 
+            <h3 style = " text-align: center; padding: 20px 0;">К сожалению, еще не было предложено ни одной идеи</h3>
           <% end %>
-
-
-
-
-
-
 
         </div>
       </div>
