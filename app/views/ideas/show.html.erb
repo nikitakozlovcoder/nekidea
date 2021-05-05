@@ -91,10 +91,16 @@
         <div class="idea-important-links-block">
           <h2>Прилагаемые ресурсы</h2>
           <div class = "links">
+            <% @idea.get_resources.each do |el| %>
+              <div class = "link"><i class="fas fa-link"></i><a  href="<%= el["link"] %>"><%= el["name"] %></a></div>
+            <% end %>
+          </div>
+
+          <!--<div class = "links">
            <div class = "link"><i class="fas fa-link"></i><a  href="#">Источник новостей</a></div>
            <div class = "link"><i class="fas fa-link"></i><a  href="#">Ресурсы</a></div>
            <div class = "link"><i class="fas fa-link"></i><a  href="#">Пруфы</a></div>
-          </div>
+          </div>-->
         </div>
         <div class="idea-comments">
           <h2>Комментарии</h2>
@@ -108,6 +114,7 @@
             </div>
             <div class="body">
           </div>
+        </div>
         </div>
       </main>
     </section>

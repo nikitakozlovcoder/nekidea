@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_054434) do
+ActiveRecord::Schema.define(version: 2021_05_05_090617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_04_25_054434) do
     t.integer "idea_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "resources", default: "[]"
   end
 
   create_table "ideas_downusers", id: false, force: :cascade do |t|
@@ -96,7 +97,7 @@ ActiveRecord::Schema.define(version: 2021_04_25_054434) do
     t.string "name", default: ""
     t.string "surname", default: ""
     t.string "patronymic", default: ""
-    t.datetime "restore_date", default: "2021-02-11 09:57:14"
+    t.datetime "restore_date", default: "2021-02-06 15:13:09"
     t.boolean "is_boss", default: false
   end
 
