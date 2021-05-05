@@ -359,6 +359,10 @@
         .votes-list, .ideas-list {
             padding-left: 15px;
             padding-right: 15px;
+            .list-item {
+                //grid-template-columns: 70px 1fr;
+                padding: 15px 10px 15px 10px;
+            }
         }
         
         .profile-main .profile-data .profile-stats .stats-container .stat p{
