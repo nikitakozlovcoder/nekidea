@@ -11,7 +11,7 @@ class User < ApplicationRecord
     # & BOSSES MAY HAVE ADDITIONAL DUTIES NOT LISTED IN THEIR DB RELATIONS, OR U CAN KILL DB WITH DUPLICATES
     has_many :duties_users, class_name: "DutyUser", dependent: :destroy
     has_many :duties, through: :duties_users, class_name: "Duty"
-
+    has_many :comments
     private :duties_users, :duties_users=, :duties, :duties=
 
     def add_duty duty
@@ -19,11 +19,7 @@ class User < ApplicationRecord
             self.duties << duty
         end
     end
-    def showable_duty
-        return "Администратор" if self.is_admin
-        return "Руководитель" if self.is_boss
-        "Сотрудник"
-    end
+
     def writable_duties
         arr = []
         if self.is_admin

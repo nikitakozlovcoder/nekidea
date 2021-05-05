@@ -7,6 +7,7 @@ class Idea < ApplicationRecord
   has_and_belongs_to_many :downvotes, :class_name => 'User', :join_table => 'ideas_downusers'
   private :upvotes, :upvotes=, :downvotes, :downvotes=
   enum idea_status: [ :active, :archived, :accepted ]
+  has_many :comments, dependent: :destroy
 
 
   def rating

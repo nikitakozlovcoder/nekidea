@@ -1,0 +1,27 @@
+<div class="comment">
+  <div class="head">
+    <%= link_to user_profile_path(comment.user) do%>
+      <div class = "person">
+        <div class = "img">
+          <%= image_tag user_avatar comment.user %>
+        </div>
+        <div class = "person-info">
+          <div class = "name">
+            <p><%= user_name comment.user %></p>
+          </div>
+          <div>
+            <p><%= user_role comment.user%></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class = "date">
+      <p><%= format_date comment.created_at %></p>
+    </div>
+  </div>
+  <div class="body">
+    <p>
+      <%= comment.body %>
+    </p>
+  </div>
+</div>

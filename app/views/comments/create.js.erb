@@ -1,0 +1,11 @@
+<% if @saveres %>
+
+  document.querySelectorAll('.comment_text-edit_field').forEach(function (el) {
+      el.value = '' ;
+  });
+  document.querySelector('.comment-box').innerHTML =
+      "<%= escape_javascript render partial: 'comments/comment', locals: {comment: @comment} %>" + document.querySelector('.comment-box').innerHTML;
+<% else %>
+
+  alert('Не удалось отправить комментарий, попропбуйте позднее')
+<% end %>

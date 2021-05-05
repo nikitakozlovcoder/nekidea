@@ -73,6 +73,10 @@ class UsersController < ApplicationController
     def leaderboard
 
     end
+
+    def profile
+      
+    end
   private
   def csv_generate
     require 'csv'
