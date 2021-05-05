@@ -60,6 +60,7 @@
                         i {
                             margin-left: 10px;
                             color: $color-accent;
+                            font-size: 1.3rem;
                         }
                         .value {
                             display: flex;
@@ -85,7 +86,7 @@
            padding: 10px;
            font-size: 1rem;
            i {
-               margin-left: 5px;
+               margin-left: 10px;
            }
         }
     }
@@ -99,7 +100,7 @@
         h2, .btn-simple {
             margin: 0;
         }
-        &.none {
+        &.head {
             background-color: transparent;
         }
     }
@@ -121,6 +122,10 @@
             border-radius: 7px;
             cursor: pointer;
             transition: all 0.15s linear;
+            .date, .status, .phase {
+                width: 100%; 
+                text-align: center;
+            }
             &:hover {
                 background-color: $color-gray;
             }
@@ -146,12 +151,218 @@
     .ideas-list {
         .list-item {
             grid-template-columns: 70px 1fr 200px 200px;
+            .date, .status {
+                width: 100%; 
+                text-align: center;
+            }
         }
     }
 
     .votes-list {
         .list-item {
             grid-template-columns: 70px 1fr 200px 200px 200px;
+        }
+    }
+    @media screen and (max-width: 992px) {
+        .container {
+            max-width: 820px;
+        }
+        .profile-main {
+            .profile-data {
+                justify-content: center;
+            }
+            .profile-stats {
+                width: 580px;
+            }
+        }
+        .el-title.head {
+            justify-content: center;
+        }
+        .actions {
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding-bottom: 20px;
+            .btn-simple {
+                margin-bottom: 0;
+            }
+        }
+
+        .votes-list{ 
+            .list-item {
+                grid-template-columns: 70px 1fr 160px 1fr ;
+                grid-template-rows: 1fr 50px 50px 1fr;
+                grid-template-areas:
+                    "img info . ."
+                    "img info date status"
+                    "img info date phase"
+                    "img info . .";
+                .img {
+                    grid-area: img;
+                }
+                .info {
+                    grid-area: info;
+                }
+                .date {
+                    grid-area: date;
+                }
+                .status {
+                    grid-area: status;
+                }
+                .phase {
+                    grid-area: phase;
+                }
+            }
+        }
+
+        .ideas-list{ 
+            .list-item {
+                grid-template-columns: 70px 1fr 160px 1fr ;
+            }
+        }
+    }
+
+    @media screen and (max-width: 610px) {
+        .line p{
+            width: 50%;
+        }
+        .profile-main {
+            .profile-data .profile-info .line {
+                padding: 10px 10px 10px 40px;
+            }
+            .profile-stats {
+                width: 100%;
+            }
+        }
+        .votes-list{ 
+            .list-item {
+                grid-template-columns: 70px 1fr 1fr;
+                grid-template-rows: 30px 30px 30px 1fr;
+                grid-template-areas: 
+                    "img info date"
+                    "img info phase"
+                    "img info status"
+                    "img info .";
+                .date, .status, .phase {
+                    text-align: start;
+                    margin-left: 10px;
+                }
+                .img, .info, .date, .status, .phase {
+                    align-self: flex-start;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 530px) {
+        .votes-list{ 
+            .list-item {
+                grid-template-columns: 70px 1fr;
+                grid-template-rows:    1fr 30px 30px 30px;
+                grid-template-areas: 
+                    "img info"
+                    ". phase"
+                    ". status"
+                    ". date";
+                    
+                .status, .phase, .date {
+                    text-align: start;
+                    margin-left: 0;
+                }
+
+                .img, .info {
+                    align-self: center;
+                    //margin-bottom: 5px;
+                }
+            }
+        }
+
+        .ideas-list{ 
+            .list-item {
+                grid-template-columns: 70px 1fr 1fr;
+                grid-template-rows: 30px 30px 1fr;
+                grid-template-areas: 
+                    "img info date"
+                    "img info status"
+                    "img info .";
+                    .img {
+                        grid-area: img;
+                    }
+                    .info {
+                        grid-area: info;
+                    }
+                    .date {
+                        grid-area: date;
+                    }
+                    .status {
+                        grid-area: status;
+                    }
+            }
+        }
+
+        .el-title {
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .profile-main {
+            .profile-data .profile-info .line {
+                flex-direction: column;
+                align-items: flex-start;
+                .name {
+                    font-weight: 500;
+                    font-size: 1.4rem;
+                }
+            }
+            .profile-stats {
+                width: 100%;
+            }
+        }
+        .line p{
+            width: auto;
+        }
+    }
+
+    @media screen and (max-width: 440px) {
+        .ideas-list{ 
+            .list-item {
+                grid-template-columns: 70px 1fr;
+                grid-template-rows: 1fr 30px 30px;
+                grid-template-areas: 
+                    "img info"
+                    ". status"
+                    ". date";
+                .status, .date {
+                    text-align: start;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 380px) {
+        h2 {
+            font-size: 1.6rem;
+        }
+        .profile-main {
+            .actions {
+                flex-direction: column;
+                .btn-simple {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .container {
+            padding: 0;
+        }
+        .votes-list, .ideas-list {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        .profile-main .profile-data .profile-stats .stats-container .stat p{
+            font-size: 1.4rem;
         }
     }
 }
