@@ -31,7 +31,7 @@
             }
             a {
                 display: flex;
-                color: #212529;
+                color: $text-color;
             }
             .avatar {
                 margin-right: 10px;
@@ -141,7 +141,7 @@
     //border-left: 1px solid #ddd;
     //border-right: 1px solid #ddd;
     a {
-        color: #212529;
+        color: $text-color;
     }
     .list-item {
         display: grid;
