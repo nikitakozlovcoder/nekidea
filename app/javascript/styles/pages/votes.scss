@@ -9,7 +9,7 @@
         color: #212529;
         transition: all 0.15s linear;
         &:hover {
-            background-color: #f0f0f0de;
+            background-color: $color-gray;
         }
         .img {
             margin-bottom: 5px;
@@ -36,38 +36,34 @@
     }
 
     .head-container {
+        display: grid;
+        grid-template-columns: 1fr 220px 200px;
+
         .info {
-            width: 350px;
-            flex-grow:0;
+            display: flex;
+            justify-content: center;
         }
         .status {
-            flex-grow: 1;
-            width: 310px;
             display: flex;
             justify-content: center;
         }
         .phase {
-            padding-right: 40px;
-            flex-grow: 1;
             display: flex;
             justify-content: center;
         }
     }
     .list-container {
         .list-item {
+            display: grid;
+            grid-template-columns: 70px 1fr 220px 200px;
             .info {
-                flex-grow: 0;
-                width: 350px;
             }
             .status {
-                flex-grow: 1;
                 display: flex;
                 align-items: center;
-                width: 310px;
                 justify-content: center;
             }
             .phase {
-                flex-grow: 1;
                 display: flex;
                 align-items: center;
                 justify-content: center;

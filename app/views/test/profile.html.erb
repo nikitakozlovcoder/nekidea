@@ -1,0 +1,119 @@
+<div class="page-wrapper profile">
+  <%= render partial: './header.html.erb' %>
+  <div class="breadcrumbs">
+    <div class="container">
+      <a href="/">Главная</a> <i class="fas fa-arrow-right"></i> <a href="/users">Пользователи</a>
+    </div>
+  </div>
+    <div class="container">
+        <div class="profile-main">
+            <div class = "el-title none">
+                <h2>Мои данные</h2>
+            </div>
+            <div class="profile-data">
+                <div class = "profile-actions">
+                    <div class="profile-info">
+                        <div class="user-photo line">
+                            <p>Моё фото</p>
+                            <img class="profile-image" src="https://w3schoolsrus.github.io/w3images/avatar2.png">
+                        </div>
+                        <div class="line">
+                            <p>Фамилия</p>
+                            <p class="data">Иванов</p>
+                        </div>
+                        <div class="line">
+                            <p>Имя</p>
+                            <p class="data">Валентин</p>
+                        </div>
+                        <div class="line">
+                            <p>Отчество</p>
+                            <p class="data">Петрович</p>
+                        </div>
+                        <div class="line">
+                            <p>Эл. почта</p>
+                            <p class="data">example@gmail.com</p>
+                        </div>
+                        <div class="line">
+                            <p>Дата рождения</p>
+                            <p class="data">19.09.1998</p>
+                        </div>
+                        <div class="line">
+                            <p>Мои группы</p>
+                            <p class="data">Все, Тестировщик, Младший, Команда 1</p>
+                        </div>
+                    </div> 
+                    <div class="actions">
+                        <button class="btn-simple">Редактировать <i class="fas fa-pen"></i></button>
+                        <button class="btn-simple">Изменить пароль <i class="fas fa-key"></i></button>
+                    </div>
+                </div>        
+                <div class="profile-stats">
+                    <div class = "stats-container">
+                        <div class = "stats-title">
+                            <p>Идей</p>
+                        </div>
+                        <div class = "stat">
+                            <div class = "name">
+                                <p>Прeдложено: </p>
+                            </div>
+                            <div class = "value">
+                                <p>12<i class="fas fa-comment-dots"></i></p>
+                            </div> 
+                        </div>
+                        <div class = "stat">
+                            <div class = "name">
+                                <p>Принято: </p>
+                            </div>
+                            <div class = "value">
+                                <p>12<i class="fas fa-check"></i></p>
+                            </div> 
+                        </div>
+                        <div class = "stats-title">
+                            <p>Голосований</p>
+                        </div>
+                        <div class = "stat">
+                            <div class = "name">
+                                <p>Создано: </p>
+                            </div>
+                            <div class = "value">
+                                <p>12<i class="fas fa-pencil-alt"></i></p>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="el-title">
+            <h2>Мои идеи</h2>
+        </div>
+        <div class="ideas-list">
+            <div class="idea-form">
+                <div class="idea-left-side">
+                    <div class="idea-title">
+                        <a href="">Название идеи</a>
+                    </div>
+                    <div class="idea-start-date">
+                        15:45:19 17.04.2020
+                    </div>
+                </div>
+                <div class="idea-right-side">
+                    Статус: предложена
+                </div>
+            </div>
+            <div class="idea-form">
+                <div class="idea-left-side">
+                    <div class="idea-title">
+                        <a href="">Название идеи</a>
+                    </div>
+                    <div class="idea-start-date">
+                        15:45:19 17.04.2020
+                    </div>
+                </div>
+                <div class="idea-right-side">
+                    Статус: предложена
+                </div>
+            </div>
+        </div>
+    </div>
+  <%= render partial: './footer.html.erb' %>
+</div>
