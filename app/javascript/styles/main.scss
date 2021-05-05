@@ -43,7 +43,7 @@ $i: 1;
 a:hover { 
   text-decoration: none;
   -webkit-text-decoration: none;
-  color: #007bff;
+  color: $link-hover-color;
 }
 
 a{
