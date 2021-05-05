@@ -36,6 +36,7 @@ document.addEventListener("turbolinks:load", function() {
 
         require('general/carousel.js').start();
         require('general/textarea_scroll.js').start();
+        require('general/image_preview.js').start();
     })
 
 
@@ -58,6 +59,10 @@ document.addEventListener("turbolinks:load", function() {
         
         require('pages/vote.js').start();
     }, "votes/show", "test/idea", "ideas/show");
+
+    router.callWhen((entry)=>{
+        require('pages/idea_create.js').start();
+    }, "ideas/new");
 
 
     
