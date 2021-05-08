@@ -1,6 +1,20 @@
 .breadcrumbs {
     background-color: $color-main2;
     padding: 20px;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 500;
+    a{
+        color: #212529;
+        &:hover {
+            color: #007bff;
+        }
+    }
+    .links {
+        padding-left: 40px;
+    }
+    i{
+        margin-right: 4px;
+        margin-left: 4px;
+        font-size: 12px;
+    }
 }

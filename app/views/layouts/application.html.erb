@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track'=> 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track'=> 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', "data-turbolinks-track" => "reload"%>
+    <%= javascript_pack_tag 'application', "data-turbolinks-track" => "reload"%>
     <link rel="stylesheet" href="/fontawesome/css/all.css" data-turbolinks-track = 'reload'>
 
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
     <!--<meta name="turbolinks-cache-control" content="no-cache">-->
   </head>
 
-  <body data-entry=<%="#{controller.controller_name}/#{controller.action_name}"%> >
+  <body  data-entry=<%="#{controller.controller_name}/#{controller.action_name}"%>>
     <%= yield %>
   </body>
 </html>

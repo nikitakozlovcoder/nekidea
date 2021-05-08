@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/delete'
   resources :votes
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "home#index", as: 'root_path'
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
   get 'login', to: 'users#login', as: 'login_path'
   post 'login', to: 'users#login_post', as: 'login_post_path'
   get 'logout', to: 'users#logout', as: 'logout_path'
-
+  get 'user/:id', to:  'users#profile', as: 'user_profile'
   #admin section
   get 'admin', to: 'admin#index', as: 'admin_index_path'
 
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
 
   #get 'vote_create', to: 'test#vote_create'
 
-  get 'users', to: 'test#users', as: 'users_path'
+  get 'users', to: 'users#leaderboard', as: 'users_path'
 
   #ideas section
   post 'users/generate', to: 'users#generate', as: 'users_generate_path'
@@ -25,5 +27,12 @@ Rails.application.routes.draw do
   get 'ideas/:id/unvote_up', to: 'ideas#unvote_up'
   get 'ideas/:id/unvote_down', to: 'ideas#unvote_down'
   resources :ideas
+  #comments section
+  post 'ideas/:idea_id/comments/', to: 'comments#create', as: 'idea_comments'
+  delete 'comments/:id', to: 'comments#destroy', as: 'comment'
+
+  #put 'ideas/:idea_id/comments/:comment_id', to: 'comments#edit', as: 'idea_comment'
+
+
 
 end

@@ -1,0 +1,5 @@
+document.querySelectorAll('.comment').forEach(function (el){
+    el.addEventListener('ajax:before', function(){
+        el.style.display = 'none';
+    })
+})
