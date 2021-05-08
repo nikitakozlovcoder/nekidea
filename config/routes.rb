@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   #admin section
   get 'admin', to: 'admin#index', as: 'admin_index_path'
 
-
   get 'photos', to: 'test#photos'
+  get 'profile', to: 'test#profile'
 
   #get 'vote_create', to: 'test#vote_create'
 
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'ideas/:id/downvote', to: 'ideas#downvote'
   get 'ideas/:id/unvote_up', to: 'ideas#unvote_up'
   get 'ideas/:id/unvote_down', to: 'ideas#unvote_down'
+  get 'ideas/new'
   resources :ideas
   #comments section
   post 'ideas/:idea_id/comments/', to: 'comments#create', as: 'idea_comments'

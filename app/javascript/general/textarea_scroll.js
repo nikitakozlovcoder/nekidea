@@ -21,7 +21,7 @@ export function start() {
         var minRows = this.getAttribute('data-min-rows')|0,
             rows;
         this.rows = minRows;
-        rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 24);
+        rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 30); //divisor = pixel_font_size * (3/2)
         this.rows = minRows + rows;
     });
 

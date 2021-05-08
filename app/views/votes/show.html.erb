@@ -99,7 +99,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center">
           <h2>Предложенные идеи</h2>
           <% if @vote.can_create_fresh_idea? %>
-            <div style="font-size: 44px; padding-right: 5px;"><%= link_to '+' %></div>
+            <div class = "add-link"><a href = "#"><i class="fas fa-plus"></i>Предложить</a></div>
           <% end %>
 
         </div>

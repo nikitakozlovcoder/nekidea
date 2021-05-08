@@ -1,0 +1,46 @@
+<div class="page-wrapper vote-create idea-create">
+  <%= render partial: './header.html.erb' %>
+  <section class ="content container">
+    <form class="nice outline ideaform" enctype="multipart/form-data" action="/votes" accept-charset="UTF-8" method="post">
+        <h1 class = "title">Создание идеи</h1>
+        <input placeholder=" " type="hidden" value="[]" name="idea[res_array]" id="idea_res_array">
+
+        <div class="iter">
+            <div class="form-group">
+                <label for="idea_name" class="inp">
+                    <input id="idea_name" class="vote_name" placeholder=" " required="required" type="text" name="vote[title]">
+                    <span class="label">Название идеи</span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="idea_description" class="inp textarea">
+                    <textarea id="idea_description" placeholder=" " class="autoExpand vote_description" rows="1" data-min-rows="1" required="required" name="vote[body]"></textarea>
+                    <span class="label">Описание идеи</span>
+                </label>
+            </div>
+            <div class="form-group wrapper">
+                <div class="images_label">
+                    <label for="images" class="btn-simple">Загрузить изображения</label>
+                </div>
+                <input id="images" class="fullhidden" type="file" accept="image/*" multiple="" name="pictures[]">
+                <input class="fullhidden" name="pictures_changed" type="text" value="No">
+                <div class="img-wrapper">
+                </div>
+            </div>
+            <div class="form-group">
+                <div id = "res-container">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" id="add_res" class="btn-simple-outline">Добавить ресурс</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" id="btn_submit" class="btn-simple" value="Отправить">
+        </div>
+    </form>
+  </section>
+  <%= render partial: './footer.html.erb' %>
+</div>
