@@ -1,74 +1,242 @@
-<div class="page-wrapper idea">
+<div class="page-wrapper profile">
   <%= render partial: './header.html.erb' %>
+  <div class="breadcrumbs">
+    <div class="container">
+      <a href="/">Главная</a> <i class="fas fa-arrow-right"></i> <a href="/users">Пользователи</a>
+    </div>
+  </div>
   <div class="container">
     <div class="profile-main">
+      <div class = "el-title head">
+        <h2>Мои данные</h2>
+      </div>
       <div class="profile-data">
-        <h1>Мои данные</h1>
-        <div class="profile-info">
-          <div class="user-photo line">
-            <p>Моё фото</p>
-            <img class="profile-image" src="https://w3schoolsrus.github.io/w3images/avatar2.png">
+        <div class = "profile-actions">
+          <div class="profile-info">
+            <div class="user-photo line">
+              <p class="name">Моё фото</p>
+              <img class="profile-image" src="https://w3schoolsrus.github.io/w3images/avatar2.png">
+            </div>
+            <div class="line">
+              <p class="name">Фамилия</p>
+              <p class="data">Иванов</p>
+            </div>
+            <div class="line">
+              <p class="name">Имя</p>
+              <p class="data">Валентин</p>
+            </div>
+            <div class="line">
+              <p class="name">Отчество</p>
+              <p class="data">Петрович</p>
+            </div>
+            <div class="line">
+              <p class="name">Эл. почта</p>
+              <p class="data">example@gmail.com</p>
+            </div>
+            <div class="line">
+              <p class="name">Дата рождения</p>
+              <p class="data">19.09.1998</p>
+            </div>
+            <div class="line groups">
+              <p class="name">Мои группы</p>
+              <p class="data">Все, Тестировщик, Младший, Команда 1, Тестировщик, Младший, Команда 1</p>
+            </div>
           </div>
-          <div class="line">
-            <p>Фамилия</p>
-            <p class="data">Иванов</p>
-          </div>
-          <div class="line">
-            <p>Имя</p>
-            <p class="data">Валентин</p>
-          </div>
-          <div class="line">
-            <p>Отчество</p>
-            <p class="data">Петрович</p>
-          </div>
-          <div class="line">
-            <p>Дата рождения</p>
-            <p class="data">19.09.1998</p>
-          </div>
-          <div class="line">
-            <p>Должность</p>
-            <p class="data">Тестировщик</p>
-          </div>
-          <div class="line">
-            <p>Эл. почта</p>
-            <p class="data">example@gmail.com</p>
+          <div class="actions">
+            <button class="btn-simple">Редактировать <i class="fas fa-pen"></i></button>
+            <button class="btn-simple">Изменить пароль <i class="fas fa-key"></i></button>
           </div>
         </div>
-        <div class="actions">
-          <a class="change-user-data">Редактировать личные данные</a>
-          <a class="change-user-password">Изменить пароль</a>
+        <div class="profile-stats">
+          <div class = "stats-container">
+            <div class = "stats-title">
+              <p>Голосований</p>
+            </div>
+            <div class = "stat">
+              <div class = "name">
+                <p>Создано: </p>
+              </div>
+              <div class = "value">
+                <p>12<i class="fas fa-pencil-alt"></i></p>
+              </div>
+            </div>
+            <div class = "stats-title">
+              <p>Идей</p>
+            </div>
+            <div class = "stat">
+              <div class = "name">
+                <p>Прeдложено: </p>
+              </div>
+              <div class = "value">
+                <p>12<i class="fas fa-comment-dots"></i></p>
+              </div>
+            </div>
+            <div class = "stat">
+              <div class = "name">
+                <p>Принято: </p>
+              </div>
+              <div class = "value">
+                <p>12<i class="fas fa-check"></i></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="my-ideas-title">
-      <h2>Мои идеи</h2>
-    </div>
-    <div class="ideas-list">
-      <div class="idea-form">
-        <div class="idea-left-side">
-          <div class="idea-title">
-            <a href="">Название идеи</a>
-          </div>
-          <div class="idea-start-date">
-            15:45:19 17.04.2020
-          </div>
-        </div>
-        <div class="idea-right-side">
-          Статус: предложена
-        </div>
+    <div class = "profile-table">
+      <div class="el-title">
+        <h2>Мои голосования</h2>
+        <div class = "add-link"> <a href = "#" class = "add-link"><i class="fas fa-plus"></i>Создать</a> </div>
       </div>
-      <div class="idea-form">
-        <div class="idea-left-side">
-          <div class="idea-title">
-            <a href="">Название идеи</a>
+      <div class="votes-list">
+        <a href = "#">
+          <div class="list-item">
+            <div class="img">
+              <img src="/img/default_idea.svg">
+            </div>
+            <div class="info">
+              <p class="name">Вертолёт</p>
+            </div>
+            <div class="date">
+              <p>17.12.2003</p>
+            </div>
+            <div class="status">
+              <p>Активно</p>
+            </div>
+            <div class="phase">
+              <p>Оценивание</p>
+            </div>
           </div>
-          <div class="idea-start-date">
-            15:45:19 17.04.2020
+        </a>
+        <a href = "#">
+          <div class="list-item">
+            <div class="img">
+              <img src="/img/default_idea.svg">
+            </div>
+            <div class="info">
+              <p class="name">Маленькие изобретения</p>
+            </div>
+            <div class="date">
+              <p >17.12.2003</p>
+            </div>
+            <div class="status">
+              <p >Находится на этапе 1</p>
+            </div>
+            <div class="phase">
+              <p>Предложение</p>
+            </div>
           </div>
-        </div>
-        <div class="idea-right-side">
-          Статус: предложена
-        </div>
+        </a>
+        <a href = "#">
+          <div class="list-item">
+            <div class="img">
+              <img src="/img/default_idea.svg">
+            </div>
+            <div class="info">
+              <p class="name">Маленькие изобретения awdwad awdwdwa dawdawdawd awdawdawd awdawdawdawd awdawdwad</p>
+            </div>
+            <div class="date">
+              <p>17.12.2003</p>
+            </div>
+            <div class="status">
+              <p>Архивировано</p>
+            </div>
+            <div class="phase">
+              <p>Оценивание</p>
+            </div>
+          </div>
+        </a>
+        <a href = "#">
+          <div class="list-item">
+            <div class="img">
+              <img src="/img/default_idea.svg">
+            </div>
+            <div class="info">
+              <p class="name">Маленькие изобретения</p>
+            </div>
+            <div class="date">
+              <p>17.12.2003</p>
+            </div>
+            <div class="status">
+              <p>Находится на этапе 4</p>
+            </div>
+            <div class="phase">
+              <p>Предложение</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class = "profile-table">
+      <div class="el-title">
+        <h2>Мои идеи</h2>
+      </div>
+      <div class="ideas-list">
+        <a href = "#">
+          <div class="list-item">
+            <div class="img">
+              <img src="/img/default_idea.svg">
+            </div>
+            <div class="info">
+              <p class="name">Вертолёт</p>
+            </div>
+            <div class="date">
+              <p>17.12.2003</p>
+            </div>
+            <div class="status">
+              <p>Активна</p>
+            </div>
+          </div>
+        </a>
+        <a href = "#">
+          <div class="list-item">
+            <div class="img">
+              <img src="/img/default_idea.svg">
+            </div>
+            <div class="info">
+              <p class="name">Маленькие изобретения</p>
+            </div>
+            <div class="date">
+              <p>17.12.2003</p>
+            </div>
+            <div class="status">
+              <p>В архиве</p>
+            </div>
+          </div>
+        </a>
+        <a href = "#">
+          <div class="list-item">
+            <div class="img">
+              <img src="/img/default_idea.svg">
+            </div>
+            <div class="info">
+              <p class="name">Маленькие изобретения</p>
+            </div>
+            <div class="date">
+              <p>17.12.2003</p>
+            </div>
+            <div class="status">
+              <p>Отклонена</p>
+            </div>
+          </div>
+        </a>
+
+        <a href = "#">
+          <div class="list-item">
+            <div class="img">
+              <img src="/img/default_idea.svg">
+            </div>
+            <div class="info">
+              <p class="name">Маленькие изобретения awdwad awdwdwa dawdawdawd awdawdawd awdawdawdawd awdawdwad</p>
+            </div>
+            <div class="date">
+              <p>17.12.2003</p>
+            </div>
+            <div class="status">
+              <p>Принята</p>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>

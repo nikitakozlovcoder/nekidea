@@ -71,7 +71,12 @@
     <div class = "active_themes">
       <div style="display: flex; justify-content: space-between; align-items: center">
         <h2>Активные тематики</h2>
-        <div class = "add-link"><a href = "#"><i class="fas fa-plus"></i>Создать</a></div>
+
+        <div class = "add-link">
+          <%= link_to :new_vote do   %>
+            <i class="fas fa-plus"></i>Создать</a>
+          <% end %>
+        </div>
       </div>
 
       <!--

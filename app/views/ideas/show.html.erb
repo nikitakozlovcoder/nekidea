@@ -34,12 +34,12 @@
             <div class = "left">
               <div data-idea_id = "<%= @idea.id %>" class="rating">
                   <!-- Thumbs up -->
-                  <div class="like grow <%= 'active ' if user_action == :upvote %>">
+                  <div class="like grow <%= 'active ' if user_action == :upvote %> <%= 'disabled' if @idea.idea_status == 'archived' %>">
                     <i class="far fa-thumbs-up" aria-hidden="true"></i>
                   </div>
                   <input class="value" value ="<%= @idea.rating %>" disabled/>
                   <!-- Thumbs down -->
-                  <div class="dislike grow <%= 'active ' if user_action == :downvote %>">
+                  <div class="dislike grow <%= 'active ' if user_action == :downvote %> <%= 'disabled' if @idea.idea_status == 'archived' %>">
                     <i class="far fa-thumbs-down" aria-hidden="true"></i>
                   </div>
               </div>
@@ -115,7 +115,8 @@
             </label>
           <% end %>
         </div>
-        </div>
+
+
       </main>
 
       <div class="comment-box">

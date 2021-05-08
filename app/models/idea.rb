@@ -33,26 +33,35 @@ class Idea < ApplicationRecord
   end
 
   def unvote_up user
-    upvotes.delete(user.id) if upvotes.exists?(user.id)
+    if idea_status != 'archived'
+      upvotes.delete(user.id) if upvotes.exists?(user.id)
+    end
+
   end
 
   def unvote_down user
-    downvotes.delete(user.id) if downvotes.exists?(user.id)
+    if idea_status != 'archived'
+      downvotes.delete(user.id) if downvotes.exists?(user.id)
+    end
   end
 
   def upvote user
-    downvotes.delete(user.id) if downvotes.exists?(user.id)
-    # if !upvotes.exists?(user.id)
-    # rating+=1
-    # upvotes << user
-    # end
-    upvotes <<  user
+    if idea_status != 'archived'
+      downvotes.delete(user.id) if downvotes.exists?(user.id)
+      # if !upvotes.exists?(user.id)
+      # rating+=1
+      # upvotes << user
+      # end
+      upvotes <<  user
+    end
 
   end
 
   def downvote user
-    upvotes.delete(user.id) if upvotes.exists?(user.id)
-    downvotes <<  user
+    if idea_status != 'archived'
+      upvotes.delete(user.id) if upvotes.exists?(user.id)
+      downvotes <<  user
+    end
   end
 
 
