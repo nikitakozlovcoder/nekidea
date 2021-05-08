@@ -73,7 +73,8 @@
     <div class = "iter">
     <div class = "form-group">
       <label for="vote_name" class="inp">
-        <%= form.text_field :title, id: "vote_name", class: "vote_name", placeholder: " ", required: true %>
+        <input id="vote_name" class="vote_name" placeholder=" " required="required" type="text" value="<%= vote.title %>" name="vote[title]">
+        <!--<%= form.text_field :title, id: "vote_name", class: "vote_name", placeholder: " ", required: true %>-->
         <span class="label">Название голосования</span>
       </label>
     </div>

@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_one_attached :avatar
     has_secure_password
     has_many :votes, dependent: :nullify
+    has_many :ideas
     validates :mail, uniqueness: true
     validates :name, presence: true
     validates :surname, presence: true
@@ -10,7 +11,7 @@ class User < ApplicationRecord
     # & BOSSES MAY HAVE ADDITIONAL DUTIES NOT LISTED IN THEIR DB RELATIONS, OR U CAN KILL DB WITH DUPLICATES
     has_many :duties_users, class_name: "DutyUser", dependent: :destroy
     has_many :duties, through: :duties_users, class_name: "Duty"
-
+    has_many :comments
     private :duties_users, :duties_users=, :duties, :duties=
 
     def add_duty duty

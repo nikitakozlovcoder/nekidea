@@ -1,0 +1,70 @@
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+
+// .profile-info {
+//     border-bottom: 1px solid #ddd;
+// }
+
+.profile-image {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.profile-main {
+  margin: 50px 0 50px 0;
+}
+
+.line p {
+  width: 250px;
+}
+
+.actions {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.actions a {
+  cursor: pointer;
+  text-decoration: underline;
+  margin: 8px 0;
+  width: max-content;
+}
+
+.my-ideas-title {
+  display: flex;
+  justify-content: space-between;
+  background-color: #F6F7FB;
+  padding: 20px 10px;
+  align-items: center;
+}
+
+.idea-list {
+  list-style: none;
+}
+
+.idea-title {
+  font-size: 20px;
+  margin: 0 10px;
+  color: #424646;
+}
+
+.idea-form {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #434343;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.idea-left-side {
+  display: flex;
+  align-items: center;
+}

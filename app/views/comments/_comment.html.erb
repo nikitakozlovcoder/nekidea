@@ -1,0 +1,36 @@
+<div class="comment comment-<%= comment.id %>">
+  <div class="head">
+    <%= link_to (user_profile_path(comment.user) if comment.user != nil) do%>
+      <div class = "person">
+        <div class = "img">
+          <%= image_tag user_avatar comment.user %>
+        </div>
+        <div class = "person-info">
+          <div class = "name">
+            <p><%= user_name comment.user %></p>
+          </div>
+          <div>
+            <p><%= user_role comment.user%></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div>
+      <div class = "date">
+        <p><%= format_date comment.created_at %></p>
+      </div>
+      <% if comment.can_be_deleted? current_user %>
+        <div ><%= link_to 'Удалить', comment, method: :delete, data: {confirm: "Удалить комментарий?"}, remote: true%></div>
+      <% end %>
+
+    </div>
+
+
+  </div>
+  <div class="body">
+    <p>
+      <%= comment.body %>
+    </p>
+  </div>
+</div>
+

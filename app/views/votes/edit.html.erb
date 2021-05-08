@@ -1,11 +1,14 @@
 <div class="page-wrapper vote-create">
+
+
+
+
   <%= render partial: './header.html.erb' %>
   <section class ="content container">
     <h1 class = "title">Редактирование голосования</h1>
     <% if @vote.can_be_updated? @current_user %>
 
     <%= render 'form', vote: @vote %>
-
     <% else %>
       <h3 class = "title">У вас нет прав на редактирование данного голосования</h3>
     <% end %>

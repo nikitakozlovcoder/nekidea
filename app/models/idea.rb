@@ -7,8 +7,13 @@ class Idea < ApplicationRecord
   has_and_belongs_to_many :downvotes, :class_name => 'User', :join_table => 'ideas_downusers'
   private :upvotes, :upvotes=, :downvotes, :downvotes=
   enum idea_status: [ :active, :archived, :accepted ]
+  has_many :comments, dependent: :destroy
 
-
+  def archivate
+    self.idea_status='archived'
+    self.archived_on=self.vote.iteration
+    self.save
+  end
   def rating
     upvotes.distinct.count - downvotes.distinct.count
   end

@@ -2,7 +2,7 @@
   <%= render partial: './header.html.erb' %>
   <div class = "breadcrumbs">
     <div class="container">
-      <a>Тематики</a> <i class="fas fa-arrow-right"></i> <a>Тематика №1</a> 
+      <%= link_to 'Главная', :root_path %> <i class="fas fa-arrow-right"></i> <%= link_to 'Тематики', :votes %> <i class="fas fa-arrow-right"></i> <%= link_to @idea.vote.title, vote_path(@idea.vote) %><i class="fas fa-arrow-right"></i><a href=""><%= @idea.title %></a>
     </div>
   </div>
     <section class="idea-section content container">
@@ -97,19 +97,31 @@
           </div>
         </div>
         <div class="idea-comments">
-          <h2>Комментарии</h2>
-          <div class="comment">
-            <div class="head">
-              <div class = "img">
-                <img>
-              </div>
-              <div class = "name">
-              </div>
+
+          <%= form_with(model: [@idea, comment = (@comment || Comment.new)], class: "nice", local: false) do |form| %>
+            <div class = "head">
+              <h2>Комментарии</h2>
+              <button class ="btn-simple" data-disable-with="<i class='far fa-paper-plane'></i> Отправка..."><i class="far fa-paper-plane"></i>Отправить</button>
             </div>
-            <div class="body">
-          </div>
+            <label for="vote_description" class="inp textarea">
+              <textarea class = "autoExpand vote_description comment_text-edit_field" placeholder = " " rows = "1" data-min-rows = "1" required name="comment[body]"><%= comment.body %></textarea>
+              <span class="label">Ваше предложение</span>
+            </label>
+          <% end %>
         </div>
       </main>
+
+      <div class="comment-box">
+      <% @idea.comments.order(created_at: :desc).each do |comment| %>
+        <%= render partial: 'comments/comment', locals: {comment: comment} %>
+      <% end %>
+
+      </div>
     </section>
+  <script>
+
+      <%= render partial: 'comments/comment_hide_on_delete.js.erb' %>
+  </script>
+
   <%= render partial: './footer.html.erb' %>
 </div>
