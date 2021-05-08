@@ -18,6 +18,10 @@ class Idea < ApplicationRecord
     upvotes.distinct.count - downvotes.distinct.count
   end
 
+  def get_resources
+    JSON.parse(self.resources)
+  end
+
   def user_action user
     if upvotes.exists?(user.id)
       :upvote
