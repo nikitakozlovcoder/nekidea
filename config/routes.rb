@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/delete'
   resources :votes
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "home#index", as: 'root_path'
@@ -26,5 +28,12 @@ Rails.application.routes.draw do
   get 'ideas/:id/unvote_down', to: 'ideas#unvote_down'
   get 'ideas/new'
   resources :ideas
+  #comments section
+  post 'ideas/:idea_id/comments/', to: 'comments#create', as: 'idea_comments'
+  delete 'comments/:id', to: 'comments#destroy', as: 'comment'
+
+  #put 'ideas/:idea_id/comments/:comment_id', to: 'comments#edit', as: 'idea_comment'
+
+
 
 end

@@ -14,14 +14,14 @@
         <div class = "right">
           <div class = "person">
             <p>Создатель:</p>
-            <a href="">
+            <%= link_to (user_profile_path(@vote.user) if @vote.user != nil) do%>
               <div class = "avatar">
                 <%= image_tag user_avatar @vote.user %>
               </div>
               <div class = "name">
                 <p><%= user_name @vote.user %></p>
               </div>
-            </a>
+            <% end %>
           </div>
           <div class = "properties">
             <p>Тип: <span><%= vote_type @vote%></span></p>
@@ -34,7 +34,14 @@
         <div class = "left">
 
             <div class = "time">
-              <p><%= @vote.vote_status != 'archived'? 'Приём заявок до':'Дата архивации' %>: <span><%=  phase_upto @vote%></span></p>
+              <p>
+                <%= if @vote.vote_status != 'archived'
+                       @vote.vote_status == 'collecting' ? 'Приём заявок до' : 'Оценивание идей до'
+                     else
+                       'Дата архивации'
+                     end %>:
+                <span><%=  phase_upto @vote%></span>
+              </p>
             </div>
           <% if @vote.can_be_updated? current_user %>
             <div class="head-left-link"><%= link_to 'Редактировать', :edit_vote  %></div>
@@ -112,7 +119,8 @@
         </div>
 
         <div class = "list-container">
-          <% if (ideas = @vote.ideas.where(idea_status: 'active')).count > 0 %>
+          <% ideas = (@vote.vote_status == 'archived' ? @vote.ideas.where(archived_on: @vote.iteration+1) : @vote.ideas.where(idea_status: 'active'))  %>
+          <% if ideas.count> 0%>
 
             <% ideas.each_with_index do |idea, i| %>
               <a href = "/ideas/<%= idea.id %>">
@@ -154,6 +162,7 @@
     </div>
 
   </section>
+
   <%= render partial: './footer.html.erb' %>
 </div>
 

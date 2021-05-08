@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_054434) do
+
+ActiveRecord::Schema.define(version: 2021_05_05_090617) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +38,14 @@ ActiveRecord::Schema.define(version: 2021_04_25_054434) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id"
+    t.integer "idea_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "duties", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -57,12 +67,14 @@ ActiveRecord::Schema.define(version: 2021_04_25_054434) do
     t.integer "user_id"
     t.string "title"
     t.text "body"
-    t.integer "created_on"
     t.integer "archived_on"
     t.integer "instance_id"
     t.integer "idea_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "resources", default: "[]"
+    t.integer "iteration_created"
+
   end
 
   create_table "ideas_downusers", id: false, force: :cascade do |t|
@@ -96,7 +108,7 @@ ActiveRecord::Schema.define(version: 2021_04_25_054434) do
     t.string "name", default: ""
     t.string "surname", default: ""
     t.string "patronymic", default: ""
-    t.datetime "restore_date", default: "2021-02-11 09:57:14"
+    t.datetime "restore_date", default: "2021-02-06 15:13:09"
     t.boolean "is_boss", default: false
   end
 

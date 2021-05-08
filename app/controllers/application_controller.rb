@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     cur_day = DateTime.now.to_date
     sc = Schedule.first
     if sc.checked_at == nil or cur_day != sc.checked_at.to_date
-      Vote.all.each{|v| v.update_iteration}
+      Vote.where.not(vote_status: 'archived').each{|v| v.update_iteration}
       sc.update checked_at: DateTime.now
       p "check_schedule task fired"
     end
