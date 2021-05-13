@@ -64,6 +64,9 @@ document.addEventListener("turbolinks:load", function() {
         require('pages/idea_create.js').start();
     }, "ideas/new");
 
+    router.callWhen((entry)=>{
+        require('pages/votes_search.js').start();
+    }, "votes/index");
 
     
   
