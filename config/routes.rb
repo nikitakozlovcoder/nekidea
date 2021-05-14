@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'login', to: 'users#login_post', as: 'login_post_path'
   get 'logout', to: 'users#logout', as: 'logout_path'
   get 'user/:id', to:  'users#profile', as: 'user_profile'
+  patch 'user/:id', to:  'users#update', as: 'user'
   #admin section
   get 'admin', to: 'admin#index', as: 'admin_index_path'
 

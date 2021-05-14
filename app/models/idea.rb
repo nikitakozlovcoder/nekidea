@@ -2,7 +2,7 @@ class Idea < ApplicationRecord
   belongs_to :user, optional: true
   validates :title, uniqueness: { scope: :vote_id,
                                  message: "Идея с таким названием уже была предложена" }
-  belongs_to :vote
+  belongs_to :vote, optional: true
   has_and_belongs_to_many :upvotes, :class_name => 'User', :join_table => 'ideas_upusers'
   has_and_belongs_to_many :downvotes, :class_name => 'User', :join_table => 'ideas_downusers'
   private :upvotes, :upvotes=, :downvotes, :downvotes=

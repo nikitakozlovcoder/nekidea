@@ -6,6 +6,16 @@ class Vote < ApplicationRecord
   belongs_to :duty
   has_many_attached :pictures
   has_many :ideas
+
+  def self.all_for user
+    if user.id != nil
+
+      return Vote.all if user.is_admin
+      return Vote.all.where(duty_id: user.all_duties)
+    else
+      return nil
+    end
+  end
   def can_write user
     self.user_id == user.id or user.is_admin
   end
@@ -87,6 +97,7 @@ class Vote < ApplicationRecord
 
   end
   def do_update iter, archived=false
+    puts "updating iter #{iter}"
     #do sort
     #
     #idea.archivate

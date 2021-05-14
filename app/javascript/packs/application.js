@@ -42,6 +42,11 @@ document.addEventListener("turbolinks:load", function() {
     }, "home/index",  "home/about")
 
     router.callWhen((entry)=>{
+
+        require('pages/profile.js').start();
+    }, "users/profile",  "users/update")
+
+    router.callWhen((entry)=>{
         require('pages/login.js').start();
     }, "users/login")
 

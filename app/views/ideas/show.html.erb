@@ -2,7 +2,10 @@
   <%= render partial: './header.html.erb' %>
   <div class = "breadcrumbs">
     <div class="container">
-      <%= link_to 'Главная', :root_path %> <i class="fas fa-arrow-right"></i> <%= link_to 'Тематики', :votes %> <i class="fas fa-arrow-right"></i> <%= link_to @idea.vote.title, vote_path(@idea.vote) %><i class="fas fa-arrow-right"></i><a href=""><%= @idea.title %></a>
+      <%= link_to 'Главная', :root_path %> <i class="fas fa-arrow-right"></i>
+      <% unless @idea.vote.nil? %> <%= link_to 'Тематики', :votes %> <i class="fas fa-arrow-right"></i>
+      <%= link_to @idea.vote.title, vote_path(@idea.vote) %><i class="fas fa-arrow-right"></i> <% end %>
+      <a href=""><%= @idea.title %></a>
     </div>
   </div>
     <section class="idea-section content container">

@@ -15,9 +15,10 @@
       <%= link_to 'Пользователи', :users_path, class: 'item' %>
 
     </li>
-    <li class="<%=  %>">
+    <li class="<%= set_active_if(user_profile_path(current_user)) %>">
       <span>|</span>
-      <a href="/profile" class="item">Мой профиль</a>
+      <%= link_to 'Мой профиль', user_profile_path(current_user), class: 'item' %>
+
     </li>
   </nav>
   <div class="logo">
@@ -30,17 +31,17 @@
     <div class="smartphone-menu-trigger"></div>
   <div style = "overflow-y: auto; height: 100vh; display: flex; flex-direction: column;">
     <div class="avatar" >
-      <a href="">
+
         <%= image_tag current_user_avatar %>
         <h3 style="text-align: center; padding-top: 15px;"><%= current_user_name({patronymic: false}) %></h3>
-      </a>
+
     </div>
 
       <ul style = " display:flex; flex-direction: column; flex: 1;">
         <%= link_to 'Главная', :root_path, class: set_active_if(:root_path) %>
         <%= link_to 'Тематики', :votes, class: set_active_if(:votes) %>
         <%= link_to 'Пользователи', :users_path, class: set_active_if(:users_path) %>
-        <%= link_to 'Мой профиль'%>
+        <%= link_to 'Мой профиль', user_profile_path(current_user), class: set_active_if(user_profile_path(current_user))%>
         <%= link_to 'Выход', :logout_path, class: 'last'%>
 
       </ul>
