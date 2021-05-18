@@ -2,21 +2,23 @@
   <%= render partial: './header.html.erb' %>
   <section class ="content container">
     <form class="nice outline ideaform" enctype="multipart/form-data" action="/ideas" accept-charset="UTF-8" method="post">
+      <% idea = Idea.find_by(id: params[:instance_id]) if params[:is_instance] == 'true'%>
         <h1 class = "title">Создание идеи</h1>
         <input placeholder=" " type="hidden" value="[]" name="idea[resources]" id="idea_res_array">
         <input placeholder=" " type="hidden" value="<%= params[:param_id] %>" name="idea[vote_id]">
+        <input placeholder=" " type="hidden" value="<%= params[:instance_id] if params[:is_instance] == 'true' %>" name="idea[instance_id]">
 
         <div class="iter">
             <div class="form-group">
                 <label for="idea_name" class="inp">
-                    <input id="idea_name" class="vote_name" placeholder=" " required="required" type="text" name="idea[title]">
+                    <input id="idea_name" class="vote_name" placeholder=" " required="required" type="text" name="idea[title]" value = "<%= idea.title if idea != nil%>">
                     <span class="label">Название идеи</span>
                 </label>
             </div>
 
             <div class="form-group">
                 <label for="idea_description" class="inp textarea">
-                    <textarea id="idea_description" placeholder=" " class="autoExpand vote_description" rows="1" data-min-rows="1" required="required" name="idea[body]"></textarea>
+                    <textarea id="idea_description" placeholder=" " class="autoExpand vote_description" rows="1" data-min-rows="1" required="required" name="idea[body]"><%= idea.body if idea != nil %></textarea>
                     <span class="label">Описание идеи</span>
                 </label>
             </div>
@@ -28,6 +30,26 @@
                 <input class="fullhidden" name="pictures_changed" type="text" value="No">
                 <div class="img-wrapper">
                 </div>
+            </div>
+            <div class="form-group">
+              <div id = "res-container">
+                <% if idea != nil and idea.get_resources.count > 0 %>
+                  <% idea.get_resources.each_with_index  do |res, i| %>
+                    <div class = "res-item" data-id = "<%= i %>">
+                      <label><i class="fas fa-link"></i></label>
+                      <label for="res_name<%= i %>" class="inp number">
+                        <input id="res_name<%= i %>" class = "res_name" placeholder=" " type="text" required value = "<%= res["name"] %>">
+                        <span class="label">Название</span>
+                      </label>
+                      <label for="res_link<%= i %>" class="inp number">
+                        <input id="res_link<%= i %>" class = "res_link" placeholder=" " type="text" required  value = "<%= res["link"] %>">
+                        <span class="label ">Ссылка</span>
+                      </label>
+                      <label class="del btn-simple-outline"><i class="fas fa-times"></i></label>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
             <div class="form-group">
                 <div id = "res-container">

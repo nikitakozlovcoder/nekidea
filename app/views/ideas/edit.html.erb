@@ -4,6 +4,7 @@
 
   <section class ="content container">
     <%= form_with(url: idea_path, local: true, html: {class: "nice outline ideaform"}, multipart: true, method: :patch) do |form| %>
+
       <!--<form class="nice outline ideaform" enctype="multipart/form-data" action="/ideas" accept-charset="UTF-8" method="patch">-->
         <h1 class = "title">Редактирование идеи</h1>
         <input placeholder=" " type="hidden" value="[]" name="idea[resources]" id="idea_res_array">

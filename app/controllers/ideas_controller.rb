@@ -43,7 +43,9 @@ class IdeasController < ApplicationController
     #@idea.vote_id = params[:param_id]
     #p @idea
     @idea.user_id = current_user.id
+
     @idea.pictures.attach(params[:pictures]) unless params[:pictures].nil?
+
     respond_to do |format|
       if @idea.save
         format.html { redirect_to @idea, notice: "Idea was successfully created." }
@@ -94,7 +96,7 @@ class IdeasController < ApplicationController
 # Only allow a list of trusted parameters through.
   def idea_params
     #params['vote']['vote_type'] = params['vote']['vote_type'].to_i unless params['vote']['vote_type'].nil?
-    params.require(:idea).permit( :body, :title, :resources, :vote_id)
+    params.require(:idea).permit( :body, :title, :resources, :vote_id, :instance_id)
   end
 
 end
