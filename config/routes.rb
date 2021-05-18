@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   get 'ideas/:id/downvote', to: 'ideas#downvote'
   get 'ideas/:id/unvote_up', to: 'ideas#unvote_up'
   get 'ideas/:id/unvote_down', to: 'ideas#unvote_down'
-  get 'ideas/new'
+  get 'ideas/new', to: 'ideas#new'
+  #get 'ideas/:id/edit', to: 'ideas#edit'
+  #patch 'ideas/:id', to: 'ideas#edit'
   resources :ideas
   #comments section
   post 'ideas/:idea_id/comments/', to: 'comments#create', as: 'idea_comments'

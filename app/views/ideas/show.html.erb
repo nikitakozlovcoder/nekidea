@@ -8,7 +8,7 @@
     <section class="idea-section content container">
       <div class="idea-header">
         <div class="idea-block-header">
-          <h1 class="idea-name title">Создание игровой комнаты в офисе для персонала</h1>
+          <h1 class="idea-name title"><%= @idea.title %></h1>
         </div>
         <div class = "vote head">
           <div class = "head">
@@ -20,12 +20,17 @@
                     <img src="https://w3schoolsrus.github.io/w3images/avatar2.png">
                   </div>
                   <div class = "name">
-                    <p>Иванов Иван Иваныч</p>
+                    <p><%= user_name @idea.user %></p>
                   </div>
+
                 </a>
               </div>
+              <div style = "color: green">
+
+                <p>Статус идеи: <%= "Активна" if @idea.idea_status == "active" %> <%= "В архиве" if @idea.idea_status == "archived"%> <%="Принята" if @idea.idea_status == "accepted"%></p>
+              </div>
               <div class = "properties">
-                <p>Дата: <span>12.7.2021</span></p>
+                <p>Дата: <span><%= @idea.created_at.to_date %></span></p>
               </div>    
             </div>
 
@@ -43,6 +48,13 @@
                     <i class="far fa-thumbs-down" aria-hidden="true"></i>
                   </div>
               </div>
+              <% if @idea.can_be_deleted? @current_user %>
+                <div class="head-left-link head-left-link_delete"><%= link_to 'Удалить', :idea, method: :delete, data: {confirm: "Удалить идею?"}  %></div>
+              <% end %>
+              <% if @idea.can_be_updated? @current_user %>
+                <div class="head-left-link head-left-link_delete"><%= link_to 'Редактировать', :edit_idea  %></div>
+              <% end %>
+
             </div>
           </div>
         </div>
@@ -60,41 +72,50 @@
       <main class="idea-main">
         <h2 class="title">Описание</h2>
         <div class="info">
-          <p>Некоторый русский текст, который представляет собой короткое описание предложенной идеи, выражение ее
-          сути, мыслей автора, возможно завлечение сотрудников для дальнейшего голосования именно за эту идею.
-          Также сюда можно написать дальнейшие перспективы развития данной идеи, польза для руководства либо для
-          сотрудников кампании или организации.
+          <p><%= @idea.body %>
         </div>
-
-        <div class = "images">
-          <h2>Прилагаемые фото</h2>
-          <div class="owl-carousel owl-theme">
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/2.jpg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/2.jpg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/2.jpg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/2.jpg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/2.jpg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
-            <div> <a><img src = "/img/default_idea.svg"></a></div>
+        <% if @idea.pictures.count > 0 %>
+          <div class = "images">
+            <h2>Прилагаемые фото</h2>
+            <div class="owl-carousel owl-theme">
+              <% @idea.pictures.each do |pict| %>
+                <div>
+                  <%= link_to pict, :target => "_blank" do%>
+                    <%= image_tag pict %>
+                  <% end %>
+                </div>
+              <% end %>
+              <!--<div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/2.jpg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/2.jpg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/2.jpg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/2.jpg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/2.jpg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>
+              <div> <a><img src = "/img/default_idea.svg"></a></div>-->
+            </div>
           </div>
-        </div>
+        <% end %>
+
         <div class="idea-important-links-block">
+          <% if @idea.get_resources.count > 0 %>
           <h2>Прилагаемые ресурсы</h2>
           <div class = "links">
             <% @idea.get_resources.each do |el| %>
               <div class = "link"><i class="fas fa-link"></i><a  href="<%= el["link"] %>"><%= el["name"] %></a></div>
             <% end %>
           </div>
+            <% end %>
+
 
           <!--<div class = "links">
            <div class = "link"><i class="fas fa-link"></i><a  href="#">Источник новостей</a></div>
@@ -115,7 +136,7 @@
             </label>
           <% end %>
         </div>
-        </div>
+
       </main>
 
       <div class="comment-box">

@@ -99,7 +99,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center">
           <h2>Предложенные идеи</h2>
           <% if @vote.can_create_fresh_idea? %>
-            <div class = "add-link"><a href = "#"><i class="fas fa-plus"></i>Предложить</a></div>
+            <div class = "add-link"><a href = "#"><i class="fas fa-plus"></i><%= link_to( 'Предложить', {controller: 'ideas', action: 'new', param_id: @vote.id})  %></a></div>
           <% end %>
 
         </div>

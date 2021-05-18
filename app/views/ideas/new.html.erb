@@ -1,21 +1,22 @@
 <div class="page-wrapper vote-create idea-create">
   <%= render partial: './header.html.erb' %>
   <section class ="content container">
-    <form class="nice outline ideaform" enctype="multipart/form-data" action="/votes" accept-charset="UTF-8" method="post">
+    <form class="nice outline ideaform" enctype="multipart/form-data" action="/ideas" accept-charset="UTF-8" method="post">
         <h1 class = "title">Создание идеи</h1>
-        <input placeholder=" " type="hidden" value="[]" name="idea[res_array]" id="idea_res_array">
+        <input placeholder=" " type="hidden" value="[]" name="idea[resources]" id="idea_res_array">
+        <input placeholder=" " type="hidden" value="<%= params[:param_id] %>" name="idea[vote_id]">
 
         <div class="iter">
             <div class="form-group">
                 <label for="idea_name" class="inp">
-                    <input id="idea_name" class="vote_name" placeholder=" " required="required" type="text" name="vote[title]">
+                    <input id="idea_name" class="vote_name" placeholder=" " required="required" type="text" name="idea[title]">
                     <span class="label">Название идеи</span>
                 </label>
             </div>
 
             <div class="form-group">
                 <label for="idea_description" class="inp textarea">
-                    <textarea id="idea_description" placeholder=" " class="autoExpand vote_description" rows="1" data-min-rows="1" required="required" name="vote[body]"></textarea>
+                    <textarea id="idea_description" placeholder=" " class="autoExpand vote_description" rows="1" data-min-rows="1" required="required" name="idea[body]"></textarea>
                     <span class="label">Описание идеи</span>
                 </label>
             </div>
