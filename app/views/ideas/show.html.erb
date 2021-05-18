@@ -37,16 +37,31 @@
             <div class = "left">
               <div data-idea_id = "<%= @idea.id %>" class="rating">
                   <!-- Thumbs up -->
+                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'collecting' %>
                   <div class="like grow <%= 'active ' if user_action == :upvote %> <%= 'disabled' if @idea.idea_status == 'archived' %>">
                     <i class="far fa-thumbs-up" aria-hidden="true"></i>
                   </div>
-                  <input class="value" value ="<%= @idea.rating %>" disabled/>
+                  <% end %>
+                  <input class="value idea-rating-field" value ="<%= @idea.rating %>" disabled/>
                   <!-- Thumbs down -->
+                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'collecting' %>
                   <div class="dislike grow <%= 'active ' if user_action == :downvote %> <%= 'disabled' if @idea.idea_status == 'archived' %>">
                     <i class="far fa-thumbs-down" aria-hidden="true"></i>
                   </div>
+                <% end %>
               </div>
+              <% if current_user.is_boss %>
+                <br>
+                <div>
+                  <% if @idea.idea_status != 'accepted'  %>
+                    <%= button_to 'Принять идею', ideas_change_accept_path(@idea.id), class: 'btn btn-outline-success'  %>
+                  <% else %>
+                    <%= button_to 'Отклонить идею', ideas_change_accept_path(@idea.id), class: 'btn btn-outline-danger'  %>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
+
           </div>
         </div>
         <hr>

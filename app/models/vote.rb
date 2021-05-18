@@ -98,14 +98,12 @@ class Vote < ApplicationRecord
   end
   def do_update iter, archived=false
     puts "updating iter #{iter}"
-    #do sort
-    #
-    #idea.archivate
 
-    #endsort
+    self.ideas.sort_by{|idea| -idea.rating}.drop(self.keep_idea_count.to_i).each{|idea| idea.archivate if idea.idea_status != 'accepted'}
+
     if archived
-      self.ideas.where(idea_status: 'active').each do |idea|
-        idea.idea_status='archived'
+      self.ideas.where.not(idea_status: 'archived').each do |idea|
+        idea.idea_status='archived' if idea.idea_status != 'accepted'
         idea.archived_on=iter+1
         idea.save
       end

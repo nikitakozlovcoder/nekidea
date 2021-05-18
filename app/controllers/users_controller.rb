@@ -87,8 +87,6 @@ class UsersController < ApplicationController
       if params['password']
           res = @user.update(password: params['new_password'], current_password: params['password'])
       else
-
-
         @user.avatar.purge if params[:avatar_changed] == "Yes"
         @user.avatar.attach(params[:avatar]) if (!params[:avatar].nil? and  params[:avatar_changed] == "Yes")
         res = @user.update(user_params)

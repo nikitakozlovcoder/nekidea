@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'ideas/:id/unvote_up', to: 'ideas#unvote_up'
   get 'ideas/:id/unvote_down', to: 'ideas#unvote_down'
   get 'ideas/new'
+  post 'ideas/:id/changeaccept', to: 'ideas#change_accept', as: 'ideas_change_accept'
   resources :ideas
   #comments section
   post 'ideas/:idea_id/comments/', to: 'comments#create', as: 'idea_comments'
