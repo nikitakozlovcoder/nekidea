@@ -33,6 +33,7 @@ document.addEventListener("turbolinks:load", function() {
         require('general/carousel.js').start();
         require('general/textarea_scroll.js').start();
         require('general/image_preview.js').start();
+        require('general/choicecontainer.js').start();
     })
 
 
@@ -61,8 +62,11 @@ document.addEventListener("turbolinks:load", function() {
 
     router.callWhen((entry)=>{
         require('pages/idea_create.js').start();
-    }, "ideas/new");
+    }, "ideas/new", "ideas/edit", "ideas/create", "ideas/update");
 
+    router.callWhen((entry)=>{
+        require('pages/votes_search.js').start();
+    }, "votes/index");
 
     
   

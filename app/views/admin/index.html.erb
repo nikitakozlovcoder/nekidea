@@ -1,31 +1,46 @@
 
 
-<div class="page-wrapper vote-create">
+<div class="page-wrapper admin">
   <%= render partial: './header.html.erb' %>
-  <section class ="content container">
-    <h1 class = "title">Admin Page</h1>
-    <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Patronymic</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @users.each_with_index do |u, i |  %>
-      <tr>
-        <th scope="row">1</th>
-        <td><%= u.name  %></td>
-        <td><%= u.surname  %></td>
-        <td><%= u.patronymic.blank? ? '-----' :  u.patronymic %></td>
-      </tr>
-      <% end %>
-      </tbody>
-    </table>
+  <section class = "content container">
+    <div class = "nice outline">
+      <h3>Панель администрирования</h3>
+      <div class = "add_user">
+        <h4>Добавить пользователей</h4>
+        <div class = "choice-container">
+          <div class = "container-header">
+              <div class = "option active">
+                  <p> Через таблицу </p>
+              </div>
+              <div class = "option">
+                 <p> Вручную </p>
+              </div>
+              <div class="hidden" data-last="0"></div>
+          </div>
+          <div class = "container-body">
+            <div class = "option show">
+               <form class = "table_add">
+                  <p class = "name">Загрузите файл таблицы пользователей в формате CSV.</p>
+                  <input type = "file"/>
+                  <p class = "addition">Пояснение: файл должен быть...</p>
+               </form>
+            </div>
+            <div class = "option">
+                <form class = "user_add">
+                  <p> Форма </p>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class = "groups">
+        <h4>Управление группами</h4>
+      </div>
+      <div class = "settings">
+        <h4>Общие настройки</h4>
+      </div>
+    </div>
   </section>
-
   <%= render partial: './footer.html.erb' %>
 </div>
 

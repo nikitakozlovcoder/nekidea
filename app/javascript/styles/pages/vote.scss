@@ -143,6 +143,20 @@
     a {
         color: $text-color;
     }
+    .message-item {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        transition: all 0.15s linear;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            background-color: $color-gray; //#D6D6D6
+        }
+        &.hide {
+            display: none;
+        }
+    }
     .list-item {
         display: grid;
         grid-template-columns: 30px 70px 1fr 300px;
