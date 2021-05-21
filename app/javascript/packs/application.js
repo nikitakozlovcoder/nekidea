@@ -58,7 +58,7 @@ document.addEventListener("turbolinks:load", function() {
     router.callWhen((entry)=>{
         
         require('pages/vote.js').start();
-    }, "votes/show", "test/idea", "ideas/show");
+    }, "votes/show", "test/idea", "ideas/show", "ideas/change_accept");
 
     router.callWhen((entry)=>{
         require('pages/idea_create.js').start();

@@ -8,7 +8,6 @@ class Idea < ApplicationRecord
   private :upvotes, :upvotes=, :downvotes, :downvotes=
   enum idea_status: [ :active, :archived, :accepted ]
   has_many :comments, dependent: :destroy
-
   has_many_attached :pictures
 
   def accept

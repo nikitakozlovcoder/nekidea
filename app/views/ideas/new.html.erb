@@ -3,7 +3,11 @@
   <section class ="content container">
     <form class="nice outline ideaform" enctype="multipart/form-data" action="/ideas" accept-charset="UTF-8" method="post">
       <% idea = Idea.find_by(id: params[:instance_id]) if params[:is_instance] == 'true'%>
-        <h1 class = "title">Создание идеи</h1>
+      <% if params[:is_instance] == 'true' %>
+        <h2>Основывается на идее <%= idea.title %></h2>
+      <% end %>
+
+      <h1 class = "title">Создание идеи</h1>
         <input placeholder=" " type="hidden" value="[]" name="idea[resources]" id="idea_res_array">
         <input placeholder=" " type="hidden" value="<%= params[:param_id] %>" name="idea[vote_id]">
         <input placeholder=" " type="hidden" value="<%= params[:instance_id] if params[:is_instance] == 'true' %>" name="idea[instance_id]">
@@ -11,7 +15,7 @@
         <div class="iter">
             <div class="form-group">
                 <label for="idea_name" class="inp">
-                    <input id="idea_name" class="vote_name" placeholder=" " required="required" type="text" name="idea[title]" value = "<%= idea.title if idea != nil%>">
+                    <input id="idea_name" class="vote_name" placeholder=" " required="required" type="text" name="idea[title]" value = "<%= "Развитие идеи: "+idea.title if idea != nil%>">
                     <span class="label">Название идеи</span>
                 </label>
             </div>
