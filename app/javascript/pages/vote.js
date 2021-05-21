@@ -3,6 +3,8 @@
     export function start() {
         $('.like').on('click', function(e) {
             e.preventDefault();
+            if ($(this)[0].classList.contains('disabled'))
+                return;
             let like = $(this);
 
             let el = $(this).parent();
@@ -33,6 +35,8 @@
     
         $('.dislike').on('click', function(e) {
             e.preventDefault();
+            if ($(this)[0].classList.contains('disabled'))
+                return;
             let dislike = $(this);
             let el = $(this).parent();
             let like = el.find('.like');

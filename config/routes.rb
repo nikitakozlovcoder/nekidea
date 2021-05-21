@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'login', to: 'users#login_post', as: 'login_post_path'
   get 'logout', to: 'users#logout', as: 'logout_path'
   get 'user/:id', to:  'users#profile', as: 'user_profile'
+  patch 'user/:id', to:  'users#update', as: 'user'
   #admin section
   get 'admin', to: 'admin#index', as: 'admin_index_path'
 
@@ -26,9 +27,8 @@ Rails.application.routes.draw do
   get 'ideas/:id/downvote', to: 'ideas#downvote'
   get 'ideas/:id/unvote_up', to: 'ideas#unvote_up'
   get 'ideas/:id/unvote_down', to: 'ideas#unvote_down'
-  get 'ideas/new', to: 'ideas#new'
-  #get 'ideas/:id/edit', to: 'ideas#edit'
-  #patch 'ideas/:id', to: 'ideas#edit'
+
+  post 'ideas/:id/changeaccept', to: 'ideas#change_accept', as: 'ideas_change_accept'
   resources :ideas
   #comments section
   post 'ideas/:idea_id/comments/', to: 'comments#create', as: 'idea_comments'

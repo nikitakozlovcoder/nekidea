@@ -21,7 +21,17 @@ class IdeasController < ApplicationController
 # GET /votes/1 or /votes/1.json
   def show
   end
-
+  def change_accept
+    if current_user.is_boss
+      @idea = Idea.find(params[:id])
+      if @idea.idea_status != 'accepted'
+        @idea.accept
+      else
+        @idea.deaccept
+      end
+    end
+    render :show
+  end
 # GET /votes/new
   def new
     @idea = Idea.new

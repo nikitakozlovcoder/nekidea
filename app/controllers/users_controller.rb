@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-   def generate
+  def generate
     @error_str = ""
     @type = params["type"]
     @file = params["file"]
@@ -60,23 +60,46 @@ class UsersController < ApplicationController
     end
   end
 
-   def login
+  def login
      p "LOGIN ACTION!"
      @error = false
    end
-   def logout
-        cookies.signed["user"] = nil
-        redirect_to controller: 'users', action: 'login'
-   end
+  def logout
+    cookies.signed["user"] = nil
+    redirect_to controller: 'users', action: 'login'
+  end
 
 
-    def leaderboard
+  def leaderboard
 
     end
 
-    def profile
-      
+  def profile
+    @user = User.find(params[:id])
+    @can_edit = @user.id==current_user.id
+  end
+
+  def update
+    respond_to do |format|
+      res = nil
+      @user = current_user
+      @can_edit = @user.id==current_user.id
+      if params['password']
+          res = @user.update(password: params['new_password'], current_password: params['password'])
+      else
+        @user.avatar.purge if params[:avatar_changed] == "Yes"
+        @user.avatar.attach(params[:avatar]) if (!params[:avatar].nil? and  params[:avatar_changed] == "Yes")
+        res = @user.update(user_params)
+      end
+
+      if res
+        format.html { render :profile}
+      else
+        format.html { render :profile, status: :unprocessable_entity }
+      end
     end
+  end
+
   private
   def csv_generate
     require 'csv'
@@ -124,5 +147,10 @@ class UsersController < ApplicationController
       format.js
     end
 
+  end
+
+
+  def user_params
+    params.require(:user).permit(:surname, :name, :patronymic, :mail, :birth_date)
   end
 end
