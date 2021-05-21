@@ -99,7 +99,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center">
           <h2>Предложенные идеи</h2>
           <% if @vote.can_create_fresh_idea? %>
-            <div class = "add-link"><a href = "#"><i class="fas fa-plus"></i>Предложить</a></div>
+            <div class = "add-link"><%= link_to :ideas_new do %><i class="fas fa-plus"></i>Предложить<%end %></div>
           <% end %>
 
         </div>
@@ -119,7 +119,7 @@
         </div>
 
         <div class = "list-container">
-          <% ideas = (@vote.vote_status == 'archived' ? @vote.ideas.where(archived_on: @vote.iteration+1) : @vote.ideas.where(idea_status: 'active'))  %>
+          <% ideas = (@vote.vote_status == 'archived' ? @vote.ideas.where(archived_on: @vote.iteration+1) : @vote.ideas.where.not(idea_status: 'archived'))  %>
           <% if ideas.count> 0%>
 
             <% ideas.each_with_index do |idea, i| %>
@@ -139,14 +139,18 @@
                     <div data-idea_id = "<%= idea.id %>" class="rating">
                       <!-- Thumbs up -->
                       <% user_action = idea.user_action current_user %>
-                      <div class="like grow <%= 'active ' if user_action == :upvote %>">
+                      <% if @vote.vote_status == 'collecting' %>
+                      <div class="like grow <%= 'active ' if user_action == :upvote %> <%= 'disabled' if idea.idea_status == 'archived' %>">
                         <i class="far fa-thumbs-up" aria-hidden="true"></i>
                       </div>
-                      <input class="value" value ="<%= idea.rating %>" disabled/>
+                        <% end %>
+                      <input class="value idea-rating-field" value ="<%= idea.rating %>" disabled/>
                       <!-- Thumbs down -->
-                      <div class="dislike grow <%= 'active ' if user_action == :downvote %>">
+                      <% if @vote.vote_status == 'collecting' %>
+                      <div class="dislike grow <%= 'active ' if user_action == :downvote %> <%= 'disabled' if idea.idea_status == 'archived' %>">
                         <i class="far fa-thumbs-down" aria-hidden="true"></i>
                       </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>

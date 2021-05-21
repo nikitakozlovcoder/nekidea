@@ -4,7 +4,7 @@ class VotesController < ApplicationController
 
   # GET /votes or /votes.json
   def index
-    @votes = Vote.all.order(created_at: :desc)
+    @votes = Vote.all_for(current_user).order(created_at: :desc)
   end
 
   # GET /votes/1 or /votes/1.json
@@ -89,7 +89,8 @@ class VotesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def vote_params
       params['vote']['vote_type'] = params['vote']['vote_type'].to_i unless params['vote']['vote_type'].nil?
-      params.require(:vote).permit( :vote_type, :vote_status, :body, :title, :active_to, :iter_array, :current_iter, :duty_id)
+      params['vote']['keep_idea_count'] = params['vote']['keep_idea_count'].to_i unless params['vote']['keep_idea_count'].nil?
+      params.require(:vote).permit( :vote_type, :vote_status, :body, :title, :active_to, :iter_array, :current_iter, :duty_id, :keep_idea_count)
     end
   private
   def set_writable_duties expanded

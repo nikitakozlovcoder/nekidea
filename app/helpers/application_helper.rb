@@ -1,10 +1,23 @@
 module ApplicationHelper
-
+  def idea_status idea
+    case idea.idea_status
+    when "active"
+      "Активна"
+    when "accepted"
+      "Принята"
+    when "archived"
+      "Архивирована"
+    end
+  end
   #returns 'active' if current url
+  def back_text(txt, back)
+    return back if txt.blank?
+    txt
+  end
   def set_active_if path
     'active' if current_page? path
   end
-  def should_show_shown_archived_idea? idea, vote
+  def should_show_archived_idea? idea, vote
     return false if idea.archived_on == vote.iteration+1
     true
 
@@ -121,7 +134,7 @@ module ApplicationHelper
     end
   end
   #format date to %d.%m.%y
-  def format_date date
-    date.strftime('%d.%m.%y')
+  def format_date date, format='%d.%m.%y'
+    date.strftime(format) unless date.nil?
   end
 end
