@@ -33,6 +33,7 @@ class Idea < ApplicationRecord
       self.save
     end
   end
+
   def archivate
     self.idea_status='archived'
     self.archived_on=self.vote.iteration
