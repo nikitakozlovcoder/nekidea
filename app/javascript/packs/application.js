@@ -37,6 +37,7 @@ document.addEventListener("turbolinks:load", function() {
         require('general/carousel.js').start();
         require('general/textarea_scroll.js').start();
         require('general/image_preview.js').start();
+        require('general/choicecontainer.js').start();
     })
 
 

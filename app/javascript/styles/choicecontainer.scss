@@ -1,0 +1,41 @@
+.choice-container {
+    box-shadow: 0px 0px 15px #0000001a;
+    transition: all 0.2s ease;
+    .container-header {
+        box-shadow: 0px 4px 15px #0000001a;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        .option {
+            display: table-cell;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            text-align: center;
+            vertical-align: middle;
+            padding-top: 12px;
+            padding-bottom: 6px;
+            &.active {
+                color: $light-font;
+                background-color: $color-elem;
+            }
+        }
+        .hidden {
+            display: none;
+        }
+    }
+    .container-body {
+        padding: 0;
+        .option {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            -webkit-transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease;
+            &.show {
+                opacity: 1;
+                height: 100%;
+            }
+        }
+    }
+}
