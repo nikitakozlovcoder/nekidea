@@ -8,6 +8,9 @@ class Idea < ApplicationRecord
   private :upvotes, :upvotes=, :downvotes, :downvotes=
   enum idea_status: [ :active, :archived, :accepted ]
   has_many :comments, dependent: :destroy
+
+  has_many_attached :pictures
+
   def accept
     self.idea_status = 'accepted'
     self.save
@@ -20,6 +23,7 @@ class Idea < ApplicationRecord
       self.save
       return
     end
+
 
     if self.archived_on != nil
       self.idea_status = 'archived'
@@ -86,6 +90,14 @@ class Idea < ApplicationRecord
       upvotes.delete(user.id) if upvotes.exists?(user.id)
       downvotes <<  user
     end
+  end
+
+  def can_be_updated? user
+    (upvotes.distinct.count + downvotes.distinct.count == 0) && self.user == user && Time.now.getutc - self.created_at.getutc <= 60.minutes
+  end
+
+  def can_be_deleted? user
+    ((upvotes.distinct.count + downvotes.distinct.count == 0) && self.user == user && Time.now.getutc - self.created_at.getutc <= 60.minutes) || user.is_admin == true
   end
 
 

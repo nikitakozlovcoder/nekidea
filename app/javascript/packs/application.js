@@ -61,7 +61,7 @@ document.addEventListener("turbolinks:load", function() {
 
     router.callWhen((entry)=>{
         require('pages/idea_create.js').start();
-    }, "ideas/new");
+    }, "ideas/new", "ideas/edit", "ideas/create", "ideas/update");
 
 
     
