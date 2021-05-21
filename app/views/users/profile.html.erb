@@ -1,0 +1,258 @@
+<div class="page-wrapper profile">
+  <%= render partial: './header.html.erb' %>
+  <% main_errors = @user.errors.messages.except(:current_password, :password) %>
+  <% password_errors = @user.errors.messages.slice(:current_password, :password) %>
+  <div class="breadcrumbs">
+    <div class="container">
+      <a href="/">Главная</a> <i class="fas fa-arrow-right"></i> <a href="/users">Пользователи</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="profile-main">
+      <div class = "el-title head">
+        <h2>Мои данные</h2>
+      </div>
+
+      <div class="profile-data">
+        <div class = "profile-actions">
+          <div class="profile-info <%= 'hide' if main_errors.any? %>">
+            <div class="user-photo line">
+              <p class="name">Моё фото</p>
+              <div class="avatar" >
+              <%= image_tag user_avatar @user %>
+              </div>
+            </div>
+            <div class="line">
+              <p class="name">Фамилия</p>
+
+              <p class="data"><%= back_text(@user.surname_in_database, '----') %></p>
+            </div>
+            <div class="line">
+              <p class="name">Имя</p>
+
+              <p class="data"><%= back_text(@user.name_in_database, '----') %></p>
+            </div>
+            <div class="line">
+              <p class="name">Отчество</p>
+              <p class="data"><%= back_text(@user.patronymic_in_database, '----') %></p>
+            </div>
+            <div class="line">
+              <p class="name">Эл. почта</p>
+              <p class="data"><%= back_text(@user.mail_in_database, '----') %></p>
+            </div>
+            <div class="line">
+              <p class="name">Дата рождения</p>
+              <p class="data"><%= back_text(format_date(@user.birth_date_in_database), '----') %></p>
+            </div>
+            <div class="line groups">
+              <p class="name">Мои группы</p>
+              <p class="data"><%= @user.all_duties.map{|d| d.name}.join ', ' %></p>
+            </div>
+          </div>
+          <div class="profile-form <%= 'hide' unless main_errors.any? %>">
+            <%= form_with(model: @user, local: true, html: {class: "nice outline voteform", style: 'padding: 40px 20px;'}, multipart: true) do %>
+
+              <% if main_errors.any? %>
+                <div id="error_explanation">
+                  <ul>
+                    <% main_errors.each do |attr, messages| %>
+                      <% messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              <div class = "form-group wrapper">
+
+                <div class="img-wrapper">
+
+                  <div class="avatar" style="margin: 0; padding: 0;" >
+                    <%= image_tag user_avatar @user %>
+                  </div>
+
+                </div>
+              </div>
+                <div class ="images_label">
+                  <label for="images" class="btn-simple">Изменить аватар</label>
+                </div>
+                <input id = "images" class = "fullhidden" type = "file" accept = "image/*" name="avatar">
+                <input class = "fullhidden" name="avatar_changed" type="text" value="No">
+
+              <div class = "form-group" >
+                <label for="user_surname" class="inp">
+                  <input id="user_surname" class="user_name" placeholder=" " required="required" type="text" value="<%= @user.surname %>" name="user[surname]">
+                  <span class="label">Фамилия</span>
+                </label>
+              </div>
+              <div class = "form-group" >
+                <label for="user_name" class="inp">
+                  <input id="user_name" class="user_name" placeholder=" " required="required" type="text" value="<%= @user.name %>" name="user[name]">
+                  <span class="label">Имя</span>
+                </label>
+              </div>
+              <div class = "form-group" >
+                <label for="user_patronymic" class="inp">
+                  <input id="user_patronymic" class="user_patronymic" placeholder=" " required="required" type="text" value="<%= @user.patronymic %>" name="user[patronymic]">
+                  <span class="label">Отчество</span>
+                </label>
+              </div>
+              <div class = "form-group" >
+                <label for="user_mail" class="inp">
+                  <input id="user_mail" class="user_mail" placeholder=" " required="required" type="text" value="<%=@user.mail %>" name="user[mail]">
+                  <span class="label">Эл.почта</span>
+                </label>
+              </div>
+              <div class = "form-group" >
+                <label for="user_birth_date" class="inp">
+                  <input id="user_birth_date" class="user_birth_date" placeholder=" " type="text" value="<%= format_date(@user.birth_date) %>" name="user[birth_date]">
+                  <span class="label">Дата рождения(дд.мм.гггг)</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <input type="submit" id = "btn_submit" class="btn-simple" value = "Применить">
+              </div>
+            <% end %>
+          </div>
+
+
+          <% if @can_edit %>
+            <div class="actions">
+              <button class="btn-simple btn-edit <%= 'btn-simple-active' if main_errors.any? %>">Редактировать <i class="fas fa-pen"></i></button>
+              <button class="btn-simple btn-edit-password <%= 'btn-simple-active' if password_errors.any? %>">Изменить пароль <i class="fas fa-key"></i></button>
+              <%= form_with(model: @user, local: true, html: {class: "nice outline voteform password-change_form #{'hide' unless password_errors.any?}" , style: 'padding: 40px 20px;'}, multipart: true) do %>
+                <% if password_errors.any? %>
+                  <div id="error_explanation">
+                    <ul>
+                      <% password_errors.each do |attr, messages| %>
+                        <% messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class = "form-group" >
+                  <label for="password" class="inp">
+                    <input id="password" class="password" placeholder=" " required="required" value="<%= params['password'] if password_errors.any?%>" type="password" name="password">
+                    <span class="label">Пароль</span>
+                  </label>
+                </div>
+                <div class = "form-group" >
+                  <label for="new_password" class="inp">
+                    <input id="new_password" class="new_password" placeholder=" " required="required" type="password" name="new_password">
+                    <span class="label">Новый пароль</span>
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" id = "btn_submit" class="btn-simple" value = "Применить">
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+        </div>
+        <div class="profile-stats">
+          <div class = "stats-container">
+            <div class = "stats-title">
+              <p>Голосований</p>
+            </div>
+            <div class = "stat">
+              <div class = "name">
+                <p>Создано: </p>
+              </div>
+              <div class = "value">
+                <p><%= @user.votes.count %><i class="fas fa-pencil-alt"></i></p>
+              </div>
+            </div>
+            <div class = "stats-title">
+              <p>Идей</p>
+            </div>
+            <div class = "stat">
+              <div class = "name">
+                <p>Прeдложено: </p>
+              </div>
+              <div class = "value">
+                <p><%= @user.ideas.count %><i class="fas fa-comment-dots"></i></p>
+              </div>
+            </div>
+            <div class = "stat">
+              <div class = "name">
+                <p>Принято: </p>
+              </div>
+              <div class = "value">
+                <p><%= @user.ideas.where(idea_status: 'accepted').count %><i class="fas fa-check"></i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class = "profile-table">
+      <% if @user.votes.count > 0 %>
+      <div class="el-title">
+        <h2><%= @can_edit ? 'Мои голосования' : 'Голосования пользователя' %></h2>
+        <% if @can_edit %>
+          <div class = "add-link"><%= link_to :new_vote, class: 'add-link' do  %><i class="fas fa-plus"></i>Создать<% end %> </div>
+        <% end %>
+      </div>
+
+        <div class="votes-list">
+          <% @user.votes.order(created_at: :desc).each do |vote| %>
+            <%= link_to vote_path(vote) do %>
+            <div class="list-item">
+              <div class="img">
+                <img src="/img/default_idea.svg">
+              </div>
+              <div class="info">
+                <p class="name"><%= vote.title %></p>
+              </div>
+              <div class="date">
+                <p><%= format_date(vote.created_at, '%d.%m.%Y') %></p>
+              </div>
+              <div class="status">
+                <p><%= vote_status vote %></p>
+              </div>
+              <div class="phase">
+                <p><%= vote_phase_2 vote %></p>
+              </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <% if @user.ideas.count > 0 %>
+      <div class = "profile-table">
+      <div class="el-title">
+        <h2><%= @can_edit ? 'Мои идеи' : 'Идеи пользователя' %></h2>
+      </div>
+      <div class="ideas-list">
+        <% @user.ideas.order(created_at: :desc).each do |idea| %>
+          <%= link_to idea_path(idea) do %>
+          <div class="list-item">
+            <div class="img">
+              <img src="/img/default_idea.svg">
+            </div>
+            <div class="info">
+              <p class="name"><%= idea.title %></p>
+            </div>
+            <div class="date">
+              <p><%= format_date(idea.created_at, '%d.%m.%Y') %></p>
+            </div>
+            <div class="status">
+              <p><%= idea_status(idea) %></p>
+            </div>
+          </div>
+        <% end %>
+        <% end %>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <%= render partial: './footer.html.erb' %>
+</div>

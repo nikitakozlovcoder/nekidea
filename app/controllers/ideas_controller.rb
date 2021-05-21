@@ -21,23 +21,41 @@ class IdeasController < ApplicationController
 # GET /votes/1 or /votes/1.json
   def show
   end
-
+  def change_accept
+    if current_user.is_boss
+      @idea = Idea.find(params[:id])
+      if @idea.idea_status != 'accepted'
+        @idea.accept
+      else
+        @idea.deaccept
+      end
+    end
+    render :show
+  end
 # GET /votes/new
   def new
-    @idea = Vote.new
+    @idea = Idea.new
+    pp @idea
   end
 
 # GET /votes/1/edit
   def edit
-    #redirect_to :index unless @idea.can_update? current_user
+    #redirect_to :show unless @idea.can_update? current_user
   end
 
 # POST /votes or /votes.json
   def create
-    set_writable_duties false
+    #set_writable_duties false
     @idea = Idea.new(idea_params)
+    #puts "-------------------------------"
+    #p params
+    #puts "-------------------------------"
+    #@idea.vote_id = params[:param_id]
+    #p @idea
     @idea.user_id = current_user.id
-    #@idea.pictures.attach(params[:pictures]) unless params[:pictures].nil?
+
+    @idea.pictures.attach(params[:pictures]) unless params[:pictures].nil?
+
     respond_to do |format|
       if @idea.save
         format.html { redirect_to @idea, notice: "Idea was successfully created." }
@@ -52,8 +70,8 @@ class IdeasController < ApplicationController
 # PATCH/PUT /votes/1 or /votes/1.json
   def update
     respond_to do |format|
-      #@idea.pictures.purge if params[:pictures_changed] == "Yes"
-      #@idea.pictures.attach(params[:pictures]) if (!params[:pictures].nil? and  params[:pictures_changed] == "Yes")
+      @idea.pictures.purge if params[:pictures_changed] == "Yes"
+      @idea.pictures.attach(params[:pictures]) if (!params[:pictures].nil? and  params[:pictures_changed] == "Yes")
       if @idea.update(idea_params)
         format.html { redirect_to @idea, notice: "Idea was successfully updated." }
         format.json { render :show, status: :ok, location: @vote }
@@ -66,18 +84,19 @@ class IdeasController < ApplicationController
 
 # DELETE /votes/1 or /votes/1.json
   def destroy
-      @idea.destroy
+    if @idea.destroy
       respond_to do |format|
         format.html { redirect_to votes_url, notice: "Idea was successfully destroyed." }
         format.json { head :no_content }
-      end
-
+        end
+    else
       respond_to do |format|
         format.html { redirect_to votes_url, notice: "Idea wasnt successfully destroyed." }
         format.json { head :no_content }
       end
 
     end
+  end
   private
 # Use callbacks to share common setup or constraints between actions.
   def set_idea
@@ -87,7 +106,7 @@ class IdeasController < ApplicationController
 # Only allow a list of trusted parameters through.
   def idea_params
     #params['vote']['vote_type'] = params['vote']['vote_type'].to_i unless params['vote']['vote_type'].nil?
-    #params.require(:vote).permit( :vote_type, :vote_status, :body, :title, :active_to, :iter_array, :current_iter, :duty_id)
+    params.require(:idea).permit( :body, :title, :resources, :vote_id, :instance_id)
   end
 
 end

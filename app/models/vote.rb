@@ -2,9 +2,20 @@ class Vote < ApplicationRecord
   enum vote_status: [ :collecting, :voting, :archived ]
   enum vote_type: [ :multi, :single]
   belongs_to :user, optional: true
+  validates :title, :uniqueness => {:case_sensitive => false}
   belongs_to :duty
   has_many_attached :pictures
   has_many :ideas
+
+  def self.all_for user
+    if user.id != nil
+
+      return Vote.all if user.is_admin
+      return Vote.all.where(duty_id: user.all_duties)
+    else
+      return nil
+    end
+  end
   def can_write user
     self.user_id == user.id or user.is_admin
   end
@@ -13,6 +24,7 @@ class Vote < ApplicationRecord
   end
   def update_iteration
 
+    old_iter = self.iteration
     new_status = 0
     new_iter = 1
     archived = true
@@ -46,7 +58,7 @@ class Vote < ApplicationRecord
       self.vote_status = new_status
       self.save
       if t != new_iter || new_status == 2
-        update_ideas
+        update_ideas old_iter
       end
 
     end
@@ -70,9 +82,32 @@ class Vote < ApplicationRecord
     return self.current_iter if self.vote_status != 'archived'
     self.iterations.count if self.vote_status == 'archived'
   end
+
+
+
   private
-  def update_ideas
-    puts 'update ideas'
+  #1 2
+  def update_ideas old_iter
+    puts "UPDATING IDEAS FOR VOTE #{self.id}"
+    (old_iter...self.iteration).each do |iter|
+      do_update iter
+    end
+    do_update self.iteration, true if self.vote_status == 'archived'
+
+
+  end
+  def do_update iter, archived=false
+    puts "updating iter #{iter}"
+
+    self.ideas.sort_by{|idea| -idea.rating}.drop(self.keep_idea_count.to_i).each{|idea| idea.archivate if idea.idea_status != 'accepted'}
+
+    if archived
+      self.ideas.where.not(idea_status: 'archived').each do |idea|
+        idea.idea_status='archived' if idea.idea_status != 'accepted'
+        idea.archived_on=iter+1
+        idea.save
+      end
+    end
   end
 
 end

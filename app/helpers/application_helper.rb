@@ -1,20 +1,28 @@
 module ApplicationHelper
+  def idea_status idea
+    case idea.idea_status
+    when "active"
+      "Активна"
+    when "accepted"
+      "Принята"
+    when "archived"
+      "Архивирована"
+    end
+  end
+  #returns 'active' if current url
+  def back_text(txt, back)
+    return back if txt.blank?
+    txt
+  end
   def set_active_if path
     'active' if current_page? path
   end
+  def should_show_archived_idea? idea, vote
+    return false if idea.archived_on == vote.iteration+1
+    true
 
-
-  def user_avatar user
-    if user != nil and user.avatar.attached?
-      user.avatar
-    else
-      "https://w3schoolsrus.github.io/w3images/avatar2.png"
-    end
   end
-  def current_user_name(options = nil)
-    user_name current_user, options
-  end
-
+  #full user name or name exclude some fields (see source)
   def user_name(user, options = nil)
     if user != nil
       if options == nil
@@ -31,10 +39,30 @@ module ApplicationHelper
       'Пользователь удален'
     end
   end
+  #full current_user name or name exclude some fields (see source)
+  def current_user_name(options = nil)
+    user_name current_user, options
+  end
+  #url to user avatar or placeholder
+  def user_avatar user
+    if user != nil and user.avatar.attached?
+      user.avatar
+    else
+      "https://w3schoolsrus.github.io/w3images/avatar2.png"
+    end
+  end
+  #url to current_user avatar or placeholder
   def current_user_avatar
     user_avatar current_user
   end
-
+  #shows user role or nil
+  def user_role user
+    return nil if user.nil?
+    return "Администратор" if user.is_admin
+    return "Руководитель" if user.is_boss
+    "Сотрудник"
+  end
+  #shows current vote type
   def vote_type vote
     if vote.iterations.count >1
       "Многоэтапная тематика"
@@ -53,6 +81,7 @@ module ApplicationHelper
       end
     end
   end
+  #shows current vote phase
   def vote_phase vote
     case vote.vote_status
     when "collecting"
@@ -73,6 +102,7 @@ module ApplicationHelper
       "----"
     end
   end
+  #shows date when phase ends
   def phase_upto vote
     cur_iter = -1 + vote.iteration
 
@@ -93,6 +123,7 @@ module ApplicationHelper
     start_date.advance(days: advance).strftime('%d.%m.%y')
 
   end
+  #crop text
   def less_text(txt, n)
     if txt != nil
 
@@ -101,5 +132,9 @@ module ApplicationHelper
       return t
 
     end
+  end
+  #format date to %d.%m.%y
+  def format_date date, format='%d.%m.%y'
+    date.strftime(format) unless date.nil?
   end
 end
