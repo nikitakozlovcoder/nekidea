@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   skip_forgery_protection
   helper_method :current_user
   def current_user
-    return User.first
     #puts "I am working 1111111111111111111111111"
 
     if cookies.signed["user"]
@@ -29,7 +28,7 @@ class ApplicationController < ActionController::Base
 
 
   def require_login
-    #redirect_to controller: 'users', action: 'login' if current_user.nil?
+    redirect_to controller: 'users', action: 'login' if current_user.nil?
   end
 
   def check_schedule
