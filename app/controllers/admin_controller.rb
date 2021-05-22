@@ -7,6 +7,6 @@ class AdminController < ApplicationController
 
   private
   def require_admin
-    redirect_to controller: 'home', action: 'index' if current_user.nil? || !current_user.is_admin
+    #redirect_to controller: 'home', action: 'index' if current_user.nil? || !current_user.is_admin
   end
 end
