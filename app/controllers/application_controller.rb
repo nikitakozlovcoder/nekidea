@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :require_login
+  #before_action :require_login
   before_action :check_schedule
   skip_forgery_protection
   helper_method :current_user
