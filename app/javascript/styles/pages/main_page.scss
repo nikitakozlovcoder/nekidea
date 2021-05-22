@@ -1,9 +1,11 @@
 .page-wrapper.main-index {
     .page-wrapper.main{
         /*! CSS Used from: http://nekwebshop.herokuapp.com/assets/application-663c35c3ab0046b2ba397a26b80909cfac514e8b1b4c3f9da7bed1a1ac20788d.css ; media=all */
-@media all{
     h2 {
         text-align: center !important;
+    }
+    i {
+        font-style: normal !important;
     }
     :root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#868e96;--gray-dark:#343a40;--primary:#007bff;--secondary:#868e96;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";--font-family-monospace:"SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
     @media print{
@@ -555,7 +557,8 @@
     .footer .social ul li a:hover{color:$color-accent;}
     .footer .copyright .inner{border-top:1px solid #eeeeee3d;padding:20px 0;}
     .footer .copyright .right{float:right;}
-    @media only screen and (min-width: 768px) and (max-width: 991px){
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
     .section{padding:50px 0px;}
     .section-title{margin-bottom:50px;padding:0px 109px;}
     .section-title h2{font-size:26px;margin-bottom:20px;}
@@ -598,7 +601,8 @@
     .footer .copyright .right{float:none;text-align:center;margin-top:10px;}
     .footer .single-footer{padding:20px 0;}
     }
-    @media only screen and (max-width: 767px){
+
+    @media only screen and (max-width: 767px) {
     .shop-services.section{padding:40px 0 0 0;}
     .slicknav_menu{display:block;}
     .slicknav_menu{display:block;background:transparent;padding:0;}
@@ -674,7 +678,7 @@
     .quickview-content .add-to-cart .btn{height:42px;padding:0 25px;line-height:42px;font-size:12px;}
     .quickview-content .add-to-cart .btn.min{line-height:41px;}
     }
-    @media only screen and (max-width: 450px){
+    @media only screen and (max-width: 450px) {
     .slicknav_menu{display:block;}
     .slicknav_menu{display:block;background:transparent;padding:0;}
     .slicknav_btn{background:transparent;padding:0;margin:6px 0 0;}
@@ -761,7 +765,7 @@
     .quickview-content .quickview-peragraph p{line-height:21px;font-size:13px;font-weight:400;}
     .quickview-content h3{font-size:15px;margin:10px 0 10px;}
     }
-    @media only screen and (max-width: 992px){
+    @media only screen and (max-width: 992px) {
     .right-bar div{margin-right:10px!important;}
     }
     *{box-sizing:border-box;}
@@ -835,7 +839,7 @@
     @media only screen and (max-width: 991px){
     .categories_header_wrap{display:none!important;}
     }
-    .single-product a.active{color:#F6971C!important;}
+    .single-product a.active{color:$color-accent!important;}
     .shop-services.section{background:#F6F7FB!important;}
     .single-list{font-size:14px!important;font-weight:normal!important;}
     .header.shop .right-bar .sinlge-bar .single-icon span{font-family:'Poppins', sans-serif;}
@@ -846,15 +850,10 @@
     @media only screen and (max-width: 767px){
     .list-image-fix{width:100%!important;height:300px!important;}
     }
-    .clickable:hover{color:#F6971C!important;}
-    }
+    .clickable:hover{color:$color-accent!important;}
     /*! CSS Used keyframes */
     @keyframes preloader-fx{0%{transform:scale(0, 0);opacity:0.5;}100%{transform:scale(1, 1);opacity:0;}}
     @-webkit-keyframes preloader-fx{0%{-webkit-transform:scale(0, 0);opacity:0.5;}100%{-webkit-transform:scale(1, 1);opacity:0;}}
-    /*! CSS Used fontfaces */
-    @font-face{font-family:'FontAwesome';src:url("http://nekwebshop.herokuapp.com/fonts/fontawesome-webfont.eot?v=4.7.0");src:url("http://nekwebshop.herokuapp.com/fonts/fontawesome-webfont.eot#iefix&v=4.7.0") format("embedded-opentype"),url("http://nekwebshop.herokuapp.com/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"),url("http://nekwebshop.herokuapp.com/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"),url("http://nekwebshop.herokuapp.com/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"),url("http://nekwebshop.herokuapp.com/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");font-weight:normal;font-style:normal;}
-    @font-face{font-family:'themify';src:url("http://nekwebshop.herokuapp.com/fonts/themify.eot");src:url("http://nekwebshop.herokuapp.com/fonts/themify.eot#iefix") format("embedded-opentype"),url("http://nekwebshop.herokuapp.com/fonts/themify.woff") format("woff"),url("http://nekwebshop.herokuapp.com/fonts/themify.ttf") format("truetype"),url("http://nekwebshop.herokuapp.com/fonts/themify.svg") format("svg");font-weight:normal;font-style:normal;}
-    @font-face{font-family:my_roboto;src:url("http://nekwebshop.herokuapp.com/assets/Roboto-Regular-017c0be9aaa6d0359737e1fa762ad304c0e0107927faff5a6c1f415c7f5244ed.ttf");}
     }
     
 }
