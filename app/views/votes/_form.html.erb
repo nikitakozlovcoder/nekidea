@@ -96,24 +96,7 @@
           <%= image_tag pict %>
         <% end %>
       </div>
-    </div>
-      <div class="form-group">
-        <p class = "title">Продолжительность фазы предложения идей</p>
-
-        <label for="vote_collecting" class="inp number">
-          <input id="vote_collecting" class = "vote_collecting" placeholder=" " type="text" name="vote[days_collecting]" required value="<%= @vote.iterations.first['days_collecting'] if @vote.iterations.first != nil %>">
-          <span class="label">Количество дней</span>
-        </label>
-      </div>
-      <div class="form-group">
-        <p class = "title">Продолжительность фазы оценивания идей</p>
-        <label for="vote_voting" class="inp number">
-          <input id="vote_voting" class = "vote_voting" placeholder=" " type="text" name="vote[days_voting]" required value="<%= @vote.iterations.first['days_voting'] if @vote.iterations.first != nil%>">
-          <span class="label">Количество дней</span>
-        </label>
-      </div>
-    </div>
-    <div class = "form-group">
+      <div class = "form-group">
       <p class = "title down">Выберите группу для голосования</p>
       <div id = "vote_type">
         <select name = "vote[duty_id]">
@@ -128,7 +111,35 @@
         </select>
       </div>
     </div>
-  <% if (iters = @vote.iterations[1..-1]) != nil %>
+    </div>
+      <div class="form-group">
+        <p class = "title">Количество оставляемых идей</p>
+        <label for="vote_count" class="inp number">
+          <input id="vote_count" class = "vote_voting" placeholder=" " type="text" name="vote[keep_idea_count]" required value="<%= @vote.keep_idea_count if @vote != nil%>">
+          <span class="label">Количество идей</span>
+        </label>
+      </div>
+      
+      <div class = "vote_first <%= 'fullhidden' unless (@vote.iterations.first&.dig('title') == nil) %>">
+        <div class="form-group">
+          <p class = "title">Продолжительность фазы предложения идей</p>
+          <label for="vote_collecting" class="inp number">
+            <input id="vote_collecting" class = "vote_collecting" placeholder=" " type="text" name="vote[days_collecting]" required value="<%= @vote.iterations.first&.dig('title') == nil ? @vote.iterations.first&.dig('days_collecting') : 'null' %>">
+            <span class="label">Количество дней</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <p class = "title">Продолжительность фазы оценивания идей</p>
+          <label for="vote_voting" class="inp number">
+            <input id="vote_voting" class = "vote_voting" placeholder=" " type="text" name="vote[days_voting]" required value="<%= @vote.iterations.first&.dig('title') == nil ? @vote.iterations.first&.dig('days_voting') : 'null' %>">
+            <span class="label">Количество дней</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  <%iters = @vote.iterations[1..-1] if @vote.iterations.first&.dig('title') == nil%>
+  <%iters = @vote.iterations[0..-1] unless @vote.iterations.first&.dig('title') == nil%>
+  <% if iters != nil %>
     <%  iters.each_with_index do |iter, idx| %>
       <div class = "iter" data-id = "<%= 10000+idx %>" id="iter<%=10000+idx %>">
 

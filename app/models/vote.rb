@@ -16,6 +16,13 @@ class Vote < ApplicationRecord
       return nil
     end
   end
+  def popularity
+    pop = 0
+    self.ideas.each do |i| 
+      pop+=i.popularity
+    end
+    pop
+  end
   def can_write user
     self.user_id == user.id or user.is_admin
   end

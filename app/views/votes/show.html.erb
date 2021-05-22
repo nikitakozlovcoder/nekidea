@@ -100,7 +100,7 @@
           <h2>Предложенные идеи</h2>
           <% if @vote.can_create_fresh_idea? %>
 
-            <div class = "add-link"><a href = "#"><i class="fas fa-plus"></i><%= link_to( 'Предложить', {controller: 'ideas', action: 'new', param_id: @vote.id})  %></a></div>
+            <div class = "add-link"><%= link_to({controller: 'ideas', action: 'new', param_id: @vote.id})  do%><i class="fas fa-plus"></i>Предложить <% end%></div>
 
           <% end %>
 
@@ -115,16 +115,18 @@
           <div class = "list-item info">
             <p>Название / Описание</p>
           </div>
-          <div class = "list-item actions">
-            <p>Рейтинг</p>
-          </div>
+          <% if @vote.iteration != 1 or (@vote.iteration == 1 and @vote.vote_status != 'collecting') %>
+                    <div class = "list-item actions">
+                      <p>Рейтинг</p>
+                    </div>
+          <% end %>
         </div>
-
+  
         <div class = "list-container">
           <% ideas = (@vote.vote_status == 'archived' ? @vote.ideas.where(archived_on: @vote.iteration+1) : @vote.ideas.where.not(idea_status: 'archived'))  %>
           <% if ideas.count> 0%>
 
-            <% ideas.each_with_index do |idea, i| %>
+            <% ideas.sort_by{|e| e.rating}.reverse!.each_with_index do |idea, i| %>
               <a href = "/ideas/<%= idea.id %>">
                 <div class = "list-item">
                   <div class = "num">
@@ -141,14 +143,17 @@
                     <div data-idea_id = "<%= idea.id %>" class="rating">
                       <!-- Thumbs up -->
                       <% user_action = idea.user_action current_user %>
-                      <% if @vote.vote_status == 'collecting' %>
+                      <% if @vote.vote_status == 'voting' %>
                       <div class="like grow <%= 'active ' if user_action == :upvote %> <%= 'disabled' if idea.idea_status == 'archived' %>">
                         <i class="far fa-thumbs-up" aria-hidden="true"></i>
                       </div>
                         <% end %>
-                      <input class="value idea-rating-field" value ="<%= idea.rating %>" disabled/>
+                      <% if @vote.iteration != 1 or (@vote.iteration == 1 and @vote.vote_status != 'collecting') %>
+                           <input class="value idea-rating-field" value ="<%= idea.rating %>" disabled/>
+                      <% end %>
+                     
                       <!-- Thumbs down -->
-                      <% if @vote.vote_status == 'collecting' %>
+                      <% if @vote.vote_status == 'voting' %>
                       <div class="dislike grow <%= 'active ' if user_action == :downvote %> <%= 'disabled' if idea.idea_status == 'archived' %>">
                         <i class="far fa-thumbs-down" aria-hidden="true"></i>
                       </div>

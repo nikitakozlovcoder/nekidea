@@ -9,65 +9,29 @@
   </div>
   <section class ="content container">
     <div class = "global_themes">
-      <h2>Основные направления</h2>
+    <% if @votes.count > 0%>
+      <h2>Популярные направления</h2>
       <div class = "box">
-        <a href = "/votes/31">
+     
+      <% @votes.sort_by{|v| -v.popularity}[0..4].each do |vote|%>
+        <a href = "/votes/<%= vote.id%>">
           <div class = "theme_card">
             <div class = "img">
               <img src = "/img/default_idea.svg">
             </div>
             <div class = "title">
-              <p>Название lkbyyjt awdaed awdawd aw ddddddddddddde dddd1</p>
+              <p><%= less_text(vote.title, 30) %></p>
             </div>
             <div class = "info">
-              Некоторое описание оди...
+             <%= less_text(vote.body, 50) %>
             </div>
           </div>
         </a>
+        <% end %>
         
-        <a href = "/votes/new">
-          <div class = "theme_card">
-            <div class = "img">
-              <img src = "/img/default_idea.svg">
-            </div>
-            <div class = "title">
-              <p>Название1</p>
-            </div>
-            <div class = "info">
-              Некоторое описание оди...
-            </div>
-          </div>
-        </a>
-
-        <a href = "/votes/new">
-          <div class = "theme_card">
-            <div class = "img">
-              <img src = "/img/default_idea.svg">
-            </div>
-            <div class = "title">
-              <p>Название1</p>
-            </div>
-            <div class = "info">
-              Некоторое описание оди...
-            </div>
-          </div>
-        </a>
-
-        <a href = "/votes/new">
-          <div class = "theme_card">
-            <div class = "img">
-              <img src = "/img/default_idea.svg">
-            </div>
-            <div class = "title">
-              <p>Название1</p>
-            </div>
-            <div class = "info">
-              Некоторое описание оди...
-            </div>
-          </div>
-        </a>
         
       </div>
+      <% end %>
     </div>
     <div class = "search-section">
         <div class = "filters">

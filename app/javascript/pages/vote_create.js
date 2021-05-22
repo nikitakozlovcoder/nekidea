@@ -67,14 +67,25 @@ export function start() {
     // });
     document.querySelectorAll('.del.btn-simple-outline').forEach((el)=>{
         el.addEventListener('click', (e)=>{
-            console.log(el.dataset.id);
+            console.log(container);
             document.querySelector('#'+el.dataset.id).remove();
+
+            let container = $('div#iters .iter');
+
+            if(container.length == 0) {
+                $('.vote_first').removeClass('fullhidden');
+                $('.vote_first input').val('');
+            }
         })
     })
 
     let id_iter = 0;
     $('#add_iter').on('click', (e) => {
         let container = $('div#iters');
+        if(container.length > 0) {
+            $('.vote_first').addClass('fullhidden');
+            $('.vote_first input').val('null');
+        }
         let iter_num = ++id_iter;
         let el = $(`<div class = "iter" data-id = "${iter_num}"></div>`).append(`
     <div class = "form-group">
@@ -110,6 +121,14 @@ export function start() {
         el = container.find(`div[data-id = "${iter_num}"]`);
         el.find('.del.btn-simple-outline').on('click', (e) => {
             el.remove();
+
+            
+            let container = $('div#iters .iter');
+
+            if(container.length == 0) {
+                $('.vote_first').removeClass('fullhidden');
+                $('.vote_first input').val('');
+            }
         });
     });
 
@@ -125,10 +144,11 @@ export function start() {
             }
             obj.days_collecting = $(el).find('.vote_collecting').val();
             obj.days_voting = $(el).find('.vote_voting').val();
-
-            json_array.push(obj);
+            if (obj.days_collecting != 'null')
+                json_array.push(obj);
         });
 
+        console.log(json_array);
         $(el).find('#vote_iter_array').val(JSON.stringify(json_array));
         let form = document.querySelector('.voteform');
         form.submit();
