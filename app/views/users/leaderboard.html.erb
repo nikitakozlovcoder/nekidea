@@ -42,7 +42,7 @@
               <p><%= user.ideas.count  %></p>
             </div>
             <div class = "commited_ideas">
-              <p>0</p>
+              <p><%= user.ideas.where(idea_status: 'accepted').count%></p>
             </div>
           </div>
         <% end %>
