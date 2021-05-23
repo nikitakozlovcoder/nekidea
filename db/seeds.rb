@@ -18,11 +18,14 @@ Duty.where(name: "Разработчики").first_or_create
 if (u = User.find_by(mail: "example@gmail.com")) == nil
   user = User.new(mail: "example@gmail.com", password: "qwerty123", birth_date: 20.years.ago, is_admin: true, rating: 228,
                   name: "Omari", surname: "Starks", patronymic: "Ivanovich", restore_date: Time.now.getutc)
+  user.avatar.purge
   user.avatar.attach(io: File.open(File.join(File.dirname(__FILE__), '35.jpg')), filename: '35.jpg')
   user.save
   user.add_duty d
 else
   u.add_duty d
+  u.avatar.purge
+  u.avatar.attach(io: File.open(File.join(File.dirname(__FILE__), '35.jpg')), filename: '35.jpg')
 end
 
 #Duty.destroy_all
