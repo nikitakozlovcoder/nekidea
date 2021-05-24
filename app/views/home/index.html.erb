@@ -59,7 +59,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-title">
-          <h2>Интересные предложения</h2>
+          <h2>Активные пользователи</h2>
         </div>
       </div>
     </div>
@@ -73,14 +73,15 @@
             <div class="tab-pane fade show active" id="man" role="tabpanel">
               <div class="tab-single">
                 <div class="row">
-
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+          
+                   <% User.all[0..8].sort_by{|el| [el.ideas.where(idea_status: 'accepted').count, el.ideas.count ]}.reverse!.each_with_index do |user, i|  %>
+                       <div class="col-xl-3 col-lg-4 col-md-4 col-12">
 
                     <div class="single-product">
                       <div class="product-img">
-                        <a href="/product/42">
-                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBmQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--099fb131124ff1468f5d5223f79447711f5b4be0/6005762212.webp">
-</a>                        
+                        <%= link_to user_profile_path(user.id)  do %>
+                          <%= image_tag user_avatar user %>
+                        <% end %>
                         <div class="button-head">
                           <div class="product-action" style="padding-right:  20px">
                           <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
@@ -94,9 +95,9 @@
                       </div>
                       <div class="product-content">
                         <div class="product-price">
-                          <span> ₽3,827.00</span>
+                          <span><%=  user_name user %></span>
                         </div>
-                        <h3> <a href="/product/42">Джинсы Levi's 502 Taper</a></h3>
+                        <h6><%= user_role user %></h6>
                         <div class="mobile-buttons">
                           <div class="product-action">
                           <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
@@ -110,258 +111,8 @@
                       </div>
                     </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                    <% end %>
 
-                    <div class="single-product">
-                      <div class="product-img">
-                        <a href="/product/16">
-                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBOZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--116729211e6ba5244f342b63d6c1da623dcaaa0e/orig%20(7).webp">
-</a>                        
-                        <div class="button-head">
-                          <div class="product-action" style="padding-right:  20px">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(16, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                          <div class="product-action-2" style="padding-left:  10px">
-                                <a title="Добавить в корзину" onclick="addtoCart(16, this)">Добавить в корзину</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-content">
-                        <div class="product-price">
-                          <span> ₽840.00</span>
-                        </div>
-                        <h3> <a href="/product/16">Стиральный порошок Ушастый Нянь</a></h3>
-                        <div class="mobile-buttons">
-                          <div class="product-action">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(16, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                          
-                                <a title="Добавить в корзину" onclick="addtoCart(16, this)">Добавить в корзину</a>
-                            
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-
-                    <div class="single-product">
-                      <div class="product-img">
-                        <a href="/product/12">
-                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBKZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--030066a08e2af48c304cf7e11570e95d84fbf237/6015958161.webp">
-</a>                        
-                        <div class="button-head">
-                          <div class="product-action" style="padding-right:  20px">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(12, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                          <div class="product-action-2" style="padding-left:  10px">
-                                <a title="Уже в корзинe" class="active" href="/cart">Уже в корзинe</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-content">
-                        <div class="product-price">
-                          <span> ₽1,003.00</span>
-                        </div>
-                        <h3> <a href="/product/12">Ваза Керамика ручной работы</a></h3>
-                        <div class="mobile-buttons">
-                          <div class="product-action">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(12, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                          
-                                <a title="Уже в корзинe" class="active" href="/cart">Уже в корзинe</a>
-                            
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-
-                    <div class="single-product">
-                      <div class="product-img">
-                        <a href="/product/31">
-                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBaUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--638a50ad30bcc141277c0430215889818a65507d/71P0lGwQ+SL._AC_SY879_.jpg">
-</a>                        
-                        <div class="button-head">
-                          <div class="product-action" style="padding-right:  20px">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(31, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                          <div class="product-action-2" style="padding-left:  10px">
-                                <a title="Добавить в корзину" onclick="addtoCart(31, this)">Добавить в корзину</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-content">
-                        <div class="product-price">
-                          <span> ₽1,600.00</span>
-                        </div>
-                        <h3> <a href="/product/31">Набор нержавеющих ножей</a></h3>
-                        <div class="mobile-buttons">
-                          <div class="product-action">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(31, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                          
-                                <a title="Добавить в корзину" onclick="addtoCart(31, this)">Добавить в корзину</a>
-                            
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-
-                    <div class="single-product">
-                      <div class="product-img">
-                        <a href="/product/46">
-                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBaUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--638a50ad30bcc141277c0430215889818a65507d/71P0lGwQ+SL._AC_SY879_.jpg">
-</a>                        
-                        <div class="button-head">
-                          <div class="product-action" style="padding-right:  20px">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(46, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                          <div class="product-action-2" style="padding-left:  10px">
-                                <a title="Добавить в корзину" onclick="addtoCart(46, this)">Добавить в корзину</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-content">
-                        <div class="product-price">
-                          <span> ₽0.10</span>
-                        </div>
-                        <h3> <a href="/product/46">Тест1</a></h3>
-                        <div class="mobile-buttons">
-                          <div class="product-action">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(46, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                          
-                                <a title="Добавить в корзину" onclick="addtoCart(46, this)">Добавить в корзину</a>
-                            
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-
-                    <div class="single-product">
-                      <div class="product-img">
-                        <a href="/product/35">
-                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBiQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--755501482646ce85ac9b47b4cd631d91120437f3/76440_square.jpg">
-</a>                        
-                        <div class="button-head">
-                          <div class="product-action" style="padding-right:  20px">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(35, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                          <div class="product-action-2" style="padding-left:  10px">
-                                <a title="Добавить в корзину" onclick="addtoCart(35, this)">Добавить в корзину</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-content">
-                        <div class="product-price">
-                          <span> ₽23.00</span>
-                        </div>
-                        <h3> <a href="/product/35">Батончик Аютинский нарезной</a></h3>
-                        <div class="mobile-buttons">
-                          <div class="product-action">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(35, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                          
-                                <a title="Добавить в корзину" onclick="addtoCart(35, this)">Добавить в корзину</a>
-                            
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-
-                    <div class="single-product">
-                      <div class="product-img">
-                        <a href="/product/30">
-                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBaQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fb7d1fe210bd47d86d985b4154957a28a74a949a/58726_square.jpg">
-</a>                        
-                        <div class="button-head">
-                          <div class="product-action" style="padding-right:  20px">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(30, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                          <div class="product-action-2" style="padding-left:  10px">
-                                <a title="Добавить в корзину" onclick="addtoCart(30, this)">Добавить в корзину</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-content">
-                        <div class="product-price">
-                          <span> ₽123.00</span>
-                        </div>
-                        <h3> <a href="/product/30">Творог Простоквашино</a></h3>
-                        <div class="mobile-buttons">
-                          <div class="product-action">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(30, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                          
-                                <a title="Добавить в корзину" onclick="addtoCart(30, this)">Добавить в корзину</a>
-                            
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-
-                    <div class="single-product">
-                      <div class="product-img">
-                        <a href="/product/40">
-                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBjUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3c4653383f6fea18fff1e2bb2a8b920dac1cb4ba/71pceby1tuL._AC_SX679_.jpg">
-</a>                        
-                        <div class="button-head">
-                          <div class="product-action" style="padding-right:  20px">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(40, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                          <div class="product-action-2" style="padding-left:  10px">
-                                <a title="Добавить в корзину" onclick="addtoCart(40, this)">Добавить в корзину</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-content">
-                        <div class="product-price">
-                          <span> ₽2,100.00</span>
-                        </div>
-                        <h3> <a href="/product/40">Поварский нож</a></h3>
-                        <div class="mobile-buttons">
-                          <div class="product-action">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(40, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                          
-                                <a title="Добавить в корзину" onclick="addtoCart(40, this)">Добавить в корзину</a>
-                            
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
 
                 </div>
               </div>
