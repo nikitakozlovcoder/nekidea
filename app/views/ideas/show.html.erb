@@ -42,7 +42,7 @@
             <div class = "left-container">
             
             <div class = "left">
-              <% if @idea.vote.vote_status != 'collecting' %>
+              <% if !@idea.vote.nil? and @idea.vote.vote_status != 'collecting' %>
               <div data-idea_id = "<%= @idea.id %>" class="rating">
                   <!-- Thumbs up -->
                 <% if !@idea.vote.nil? and @idea.vote.vote_status == 'voting' %>

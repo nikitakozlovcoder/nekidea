@@ -106,7 +106,7 @@
 
         </div>
 
-        <div class = "head-container <%= 'voting' if @vote.vote_status == 'voting' %>">
+        <div class = "head-container <%= 'voting' if @vote.iteration != 1 or (@vote.iteration == 1 and @vote.vote_status != 'collecting') %>">
           <div class = "list-item num">
               <p>№</p>
           </div>
@@ -128,7 +128,7 @@
 
             <% ideas.sort_by{|e| e.rating}.reverse!.each_with_index do |idea, i| %>
               <a href = "/ideas/<%= idea.id %>">
-                <div class = "list-item <%= 'voting' if @vote.vote_status == 'voting' %>">
+                <div class = "list-item <%= 'voting' if @vote.iteration != 1 or (@vote.iteration == 1 and @vote.vote_status != 'collecting') %>">
                   <div class = "num">
                     <h5><%= i+1 %></h5>
                   </div>

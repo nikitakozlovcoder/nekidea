@@ -23,6 +23,10 @@
         }
         .title {
             max-width: 150px;
+
+            p{
+                word-break: break-all;
+            }
         }
         .info {
             max-width: 150px;
