@@ -8,12 +8,12 @@ export function start() {
         let res_num = ++id_res;
         let el = $(`
                     <div class = "res-item" data-id = "${res_num}">
-                        <label><i class="fas fa-link"></i></label>
-                        <label for="res_name${res_num}" class="inp number">
+                        <label class = "icon"><i class="fas fa-link"></i></label>
+                        <label for="res_name${res_num}" class="inp number name">
                             <input id="res_name${res_num}" class = "res_name" placeholder=" " type="text" required>
                             <span class="label">Название</span>
                         </label>
-                        <label for="res_link${res_num}" class="inp number">
+                        <label for="res_link${res_num}" class="inp number link">
                             <input id="res_link${res_num}" class = "res_link" placeholder=" " type="text" required>
                             <span class="label">Ссылка</span>
                         </label>

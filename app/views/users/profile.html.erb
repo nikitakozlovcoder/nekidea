@@ -42,7 +42,7 @@
             </div>
             <div class="line">
               <p class="name">Дата рождения</p>
-              <p class="data"><%= back_text(format_date(@user.birth_date_in_database,"%d.%m.%Y"), '----') %></p>
+              <p class="data"><%= back_text(format_date(@user.birth_date_in_database, "%d.%m.%Y"), '----') %></p>
             </div>
             <div class="line groups">
               <p class="name"><%= @can_edit ? 'Мои группы' : 'Группы' %></p>

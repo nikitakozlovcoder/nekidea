@@ -177,6 +177,11 @@
             grid-template-columns: 70px 1fr 200px 200px 200px;
         }
     }
+    
+    .btn-edit, .btn-edit-password {
+        width: 183px !important;
+    }
+
     @media screen and (max-width: 992px) {
         .profile-actions{
             width: auto;
@@ -220,6 +225,7 @@
                 }
                 .info {
                     grid-area: info;
+                    word-break: break-all;
                 }
                 .date {
                     grid-area: date;
@@ -384,6 +390,9 @@
         
         .profile-main .profile-data .profile-stats .stats-container .stat p{
             font-size: 1.4rem;
+        }
+        .profile-actions {
+            width: 100%;
         }
     }
 }

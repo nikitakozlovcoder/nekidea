@@ -22,6 +22,12 @@
       <div class = "list-item commited_ideas">
         <p>Принято идей</p>
       </div>
+      <div class = "mobile list-item">
+            <p>Предложено / Принято идей</p>
+      </div>
+      <div class = "mobile2 list-item">
+            <p>ФИО / Cтатистика</p>
+      </div>
     </div>
     <div class = "list-container">
 
@@ -39,10 +45,10 @@
               <p class = "descr"><%= user_role user %></p>
             </div>
             <div class = "ideas">
-              <p><%= user.ideas.count  %></p>
+              <p class = "mobile_desc">Предложено идей: </p><p><%= user.ideas.count  %></p>
             </div>
             <div class = "commited_ideas">
-              <p><%= user.ideas.where(idea_status: 'accepted').count%></p>
+              <p class = "mobile_desc">Принято идей: </p><p><%= user.ideas.where(idea_status: 'accepted').count%></p>
             </div>
           </div>
         <% end %>

@@ -10,7 +10,13 @@
         }
     }
     .links {
-        padding-left: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        div {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
     }
     i{
         margin-right: 4px;
