@@ -60,6 +60,7 @@
 
   <%= form_with(model: vote, local: true, html: {class: "nice outline voteform"}, multipart: true) do |form| %>
     <%= form.hidden_field :iter_array, placeholder: " " %>
+    <h1 class = "title">Создание нового голосования</h1>
 
     <% if vote.errors.any? %>
       <div id="error_explanation">
@@ -96,7 +97,7 @@
           <%= image_tag pict %>
         <% end %>
       </div>
-      <div class = "form-group">
+      <div class = "form-group group">
       <p class = "title down">Выберите группу для голосования</p>
       <div id = "vote_type">
         <select name = "vote[duty_id]">
@@ -178,7 +179,7 @@
       <% end %>
     <div id="iters">
     </div>
-    <div class = "form-group">
+    <div class = "form-group add_iter">
       <button type="button" id = "add_iter" class="btn-simple-outline right">Добавить этап</button>
 
     </div>

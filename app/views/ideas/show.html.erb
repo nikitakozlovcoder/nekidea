@@ -13,6 +13,7 @@
         <div class="idea-block-header">
           <h1 class="idea-name title"><%= @idea.title %></h1>
         </div>
+        <hr>
         <div class = "vote head">
           <div class = "head">
             <div class = "right">
@@ -38,6 +39,7 @@
             </div>
 
           <% user_action = @idea.user_action current_user %>
+            <div class = "left-container">
             
             <div class = "left">
               <% if @idea.vote.vote_status != 'collecting' %>
@@ -80,6 +82,7 @@
 
             </div>
 
+            </div>
           </div>
         </div>
         <hr>
