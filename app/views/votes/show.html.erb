@@ -3,9 +3,9 @@
   <%= render partial: './header.html.erb' %>
   <div class = "breadcrumbs">
     <div class="container">
-      <div class = "links">
-        <div> <%= link_to 'Главная', :root_path %> <i class="fas fa-arrow-right"></i></div> <div><%= link_to 'Тематики', :votes %> <i class="fas fa-arrow-right"></i></div> <div><a href = ""><%= @vote.title %></a></div>
-      </div>
+      
+        <%= link_to 'Главная', :root_path %> <i class="fas fa-arrow-right"></i><%= link_to 'Тематики', :votes %> <i class="fas fa-arrow-right"></i><a href = ""><%= @vote.title %></a>
+      
     </div>
   </div>
   <section class ="content container">
@@ -106,7 +106,7 @@
 
         </div>
 
-        <div class = "head-container">
+        <div class = "head-container <%= 'voting' if @vote.vote_status == 'voting' %>">
           <div class = "list-item num">
               <p>№</p>
           </div>
