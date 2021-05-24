@@ -42,14 +42,17 @@
             <div class = "left">
               <div data-idea_id = "<%= @idea.id %>" class="rating">
                   <!-- Thumbs up -->
-                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'collecting' %>
+                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'voting' %>
                   <div class="like grow <%= 'active ' if user_action == :upvote %> <%= 'disabled' if @idea.idea_status == 'archived' %>">
                     <i class="far fa-thumbs-up" aria-hidden="true"></i>
                   </div>
                   <% end %>
-                  <input class="value idea-rating-field" value ="<%= @idea.rating %>" disabled/>
+
+                  <% if @idea.vote.iteration != 1 or (@idea.vote.iteration == 1 and @idea.vote.vote_status != 'collecting') %>
+                    <input class="value idea-rating-field" value ="<%= @idea.rating %>" disabled/>
+                  <% end%>
                   <!-- Thumbs down -->
-                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'collecting' %>
+                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'voting' %>
                   <div class="dislike grow <%= 'active ' if user_action == :downvote %> <%= 'disabled' if @idea.idea_status == 'archived' %>">
                     <i class="far fa-thumbs-down" aria-hidden="true"></i>
                   </div>

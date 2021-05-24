@@ -14,7 +14,11 @@ class Idea < ApplicationRecord
     self.idea_status = 'accepted'
     self.save
   end
-
+  def popularity
+    pop = self.upvotes.count
+    pop+=self.downvotes.count
+    pop
+  end
   def deaccept
     return if self.idea_status != 'accepted'
     if self.vote == nil

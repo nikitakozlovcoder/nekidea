@@ -1,110 +1,717 @@
-<div class ="page-wrapper home">    
-    <%= render partial: './header.html.erb' %>
-    <section class="content container">
-      <%= current_user.mail if current_user != nil %>
+<div class="page-wrapper main-index">
+  <%= render partial: './header.html.erb' %>
+  <div class="page-wrapper main">
+    <section class="small-banner section">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Single Banner  -->
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="single-banner" style="position: relative;">
+              <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.3;"></div>
+              <%= image_tag "lamp.jpg" %>
 
-<!--
-      <%= form_with url:'users/generate?type=single', local: false do %>
-        <label for="input1" class="inp">
-          <input name = "mail" type="email" id="inp" placeholder="&nbsp;"  >
-          <input name = "name" type="text" id="inp" placeholder="&nbsp;" >
-          <input name = "surname" type="text" id="inp" placeholder="&nbsp;" >
-          <input name = "patronymic" type="text" id="inp" placeholder="&nbsp;" >
-        </label>
-        </label>
+              <div class="content">
+                <p style="font-weight: 600;">Нужно увидеть</p>
+                <h3 style="color: white !important;">Товары для<br>вашего дома</h3>
+                <a class="link-banner clickable" href="/votes/50">Перейти</a>
+              </div>
+            </div>
+          </div>
 
-        <button class="btn-outline" type="submit">Войти</button>
-      <% end %>
--->
-    <h1 class = "title">Некоторый заголовок</h1>
-    <h2 class = "title">Некоторый заголовок</h2>
-    <h3 class = "title">Некоторый заголовок</h3>
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    </section>
-    <section class="content container">
-    <h1 class = "title">Checkbox элемент</h1>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox">
-        Нажми
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label>
-    <br>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox">
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label> <br>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox" checked>
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label> <br>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox" checked>
-        Уже нажатый
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label>
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    </section>
-    <section class="content container">
-    <h1 class = "title">Input элемент</h1>
-    <form class = "nice">
-    <label for="input1" class="inp">
-    <input type="text" id="inp" placeholder="&nbsp;">
-    <span class="label">Label</span>
-    <span class="focus-bg"></span>
-    </label>
-    awd
-    <label for="input2" class="inp">
-    <input type="text" id="inp" placeholder="&nbsp;">
-    <span class="label">Label</span>
-    <span class="focus-bg"></span>
-    </label>
-    </form>
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    </section>
-    <section class="content container">
-        <h1 class = "title">Кнопки</h1>
-        <button class ="btn-simple">Кнопка</button>
-        <button class ="btn-simple-outline"> Кнопка</button>
-        <button class ="btn-outline"> Кнопка</button>
-    </section>
-    <section class="content container">
-        <h1 class = "title">Editable Text элемент</h1>
-        <div id="editor"></div>
-    </section>
-    <section class="content container">
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    </section>
-    <section class="content container">
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox">
-        Ntrawd
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label>
+          <!-- /End Single Banner  -->
+          <!-- Single Banner  -->
 
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox">
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label>
+          <div class="col-lg-4 col-md-6 col-12">
+
+
+            <div class="single-banner" style="position: relative;">
+              <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.3;"></div>
+              <%= image_tag "phones.jpg" %>
+
+              <div class="content">
+                <p style="font-weight: 600;">Поробуй свои силы!</p>
+                <h3 style="color: white !important;">Смартфоны<br> 2020</h3>
+                <a class="link-banner clickable" href="/products/67">Перейти</a>
+              </div>
+            </div>
+          </div>
+          <!-- /End Single Banner  -->
+          <!-- Single Banner  -->
+          <div class="col-lg-4 col-12">
+
+            <div class="single-banner" style="position: relative;">
+              <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.3;"></div>
+              <%= image_tag "jackets.jpg" %>
+
+              <div class="content">
+                <p style="font-weight: 600;">Лучшее предложение</p>
+                <h3 style="color: white !important;">Готовимся К Морозам<br> Зимние Куртки</h3>
+                <a class="link-banner clickable" href="/products/62">Перейти</a>
+              </div>
+            </div>
+          </div>
+          <!-- /End Single Banner  -->
+        </div>
+      </div>
     </section>
-    <%= render partial: './footer.html.erb' %>
+    <div class="product-area section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title">
+          <h2>Интересные предложения</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="product-info">
+          <div class="nav-main">
+          </div>
+          <div class="tab-content" id="myTabContent">
+            <!-- Start Single Tab -->
+            <div class="tab-pane fade show active" id="man" role="tabpanel">
+              <div class="tab-single">
+                <div class="row">
+
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="/product/42">
+                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBmQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--099fb131124ff1468f5d5223f79447711f5b4be0/6005762212.webp">
+</a>                        
+                        <div class="button-head">
+                          <div class="product-action" style="padding-right:  20px">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(42, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                          <div class="product-action-2" style="padding-left:  10px">
+                                <a title="Добавить в корзину" onclick="addtoCart(42, this)">Добавить в корзину</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <div class="product-price">
+                          <span> ₽3,827.00</span>
+                        </div>
+                        <h3> <a href="/product/42">Джинсы Levi's 502 Taper</a></h3>
+                        <div class="mobile-buttons">
+                          <div class="product-action">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(42, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                          
+                                <a title="Добавить в корзину" onclick="addtoCart(42, this)">Добавить в корзину</a>
+                            
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="/product/16">
+                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBOZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--116729211e6ba5244f342b63d6c1da623dcaaa0e/orig%20(7).webp">
+</a>                        
+                        <div class="button-head">
+                          <div class="product-action" style="padding-right:  20px">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(16, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                          <div class="product-action-2" style="padding-left:  10px">
+                                <a title="Добавить в корзину" onclick="addtoCart(16, this)">Добавить в корзину</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <div class="product-price">
+                          <span> ₽840.00</span>
+                        </div>
+                        <h3> <a href="/product/16">Стиральный порошок Ушастый Нянь</a></h3>
+                        <div class="mobile-buttons">
+                          <div class="product-action">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(16, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                          
+                                <a title="Добавить в корзину" onclick="addtoCart(16, this)">Добавить в корзину</a>
+                            
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="/product/12">
+                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBKZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--030066a08e2af48c304cf7e11570e95d84fbf237/6015958161.webp">
+</a>                        
+                        <div class="button-head">
+                          <div class="product-action" style="padding-right:  20px">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(12, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                          <div class="product-action-2" style="padding-left:  10px">
+                                <a title="Уже в корзинe" class="active" href="/cart">Уже в корзинe</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <div class="product-price">
+                          <span> ₽1,003.00</span>
+                        </div>
+                        <h3> <a href="/product/12">Ваза Керамика ручной работы</a></h3>
+                        <div class="mobile-buttons">
+                          <div class="product-action">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(12, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                          
+                                <a title="Уже в корзинe" class="active" href="/cart">Уже в корзинe</a>
+                            
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="/product/31">
+                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBaUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--638a50ad30bcc141277c0430215889818a65507d/71P0lGwQ+SL._AC_SY879_.jpg">
+</a>                        
+                        <div class="button-head">
+                          <div class="product-action" style="padding-right:  20px">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(31, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                          <div class="product-action-2" style="padding-left:  10px">
+                                <a title="Добавить в корзину" onclick="addtoCart(31, this)">Добавить в корзину</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <div class="product-price">
+                          <span> ₽1,600.00</span>
+                        </div>
+                        <h3> <a href="/product/31">Набор нержавеющих ножей</a></h3>
+                        <div class="mobile-buttons">
+                          <div class="product-action">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(31, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                          
+                                <a title="Добавить в корзину" onclick="addtoCart(31, this)">Добавить в корзину</a>
+                            
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="/product/46">
+                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBaUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--638a50ad30bcc141277c0430215889818a65507d/71P0lGwQ+SL._AC_SY879_.jpg">
+</a>                        
+                        <div class="button-head">
+                          <div class="product-action" style="padding-right:  20px">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(46, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                          <div class="product-action-2" style="padding-left:  10px">
+                                <a title="Добавить в корзину" onclick="addtoCart(46, this)">Добавить в корзину</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <div class="product-price">
+                          <span> ₽0.10</span>
+                        </div>
+                        <h3> <a href="/product/46">Тест1</a></h3>
+                        <div class="mobile-buttons">
+                          <div class="product-action">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(46, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                          
+                                <a title="Добавить в корзину" onclick="addtoCart(46, this)">Добавить в корзину</a>
+                            
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="/product/35">
+                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBiQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--755501482646ce85ac9b47b4cd631d91120437f3/76440_square.jpg">
+</a>                        
+                        <div class="button-head">
+                          <div class="product-action" style="padding-right:  20px">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(35, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                          <div class="product-action-2" style="padding-left:  10px">
+                                <a title="Добавить в корзину" onclick="addtoCart(35, this)">Добавить в корзину</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <div class="product-price">
+                          <span> ₽23.00</span>
+                        </div>
+                        <h3> <a href="/product/35">Батончик Аютинский нарезной</a></h3>
+                        <div class="mobile-buttons">
+                          <div class="product-action">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(35, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                          
+                                <a title="Добавить в корзину" onclick="addtoCart(35, this)">Добавить в корзину</a>
+                            
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="/product/30">
+                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBaQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fb7d1fe210bd47d86d985b4154957a28a74a949a/58726_square.jpg">
+</a>                        
+                        <div class="button-head">
+                          <div class="product-action" style="padding-right:  20px">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(30, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                          <div class="product-action-2" style="padding-left:  10px">
+                                <a title="Добавить в корзину" onclick="addtoCart(30, this)">Добавить в корзину</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <div class="product-price">
+                          <span> ₽123.00</span>
+                        </div>
+                        <h3> <a href="/product/30">Творог Простоквашино</a></h3>
+                        <div class="mobile-buttons">
+                          <div class="product-action">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(30, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                          
+                                <a title="Добавить в корзину" onclick="addtoCart(30, this)">Добавить в корзину</a>
+                            
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="/product/40">
+                          <img class="default-img" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBjUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3c4653383f6fea18fff1e2bb2a8b920dac1cb4ba/71pceby1tuL._AC_SX679_.jpg">
+</a>                        
+                        <div class="button-head">
+                          <div class="product-action" style="padding-right:  20px">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(40, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                          <div class="product-action-2" style="padding-left:  10px">
+                                <a title="Добавить в корзину" onclick="addtoCart(40, this)">Добавить в корзину</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <div class="product-price">
+                          <span> ₽2,100.00</span>
+                        </div>
+                        <h3> <a href="/product/40">Поварский нож</a></h3>
+                        <div class="mobile-buttons">
+                          <div class="product-action">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(40, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                          
+                                <a title="Добавить в корзину" onclick="addtoCart(40, this)">Добавить в корзину</a>
+                            
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<section class="midium-banner">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="single-banner" style="position: relative;">
+          <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.5;"></div>
+          <%= image_tag "bestrussianbuy.jpg" %>
+          <div class="content">
+            <p style="font-weight: 600;">Лучший выбор</p>
+            <h3 style="color: white !important;">РашнБестБай<br>СторЕвер</h3>
+            <a class="btn" href="/shop/8">К магазину</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="single-banner" style="position: relative;">
+          <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.4;"></div>
+          <%= image_tag "bestrussianbuy.jpg" %>
+          <div class="content">
+            <p style="font-weight: 600;">Лучший выбор</p>
+            <h3 style="color: white !important;">Семерочка</h3>
+            <a class="btn" href="/shop/9">К магазину</a>
+
+          </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
+<div class="product-area most-popular section" style="padding-top: 50px; display: none">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title">
+          <h2>Популярное</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="owl-carousel popular-slider owl-theme owl-hidden owl-loaded">
+
+          <!-- Start Single Product -->
+          
+          <!-- End Single Product -->
+
+        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 25px;"><div class="owl-item active" style="width: 25px; margin-right: 0px;"><div class="single-product">
+            <div class="product-img">
+              <a href="product-details.html">
+                <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+                <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+                <span class="out-of-stock">Hot</span>
+              </a>
+              <div class="button-head">
+                <div class="product-action">
+                  <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+                  <a title="Wishlist" href="#"><i class=" far fa-heart "></i><span>Add to Wishlist</span></a>
+                  <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+                </div>
+                <div class="product-action-2">
+                  <a title="Add to cart" href="#">Add to cart</a>
+                </div>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+              <div class="product-price">
+                <span class="old">$60.00</span>
+                <span>$50.00</span>
+              </div>
+            </div>
+          </div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style=""><i class="ti-angle-left"></i></div><div class="owl-next" style=""><i class="ti-angle-right"></i></div></div><div class="owl-dots" style="display: none;"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="shop-home-list section" style="padding-top: 50px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="row">
+          <div class="col-12">
+            <div class="shop-section-title">
+              <h1>Новинки</h1>
+            </div>
+          </div>
+        </div>
+
+            <div class="single-list">
+            <div class="row">
+               <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                 <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBXZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d6da8147437068b0320349bdaf6e9dcacc4411d7/f7b88453f47b1da622fff9b5b9139e7d1b750753a48f840c0340d5b9d82bd51c.jpg">
+                  <a class="buy" href="/product/26">
+                   <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/26">Pentax K70 Kit DA L 18-50mm WR</a></h4>
+                  <p class="price with-discount">₽76,999.75</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="single-list">
+            <div class="row">
+               <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                 <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYlE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3d077b38d43dccebe61342295e0f4f0db0974842/30043639b%20(1).jpg">
+                  <a class="buy" href="/product/81">
+                   <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/81">пипрп</a></h4>
+                  <p class="price with-discount">₽1,213.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="single-list">
+            <div class="row">
+               <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                 <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYXc9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cfde9d5d6098e64d52806ac2d22d2de934c468d9/RGB-color-model.jpg">
+                  <a class="buy" href="/product/80">
+                   <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/80">Тест1</a></h4>
+                  <p class="price with-discount">₽123.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="row">
+          <div class="col-12">
+            <div class="shop-section-title">
+              <h1>Бест-селлеры</h1>
+            </div>
+          </div>
+        </div>
+          <div class="single-list">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                  <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e53904cb78d370abda19caa0b129b34f3b65b779/orig.webp">
+                  <a class="buy" href="/product/10">
+                    <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/10">Mi LED Smart Bulb (MJDP02YL)</a></h4>
+                  <p class="price with-discount">₽240.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="single-list">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                  <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBhQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a6d526e9898c2c4fba6fd15773d9cae9519d29b8/597960.jpg">
+                  <a class="buy" href="/product/32">
+                    <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/32">Творог Коровка из Кореновки 9%</a></h4>
+                  <p class="price with-discount">₽0.21</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="single-list">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                  <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0bdebbcd5098ff586cb7ef90ccff40ec955414f3/9f14215dc3a7feb162086ca3c1e4e857.jpg">
+                  <a class="buy" href="/product/6">
+                    <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/6">Xiaomi Mi 10</a></h4>
+                  <p class="price with-discount">₽49,990.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <div class="row">
+          <div class="col-12">
+            <div class="shop-section-title">
+              <h1>Лучшее</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin: 0;">
+            <div class="col-md-6 col-sm-6 col-lg-12">
+              <div class="single-list">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+
+                    <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                      <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBLQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c4976b8cbba8b4d230a4704629ddd77afcf738d2/41KeVFVjYzL._AC_.jpg">
+                      <a class="buy" href="/product/8">
+                        <i class="fas fa-share"></i>
+</a>                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12 no-padding">
+                    <div class="content">
+                      <h4 class="title"><a href="/product/8">Кастрюли Edenberg</a></h4>
+                      <p class="price with-discount">₽5,000.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-12">
+              <div class="single-list">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+
+                    <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                      <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cb1d2cdb178f8cddbfd5e4c9f6636a291847e36b/JA391EMFYQE2_9586361_1_v1_2x.webp">
+                      <a class="buy" href="/product/11">
+                        <i class="fas fa-share"></i>
+</a>                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12 no-padding">
+                    <div class="content">
+                      <h4 class="title"><a href="/product/11">Jack &amp; Jones утепленная</a></h4>
+                      <p class="price with-discount">₽10,872.23</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-12">
+              <div class="single-list">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+
+                    <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                      <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBXZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d6da8147437068b0320349bdaf6e9dcacc4411d7/f7b88453f47b1da622fff9b5b9139e7d1b750753a48f840c0340d5b9d82bd51c.jpg">
+                      <a class="buy" href="/product/26">
+                        <i class="fas fa-share"></i>
+</a>                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12 no-padding">
+                    <div class="content">
+                      <h4 class="title"><a href="/product/26">Pentax K70 Kit DA L 18-50mm WR</a></h4>
+                      <p class="price with-discount">₽76,999.75</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shop-services section" style="padding: 80px 40px">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Service -->
+        <div class="single-service">
+          <i class="fas fa-rocket"></i>
+          <h4>Быстрое начало</h4>
+          <p>Нужно просто создать свой магазин</p>
+        </div>
+        <!-- End Single Service -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Service -->
+        <div class="single-service">
+          <i class="fas fa-sync-alt"></i>
+          <h4>Большая клиентская база</h4>
+          <p>Охват многих категорий продаж</p>
+        </div>
+        <!-- End Single Service -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Service -->
+        <div class="single-service">
+          <i class="fas fa-shield-alt"></i>
+          <h4>Защищенный аккаунт</h4>
+          <p>Приватность данных</p>
+        </div>
+        <!-- End Single Service -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Service -->
+        <div class="single-service">
+          <i class="ti-tag"></i>
+          <h4>Лучший товар</h4>
+          <p>Гарантированная цена</p>
+        </div>
+        <!-- End Single Service -->
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+  <%= render partial: './footer.html.erb' %>
+</div>
