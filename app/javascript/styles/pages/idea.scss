@@ -12,7 +12,7 @@
         .vote.head {
             padding: 0;
             .person {
-                margin-bottom: 10px;
+                //margin-bottom: 10px;
             }
         }
         .idea-additional {
@@ -27,6 +27,24 @@
                 margin-right: 0.5rem;
             }
         }
+        hr {
+            margin-top: 0;
+        }
+    }
+    .left {
+        .button_to, .head-left-link {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .button_to {
+            margin-top: 10px;
+        }
+    }
+    .left, .right {
+        display: grid !important;
+        grid-template-rows: 1fr 1fr 1fr;
+        align-items: center;
     }
     
     .idea-name {

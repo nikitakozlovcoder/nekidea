@@ -4,7 +4,7 @@
   <div class = "breadcrumbs">
     <div class="container">
       <div class = "links">
-        <%= link_to 'Главная', :root_path %> <i class="fas fa-arrow-right"></i> <%= link_to 'Тематики', :votes %> <i class="fas fa-arrow-right"></i> <a href = ""><%= @vote.title %></a>
+        <div> <%= link_to 'Главная', :root_path %> <i class="fas fa-arrow-right"></i></div> <div><%= link_to 'Тематики', :votes %> <i class="fas fa-arrow-right"></i></div> <div><a href = ""><%= @vote.title %></a></div>
       </div>
     </div>
   </div>
@@ -96,8 +96,8 @@
       <br>
 
       <div class = "ideas">
-        <div style="display: flex; justify-content: space-between; align-items: center">
-          <h2>Предложенные идеи</h2>
+        <div class = "ideas-title">
+          <h3>Предложенные идеи</h3>
           <% if @vote.can_create_fresh_idea? %>
 
             <div class = "add-link"><%= link_to({controller: 'ideas', action: 'new', param_id: @vote.id})  do%><i class="fas fa-plus"></i>Предложить <% end%></div>
@@ -128,7 +128,7 @@
 
             <% ideas.sort_by{|e| e.rating}.reverse!.each_with_index do |idea, i| %>
               <a href = "/ideas/<%= idea.id %>">
-                <div class = "list-item">
+                <div class = "list-item <%= 'voting' if @vote.vote_status == 'voting' %>">
                   <div class = "num">
                     <h5><%= i+1 %></h5>
                   </div>

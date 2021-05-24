@@ -28,9 +28,9 @@
 
                 </a>
               </div>
-              <div style = "color: green">
+              <div class = "status">
 
-                <p>Статус идеи: <%= "Активна" if @idea.idea_status == "active" %> <%= "В архиве" if @idea.idea_status == "archived"%> <%="Принята" if @idea.idea_status == "accepted"%></p>
+                <p>Статус идеи: <span><%= "Активна" if @idea.idea_status == "active" %> <%= "В архиве" if @idea.idea_status == "archived"%> <%="Принята" if @idea.idea_status == "accepted"%> </span> </p>
               </div>
               <div class = "properties">
                 <p>Дата: <span><%= @idea.created_at.to_date %></span></p>
@@ -38,8 +38,9 @@
             </div>
 
           <% user_action = @idea.user_action current_user %>
-
+            
             <div class = "left">
+              <% if @idea.vote.vote_status != 'collecting' %>
               <div data-idea_id = "<%= @idea.id %>" class="rating">
                   <!-- Thumbs up -->
                 <% if !@idea.vote.nil? and @idea.vote.vote_status == 'voting' %>
@@ -58,17 +59,9 @@
                   </div>
                 <% end %>
               </div>
-
-              <% if @idea.can_be_deleted? @current_user %>
-                <div class="head-left-link head-left-link_delete"><%= link_to 'Удалить', :idea, method: :delete, data: {confirm: "Удалить идею?"}  %></div>
               <% end %>
-              <% if @idea.can_be_updated? @current_user %>
-                <div class="head-left-link head-left-link_delete"><%= link_to 'Редактировать', :edit_idea  %></div>
-              <% end %>
-
 
               <% if current_user.is_boss %>
-                <br>
                 <div>
                   <% if @idea.idea_status != 'accepted'  %>
                     <%= button_to 'Принять идею', ideas_change_accept_path(@idea.id), class: 'btn btn-outline-success'  %>
@@ -76,6 +69,13 @@
                     <%= button_to 'Отклонить идею', ideas_change_accept_path(@idea.id), class: 'btn btn-outline-danger'  %>
                   <% end %>
                 </div>
+              <% end %>
+
+              <% if @idea.can_be_deleted? @current_user %>
+                <div class="head-left-link head-left-link_delete"><%= link_to 'Удалить', :idea, method: :delete, data: {confirm: "Удалить идею?"}  %></div>
+              <% end %>
+              <% if @idea.can_be_updated? @current_user %>
+                <div class="head-left-link head-left-link_delete"><%= link_to 'Редактировать', :edit_idea  %></div>
               <% end %>
 
             </div>
@@ -92,9 +92,9 @@
               <p>Основывается на: </p> <a href="#"><%=  link_to( instance_idea_title, {controller: 'ideas', action: 'show', id: @idea.instance_id}) %></a>
             </div>
           <% end %>
-          <div class = "idea-add">
+          <!-- <div class = "idea-add">
             Добавить в заметки
-          </div>
+          </div> -->
         </div>
       </div>
 
