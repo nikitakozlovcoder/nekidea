@@ -1,110 +1,487 @@
-<div class ="page-wrapper home">    
-    <%= render partial: './header.html.erb' %>
-    <section class="content container">
-      <%= current_user.mail if current_user != nil %>
+<div class="page-wrapper main-index">
+  <%= render partial: './header.html.erb' %>
+  <div class="page-wrapper main">
+    <section class="small-banner section">
+      <div class="container-fluid">
 
-<!--
-      <%= form_with url:'users/generate?type=single', local: false do %>
-        <label for="input1" class="inp">
-          <input name = "mail" type="email" id="inp" placeholder="&nbsp;"  >
-          <input name = "name" type="text" id="inp" placeholder="&nbsp;" >
-          <input name = "surname" type="text" id="inp" placeholder="&nbsp;" >
-          <input name = "patronymic" type="text" id="inp" placeholder="&nbsp;" >
-        </label>
-        </label>
+        <div class="col-12">
+          <div class="section-title">
 
-        <button class="btn-outline" type="submit">Войти</button>
-      <% end %>
--->
-    <h1 class = "title">Некоторый заголовок</h1>
-    <h2 class = "title">Некоторый заголовок</h2>
-    <h3 class = "title">Некоторый заголовок</h3>
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    </section>
-    <section class="content container">
-    <h1 class = "title">Checkbox элемент</h1>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox">
-        Нажми
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label>
-    <br>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox">
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label> <br>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox" checked>
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label> <br>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox" checked>
-        Уже нажатый
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label>
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    </section>
-    <section class="content container">
-    <h1 class = "title">Input элемент</h1>
-    <form class = "nice">
-    <label for="input1" class="inp">
-    <input type="text" id="inp" placeholder="&nbsp;">
-    <span class="label">Label</span>
-    <span class="focus-bg"></span>
-    </label>
-    awd
-    <label for="input2" class="inp">
-    <input type="text" id="inp" placeholder="&nbsp;">
-    <span class="label">Label</span>
-    <span class="focus-bg"></span>
-    </label>
-    </form>
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    </section>
-    <section class="content container">
-        <h1 class = "title">Кнопки</h1>
-        <button class ="btn-simple">Кнопка</button>
-        <button class ="btn-simple-outline"> Кнопка</button>
-        <button class ="btn-outline"> Кнопка</button>
-    </section>
-    <section class="content container">
-        <h1 class = "title">Editable Text элемент</h1>
-        <div id="editor"></div>
-    </section>
-    <section class="content container">
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    </section>
-    <section class="content container">
-    <p>Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.Некоторый русский текст. Ещё немного русского текста. Крал у клары украл коралллы.</p>
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox">
-        Ntrawd
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label>
+            <h2>Вопросы дня</h2>
 
-    <!-- Checkbox element -->
-    <label class="checkbox bounce">
-        <input type="checkbox">
-        <svg viewBox="0 0 21 21">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-        </svg>
-    </label>
+          </div>
+          <br>
+        </div>
+
+        <div class="row">
+
+          <!-- Single Banner  -->
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="single-banner" style="position: relative;">
+              <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.3;"></div>
+              <%= image_tag "lamp.jpg" %>
+
+              <div class="content">
+                <p style="font-weight: 600;">Нужно увидеть</p>
+                <h3 style="color: white !important;">Товары для<br>вашего дома</h3>
+                <a class="link-banner clickable" href="/votes/50">Перейти</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- /End Single Banner  -->
+          <!-- Single Banner  -->
+
+          <div class="col-lg-4 col-md-6 col-12">
+
+
+            <div class="single-banner" style="position: relative;">
+              <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.3;"></div>
+              <%= image_tag "phones.jpg" %>
+
+              <div class="content">
+                <p style="font-weight: 600;">Поробуй свои силы!</p>
+                <h3 style="color: white !important;">Смартфоны<br> 2020</h3>
+                <a class="link-banner clickable" href="/products/67">Перейти</a>
+              </div>
+            </div>
+          </div>
+          <!-- /End Single Banner  -->
+          <!-- Single Banner  -->
+          <div class="col-lg-4 col-12">
+
+            <div class="single-banner" style="position: relative;">
+              <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.3;"></div>
+              <%= image_tag "jackets.jpg" %>
+
+              <div class="content">
+                <p style="font-weight: 600;">Лучшее предложение</p>
+                <h3 style="color: white !important;">Готовимся К Морозам<br> Зимние Куртки</h3>
+                <a class="link-banner clickable" href="/products/62">Перейти</a>
+              </div>
+            </div>
+          </div>
+          <!-- /End Single Banner  -->
+        </div>
+      </div>
     </section>
-    <%= render partial: './footer.html.erb' %>
+    <div class="product-area section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title">
+
+          <h2>Активные сотрудники</h2>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="product-info">
+          <div class="nav-main">
+          </div>
+          <div class="tab-content" id="myTabContent">
+            <!-- Start Single Tab -->
+            <div class="tab-pane fade show active" id="man" role="tabpanel">
+              <div class="tab-single">
+                <div class="row">
+          
+                   <% User.all[0..8].sort_by{|el| [el.ideas.where(idea_status: 'accepted').count, el.ideas.count ]}.reverse!.each_with_index do |user, i|  %>
+                       <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+
+                    <div class="single-product">
+                      <div class="product-img">
+                        <%= link_to user_profile_path(user.id)  do %>
+                          <%= image_tag user_avatar user %>
+                        <% end %>
+
+                      </div>
+                      <div class="product-content">
+                        <div class="product-price">
+                          <span><%=  user_name user %></span>
+                        </div>
+                        <h6><%= user_role user %></h6>
+                        <div class="mobile-buttons">
+                          <div class="product-action">
+                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+                            <a title="Избранное" onclick="addtoWishlist(42, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
+                          
+                                <a title="Добавить в корзину" onclick="addtoCart(42, this)">Добавить в корзину</a>
+                            
+                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <% end %>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<section class="midium-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title">
+
+          <h2>Успейте поучаствовать</h2>
+
+        </div>
+        <br>
+      </div>
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="single-banner" style="position: relative;">
+          <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.5;"></div>
+          <%= image_tag "bestrussianbuy.jpg" %>
+          <div class="content">
+            <p style="font-weight: 600;">Лучший выбор</p>
+            <h3 style="color: white !important;">РашнБестБай<br>СторЕвер</h3>
+            <a class="btn" href="/shop/8" style="width: 270px; display: flex;
+                justify-content: space-around;" >Предложить</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="single-banner" style="position: relative;">
+          <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.4;"></div>
+          <%= image_tag "bestrussianbuy.jpg" %>
+          <div class="content">
+            <p style="font-weight: 600;">Лучший выбор</p>
+            <h3 style="color: white !important;">Семерочка</h3>
+            <a class="btn" href="/shop/9" style="width: 270px; display: flex;
+                justify-content: space-around;">Проголосовать</a>
+
+          </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
+<div class="product-area most-popular section" style="padding-top: 50px; display: none">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title">
+          <h2>Популярное</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="owl-carousel popular-slider owl-theme owl-hidden owl-loaded">
+
+          <!-- Start Single Product -->
+          
+          <!-- End Single Product -->
+
+        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 25px;"><div class="owl-item active" style="width: 25px; margin-right: 0px;"><div class="single-product">
+            <div class="product-img">
+              <a href="product-details.html">
+                <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+                <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+                <span class="out-of-stock">Hot</span>
+              </a>
+              <div class="button-head">
+                <div class="product-action">
+                  <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+                  <a title="Wishlist" href="#"><i class=" far fa-heart "></i><span>Add to Wishlist</span></a>
+                  <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+                </div>
+                <div class="product-action-2">
+                  <a title="Add to cart" href="#">Add to cart</a>
+                </div>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+              <div class="product-price">
+                <span class="old">$60.00</span>
+                <span>$50.00</span>
+              </div>
+            </div>
+          </div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style=""><i class="ti-angle-left"></i></div><div class="owl-next" style=""><i class="ti-angle-right"></i></div></div><div class="owl-dots" style="display: none;"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="shop-home-list section" style="padding-top: 50px;">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="row">
+          <div class="col-12">
+            <div class="shop-section-title">
+              <h1>Новые идеи</h1>
+            </div>
+          </div>
+        </div>
+
+            <div class="single-list">
+            <div class="row">
+               <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                 <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBXZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d6da8147437068b0320349bdaf6e9dcacc4411d7/f7b88453f47b1da622fff9b5b9139e7d1b750753a48f840c0340d5b9d82bd51c.jpg">
+                  <a class="buy" href="/product/26">
+                   <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/26">Pentax K70 Kit DA L 18-50mm WR</a></h4>
+                  <p class="price with-discount">₽76,999.75</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="single-list">
+            <div class="row">
+               <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                 <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYlE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3d077b38d43dccebe61342295e0f4f0db0974842/30043639b%20(1).jpg">
+                  <a class="buy" href="/product/81">
+                   <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/81">пипрп</a></h4>
+                  <p class="price with-discount">₽1,213.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="single-list">
+
+            <div class="row">
+               <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                 <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYXc9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cfde9d5d6098e64d52806ac2d22d2de934c468d9/RGB-color-model.jpg">
+                  <a class="buy" href="/product/80">
+                   <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/80">Тест1</a></h4>
+                  <p class="price with-discount">₽123.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="row">
+          <div class="col-12">
+            <div class="shop-section-title">
+              <h1>Последние принятые</h1>
+            </div>
+          </div>
+        </div>
+          <div class="single-list">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                  <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e53904cb78d370abda19caa0b129b34f3b65b779/orig.webp">
+                  <a class="buy" href="/product/10">
+                    <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/10">Mi LED Smart Bulb (MJDP02YL)</a></h4>
+                  <p class="price with-discount">₽240.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="single-list">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                  <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBhQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a6d526e9898c2c4fba6fd15773d9cae9519d29b8/597960.jpg">
+                  <a class="buy" href="/product/32">
+                    <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/32">Творог Коровка из Кореновки 9%</a></h4>
+                  <p class="price with-discount">₽0.21</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="single-list">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+
+                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                  <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0bdebbcd5098ff586cb7ef90ccff40ec955414f3/9f14215dc3a7feb162086ca3c1e4e857.jpg">
+                  <a class="buy" href="/product/6">
+                    <i class="fas fa-share"></i>
+</a>                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 no-padding">
+                <div class="content">
+                  <h4 class="title"><a href="/product/6">Xiaomi Mi 10</a></h4>
+                  <p class="price with-discount">₽49,990.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+
+          <div class="col-12">
+            <div class="shop-section-title">
+              <h1>Популярные идеи</h1>
+            </div>
+          </div>
+
+        <div class="row" style="margin: 0;">
+            <div class="col-md-6 col-sm-6 col-lg-12">
+              <div class="single-list">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+
+                    <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                      <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBLQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c4976b8cbba8b4d230a4704629ddd77afcf738d2/41KeVFVjYzL._AC_.jpg">
+                      <a class="buy" href="/product/8">
+                        <i class="fas fa-share"></i>
+</a>                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12 no-padding">
+                    <div class="content">
+                      <h4 class="title"><a href="/product/8">Кастрюли Edenberg</a></h4>
+                      <p class="price with-discount">₽5,000.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-12">
+              <div class="single-list">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+
+                    <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                      <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cb1d2cdb178f8cddbfd5e4c9f6636a291847e36b/JA391EMFYQE2_9586361_1_v1_2x.webp">
+                      <a class="buy" href="/product/11">
+                        <i class="fas fa-share"></i>
+</a>                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12 no-padding">
+                    <div class="content">
+                      <h4 class="title"><a href="/product/11">Jack &amp; Jones утепленная</a></h4>
+                      <p class="price with-discount">₽10,872.23</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-12">
+              <div class="single-list">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+
+                    <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                      <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBXZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d6da8147437068b0320349bdaf6e9dcacc4411d7/f7b88453f47b1da622fff9b5b9139e7d1b750753a48f840c0340d5b9d82bd51c.jpg">
+                      <a class="buy" href="/product/26">
+                        <i class="fas fa-share"></i>
+</a>                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12 no-padding">
+                    <div class="content">
+                      <h4 class="title"><a href="/product/26">Pentax K70 Kit DA L 18-50mm WR</a></h4>
+                      <p class="price with-discount">₽76,999.75</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shop-services section" style="padding: 80px 40px">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Service -->
+        <div class="single-service">
+          <i class="fas fa-sync-alt"></i>
+
+          <h4>Итеративная система</h4>
+          <p>Детальная пророботка идей</p>
+        </div>
+        <!-- End Single Service -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Service -->
+        <div class="single-service">
+          <i class="fas fa-rocket"></i>
+          <h4>Развитие идей</h4>
+          <p>Эффективное решение задач</p>
+        </div>
+        <!-- End Single Service -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Service -->
+        <div class="single-service">
+          <i class="fas fa-search"></i>
+          <h4>Удобство поиска</h4>
+          <p>Иерархическая структура</p>
+        </div>
+        <!-- End Single Service -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Service -->
+        <div class="single-service">
+
+          <i class="fas fa-wrench"></i>
+          <!--  <i class="fas fa-pencil-ruler"></i><i class="fas fa-user-astronaut"></i>-->
+          <h4>Гибкость в применении</h4>
+          <p>Решайте любую проблему</p>
+        </div>
+        <!-- End Single Service -->
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+  <%= render partial: './footer.html.erb' %>
+</div>

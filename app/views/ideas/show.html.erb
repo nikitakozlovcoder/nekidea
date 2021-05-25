@@ -13,6 +13,7 @@
         <div class="idea-block-header">
           <h1 class="idea-name title"><%= @idea.title %></h1>
         </div>
+        <hr>
         <div class = "vote head">
           <div class = "head">
             <div class = "right">
@@ -28,9 +29,9 @@
 
                 </a>
               </div>
-              <div style = "color: green">
+              <div class = "status">
 
-                <p>Статус идеи: <%= "Активна" if @idea.idea_status == "active" %> <%= "В архиве" if @idea.idea_status == "archived"%> <%="Принята" if @idea.idea_status == "accepted"%></p>
+                <p>Статус идеи: <span><%= "Активна" if @idea.idea_status == "active" %> <%= "В архиве" if @idea.idea_status == "archived"%> <%="Принята" if @idea.idea_status == "accepted"%> </span> </p>
               </div>
               <div class = "properties">
                 <p>Дата: <span><%= @idea.created_at.to_date %></span></p>
@@ -38,34 +39,31 @@
             </div>
 
           <% user_action = @idea.user_action current_user %>
-
+            <div class = "left-container">
+            
             <div class = "left">
+              <% if !@idea.vote.nil? and @idea.vote.vote_status != 'collecting' %>
               <div data-idea_id = "<%= @idea.id %>" class="rating">
                   <!-- Thumbs up -->
-                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'collecting' %>
+                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'voting' %>
                   <div class="like grow <%= 'active ' if user_action == :upvote %> <%= 'disabled' if @idea.idea_status == 'archived' %>">
                     <i class="far fa-thumbs-up" aria-hidden="true"></i>
                   </div>
                   <% end %>
-                  <input class="value idea-rating-field" value ="<%= @idea.rating %>" disabled/>
+
+                  <% if @idea.vote.iteration != 1 or (@idea.vote.iteration == 1 and @idea.vote.vote_status != 'collecting') %>
+                    <input class="value idea-rating-field" value ="<%= @idea.rating %>" disabled/>
+                  <% end%>
                   <!-- Thumbs down -->
-                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'collecting' %>
+                <% if !@idea.vote.nil? and @idea.vote.vote_status == 'voting' %>
                   <div class="dislike grow <%= 'active ' if user_action == :downvote %> <%= 'disabled' if @idea.idea_status == 'archived' %>">
                     <i class="far fa-thumbs-down" aria-hidden="true"></i>
                   </div>
                 <% end %>
               </div>
-
-              <% if @idea.can_be_deleted? @current_user %>
-                <div class="head-left-link head-left-link_delete"><%= link_to 'Удалить', :idea, method: :delete, data: {confirm: "Удалить идею?"}  %></div>
               <% end %>
-              <% if @idea.can_be_updated? @current_user %>
-                <div class="head-left-link head-left-link_delete"><%= link_to 'Редактировать', :edit_idea  %></div>
-              <% end %>
-
 
               <% if current_user.is_boss %>
-                <br>
                 <div>
                   <% if @idea.idea_status != 'accepted'  %>
                     <%= button_to 'Принять идею', ideas_change_accept_path(@idea.id), class: 'btn btn-outline-success'  %>
@@ -75,23 +73,31 @@
                 </div>
               <% end %>
 
+              <% if @idea.can_be_deleted? @current_user %>
+                <div class="head-left-link head-left-link_delete"><%= link_to 'Удалить', :idea, method: :delete, data: {confirm: "Удалить идею?"}  %></div>
+              <% end %>
+              <% if @idea.can_be_updated? @current_user %>
+                <div class="head-left-link head-left-link_delete"><%= link_to 'Редактировать', :edit_idea  %></div>
+              <% end %>
+
             </div>
 
+            </div>
           </div>
         </div>
         <hr>
         <div class="head-left-link head-left-link_delete"><%= link_to( 'Развить идею', {controller: 'ideas', action: 'new', is_instance: true, instance_id: @idea.id, param_id: @idea.vote_id}) %></div>
 
         <div class = "idea-additional">
-          <% if @idea.instance_id != nil %>
+          <% if instance = Idea.find_by(id:@idea.instance_id) != nil %>
             <div class = "idea-copyright">
-              <% instance_idea_title = Idea.find_by(id: @idea.instance_id).title %>
+              <% instance_idea_title = instance.title %>
               <p>Основывается на: </p> <a href="#"><%=  link_to( instance_idea_title, {controller: 'ideas', action: 'show', id: @idea.instance_id}) %></a>
             </div>
           <% end %>
-          <div class = "idea-add">
+          <!-- <div class = "idea-add">
             Добавить в заметки
-          </div>
+          </div> -->
         </div>
       </div>
 

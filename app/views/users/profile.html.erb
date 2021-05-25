@@ -10,14 +10,14 @@
   <div class="container">
     <div class="profile-main">
       <div class = "el-title head">
-        <h2>Мои данные</h2>
+        <h2><%= @can_edit ? 'Мои данные' : 'Данные пользователя' %></h2>
       </div>
 
       <div class="profile-data">
         <div class = "profile-actions">
           <div class="profile-info <%= 'hide' if main_errors.any? %>">
             <div class="user-photo line">
-              <p class="name">Моё фото</p>
+              <p class="name"><%= @can_edit ? 'Моё фото' : 'Фото' %></p>
               <div class="avatar" >
               <%= image_tag user_avatar @user %>
               </div>
@@ -42,10 +42,10 @@
             </div>
             <div class="line">
               <p class="name">Дата рождения</p>
-              <p class="data"><%= back_text(format_date(@user.birth_date_in_database), '----') %></p>
+              <p class="data"><%= back_text(format_date(@user.birth_date_in_database, "%d.%m.%Y"), '----') %></p>
             </div>
             <div class="line groups">
-              <p class="name">Мои группы</p>
+              <p class="name"><%= @can_edit ? 'Мои группы' : 'Группы' %></p>
               <p class="data"><%= @user.all_duties.map{|d| d.name}.join ', ' %></p>
             </div>
           </div>
@@ -106,7 +106,7 @@
               </div>
               <div class = "form-group" >
                 <label for="user_birth_date" class="inp">
-                  <input id="user_birth_date" class="user_birth_date" placeholder=" " type="text" value="<%= format_date(@user.birth_date) %>" name="user[birth_date]">
+                  <input id="user_birth_date" class="user_birth_date" placeholder=" " type="text" value="<%= format_date(@user.birth_date, "%d.%m.%Y") %>" name="user[birth_date]">
                   <span class="label">Дата рождения(дд.мм.гггг)</span>
                 </label>
               </div>

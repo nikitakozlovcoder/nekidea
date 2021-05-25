@@ -12,7 +12,11 @@
         .vote.head {
             padding: 0;
             .person {
-                margin-bottom: 10px;
+                p {
+                    display: flex;
+                    align-items: center;
+                    margin: 0;
+                }
             }
         }
         .idea-additional {
@@ -27,6 +31,24 @@
                 margin-right: 0.5rem;
             }
         }
+        hr {
+            margin-top: 0;
+        }
+    }
+    .left {
+        .button_to, .head-left-link {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .button_to {
+            margin-top: 10px;
+        }
+    }
+    .left, .right {
+        display: grid !important;
+        grid-template-rows: 1fr 1fr 1fr;
+        align-items: center;
     }
     
     .idea-name {
@@ -35,7 +57,7 @@
     }
     
     .idea-important-links-block {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         .links {
             display: flex;
             flex-direction: column;
@@ -75,6 +97,9 @@
     .info {
         margin-bottom: 20px;
     }
+    .images {
+        margin-bottom: 20px;
+    }
 
     .idea-comments {
         display: flex;
@@ -87,6 +112,7 @@
                 i {
                     margin-right: 7px;
                 }
+                margin-left: 10px;
             }
         }
     }
@@ -106,6 +132,7 @@
                 flex-direction: row;
                 justify-content: space-between;
                 margin-bottom: 5px;
+                flex-wrap: wrap;
                 .person {
                     display: flex;
                     flex-direction: row;
@@ -127,22 +154,136 @@
                             font-weight: 500;
                         }
                     }
+                    p {
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                    }
                 }
                 .date {
                     display: flex;
                     align-items: center;
                 }
             }
+            .actions {
+                a {
+                    color: #7f5ce2;
+                    font-weight: 500;
+                }
+                
+            }
         }
     }
 
 
+    @media screen and (max-width: 992px) {
+        .container {
+            max-width: 820px;
+        }
+        // .right {
+        //     display: flex !important;
+        //     flex-direction: column;
+        //     align-items: flex-start;
+        // }
+        .left-container {
+            justify-content: end;
+            width: 100%;
+        }
+        .left {
+            float: right;
+            display: flex !important;
+            //width: 100%;
+            div {
+                margin-bottom: 10px;
+            }
+            .rating {
+                width: fit-content;
+                margin-bottom: 0;
+            }
+            .button_to {
+                margin-top: 0;
+            }
+        }
+        
+    }
+    @media screen and (max-width: 680px) {
+        .right {
+            display: flex !important;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+    @media screen and (max-width: 540px) {
+        .comment-box .comment .head {
+            flex-direction: column;
+            .actions {
+                margin-left: 61px;
+            }
+        }
+    }
     @media screen and (max-width: 520px) {
         .idea-name {
             font-size: 26px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            //justify-content: center;
+            //text-align: center;
         }
         .idea-author {
             font-size: 18px;
+        }
+        .idea-comments {
+            .head {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        .vote.head .head .right {
+            margin-right: 0;
+            align-items: center;
+            .person {
+                justify-content: center;
+                a {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+            & > div {
+                margin-bottom: 10px;
+            }
+        }
+        .left-container {
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #dddee1;
+            padding-top: 20px;
+        }
+        .head-left-link {
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 390px) {
+        .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .content {
+            padding-top: 50px;
+        }
+        .idea-main {
+            padding: 20px;
+        }
+        .idea-header {
+            padding: 20px;
+        }
+        .comment-box .comment {
+            padding: 20px;
         }
     }
 }

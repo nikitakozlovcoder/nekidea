@@ -8,14 +8,24 @@ class Idea < ApplicationRecord
   private :upvotes, :upvotes=, :downvotes, :downvotes=
   enum idea_status: [ :active, :archived, :accepted ]
   has_many :comments, dependent: :destroy
-
   has_many_attached :pictures
-
+  def self.all_for user
+    if user.id != nil
+      return Idea.all if user.is_admin
+      return Idea.joins(:vote).all.where(votes: {duty_id: user.all_duties})
+    else
+      return nil
+    end
+  end
   def accept
     self.idea_status = 'accepted'
     self.save
   end
-
+  def popularity
+    pop = self.upvotes.count
+    pop+=self.downvotes.count
+    pop
+  end
   def deaccept
     return if self.idea_status != 'accepted'
     if self.vote == nil
@@ -37,6 +47,7 @@ class Idea < ApplicationRecord
       self.save
     end
   end
+
   def archivate
     self.idea_status='archived'
     self.archived_on=self.vote.iteration
