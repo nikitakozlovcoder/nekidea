@@ -18,15 +18,14 @@
             <div class = "right">
               <div class = "person">
                 <p>Создатель:</p>
-                <a href="/login">
+                <%= link_to (user_profile_path(@idea.user) if @idea.user != nil) do%>
                   <div class = "avatar">
-                    <img src="https://w3schoolsrus.github.io/w3images/avatar2.png">
+                    <%= image_tag user_avatar @idea.user %>
                   </div>
                   <div class = "name">
                     <p><%= user_name @idea.user %></p>
                   </div>
-
-                </a>
+                <% end %>
               </div>
               <div style = "color: green">
 
@@ -80,8 +79,9 @@
           </div>
         </div>
         <hr>
-        <div class="head-left-link head-left-link_delete"><%= link_to( 'Развить идею', {controller: 'ideas', action: 'new', is_instance: true, instance_id: @idea.id, param_id: @idea.vote_id}) %></div>
-
+        <% if (vote = Vote.find_by(id: @idea.vote_id)) != nil and vote.vote_status == 'collecting' %>
+          <div class="head-left-link head-left-link_delete"><%= link_to( 'Развить идею', {controller: 'ideas', action: 'new', is_instance: true, instance_id: @idea.id, param_id: @idea.vote_id}) %></div>
+        <% end %>
         <div class = "idea-additional">
           <% if @idea.instance_id != nil %>
             <div class = "idea-copyright">
