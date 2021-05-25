@@ -9,7 +9,14 @@ class Idea < ApplicationRecord
   enum idea_status: [ :active, :archived, :accepted ]
   has_many :comments, dependent: :destroy
   has_many_attached :pictures
-
+  def self.all_for user
+    if user.id != nil
+      return Idea.all if user.is_admin
+      return Idea.joins(:vote).all.where(votes: {duty_id: user.all_duties})
+    else
+      return nil
+    end
+  end
   def accept
     self.idea_status = 'accepted'
     self.save

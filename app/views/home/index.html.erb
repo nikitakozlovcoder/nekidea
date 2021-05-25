@@ -3,7 +3,18 @@
   <div class="page-wrapper main">
     <section class="small-banner section">
       <div class="container-fluid">
+
+        <div class="col-12">
+          <div class="section-title">
+
+            <h2>Вопросы дня</h2>
+
+          </div>
+          <br>
+        </div>
+
         <div class="row">
+
           <!-- Single Banner  -->
           <div class="col-lg-4 col-md-6 col-12">
             <div class="single-banner" style="position: relative;">
@@ -60,7 +71,7 @@
       <div class="col-12">
         <div class="section-title">
 
-          <h2>Активные пользователи</h2>
+          <h2>Активные сотрудники</h2>
 
         </div>
       </div>
@@ -84,16 +95,7 @@
                         <%= link_to user_profile_path(user.id)  do %>
                           <%= image_tag user_avatar user %>
                         <% end %>
-                        <div class="button-head">
-                          <div class="product-action" style="padding-right:  20px">
-                          <!-- <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
-                            <a title="Избранное" onclick="addtoWishlist(42, this)" class=""><i class="far fa-heart"></i><span>В избранное</span></a>
-                            <!-- <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
-                          </div>
-                          <div class="product-action-2" style="padding-left:  10px">
-                                <a title="Добавить в корзину" onclick="addtoCart(42, this)">Добавить в корзину</a>
-                          </div>
-                        </div>
+
                       </div>
                       <div class="product-content">
                         <div class="product-price">
@@ -129,7 +131,14 @@
 <section class="midium-banner">
   <div class="container">
     <div class="row">
+      <div class="col-12">
+        <div class="section-title">
 
+          <h2>Успейте поучаствовать</h2>
+
+        </div>
+        <br>
+      </div>
       <div class="col-lg-6 col-md-6 col-12">
         <div class="single-banner" style="position: relative;">
           <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(43,43,43); opacity: 0.5;"></div>
@@ -137,7 +146,8 @@
           <div class="content">
             <p style="font-weight: 600;">Лучший выбор</p>
             <h3 style="color: white !important;">РашнБестБай<br>СторЕвер</h3>
-            <a class="btn" href="/shop/8">К магазину</a>
+            <a class="btn" href="/shop/8" style="width: 270px; display: flex;
+                justify-content: space-around;" >Предложить</a>
           </div>
         </div>
       </div>
@@ -150,7 +160,8 @@
           <div class="content">
             <p style="font-weight: 600;">Лучший выбор</p>
             <h3 style="color: white !important;">Семерочка</h3>
-            <a class="btn" href="/shop/9">К магазину</a>
+            <a class="btn" href="/shop/9" style="width: 270px; display: flex;
+                justify-content: space-around;">Проголосовать</a>
 
           </div>
         </div>
@@ -212,12 +223,14 @@
 
 <section class="shop-home-list section" style="padding-top: 50px;">
   <div class="container">
+
     <div class="row">
+
       <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="row">
           <div class="col-12">
             <div class="shop-section-title">
-              <h1>Новинки</h1>
+              <h1>Новые идеи</h1>
             </div>
           </div>
         </div>
@@ -263,6 +276,7 @@
 
 
             <div class="single-list">
+
             <div class="row">
                <div class="col-lg-6 col-md-6 col-12">
 
@@ -288,7 +302,7 @@
         <div class="row">
           <div class="col-12">
             <div class="shop-section-title">
-              <h1>Бест-селлеры</h1>
+              <h1>Последние принятые</h1>
             </div>
           </div>
         </div>
@@ -348,13 +362,13 @@
           </div>
       </div>
       <div class="col-lg-4 col-md-12 col-sm-12">
-        <div class="row">
+
           <div class="col-12">
             <div class="shop-section-title">
-              <h1>Лучшее</h1>
+              <h1>Популярные идеи</h1>
             </div>
           </div>
-        </div>
+
         <div class="row" style="margin: 0;">
             <div class="col-md-6 col-sm-6 col-lg-12">
               <div class="single-list">
@@ -428,36 +442,39 @@
       <div class="col-lg-3 col-md-6 col-12">
         <!-- Start Single Service -->
         <div class="single-service">
-          <i class="fas fa-rocket"></i>
-          <h4>Быстрое начало</h4>
-          <p>Нужно просто создать свой магазин</p>
-        </div>
-        <!-- End Single Service -->
-      </div>
-      <div class="col-lg-3 col-md-6 col-12">
-        <!-- Start Single Service -->
-        <div class="single-service">
           <i class="fas fa-sync-alt"></i>
-          <h4>Большая клиентская база</h4>
-          <p>Охват многих категорий продаж</p>
+
+          <h4>Итеративная система</h4>
+          <p>Детальная пророботка идей</p>
         </div>
         <!-- End Single Service -->
       </div>
       <div class="col-lg-3 col-md-6 col-12">
         <!-- Start Single Service -->
         <div class="single-service">
-          <i class="fas fa-shield-alt"></i>
-          <h4>Защищенный аккаунт</h4>
-          <p>Приватность данных</p>
+          <i class="fas fa-rocket"></i>
+          <h4>Развитие идей</h4>
+          <p>Эффективное решение задач</p>
         </div>
         <!-- End Single Service -->
       </div>
       <div class="col-lg-3 col-md-6 col-12">
         <!-- Start Single Service -->
         <div class="single-service">
-          <i class="ti-tag"></i>
-          <h4>Лучший товар</h4>
-          <p>Гарантированная цена</p>
+          <i class="fas fa-search"></i>
+          <h4>Удобство поиска</h4>
+          <p>Иерархическая структура</p>
+        </div>
+        <!-- End Single Service -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Service -->
+        <div class="single-service">
+
+          <i class="fas fa-wrench"></i>
+          <!--  <i class="fas fa-pencil-ruler"></i><i class="fas fa-user-astronaut"></i>-->
+          <h4>Гибкость в применении</h4>
+          <p>Решайте любую проблему</p>
         </div>
         <!-- End Single Service -->
       </div>
