@@ -75,7 +75,7 @@ module ApplicationHelper
       "В архиве"
     else
       if vote.iterations.count == 1
-        "активно"
+        "Активно"
       else
         "Находится на этапе "+vote.iteration.to_s
       end
