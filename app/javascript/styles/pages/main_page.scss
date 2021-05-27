@@ -34,6 +34,10 @@
     .single-product .product-content .product-price span {
         font-size: 1.1rem !important;
     }
+
+    .small-banner .single-banner p {
+        text-transform: none !important;
+    }
     
     //.shop-home-list .single-list .content .title
     @media only screen and (max-width: 767px) {
