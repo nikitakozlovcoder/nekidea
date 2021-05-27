@@ -90,7 +90,7 @@
           <div class="head-left-link head-left-link_delete"><%= link_to( 'Развить идею', {controller: 'ideas', action: 'new', is_instance: true, instance_id: @idea.id, param_id: @idea.vote_id}) %></div>
         <% end %>
         <div class = "idea-additional">
-          <% if instance = Idea.find_by(id:@idea.instance_id) != nil %>
+          <% if (instance = Idea.find_by(id:@idea.instance_id)) != nil %>
             <div class = "idea-copyright">
               <% instance_idea_title = instance.title %>
               <p>Основывается на: </p> <a href="#"><%=  link_to( instance_idea_title, {controller: 'ideas', action: 'show', id: @idea.instance_id}) %></a>
