@@ -19,7 +19,8 @@
             <div class = "right">
               <div class = "person">
                 <p>Создатель:</p>
-                <%= link_to (user_profile_path(@idea.user) if @idea.user != nil) do%>
+
+                <%= link_to (@idea.user ? user_profile_path(@idea.user) : "") do%>
                   <div class = "avatar">
                     <%= image_tag user_avatar @idea.user %>
                   </div>

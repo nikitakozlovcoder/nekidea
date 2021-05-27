@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def main_photo_for obj
+      if obj.pictures.first != nil
+        obj.pictures.first
+      else
+        "/img/default_idea.svg"
+      end
+
+  end
   def idea_status idea
     case idea.idea_status
     when "active"

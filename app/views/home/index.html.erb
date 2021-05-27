@@ -87,7 +87,7 @@
               <div class="tab-single">
                 <div class="row">
           
-                   <% User.all[0..8].sort_by{|el| [el.ideas.where(idea_status: 'accepted').count, el.ideas.count ]}.reverse!.each_with_index do |user, i|  %>
+                   <% User.all[0...4].sort_by{|el| [el.ideas.where(idea_status: 'accepted').count, el.ideas.count ]}.reverse!.each_with_index do |user, i|  %>
                        <div class="col-xl-3 col-lg-4 col-md-4 col-12">
 
                     <div class="single-product">
