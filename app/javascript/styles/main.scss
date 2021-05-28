@@ -18,6 +18,10 @@ input[type=number] {
   max-width: 100% !important;
 
 }
+.owl-carousel .owl-stage {
+  display: flex;
+  align-items: center;
+}
 .idea-rating-field {
   height: 48px;
 }
