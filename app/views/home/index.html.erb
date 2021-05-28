@@ -23,7 +23,7 @@
 
               <div class="content">
                 <p style="font-weight: 600;">Стоит посмотреть</p>
-                <h3 style="color: white !important;">Тематика 1<br>освещение</h3>
+                <h3 style="color: white !important;">Улучшение условий<br>в офисе</h3>
                 <a class="link-banner clickable" href="/votes/50">Перейти</a>
               </div>
             </div>
@@ -56,7 +56,7 @@
 
               <div class="content">
                 <p style="font-weight: 600;">Нам важно ваше мнение</p>
-                <h3 style="color: white !important;">Улучшение офиса<br>ваши идеи</h3>
+                <h3 style="color: white !important;">Улучшение условий<br>в офисе</h3>
                 <a class="link-banner clickable" href="/products/62">Перейти</a>
               </div>
             </div>
@@ -224,66 +224,29 @@
             </div>
           </div>
         </div>
-
+          <% Idea.all_for(current_user).order(created_at: :desc).limit(4).each do |idea| %>
             <div class="single-list">
             <div class="row">
                <div class="col-lg-6 col-md-6 col-12">
 
                 <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
-                 <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBXZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d6da8147437068b0320349bdaf6e9dcacc4411d7/f7b88453f47b1da622fff9b5b9139e7d1b750753a48f840c0340d5b9d82bd51c.jpg">
-                  <a class="buy" href="/product/26">
+                 <%= image_tag main_photo_for idea %>
+                <%= link_to idea_path(idea), class: 'buy' do  %>
                    <i class="fas fa-share"></i>
-</a>                </div>
+                    <% end %>
+                </div>
               </div>
               <div class="col-lg-6 col-md-6 col-12 no-padding">
                 <div class="content">
-                  <h4 class="title"><a href="/product/26">Pentax K70 Kit DA L 18-50mm WR</a></h4>
-                  <p class="price with-discount">Посмотреть</p>
+                  <h4 class="title"><%= link_to idea.title, idea_path(idea) %></h4>
+                  <%= link_to idea_path(idea)  do %><p class="price with-discount">Посмотреть</p> <% end %>
                 </div>
               </div>
             </div>
           </div>
 
+          <% end %>
 
-            <div class="single-list">
-            <div class="row">
-               <div class="col-lg-6 col-md-6 col-12">
-
-                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
-                 <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYlE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3d077b38d43dccebe61342295e0f4f0db0974842/30043639b%20(1).jpg">
-                  <a class="buy" href="/product/81">
-                   <i class="fas fa-share"></i>
-</a>                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-12 no-padding">
-                <div class="content">
-                  <h4 class="title"><a href="/product/81">пипрп</a></h4>
-                  <p class="price with-discount">Оценить</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-            <div class="single-list">
-
-            <div class="row">
-               <div class="col-lg-6 col-md-6 col-12">
-
-                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
-                 <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYXc9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cfde9d5d6098e64d52806ac2d22d2de934c468d9/RGB-color-model.jpg">
-                  <a class="buy" href="/product/80">
-                   <i class="fas fa-share"></i>
-</a>                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-12 no-padding">
-                <div class="content">
-                  <h4 class="title"><a href="/product/80">Тест1</a></h4>
-                  <p class="price with-discount">Посмотреть</p>
-                </div>
-              </div>
-            </div>
-          </div>
 
 
 
@@ -296,131 +259,65 @@
             </div>
           </div>
         </div>
+        <% Idea.all_for(current_user).where(idea_status: :accepted).order(updated_at: :desc).limit(4).each do |idea| %>
           <div class="single-list">
             <div class="row">
               <div class="col-lg-6 col-md-6 col-12">
 
                 <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
-                  <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e53904cb78d370abda19caa0b129b34f3b65b779/orig.webp">
-                  <a class="buy" href="/product/10">
+                  <%= image_tag main_photo_for idea %>
+                  <%= link_to idea_path(idea), class: 'buy' do  %>
                     <i class="fas fa-share"></i>
-</a>                </div>
+                  <% end %>
+                </div>
               </div>
               <div class="col-lg-6 col-md-6 col-12 no-padding">
                 <div class="content">
-                  <h4 class="title"><a href="/product/10">Mi LED Smart Bulb (MJDP02YL)</a></h4>
-                  <p class="price with-discount">Оценить</p>
+                  <h4 class="title"><%= link_to idea.title, idea_path(idea) %></h4>
+                  <%= link_to idea_path(idea)  do %><p class="price with-discount">Посмотреть</p> <% end %>
                 </div>
               </div>
             </div>
           </div>
-          <div class="single-list">
-            <div class="row">
-              <div class="col-lg-6 col-md-6 col-12">
 
-                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
-                  <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBhQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a6d526e9898c2c4fba6fd15773d9cae9519d29b8/597960.jpg">
-                  <a class="buy" href="/product/32">
-                    <i class="fas fa-share"></i>
-</a>                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-12 no-padding">
-                <div class="content">
-                  <h4 class="title"><a href="/product/32">Творог Коровка из Кореновки 9%</a></h4>
-                  <p class="price with-discount">Посмотреть</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="single-list">
-            <div class="row">
-              <div class="col-lg-6 col-md-6 col-12">
-
-                <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
-                  <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0bdebbcd5098ff586cb7ef90ccff40ec955414f3/9f14215dc3a7feb162086ca3c1e4e857.jpg">
-                  <a class="buy" href="/product/6">
-                    <i class="fas fa-share"></i>
-</a>                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-12 no-padding">
-                <div class="content">
-                  <h4 class="title"><a href="/product/6">Xiaomi Mi 10</a></h4>
-                  <p class="price with-discount">Оценить</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <% end %>
       </div>
       <div class="col-lg-4 col-md-12 col-sm-12">
 
           <div class="col-12">
             <div class="shop-section-title">
-              <h1>Популярные идеи</h1>
+              <h1>Лучшие идеи</h1>
             </div>
           </div>
 
         <div class="row" style="margin: 0;">
+
+          <%  Idea.all.sort_by{|i| i.rating}.reverse![0...4].each do |idea| %>
             <div class="col-md-6 col-sm-6 col-lg-12">
               <div class="single-list">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-12">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
 
-                    <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
-                      <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBLQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c4976b8cbba8b4d230a4704629ddd77afcf738d2/41KeVFVjYzL._AC_.jpg">
-                      <a class="buy" href="/product/8">
-                        <i class="fas fa-share"></i>
-</a>                    </div>
+                  <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
+                    <%= image_tag main_photo_for idea %>
+                    <%= link_to idea_path(idea), class: 'buy' do  %>
+                      <i class="fas fa-share"></i>
+                    <% end %>
                   </div>
-                  <div class="col-lg-6 col-md-6 col-12 no-padding">
-                    <div class="content">
-                      <h4 class="title"><a href="/product/8">Кастрюли Edenberg</a></h4>
-                      <p class="price with-discount">Оценить</p>
-                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 no-padding">
+                  <div class="content">
+                    <h4 class="title"><%= link_to idea.title, idea_path(idea) %></h4>
+                    <%= link_to idea_path(idea)  do %><p class="price with-discount">Посмотреть</p> <% end %>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-lg-12">
-              <div class="single-list">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-12">
-
-                    <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
-                      <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cb1d2cdb178f8cddbfd5e4c9f6636a291847e36b/JA391EMFYQE2_9586361_1_v1_2x.webp">
-                      <a class="buy" href="/product/11">
-                        <i class="fas fa-share"></i>
-</a>                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-12 no-padding">
-                    <div class="content">
-                      <h4 class="title"><a href="/product/11">Jack &amp; Jones утепленная</a></h4>
-                      <p class="price with-discount">Посмотреть</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-lg-12">
-              <div class="single-list">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-12">
+          <% end %>
 
-                    <div class="list-image overlay list-image-fix" style="width: 150px; height: 150px;">
-                      <img style="object-fit: contain;" src="http://nekwebshop.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBXZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d6da8147437068b0320349bdaf6e9dcacc4411d7/f7b88453f47b1da622fff9b5b9139e7d1b750753a48f840c0340d5b9d82bd51c.jpg">
-                      <a class="buy" href="/product/26">
-                        <i class="fas fa-share"></i>
-</a>                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-12 no-padding">
-                    <div class="content">
-                      <h4 class="title"><a href="/product/26">Pentax K70 Kit DA L 18-50mm WR</a></h4>
-                      <p class="price with-discount">Посмотреть</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
+
+      </div>
       </div>
     </div>
   </div>

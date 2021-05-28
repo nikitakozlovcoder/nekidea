@@ -116,7 +116,7 @@
       <div class="form-group">
         <p class = "title">Количество оставляемых идей</p>
         <label for="vote_count" class="inp number">
-          <input id="vote_count" class = "vote_voting" placeholder=" " type="text" name="vote[keep_idea_count]" required value="<%= @vote.keep_idea_count if @vote != nil%>">
+          <input id="vote_count" class = "vote_voting" placeholder=" "  min=1 type="number" name="vote[keep_idea_count]" required value="<%= @vote.keep_idea_count if @vote != nil%>">
           <span class="label">Количество идей</span>
         </label>
       </div>
@@ -125,14 +125,14 @@
         <div class="form-group">
           <p class = "title">Продолжительность фазы предложения идей</p>
           <label for="vote_collecting" class="inp number">
-            <input id="vote_collecting" class = "vote_collecting" placeholder=" " type="text" name="vote[days_collecting]" required value="<%= @vote.iterations.first&.dig('title') == nil ? @vote.iterations.first&.dig('days_collecting') : 'null' %>">
+            <input id="vote_collecting" class = "vote_collecting" placeholder=" " min=1 type="number" name="vote[days_collecting]" required value="<%= @vote.iterations.first&.dig('title') == nil ? @vote.iterations.first&.dig('days_collecting') : 'null' %>">
             <span class="label">Количество дней</span>
           </label>
         </div>
         <div class="form-group">
           <p class = "title">Продолжительность фазы оценивания идей</p>
           <label for="vote_voting" class="inp number">
-            <input id="vote_voting" class = "vote_voting" placeholder=" " type="text" name="vote[days_voting]" required value="<%= @vote.iterations.first&.dig('title') == nil ? @vote.iterations.first&.dig('days_voting') : 'null' %>">
+            <input id="vote_voting" class = "vote_voting" placeholder=" " min=1 type="number" name="vote[days_voting]" required value="<%= @vote.iterations.first&.dig('title') == nil ? @vote.iterations.first&.dig('days_voting') : 'null' %>">
             <span class="label">Количество дней</span>
           </label>
         </div>
@@ -162,14 +162,14 @@
         <div class="form-group">
           <p class = "title">Продолжительность фазы предложения идей</p>
           <label for="vote_collecting<%= 10000+idx %>" class="inp number">
-            <input id="vote_collecting<%= 10000+idx %>" class = "vote_collecting" placeholder=" " type="text" required value="<%= iter['days_collecting'] %>">
+            <input id="vote_collecting<%= 10000+idx %>" class = "vote_collecting" placeholder=" " min=1 type="number" required value="<%= iter['days_collecting'] %>">
             <span class="label">Количество дней</span>
           </label>
         </div>
         <div class="form-group">
           <p class = "title">Продолжительность фазы оценивания идей</p>
           <label for="vote_voting<%= 10000+idx %>" class="inp number">
-            <input id="vote_voting<%= 10000+idx %>" class = "vote_voting" placeholder=" " type="text" required value="<%= iter['days_voting'] %>">
+            <input id="vote_voting<%= 10000+idx %>" class = "vote_voting" placeholder=" " min=1 type="number" required value="<%= iter['days_voting'] %>">
             <span class="label">Количество дней</span>
           </label>
         </div>
