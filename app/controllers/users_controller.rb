@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def login_post
     mail = params["mail"]
     password = params["password"]
-
+    pp "LOGINPOST"
     user = User.find_by(mail: mail)
 
     if user and user.authenticate(password)
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
       respond_to do |format|
         format.js
+        format.html { redirect_to controller: 'home', action: 'index'  }
       end
       #render :login
     end
