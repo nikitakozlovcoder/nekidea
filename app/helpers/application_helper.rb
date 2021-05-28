@@ -34,11 +34,11 @@ module ApplicationHelper
   def user_name(user, options = nil)
     if user != nil
       if options == nil
-        [user.name, user.surname, user.patronymic].join ' '
+        [user.surname, user.name,user.patronymic].join ' '
       else
         arr = []
-        arr << user.name unless options[:name] == false
         arr << user.surname unless options[:surname] == false
+        arr << user.name unless options[:name] == false
         arr << user.patronymic unless options[:patronymic] == false
         arr.join ' '
       end
