@@ -15,10 +15,7 @@ Duty.where(name: "Разработчики").first_or_create
 Duty.where(name: "Тестировщики").first_or_create
 Duty.where(name: "Маркетологи").first_or_create
 u = User.find_by(mail: "example@gmail.com")
-puts "USER!!!!!!!!!!!!!!"
-pp u
 if (u==nil)
-  puts "CREATING"
   user = User.new(mail: "example@gmail.com", password: "qwerty123", birth_date: "12.04.1995", is_admin: false, rating: 228,
                   name: "Omari", surname: "Starks", patronymic: "Ivanovich", restore_date: Time.now.getutc, is_boss: true)
 

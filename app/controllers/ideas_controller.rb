@@ -47,11 +47,6 @@ class IdeasController < ApplicationController
   def create
     #set_writable_duties false
     @idea = Idea.new(idea_params)
-    #puts "-------------------------------"
-    #p params
-    #puts "-------------------------------"
-    #@idea.vote_id = params[:param_id]
-    #p @idea
     @idea.user_id = current_user.id
 
     @idea.pictures.attach(params[:pictures]) unless params[:pictures].nil?
