@@ -8,8 +8,7 @@ class ApplicationController < ActionController::Base
     if cookies.signed["user"]
       hash = JSON.parse(cookies.signed["user"])
       @current_user ||= User.find_by(id: hash["user"])
-      pp @current_user
-      pp hash
+    
       if @current_user and @current_user.restore_date <= hash["time"]
         @current_user
       else

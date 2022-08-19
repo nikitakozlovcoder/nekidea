@@ -35,7 +35,7 @@ class IdeasController < ApplicationController
 # GET /votes/new
   def new
     @idea = Idea.new
-    pp @idea
+  
   end
 
 # GET /votes/1/edit

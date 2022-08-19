@@ -44,8 +44,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    pp params
-    pp params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body)
   end
 
   def set_idea
