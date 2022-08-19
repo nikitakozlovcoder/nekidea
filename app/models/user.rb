@@ -80,9 +80,12 @@ class User < ApplicationRecord
         end
     end
     def validate_birth_date
+       pp "Validate date!"
+       pp birth_date
+       pp read_attribute_before_type_cast(:birth_date)
         unless read_attribute_before_type_cast(:birth_date).blank?
             begin
-                Date.parse(read_attribute_before_type_cast(:birth_date))
+                Date.parse(read_attribute_before_type_cast(:birth_date).to_s)
                 #Date.parse(read_attribute_before_type_cast(:birth_date))
             rescue
                 errors.add(:birth_date, "Неправильный формат даты")
