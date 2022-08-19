@@ -3,9 +3,24 @@
 *{
   box-sizing: border-box !important;
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .btn-full-width{
   max-width: 100% !important;
 
+}
+.owl-carousel .owl-stage {
+  display: flex;
+  align-items: center;
 }
 .idea-rating-field {
   height: 48px;

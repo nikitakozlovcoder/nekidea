@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def main_photo_for obj
+      if obj.pictures.first != nil
+        obj.pictures.first
+      else
+        "/img/default_idea.svg"
+      end
+
+  end
   def idea_status idea
     case idea.idea_status
     when "active"
@@ -26,11 +34,11 @@ module ApplicationHelper
   def user_name(user, options = nil)
     if user != nil
       if options == nil
-        [user.name, user.surname, user.patronymic].join ' '
+        [user.surname, user.name,user.patronymic].join ' '
       else
         arr = []
-        arr << user.name unless options[:name] == false
         arr << user.surname unless options[:surname] == false
+        arr << user.name unless options[:name] == false
         arr << user.patronymic unless options[:patronymic] == false
         arr.join ' '
       end
@@ -75,7 +83,7 @@ module ApplicationHelper
       "В архиве"
     else
       if vote.iterations.count == 1
-        "активно"
+        "Активно"
       else
         "Находится на этапе "+vote.iteration.to_s
       end

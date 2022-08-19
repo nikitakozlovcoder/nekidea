@@ -3,21 +3,17 @@ class UsersController < ApplicationController
   def login_post
     mail = params["mail"]
     password = params["password"]
-
+    pp "LOGINPOST"
     user = User.find_by(mail: mail)
 
     if user and user.authenticate(password)
-        puts "11111111111111111111"
-        puts "logged"
         hash = {user: user.id, time: Time.now.getutc}
         cookies.signed["user"] = {value: JSON.generate(hash), expires: params["remember"] == "on" ? 30.days : nil}
         redirect_to controller: 'home', action: 'index'
     else
-      puts "111111111111"
-      puts "no logged"
-
       respond_to do |format|
         format.js
+        format.html { redirect_to controller: 'home', action: 'index'  }
       end
       #render :login
     end

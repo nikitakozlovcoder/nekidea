@@ -24,6 +24,38 @@
     .section-title {
         margin-bottom: 0 !important;
     }
+    h4 a {
+        border-bottom: none !important;
+    }
+
+    .shop-home-list .single-list .content .title a {
+        font-size: 1.1rem !important;
+    }
+    .single-product .product-content .product-price span {
+        font-size: 1.1rem !important;
+    }
+
+    .small-banner .single-banner p {
+        text-transform: none !important;
+    }
+    
+    //.shop-home-list .single-list .content .title
+    @media only screen and (max-width: 767px) {
+        .shop-services .single-service h4 {
+            text-align: center;
+        }
+        .section-title h2 {
+            margin-bottom: 0 !important;
+        }
+        .shop-home-list .single-list .content .title {
+            text-align: center;
+        }
+    }
+    @media only screen and (max-width: 440px) {
+        .single-product .product-content {
+            margin-bottom: 0 !important;
+        }
+    }
     //Our Styles --------- END -----------
     :root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#868e96;--gray-dark:#343a40;--primary:#007bff;--secondary:#868e96;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";--font-family-monospace:"SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
     @media print{
@@ -461,7 +493,7 @@
     .small-banner .single-banner{overflow:hidden;position:relative;}
     .small-banner .single-banner img{height:100%;width:100%;-webkit-transition:all 0.4s ease;-moz-transition:all 0.4s ease;transition:all 0.4s ease;}
     .small-banner .single-banner .content{position:absolute;left:0;top:50%;transform:translateY(-50%);padding-left:35px;}
-    .small-banner .single-banner h3{font-size:22px;font-weight:700;text-transform:capitalize;color:#333;}
+    .small-banner .single-banner h3{font-size:22px;font-weight:700;color:#333;}
     .small-banner .single-banner p{font-size:14px;color:$color-accent;font-weight:500;margin-bottom:5px;text-transform:capitalize;}
     .small-banner .single-banner a{color:#333;margin-top:22px;display:block;font-size:12px;font-weight:500;display:inline-block;text-transform:uppercase;border-bottom:2px solid #333;}
     .small-banner .single-banner a:hover{color:$color-accent;border-color:$color-accent;}
@@ -858,6 +890,8 @@
     @media only screen and (max-width: 991px){
     .categories_header_wrap{display:none!important;}
     }
+
+
     .single-product a.active{color:$color-accent!important;}
     .shop-services.section{background:#F6F7FB!important;}
     .single-list{font-size:14px!important;font-weight:normal!important;}
@@ -874,5 +908,13 @@
     @keyframes preloader-fx{0%{transform:scale(0, 0);opacity:0.5;}100%{transform:scale(1, 1);opacity:0;}}
     @-webkit-keyframes preloader-fx{0%{-webkit-transform:scale(0, 0);opacity:0.5;}100%{-webkit-transform:scale(1, 1);opacity:0;}}
     }
-    
+    @media only screen and (min-width: 768px){
+        #man .single-product {
+            height: 92%;
+        }
+    }
+    .shop-home-list .single-list img{
+        object-fit: cover;
+    }
+
 }

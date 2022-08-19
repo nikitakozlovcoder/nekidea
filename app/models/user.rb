@@ -8,8 +8,6 @@ class User < ApplicationRecord
     validates :surname, presence: true
     validates :mail, presence: true
     validate :validate_birth_date
-    #DONT USE .duties and duties_users METHODS MOTHERFUCKERS!!!!!!!!!!!!!!! ITS PRIVATE. USE writable_duties, add_duty OR all_duties COS ADMINS
-    # & BOSSES MAY HAVE ADDITIONAL DUTIES NOT LISTED IN THEIR DB RELATIONS, OR U CAN KILL DB WITH DUPLICATES
     has_many :duties_users, class_name: "DutyUser", dependent: :destroy
     has_many :duties, through: :duties_users, class_name: "Duty"
     has_many :comments
@@ -80,9 +78,11 @@ class User < ApplicationRecord
         end
     end
     def validate_birth_date
+
+        read_attribute_before_type_cast(:birth_date)
         unless read_attribute_before_type_cast(:birth_date).blank?
             begin
-                Date.strptime(read_attribute_before_type_cast(:birth_date), '%d.%m.%y')
+                Date.parse(read_attribute_before_type_cast(:birth_date).to_s)
                 #Date.parse(read_attribute_before_type_cast(:birth_date))
             rescue
                 errors.add(:birth_date, "Неправильный формат даты")

@@ -1,5 +1,12 @@
 
 export function start() {
+    console.log( document.querySelectorAll('.res-item'))
+    document.querySelectorAll('.res-item').forEach((el)=>{
+        el.querySelector('.del').addEventListener('click', ()=>{
+            el.remove();
+        })
+
+    })
     console.log("Hi!");
 
     let id_res = 0;

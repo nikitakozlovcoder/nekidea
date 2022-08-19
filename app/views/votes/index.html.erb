@@ -17,7 +17,7 @@
         <a href = "/votes/<%= vote.id%>">
           <div class = "theme_card">
             <div class = "img">
-              <img src = "/img/default_idea.svg">
+              <%= image_tag main_photo_for vote %>
             </div>
             <div class = "title">
               <p><%= less_text(vote.title, 30) %></p>
@@ -83,7 +83,8 @@
 
               <div class = "list-item <%= "archived" if vote.vote_status == "archived" %>">
                 <div class = "img">
-                  <img src = "/img/default_idea.svg">
+                  <%= image_tag main_photo_for vote %>
+
                 </div>
                 <div class = "info">
                   <p class = "name"><%= vote.title %></p>

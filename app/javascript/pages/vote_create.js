@@ -84,7 +84,7 @@ export function start() {
         let container = $('div#iters');
         if(container.length > 0) {
             $('.vote_first').addClass('fullhidden');
-            $('.vote_first input').val('null');
+            $('.vote_first input').val(4294732198659);
         }
         let iter_num = ++id_iter;
         let el = $(`<div class = "iter" data-id = "${iter_num}"></div>`).append(`
@@ -106,14 +106,14 @@ export function start() {
   <div class="form-group">
         <p class = "title">Продолжительность фазы предложения идей</p>
         <label for="vote_collecting${iter_num}" class="inp number">
-            <input id="vote_collecting${iter_num}" class = "vote_collecting" placeholder=" " type="text" required>
+            <input id="vote_collecting${iter_num}" class = "vote_collecting" placeholder=" " min=1 type="number" required>
             <span class="label">Количество дней</span>
         </label>
   </div>
   <div class="form-group">
         <p class = "title">Продолжительность фазы оценивания идей</p>
         <label for="vote_voting${iter_num}" class="inp number">
-            <input id="vote_voting${iter_num}" class = "vote_voting" placeholder=" " type="text" required>
+            <input id="vote_voting${iter_num}" class = "vote_voting" placeholder=" " min=1 type="number" required>
             <span class="label">Количество дней</span>
         </label>
   </div>`);
@@ -144,7 +144,7 @@ export function start() {
             }
             obj.days_collecting = $(el).find('.vote_collecting').val();
             obj.days_voting = $(el).find('.vote_voting').val();
-            if (obj.days_collecting != 'null')
+            if (obj.days_collecting != 4294732198659)
                 json_array.push(obj);
         });
 

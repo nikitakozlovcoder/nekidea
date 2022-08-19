@@ -4,7 +4,7 @@
     <form class="nice outline ideaform" enctype="multipart/form-data" action="/ideas" accept-charset="UTF-8" method="post">
       <% idea = Idea.find_by(id: params[:instance_id]) if params[:is_instance] == 'true'%>
       <% if params[:is_instance] == 'true' %>
-        <h2>Основывается на идее <%= idea.title %></h2>
+        <h2>Основывается на идее: <%= idea.title %></h2>
       <% end %>
 
       <h1 class = "title">Создание идеи</h1>

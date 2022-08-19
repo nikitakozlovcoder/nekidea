@@ -64,7 +64,7 @@
       <% iterations.each_with_index do |el, i| %>
         <% i=i+1 %>
         <% next if el['title'] == nil  %>
-        <div class = "iter <%= 'active' if i == current_iter  %>">
+        <div class = "iter <%= 'active' if i == current_iter and @vote.vote_status != 'archived'  %>">
           <div class = "num"></div>
           <div class = "body">
             <div class = "strip"></div>
@@ -133,7 +133,7 @@
                     <h5><%= i+1 %></h5>
                   </div>
                   <div class = "img">
-                    <img src = "/img/default_idea.svg">
+                    <%= image_tag main_photo_for idea%>
                   </div>
                   <div class = "info">
                     <p class = "name"><%= idea.title %></p>

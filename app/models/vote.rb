@@ -43,7 +43,6 @@ class Vote < ApplicationRecord
         if current_datetime < created
           new_iter = i + 1
           new_status = 0
-          puts "!!!!!!!!!!!"
           archived = false
           break
         end
@@ -95,7 +94,6 @@ class Vote < ApplicationRecord
   private
   #1 2
   def update_ideas old_iter
-    puts "UPDATING IDEAS FOR VOTE #{self.id}"
     (old_iter...self.iteration).each do |iter|
       do_update iter
     end
@@ -104,8 +102,6 @@ class Vote < ApplicationRecord
 
   end
   def do_update iter, archived=false
-    puts "updating iter #{iter}"
-
     self.ideas.sort_by{|idea| -idea.rating}.drop(self.keep_idea_count.to_i).each{|idea| idea.archivate if idea.idea_status != 'accepted'}
 
     if archived
