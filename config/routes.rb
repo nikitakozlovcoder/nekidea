@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: "home#index", as: 'root_path'
 
   #user section
-  get 'login/url/:mail/:password', to: 'users#login_post', constraints: { mail: /[^\/]+/}
+  get 'login/:mail/:password', to: 'users#login_post', constraints: { mail: /[^\/]+/}
   get 'login', to: 'users#login', as: 'login_path'
 
   post 'login', to: 'users#login_post', as: 'login_post_path'
